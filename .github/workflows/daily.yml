@@ -55,7 +55,19 @@ jobs:
           sudo apt-get install -y poppler-utils
           python -m pip install -r requirements.txt
       - name: Doctor
-        run: python -m lf_paperbot doctor
+        shell: bash
+        run: |
+          set +e
+          python -m lf_paperbot doctor | tee "$RUNNER_TEMP/lf-paperbot-doctor.log"
+          status=${PIPESTATUS[0]}
+          set -e
+          {
+            echo "## LF-PaperBot Doctor"
+            echo '```text'
+            cat "$RUNNER_TEMP/lf-paperbot-doctor.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
       - name: Run pipeline
         env:
           INPUT_DATE: ${{ inputs.date }}
