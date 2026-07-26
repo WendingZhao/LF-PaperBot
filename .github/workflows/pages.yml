@@ -7,7 +7,7 @@ on:
       - "docs/**"
       - ".github/workflows/pages.yml"
   workflow_run:
-    workflows: ["Daily LF PaperBot"]
+    workflows: ["Weekly LF PaperBot", "LF PaperBot Backfill"]
     types: [completed]
   workflow_dispatch:
 

@@ -12,7 +12,11 @@ from .config import Settings
 from .models import Candidate
 
 
-ATOM = {"atom": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
+ATOM = {
+    "atom": "http://www.w3.org/2005/Atom",
+    "arxiv": "http://arxiv.org/schemas/atom",
+    "opensearch": "http://a9.com/-/spec/opensearch/1.1/",
+}
 LIGHT_FIELD_QUERY = (
     'all:"light field" OR all:"light-field" OR all:plenoptic OR '
     'all:"spatial-angular" OR all:"epipolar plane image"'
@@ -95,6 +99,44 @@ def fetch_recent(settings: Settings, target_date: date | None = None) -> list[Ca
             continue
         if earliest <= updated_day <= latest:
             output.append(candidate)
+    return output
+
+
+def fetch_submitted_range(settings: Settings, start_date: date, end_date: date) -> list[Candidate]:
+    if start_date > end_date:
+        raise ValueError("start_date must not be after end_date")
+    submitted = f"submittedDate:[{start_date:%Y%m%d}0000 TO {end_date:%Y%m%d}2359]"
+    query = f"({CATEGORY_QUERY}) AND ({LIGHT_FIELD_QUERY}) AND {submitted}"
+    page_size = 300
+    start = 0
+    output: list[Candidate] = []
+    while True:
+        params = {
+            "search_query": query,
+            "start": start,
+            "max_results": page_size,
+            "sortBy": "submittedDate",
+            "sortOrder": "ascending",
+        }
+        url = f"{settings.arxiv_api_url}?{urllib.parse.urlencode(params)}"
+        root = ET.fromstring(_read_url(url, settings.arxiv_user_agent))
+        entries = root.findall("atom:entry", ATOM)
+        for entry in entries:
+            candidate = _parse_entry(entry)
+            try:
+                published_day = datetime.fromisoformat(
+                    candidate.published.replace("Z", "+00:00")
+                ).astimezone(timezone.utc).date()
+            except ValueError:
+                continue
+            if start_date <= published_day <= end_date:
+                output.append(candidate)
+        start += len(entries)
+        total_text = root.findtext("opensearch:totalResults", default="0", namespaces=ATOM)
+        total = int(total_text) if total_text.isdigit() else start
+        if not entries or len(entries) < page_size or start >= total:
+            break
+        time.sleep(3)
     return output
 
 

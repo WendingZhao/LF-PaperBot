@@ -1,19 +1,17 @@
-name: Weekly LF PaperBot
+name: LF PaperBot Backfill
 
 on:
-  schedule:
-    - cron: "0 1 * * 1"
   workflow_dispatch:
     inputs:
-      date:
-        description: "Optional week-ending date (YYYYMMDD)"
+      start:
+        description: "Start date (YYYYMMDD)"
+        required: true
+        default: "20260101"
+        type: string
+      end:
+        description: "End date (YYYYMMDD), blank means today"
         required: false
         type: string
-      dry_run:
-        description: "Only preview candidates"
-        required: false
-        default: false
-        type: boolean
       force:
         description: "Reprocess existing paper versions"
         required: false
@@ -29,9 +27,9 @@ permissions:
   issues: write
 
 jobs:
-  run:
+  backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 360
     env:
       GITHUB_TOKEN: ${{ github.token }}
       ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
@@ -69,27 +67,19 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
           exit "$status"
-      - name: Run pipeline
+      - name: Backfill weekly archive
         env:
-          INPUT_DATE: ${{ inputs.date }}
-          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_START: ${{ inputs.start }}
+          INPUT_END: ${{ inputs.end }}
           INPUT_FORCE: ${{ inputs.force }}
         run: |
           set -euo pipefail
-          date_arg=()
+          end_arg=()
           force_arg=()
-          if [[ -n "${INPUT_DATE:-}" ]]; then date_arg=(--date "$INPUT_DATE"); fi
-          if [[ -z "${INPUT_DATE:-}" && "${GITHUB_EVENT_NAME}" == "schedule" ]]; then
-            date_arg=(--date "$(date -u -d yesterday +%Y%m%d)")
-          fi
+          if [[ -n "${INPUT_END:-}" ]]; then end_arg=(--end "$INPUT_END"); fi
           if [[ "${INPUT_FORCE:-false}" == "true" ]]; then force_arg=(--force); fi
-          if [[ "${INPUT_DRY_RUN:-false}" == "true" ]]; then
-            python -m lf_paperbot fetch --dry-run "${date_arg[@]}"
-          else
-            python -m lf_paperbot run "${date_arg[@]}" "${force_arg[@]}"
-          fi
+          python -m lf_paperbot backfill --start "$INPUT_START" "${end_arg[@]}" "${force_arg[@]}"
       - name: Commit generated artifacts
-        if: ${{ inputs.dry_run != true }}
         run: |
           set -euo pipefail
           git config user.name "LF-PaperBot[bot]"
@@ -99,6 +89,6 @@ jobs:
             echo "No generated changes"
             exit 0
           fi
-          git commit -m "chore: update weekly LF paper digest"
+          git commit -m "chore: backfill weekly LF paper archive"
           git pull --rebase origin main
           git push origin HEAD:main

@@ -78,3 +78,25 @@ def test_pipeline_orchestrates_and_is_idempotent(monkeypatch, tmp_path):
     assert (tmp_path / "docs" / "data" / "index.json").read_text(encoding="utf-8") == public_after_first
     assert (tmp_path / "daily_reports" / "202607" / "20260726.md").exists()
     assert (tmp_path / "docs" / "data" / "index.json").exists()
+
+
+def test_backfill_groups_candidates_by_natural_week(monkeypatch, tmp_path):
+    first = candidate()
+    first.published = "2026-01-02T00:00:00Z"
+    second = candidate()
+    second.arxiv_id = "2601.54321v1"
+    second.published = "2026-01-06T00:00:00Z"
+    monkeypatch.setattr(pipeline, "fetch_submitted_range", lambda *_args: [first, second])
+    calls = []
+
+    def fake_run(_settings, period_end, force=False, *, candidates=None, window_start=None):
+        calls.append((window_start, period_end, [item.arxiv_id for item in candidates], force))
+        return {"date": period_end.strftime("%Y%m%d"), "processed": [], "failed": []}
+
+    monkeypatch.setattr(pipeline, "run_pipeline", fake_run)
+    result = pipeline.run_backfill(settings(tmp_path), date(2026, 1, 1), date(2026, 1, 11))
+    assert calls == [
+        (date(2026, 1, 1), date(2026, 1, 4), ["2607.12345v1"], False),
+        (date(2026, 1, 5), date(2026, 1, 11), ["2601.54321v1"], False),
+    ]
+    assert len(result["periods"]) == 2

@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   workflow_run:
-    workflows: ["Daily LF PaperBot"]
+    workflows: ["Weekly LF PaperBot", "LF PaperBot Backfill"]
     types: [completed]
 
 permissions:

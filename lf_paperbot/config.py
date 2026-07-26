@@ -55,7 +55,7 @@ def load_settings() -> Settings:
         github_repo=_env("LF_GITHUB_REPO", "WendingZhao/LF-PaperBot"),
         max_daily_papers=max(1, min(20, int(_env("LF_MAX_DAILY_PAPERS", "5")))),
         timezone=ZoneInfo(_env("LF_TIMEZONE", "Asia/Shanghai")),
-        lookback_days=max(1, min(14, int(_env("LF_LOOKBACK_DAYS", "3")))),
+        lookback_days=max(1, min(14, int(_env("LF_LOOKBACK_DAYS", "7")))),
         arxiv_api_url=_env("ARXIV_API_URL", "https://export.arxiv.org/api/query"),
         arxiv_user_agent=_env(
             "ARXIV_USER_AGENT",

@@ -12,7 +12,7 @@ from .config import load_settings
 from .domain import deterministic_filter
 from .llm import ArkClient, ArkError
 from .pdf_tools import require_poppler
-from .pipeline import process_single, reconcile_date, run_pipeline
+from .pipeline import process_single, reconcile_date, run_backfill, run_pipeline
 
 
 def _parse_date(value: str | None):
@@ -95,6 +95,25 @@ def run_command(args) -> int:
     return 0
 
 
+def backfill_command(args) -> int:
+    settings = load_settings()
+    missing = require_poppler()
+    if missing:
+        raise RuntimeError(f"missing system dependencies: {', '.join(missing)}")
+    if not settings.ark_api_key or not settings.github_token:
+        raise RuntimeError("ARK_API_KEY and GITHUB_TOKEN are required")
+    start_date = _parse_date(args.start)
+    end_date = _parse_date(args.end) or datetime.now(settings.timezone).date()
+    result = run_backfill(settings, start_date, end_date, force=args.force)
+    print(
+        f"backfill={result['start']}..{result['end']} periods={len(result['periods'])} "
+        f"processed={result['processed']} failed={result['failed']}"
+    )
+    if result["failed"]:
+        print(f"WARN: {result['failed']} paper(s) failed; successful artifacts were preserved")
+    return 0
+
+
 def paper_command(args) -> int:
     record = process_single(load_settings(), args.arxiv_id, force=not args.no_force)
     print(json.dumps(record, ensure_ascii=False, indent=2))
@@ -120,17 +139,23 @@ def build_parser() -> argparse.ArgumentParser:
     fetch.add_argument("--no-llm", action="store_true", help="只运行确定性筛选")
     fetch.set_defaults(func=fetch_command)
 
-    run = subparsers.add_parser("run", help="执行每日完整流水线")
+    run = subparsers.add_parser("run", help="执行每周完整流水线")
     run.add_argument("--date", help="目标日期 YYYYMMDD")
     run.add_argument("--force", action="store_true", help="强制重新处理已有版本")
     run.set_defaults(func=run_command)
+
+    backfill = subparsers.add_parser("backfill", help="按自然周回填历史论文")
+    backfill.add_argument("--start", default="20260101", help="起始日期 YYYYMMDD")
+    backfill.add_argument("--end", help="结束日期 YYYYMMDD，默认今天")
+    backfill.add_argument("--force", action="store_true", help="强制重新处理已有版本")
+    backfill.set_defaults(func=backfill_command)
 
     paper = subparsers.add_parser("paper", help="处理单篇 arXiv 论文")
     paper.add_argument("arxiv_id")
     paper.add_argument("--no-force", action="store_true")
     paper.set_defaults(func=paper_command)
 
-    reconcile = subparsers.add_parser("reconcile", help="根据索引重建指定日报")
+    reconcile = subparsers.add_parser("reconcile", help="根据索引重建指定周报")
     reconcile.add_argument("--date", required=True, help="YYYYMMDD")
     reconcile.set_defaults(func=reconcile_command)
     return parser

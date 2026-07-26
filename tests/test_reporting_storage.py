@@ -11,7 +11,8 @@ from lf_paperbot.storage import load_index, public_payload, save_index
 def test_empty_daily_report_is_explicit():
     report = build_daily_report("20260726", [], fetched_count=12, hard_filtered_count=0)
     assert "最终精选：0 篇" in report
-    assert "当日未检索到" in report
+    assert "本周未检索到" in report
+    assert "光场底层视觉周报" in report
 
 
 def test_index_round_trip_and_public_report_map(tmp_path: Path):
