@@ -23,8 +23,9 @@ def test_index_round_trip_and_public_report_map(tmp_path: Path):
         "rank_score": 0.9,
         "appeared_dates": ["20260726"],
     }
+    index["report_dates"].append("20260725")
     save_index(path, index, datetime(2026, 7, 26, tzinfo=ZoneInfo("Asia/Shanghai")))
     loaded = load_index(path)
     public = public_payload(loaded)
-    assert public["reports"] == {"20260726": ["2607.12345"]}
+    assert public["reports"] == {"20260725": [], "20260726": ["2607.12345"]}
     assert public["papers"][0]["base_id"] == "2607.12345"

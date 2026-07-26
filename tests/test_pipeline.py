@@ -68,9 +68,13 @@ def test_pipeline_orchestrates_and_is_idempotent(monkeypatch, tmp_path):
     monkeypatch.setattr(pipeline, "process_candidate", fake_process)
     cfg = settings(tmp_path)
     first = pipeline.run_pipeline(cfg, date(2026, 7, 26))
+    private_after_first = (tmp_path / "papers" / "index.json").read_text(encoding="utf-8")
+    public_after_first = (tmp_path / "docs" / "data" / "index.json").read_text(encoding="utf-8")
     second = pipeline.run_pipeline(cfg, date(2026, 7, 26))
     assert len(first["processed"]) == 1
     assert len(second["processed"]) == 0
     assert calls == ["2607.12345v1"]
+    assert (tmp_path / "papers" / "index.json").read_text(encoding="utf-8") == private_after_first
+    assert (tmp_path / "docs" / "data" / "index.json").read_text(encoding="utf-8") == public_after_first
     assert (tmp_path / "daily_reports" / "202607" / "20260726.md").exists()
     assert (tmp_path / "docs" / "data" / "index.json").exists()

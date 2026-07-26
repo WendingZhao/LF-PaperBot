@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 from datetime import date, datetime
 from pathlib import Path
 
@@ -109,6 +110,7 @@ def run_pipeline(settings: Settings, target_date: date | None = None, force: boo
     date_key = _date_key(settings, target_date)
     index_path = settings.root / "papers" / "index.json"
     index = load_index(index_path)
+    original_index = copy.deepcopy(index)
     fetched = fetch_recent(settings, target_date)
     hard_filtered = deterministic_filter(fetched)
     pending = [candidate for candidate in hard_filtered if _needs_processing(candidate, index["papers"], force)]
@@ -128,8 +130,11 @@ def run_pipeline(settings: Settings, target_date: date | None = None, force: boo
             failed.append(candidate.arxiv_id)
             print(f"[ERROR] failed to process {candidate.arxiv_id}: {type(exc).__name__}: {exc}")
 
-    now = datetime.now(settings.timezone)
-    save_index(index_path, index, now)
+    if date_key not in index["report_dates"]:
+        index["report_dates"].append(date_key)
+        index["report_dates"].sort()
+    if index != original_index:
+        save_index(index_path, index, datetime.now(settings.timezone))
     save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
     daily = build_daily_report(
         date_key,
