@@ -1,0 +1,88 @@
+name: Daily LF PaperBot
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Optional target date (YYYYMMDD)"
+        required: false
+        type: string
+      dry_run:
+        description: "Only preview candidates"
+        required: false
+        default: false
+        type: boolean
+      force:
+        description: "Reprocess existing paper versions"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: lf-paperbot-daily
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+      ARK_BASE_URL: https://ark.cn-beijing.volces.com/api/coding/v3
+      ARK_MODEL: ark-code-latest
+      LF_GITHUB_REPO: WendingZhao/LF-PaperBot
+      LF_MAX_DAILY_PAPERS: "5"
+      LF_TIMEZONE: Asia/Shanghai
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install -r requirements.txt
+      - name: Doctor
+        run: python -m lf_paperbot doctor
+      - name: Run pipeline
+        env:
+          INPUT_DATE: ${{ inputs.date }}
+          INPUT_DRY_RUN: ${{ inputs.dry_run }}
+          INPUT_FORCE: ${{ inputs.force }}
+        run: |
+          set -euo pipefail
+          date_arg=()
+          force_arg=()
+          if [[ -n "${INPUT_DATE:-}" ]]; then date_arg=(--date "$INPUT_DATE"); fi
+          if [[ "${INPUT_FORCE:-false}" == "true" ]]; then force_arg=(--force); fi
+          if [[ "${INPUT_DRY_RUN:-false}" == "true" ]]; then
+            python -m lf_paperbot fetch --dry-run "${date_arg[@]}"
+          else
+            python -m lf_paperbot run "${date_arg[@]}" "${force_arg[@]}"
+          fi
+      - name: Commit generated artifacts
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          set -euo pipefail
+          git config user.name "LF-PaperBot[bot]"
+          git config user.email "lf-paperbot[bot]@users.noreply.github.com"
+          git add papers/index.json daily_reports docs/data docs/assets/previews
+          if git diff --cached --quiet; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git commit -m "chore: update LF paper digest"
+          git pull --rebase origin main
+          git push origin HEAD:main

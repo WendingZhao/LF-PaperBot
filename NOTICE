@@ -1,0 +1,8 @@
+LF-PaperBot
+Copyright 2026 Wending Zhao
+
+This product includes design and implementation ideas adapted from
+RS-PaperClaw, Copyright its respective contributors:
+https://github.com/thinson/RS-PaperClaw
+
+LF-PaperBot has been substantially rewritten for light-field low-level vision.

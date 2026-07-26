@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lf-paperbot"
+version = "0.1.0"
+description = "Daily light-field low-level vision paper tracker"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Wending Zhao" }]
+dependencies = [
+  "PyGithub>=2.3,<3",
+  "Pillow>=10,<12",
+]
+
+[project.scripts]
+lf-paperbot = "lf_paperbot.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["lf_paperbot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
