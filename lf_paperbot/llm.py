@@ -73,8 +73,8 @@ class ArkClient:
                 time.sleep(min(2**attempt + random.random(), 10))
         raise ArkError(last_error)
 
-    def complete_json(self, prompt: str, **kwargs):
-        raw = self.complete(prompt, **kwargs)
+    @staticmethod
+    def _parse_json(raw: str):
         fenced = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", raw, re.I)
         candidate = fenced.group(1) if fenced else raw
         start_positions = [pos for pos in (candidate.find("["), candidate.find("{")) if pos >= 0]
@@ -87,4 +87,21 @@ class ArkClient:
                     return json.loads(candidate[: end + 1])
                 except json.JSONDecodeError:
                     continue
+        raise ArkError("model response did not contain valid JSON")
+
+    def complete_json(self, prompt: str, **kwargs):
+        json_retries = int(kwargs.pop("json_retries", 2))
+        if json_retries < 1:
+            raise ValueError("json_retries must be at least 1")
+
+        for attempt in range(json_retries):
+            call_kwargs = dict(kwargs)
+            if attempt:
+                call_kwargs["temperature"] = 0.0
+            raw = self.complete(prompt, **call_kwargs)
+            try:
+                return self._parse_json(raw)
+            except ArkError:
+                if attempt == json_retries - 1:
+                    raise
         raise ArkError("model response did not contain valid JSON")

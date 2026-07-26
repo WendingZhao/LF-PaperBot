@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo
 import pytest
 
 from lf_paperbot.config import Settings
-from lf_paperbot.llm import ArkClient
+from lf_paperbot.llm import ArkClient, ArkError
 
 
 def settings(tmp_path: Path) -> Settings:
@@ -73,3 +73,31 @@ def test_extracts_json_from_markdown_fence(monkeypatch, tmp_path):
     client = ArkClient(settings(tmp_path))
     monkeypatch.setattr(client, "complete", lambda *_args, **_kwargs: '```json\n[{"relevant": true}]\n```')
     assert client.complete_json("test") == [{"relevant": True}]
+
+
+def test_retries_invalid_json_with_zero_temperature(monkeypatch, tmp_path):
+    client = ArkClient(settings(tmp_path))
+    responses = iter(["not-json", '{"relevant": true}'])
+    calls = []
+
+    def fake_complete(*_args, **kwargs):
+        calls.append(kwargs)
+        return next(responses)
+
+    monkeypatch.setattr(client, "complete", fake_complete)
+    assert client.complete_json("test") == {"relevant": True}
+    assert calls == [{}, {"temperature": 0.0}]
+
+
+def test_invalid_json_fails_after_bounded_retries(monkeypatch, tmp_path):
+    client = ArkClient(settings(tmp_path))
+    calls = []
+
+    def fake_complete(*_args, **kwargs):
+        calls.append(kwargs)
+        return "not-json"
+
+    monkeypatch.setattr(client, "complete", fake_complete)
+    with pytest.raises(ArkError, match="valid JSON"):
+        client.complete_json("test", json_retries=2)
+    assert len(calls) == 2
