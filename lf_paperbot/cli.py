@@ -12,7 +12,7 @@ from .config import load_settings
 from .domain import deterministic_filter
 from .llm import ArkClient, ArkError
 from .pdf_tools import require_poppler
-from .pipeline import process_single, reconcile_date, run_backfill, run_pipeline
+from .pipeline import process_single, prune_index, reconcile_date, run_backfill, run_pipeline
 
 
 def _parse_date(value: str | None):
@@ -126,6 +126,15 @@ def reconcile_command(args) -> int:
     return 0
 
 
+def prune_command(args) -> int:
+    result = prune_index(load_settings(), apply=args.apply)
+    mode = "applied" if args.apply else "preview"
+    print(f"prune={mode} excluded={len(result['excluded'])}")
+    for item in result["excluded"]:
+        print(json.dumps(item, ensure_ascii=False))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="LF-PaperBot")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -158,6 +167,10 @@ def build_parser() -> argparse.ArgumentParser:
     reconcile = subparsers.add_parser("reconcile", help="根据索引重建指定周报")
     reconcile.add_argument("--date", required=True, help="YYYYMMDD")
     reconcile.set_defaults(func=reconcile_command)
+
+    prune = subparsers.add_parser("prune", help="按当前领域规则检查并清理历史索引")
+    prune.add_argument("--apply", action="store_true", help="应用清理；默认只预览")
+    prune.set_defaults(func=prune_command)
     return parser
 
 

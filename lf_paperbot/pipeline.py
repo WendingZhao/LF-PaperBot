@@ -7,7 +7,7 @@ from pathlib import Path
 from .analysis import classify_with_llm, generate_report, rank_candidates, report_to_markdown
 from .arxiv import download_pdf, fetch_by_id, fetch_recent, fetch_submitted_range
 from .config import Settings
-from .domain import deterministic_filter
+from .domain import deterministic_classify, deterministic_filter
 from .github_store import GitHubStore
 from .llm import ArkClient
 from .models import Candidate
@@ -253,3 +253,43 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
         period_start=period_start,
     )
     return write_daily_report(settings.root, date_key, content)
+
+
+def prune_index(settings: Settings, apply: bool = False) -> dict:
+    index_path = settings.root / "papers" / "index.json"
+    index = load_index(index_path)
+    excluded: list[dict[str, str]] = []
+    affected_dates: set[str] = set()
+
+    for base_id, record in list(index["papers"].items()):
+        candidate = Candidate(
+            arxiv_id=record.get("arxiv_id", base_id),
+            title=record.get("title", ""),
+            abstract=record.get("abstract", ""),
+            authors=list(record.get("authors", [])),
+            categories=list(record.get("categories", [])),
+            published=record.get("published", ""),
+            updated=record.get("updated", ""),
+            pdf_url=record.get("pdf_url", ""),
+        )
+        tasks, reason = deterministic_classify(candidate)
+        if tasks:
+            continue
+        excluded.append({"base_id": base_id, "title": candidate.title, "reason": reason})
+        if not apply:
+            continue
+
+        affected_dates.update(record.get("appeared_dates", []))
+        del index["papers"][base_id]
+        cover_name = Path(record.get("cover_url", "")).name
+        if cover_name:
+            (settings.root / "docs" / "assets" / "previews" / cover_name).unlink(missing_ok=True)
+
+    if apply and excluded:
+        now = datetime.now(settings.timezone)
+        save_index(index_path, index, now)
+        save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
+        for date_key in sorted(affected_dates):
+            reconcile_date(settings, date_key)
+
+    return {"apply": apply, "excluded": excluded, "affected_dates": sorted(affected_dates)}

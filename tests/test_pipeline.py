@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from lf_paperbot.config import Settings
 from lf_paperbot.models import Candidate
 from lf_paperbot import pipeline
+from lf_paperbot.storage import load_index, save_index
 
 
 def settings(tmp_path: Path) -> Settings:
@@ -126,3 +127,53 @@ def test_reconcile_uses_natural_week_start(monkeypatch, tmp_path):
     content = report_path.read_text(encoding="utf-8")
     assert content.startswith("# 光场底层视觉周报 20260316 — 20260322")
     assert "Light Field Denoising" in content
+
+
+def test_prune_removes_nonstandard_light_field_records(tmp_path):
+    cfg = settings(tmp_path)
+    index_path = tmp_path / "papers" / "index.json"
+    index = load_index(index_path)
+    index["report_dates"] = ["20260301", "20260322"]
+    index["papers"] = {
+        "2602.22620": {
+            "base_id": "2602.22620",
+            "arxiv_id": "2602.22620v1",
+            "title": "Event-Based Light Field Reconstruction",
+            "abstract": "We use an event camera and event stream to reconstruct a light field.",
+            "authors": [],
+            "categories": ["cs.CV"],
+            "published": "2026-02-26T00:00:00Z",
+            "updated": "2026-02-26T00:00:00Z",
+            "pdf_url": "https://example.test/event.pdf",
+            "cover_url": "assets/previews/2602.22620.webp",
+            "appeared_dates": ["20260301"],
+        },
+        "2603.16243": {
+            "base_id": "2603.16243",
+            "arxiv_id": "2603.16243v1",
+            "title": "Light Field Super-Resolution",
+            "abstract": "Spatial-angular image super-resolution.",
+            "authors": [],
+            "categories": ["cs.CV"],
+            "published": "2026-03-20T00:00:00Z",
+            "updated": "2026-03-20T00:00:00Z",
+            "pdf_url": "https://example.test/sr.pdf",
+            "cover_url": "assets/previews/2603.16243.webp",
+            "appeared_dates": ["20260322"],
+        },
+    }
+    save_index(index_path, index, datetime(2026, 3, 22, tzinfo=ZoneInfo("Asia/Shanghai")))
+    preview = tmp_path / "docs" / "assets" / "previews" / "2602.22620.webp"
+    preview.parent.mkdir(parents=True)
+    preview.write_bytes(b"preview")
+
+    preview_result = pipeline.prune_index(cfg)
+    assert [item["base_id"] for item in preview_result["excluded"]] == ["2602.22620"]
+    assert preview.exists()
+
+    applied = pipeline.prune_index(cfg, apply=True)
+    assert applied["affected_dates"] == ["20260301"]
+    assert set(load_index(index_path)["papers"]) == {"2603.16243"}
+    assert not preview.exists()
+    report = (tmp_path / "daily_reports" / "202603" / "20260301.md").read_text(encoding="utf-8")
+    assert "最终精选：0 篇" in report

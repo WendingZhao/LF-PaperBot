@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T21:24:05.878038+08:00",
+  "updated_at": "2026-07-26T21:32:40.370818+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -194,55 +194,6 @@
       "last_seen": "20260705",
       "appeared_dates": [
         "20260705"
-      ],
-      "is_version_update": false
-    },
-    "2602.22620": {
-      "base_id": "2602.22620",
-      "arxiv_id": "2602.22620v1",
-      "version": 1,
-      "title": "Coded-E2LF: Coded Aperture Light Field Imaging from Events",
-      "abstract": "We propose Coded-E2LF (coded event to light field), a computational imaging method for acquiring a 4-D light field using a coded aperture and a stationary event-only camera. In a previous work, an imaging system similar to ours was adopted, but both events and intensity images were captured and used for light field reconstruction. In contrast, our method is purely event-based, which relaxes restrictions for hardware implementation. We also introduce several advancements from the previous work that enable us to theoretically support and practically improve light field reconstruction from events alone. In particular, we clarify the key role of a black pattern in aperture coding patterns. We finally implemented our method on real imaging hardware to demonstrate its effectiveness in capturing real 3-D scenes. To the best of our knowledge, we are the first to demonstrate that a 4-D light field with pixel-level accuracy can be reconstructed from events alone. Our software and supplementary video are available from our project website.",
-      "authors": [
-        "Tomoya Tsuchida",
-        "Keita Takahashi",
-        "Chihiro Tsutake",
-        "Toshiaki Fujii",
-        "Hajime Nagahara"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "published": "2026-02-26T04:53:08Z",
-      "updated": "2026-02-26T04:53:08Z",
-      "pdf_url": "https://arxiv.org/pdf/2602.22620v1",
-      "tasks": [
-        "重建与插值"
-      ],
-      "relevance_score": 0.85,
-      "research_score": 0.8,
-      "experiment_score": 0.8,
-      "code_score": 0.8,
-      "rank_score": 0.83,
-      "evidence": "提出一种利用编码孔径和纯事件相机重建4D光场的计算成像方法。",
-      "report": {
-        "tldr": "本文提出Coded-E2LF，一种结合编码孔径与固定纯事件相机的4D光场计算成像方法。与以往需要事件与强度图像混合的方法不同，本文方法完全基于事件，放松了硬件实现限制。研究理论上分析了带编码孔径的事件生成过程，并阐明黑色图案在孔径编码中的关键作用。通过引入黑色图案优先编码序列（BF）和参考感知事件生成（RA）两项改进，在真实硬件上实现了从单一事件流中重建具有像素级精度的4D光场。",
-        "problem": "传统的4D光场获取通常采用相机阵列或微透镜阵列，但前者硬件昂贵且庞大，后者存在视点数量与每个视点空间分辨率之间的权衡。编码孔径成像作为一种更高效的替代方案，通过在相机光圈平面放置光衰减编码图案来光学编码入射光线。然而，以往采用事件相机的编码孔径光场成像方法（如Habuchi et al.的工作）仍需同时捕获事件与强度图像，依赖混合相机系统，这未能完全发挥事件传感器的潜力，且增加了硬件实现的限制。本文旨在解决如何仅利用事件相机捕获的事件流重建高精度4D光场，从而消除对强度图像的依赖。",
-        "modeling": "本文对带有编码孔径的事件生成过程进行了理论分析，并推导出两个关键特性。第一，在存在黑色图案的情况下，基于事件和基于强度的编码孔径成像近似等效。这是因为黑色图案阻挡了光线，导致传感器对应像素无事件产生，从而提供了类似强度图像的绝对参考信息。第二，编码图案的近似置换不变性，即编码图案的排列顺序对重建结果的影响较小。这些理论分析为仅从事件中重建光场提供了坚实的数学和物理基础。",
-        "method": "本文的方法构建在Habuchi et al.的算法管线基础之上，并进行了小幅修改。为了从纯事件中实现光场重建，引入了两项关键改进：第一，黑色图案优先的编码序列（Black-first coding sequence, 简称BF）。该策略在测量序列的初始阶段使用黑色图案，为后续的事件生成提供初始参考。第二，参考感知的事件生成（Reference-aware event generation, 简称RA）。该机制在事件生成和参考更新过程中，利用当前的光场估计作为参考，从而更准确地生成事件。重建过程使用了名为RecNet的神经网络，该网络包含了5x5卷积和多层3x3卷积加ReLU激活函数等结构，最终输出64通道（即8x8视点）的光场图像。",
-        "occlusion": "不适用",
-        "experiments": "实验在BasicLFSR测试数据集上进行，评估了不同方法在PSNR、SSIM以及总事件数上的表现。在消融实验中（N=4），Baseline方法总事件数为9.492，PSNR/SSIM为29.81/0.8302；Baseline+RA为10.785和29.87/0.8309；Baseline+BF为6.522和29.69/0.8321；而完整方法Baseline+BF+RA的总事件数为7.175，取得了最佳的PSNR/SSIM为30.48/0.8413。在与基于强度方法的对比实验中，本文的纯事件方法（使用3个事件图像，无强度图像）取得了30.48/0.8413的PSNR/SSIM。相比之下，Habuchi et al.的方法（使用1张强度图像和3张事件图像）达到31.83/0.8729，而基于纯强度的方法如使用4帧图像的CA+RecNet可达35.39/0.9346，使用2帧图像的CA+RecNet达到34.09/0.9210，使用1帧图像的CA+RecNet为27.62/0.8139。LA+RecNet方法达到26.22/0.7218。论文未提供LPIPS指标、网络参数量以及推理运行速度的具体数据。",
-        "resources": "论文提供了软件和补充视频，项目网站链接为：https://www.fujii.nuee.nagoya-u.ac.jp/Research/EventLF/。",
-        "limitations": "尽管该方法在静态场景假设下设计，但得益于约30毫秒的较短测量时间，其可适用于缓慢移动的场景。然而，在数据率方面，尽管比直接采集8x8视点更高效，但不如基于强度的编码孔径方法（如8 bits/pixel × 2-4帧）高效。此外，在重建保真度上，纯事件方法相较于基于强度的方法仍有差距，特别是在图像细节恢复上。",
-        "insight": "本文揭示了黑色图案在事件驱动光场成像中的核心价值，它不仅充当了光线的阻挡者，更为事件相机提供了类似于强度图像的绝对参考基准。通过黑色图案优先和参考感知事件生成机制的引入，成功跨越了纯事件重建光场的理论鸿沟。虽然当前在保真度和数据率上尚未超越传统强度方法，但其完全摒弃了强度图像的依赖，为低光条件下的快速光场采集指明了新方向，具有显著的硬件实现优势和应用潜力。"
-      },
-      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/5",
-      "issue_number": 5,
-      "cover_url": "assets/previews/2602.22620.webp",
-      "first_seen": "20260301",
-      "last_seen": "20260301",
-      "appeared_dates": [
-        "20260301"
       ],
       "is_version_update": false
     },

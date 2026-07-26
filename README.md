@@ -38,7 +38,10 @@ python -m lf_paperbot run [--date YYYYMMDD] [--force]
 python -m lf_paperbot backfill [--start YYYYMMDD] [--end YYYYMMDD] [--force]
 python -m lf_paperbot paper <arxiv_id>
 python -m lf_paperbot reconcile --date YYYYMMDD
+python -m lf_paperbot prune [--apply]
 ```
+
+调整领域规则后可先运行 `prune` 预览不再符合范围的历史记录，确认后使用 `prune --apply` 从索引和页面中清理并重建受影响周报；GitHub Issue 不会被删除。
 
 ## GitHub 配置
 
