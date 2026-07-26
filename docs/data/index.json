@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T18:07:21.322187+08:00",
+  "updated_at": "2026-07-26T18:23:47.363463+08:00",
   "papers": [
     {
       "base_id": "2607.00965",
@@ -147,6 +147,55 @@
       "is_version_update": false
     },
     {
+      "base_id": "2605.04581",
+      "arxiv_id": "2605.04581v1",
+      "version": 1,
+      "title": "GTF: Omnidirectional EPI Transformer for Light Field Super-Resolution",
+      "abstract": "Light field (LF) image super-resolution benefits from Epipolar Plane Images (EPIs), whose line slopes explicitly encode disparity. However, existing Transformer-based LF SR methods mainly attend to horizontal and vertical EPIs, leaving diagonal epipolar geometry underexplored. We present GTF, an omnidirectional EPI Transformer that explicitly models horizontal, vertical, 45-degree, and 135-degree EPIs within a unified reconstruction framework. GTF combines directional EPI processing, MacPI-based prior injection, adaptive directional fusion, and a topology-preserving feed-forward network to better exploit LF geometry. For the NTIRE 2026 fidelity tracks, we use GTF as the main model, while a lightweight GTF-Tiny variant targets the efficiency track. On five standard LF SR benchmarks covering both real-captured and synthetic scenes, GTF reaches 32.78 dB without inference-time enhancement, and stronger inference settings with EPSW and test-time augmentation further improve performance. Under the NTIRE 2026 efficiency constraint, GTF-Tiny attains 32.57 dB with only 0.915M parameters and 19.81 GFLOPs. In the NTIRE 2026 Light Field Image Super-Resolution Challenge, our submissions rank 3rd on Track 1 and Track 3 and 4th on Track 2. Architecture-evolution, channel-width, and inference analyses further support the effectiveness of diagonal EPI modeling, directional fusion, and the lightweight design.",
+      "authors": [
+        "Kunyu Li",
+        "Fei Wang",
+        "Lichao Zhang",
+        "Junjie Liu",
+        "Bihong Li"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-05-06T07:31:05Z",
+      "updated": "2026-05-06T07:31:05Z",
+      "pdf_url": "https://arxiv.org/pdf/2605.04581v1",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.8,
+      "experiment_score": 0.9,
+      "code_score": 0.1,
+      "rank_score": 0.9,
+      "evidence": "标题和摘要明确提出针对光场图像超分辨率的Omnidirectional EPI Transformer方法。",
+      "report": {
+        "tldr": "本文提出了GTF（全向EPI Transformer），用于光场图像空间超分。该方法在统一重建框架中显式建模水平、垂直、45度和135度EPI，结合方向性EPI处理、MacPI先验注入、自适应方向融合和拓扑保持前馈网络以更好利用光场几何特性。主模型在五个标准基准上达到32.78 dB，轻量版GTF-Tiny在NTIRE 2026效率约束下以0.915M参数和19.81 GFLOPs达到32.57 dB，并在该挑战赛中取得Track 1和3的第三名、Track 2的第四名。",
+        "problem": "光场图像超分受益于极平面图像（EPI），其直线斜率显式编码了场景视差。然而，现有的基于Transformer的光场超分方法主要关注水平和垂直方向的EPI，忽略了对角线方向的极线几何。对角线视角能够提供未与水平或垂直轴对齐的视差线索，这些线索对超分至关重要。早期方法（如HLFSR）虽尝试了四个方向的EPI，但依赖共享的卷积滤波器，无法针对不同EPI方向进行自适应的特征提取，也无法从长距离的极线结构中受益。现有的Transformer方法（如EPIT、LFTramba）或局限于轴对齐EPI，或未显式将注意力扩展到对角线方向，导致多方向光场几何与现代注意力机制之间存在研究空白。",
+        "modeling": "光场图像被表示为四维分布L(u, v, h, w)，其中和为角向坐标，为空间坐标。EPI通过固定一个角向和一个空间维度形成，其内部直线的斜率直接编码了场景的视差。GTF模型显式建模了水平、垂直、45度和135度EPI，突破了传统仅关注轴对齐EPI的限制。通过引入方向特定的自注意力机制进行长距离极线建模，并结合自适应方向融合模块，模型能够综合各方向视差线索。此外，模型还包含基于MacPI的先验注入机制和拓扑保持的前馈网络（FFN），以维持二维EPI结构的完整性。",
+        "method": "GTF的核心在于全向EPI Transformer设计，具体包含四个主要组件：1）方向性EPI处理：对水平、垂直、45度和135度EPI进行显式建模和注意力计算；2）基于MacPI的先验注入：引入先验信息辅助重建；3）自适应方向融合：动态融合来自不同方向EPI的特征；4）拓扑保持前馈网络：在特征提取和映射过程中维持2D EPI的几何结构。为满足不同需求，作者设计了主模型GTF用于保真度导向任务，以及轻量化变体GTF-Tiny用于效率受限场景。模型还支持推理时增强，如EPSW和测试时数据增强，以进一步提升性能。",
+        "occlusion": "不适用。该论文任务为光场图像空间超分，不涉及去遮挡任务。",
+        "experiments": "在五个标准光场超分基准数据集（覆盖真实拍摄和合成场景，具体名称论文材料未说明）上进行评估。在无推理增强的设置下，GTF主模型达到32.78 dB。在NTIRE 2026效率约束下，GTF-Tiny达到32.57 dB，仅需0.915M参数量和19.81 GFLOPs计算量。使用EPSW和测试时增强（TTA）等更强的推理设置可进一步提升性能。在NTIRE 2026光场图像超分挑战赛中，该方法在Track 1和Track 3中排名第三，在Track 2中排名第四。架构演进、通道宽度和推理分析实验进一步验证了对角线EPI建模、方向融合和轻量化设计的有效性。论文材料未说明SSIM、LPIPS和具体推理速度数据。",
+        "resources": "arXiv编号为2605.04581v1（提交于2026年5月6日）。作者信息来自西安石油大学计算机科学与技术学院、电子工程学院以及深圳先进技术研究院人工智能研究所。论文材料未说明代码及数据集的开源链接。",
+        "limitations": "论文材料未明确列出具体的方法局限性。但论文指出，现有方法的主要不足在于缺乏对对角线EPI的长距离依赖建模，GTF虽通过显式四方向注意力机制解决了这一问题，但针对更复杂或更高维度的光场几何结构是否仍具有优势，论文未作探讨。",
+        "insight": "对角线方向的极线几何蕴含着丰富的视差信息，这些信息往往无法通过传统的水平或垂直EPI获取。在光场超分中，结合多方向EPI的显式注意力建模与自适应融合，能够更全面地刻画场景几何结构。此外，通过拓扑保持的前馈网络维护EPI的二维结构一致性，对于提升重建质量至关重要。同时，在极线几何约束下，轻量化设计（如GTF-Tiny）能在极低参数量和计算开销下保持极具竞争力的性能，为光场处理在端侧设备上的部署提供了有价值的参考。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/6",
+      "issue_number": 6,
+      "cover_url": "assets/previews/2605.04581.webp",
+      "first_seen": "20260510",
+      "last_seen": "20260510",
+      "appeared_dates": [
+        "20260510"
+      ],
+      "is_version_update": false
+    },
+    {
       "base_id": "2603.16243",
       "arxiv_id": "2603.16243v1",
       "version": 1,
@@ -196,6 +245,55 @@
         "20260322"
       ],
       "is_version_update": false
+    },
+    {
+      "base_id": "2602.22620",
+      "arxiv_id": "2602.22620v1",
+      "version": 1,
+      "title": "Coded-E2LF: Coded Aperture Light Field Imaging from Events",
+      "abstract": "We propose Coded-E2LF (coded event to light field), a computational imaging method for acquiring a 4-D light field using a coded aperture and a stationary event-only camera. In a previous work, an imaging system similar to ours was adopted, but both events and intensity images were captured and used for light field reconstruction. In contrast, our method is purely event-based, which relaxes restrictions for hardware implementation. We also introduce several advancements from the previous work that enable us to theoretically support and practically improve light field reconstruction from events alone. In particular, we clarify the key role of a black pattern in aperture coding patterns. We finally implemented our method on real imaging hardware to demonstrate its effectiveness in capturing real 3-D scenes. To the best of our knowledge, we are the first to demonstrate that a 4-D light field with pixel-level accuracy can be reconstructed from events alone. Our software and supplementary video are available from our project website.",
+      "authors": [
+        "Tomoya Tsuchida",
+        "Keita Takahashi",
+        "Chihiro Tsutake",
+        "Toshiaki Fujii",
+        "Hajime Nagahara"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-02-26T04:53:08Z",
+      "updated": "2026-02-26T04:53:08Z",
+      "pdf_url": "https://arxiv.org/pdf/2602.22620v1",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.8,
+      "rank_score": 0.83,
+      "evidence": "提出一种利用编码孔径和纯事件相机重建4D光场的计算成像方法。",
+      "report": {
+        "tldr": "本文提出Coded-E2LF，一种结合编码孔径与固定纯事件相机的4D光场计算成像方法。与以往需要事件与强度图像混合的方法不同，本文方法完全基于事件，放松了硬件实现限制。研究理论上分析了带编码孔径的事件生成过程，并阐明黑色图案在孔径编码中的关键作用。通过引入黑色图案优先编码序列（BF）和参考感知事件生成（RA）两项改进，在真实硬件上实现了从单一事件流中重建具有像素级精度的4D光场。",
+        "problem": "传统的4D光场获取通常采用相机阵列或微透镜阵列，但前者硬件昂贵且庞大，后者存在视点数量与每个视点空间分辨率之间的权衡。编码孔径成像作为一种更高效的替代方案，通过在相机光圈平面放置光衰减编码图案来光学编码入射光线。然而，以往采用事件相机的编码孔径光场成像方法（如Habuchi et al.的工作）仍需同时捕获事件与强度图像，依赖混合相机系统，这未能完全发挥事件传感器的潜力，且增加了硬件实现的限制。本文旨在解决如何仅利用事件相机捕获的事件流重建高精度4D光场，从而消除对强度图像的依赖。",
+        "modeling": "本文对带有编码孔径的事件生成过程进行了理论分析，并推导出两个关键特性。第一，在存在黑色图案的情况下，基于事件和基于强度的编码孔径成像近似等效。这是因为黑色图案阻挡了光线，导致传感器对应像素无事件产生，从而提供了类似强度图像的绝对参考信息。第二，编码图案的近似置换不变性，即编码图案的排列顺序对重建结果的影响较小。这些理论分析为仅从事件中重建光场提供了坚实的数学和物理基础。",
+        "method": "本文的方法构建在Habuchi et al.的算法管线基础之上，并进行了小幅修改。为了从纯事件中实现光场重建，引入了两项关键改进：第一，黑色图案优先的编码序列（Black-first coding sequence, 简称BF）。该策略在测量序列的初始阶段使用黑色图案，为后续的事件生成提供初始参考。第二，参考感知的事件生成（Reference-aware event generation, 简称RA）。该机制在事件生成和参考更新过程中，利用当前的光场估计作为参考，从而更准确地生成事件。重建过程使用了名为RecNet的神经网络，该网络包含了5x5卷积和多层3x3卷积加ReLU激活函数等结构，最终输出64通道（即8x8视点）的光场图像。",
+        "occlusion": "不适用",
+        "experiments": "实验在BasicLFSR测试数据集上进行，评估了不同方法在PSNR、SSIM以及总事件数上的表现。在消融实验中（N=4），Baseline方法总事件数为9.492，PSNR/SSIM为29.81/0.8302；Baseline+RA为10.785和29.87/0.8309；Baseline+BF为6.522和29.69/0.8321；而完整方法Baseline+BF+RA的总事件数为7.175，取得了最佳的PSNR/SSIM为30.48/0.8413。在与基于强度方法的对比实验中，本文的纯事件方法（使用3个事件图像，无强度图像）取得了30.48/0.8413的PSNR/SSIM。相比之下，Habuchi et al.的方法（使用1张强度图像和3张事件图像）达到31.83/0.8729，而基于纯强度的方法如使用4帧图像的CA+RecNet可达35.39/0.9346，使用2帧图像的CA+RecNet达到34.09/0.9210，使用1帧图像的CA+RecNet为27.62/0.8139。LA+RecNet方法达到26.22/0.7218。论文未提供LPIPS指标、网络参数量以及推理运行速度的具体数据。",
+        "resources": "论文提供了软件和补充视频，项目网站链接为：https://www.fujii.nuee.nagoya-u.ac.jp/Research/EventLF/。",
+        "limitations": "尽管该方法在静态场景假设下设计，但得益于约30毫秒的较短测量时间，其可适用于缓慢移动的场景。然而，在数据率方面，尽管比直接采集8x8视点更高效，但不如基于强度的编码孔径方法（如8 bits/pixel × 2-4帧）高效。此外，在重建保真度上，纯事件方法相较于基于强度的方法仍有差距，特别是在图像细节恢复上。",
+        "insight": "本文揭示了黑色图案在事件驱动光场成像中的核心价值，它不仅充当了光线的阻挡者，更为事件相机提供了类似于强度图像的绝对参考基准。通过黑色图案优先和参考感知事件生成机制的引入，成功跨越了纯事件重建光场的理论鸿沟。虽然当前在保真度和数据率上尚未超越传统强度方法，但其完全摒弃了强度图像的依赖，为低光条件下的快速光场采集指明了新方向，具有显著的硬件实现优势和应用潜力。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/5",
+      "issue_number": 5,
+      "cover_url": "assets/previews/2602.22620.webp",
+      "first_seen": "20260301",
+      "last_seen": "20260301",
+      "appeared_dates": [
+        "20260301"
+      ],
+      "is_version_update": false
     }
   ],
   "reports": {
@@ -207,7 +305,9 @@
     "20260208": [],
     "20260215": [],
     "20260222": [],
-    "20260301": [],
+    "20260301": [
+      "2602.22620"
+    ],
     "20260308": [],
     "20260315": [],
     "20260322": [
@@ -219,7 +319,9 @@
     "20260419": [],
     "20260426": [],
     "20260503": [],
-    "20260510": [],
+    "20260510": [
+      "2605.04581"
+    ],
     "20260517": [],
     "20260524": [],
     "20260531": [],
