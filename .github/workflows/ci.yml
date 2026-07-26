@@ -3,12 +3,16 @@ name: CI
 on:
   push:
   pull_request:
+  workflow_run:
+    workflows: ["Daily LF PaperBot"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   test:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
