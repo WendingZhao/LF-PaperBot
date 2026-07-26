@@ -70,13 +70,16 @@ def test_pipeline_orchestrates_and_is_idempotent(monkeypatch, tmp_path):
     first = pipeline.run_pipeline(cfg, date(2026, 7, 26))
     private_after_first = (tmp_path / "papers" / "index.json").read_text(encoding="utf-8")
     public_after_first = (tmp_path / "docs" / "data" / "index.json").read_text(encoding="utf-8")
+    report_path = tmp_path / "daily_reports" / "202607" / "20260726.md"
+    report_after_first = report_path.read_text(encoding="utf-8")
     second = pipeline.run_pipeline(cfg, date(2026, 7, 26))
     assert len(first["processed"]) == 1
     assert len(second["processed"]) == 0
     assert calls == ["2607.12345v1"]
     assert (tmp_path / "papers" / "index.json").read_text(encoding="utf-8") == private_after_first
     assert (tmp_path / "docs" / "data" / "index.json").read_text(encoding="utf-8") == public_after_first
-    assert (tmp_path / "daily_reports" / "202607" / "20260726.md").exists()
+    assert report_path.read_text(encoding="utf-8") == report_after_first
+    assert "Light Field Denoising" in report_after_first
     assert (tmp_path / "docs" / "data" / "index.json").exists()
 
 
@@ -100,3 +103,26 @@ def test_backfill_groups_candidates_by_natural_week(monkeypatch, tmp_path):
         (date(2026, 1, 5), date(2026, 1, 11), ["2601.54321v1"], False),
     ]
     assert len(result["periods"]) == 2
+
+
+def test_reconcile_uses_natural_week_start(monkeypatch, tmp_path):
+    record = {
+        "title": "Light Field Denoising",
+        "arxiv_id": "2603.12345v1",
+        "pdf_url": "https://example.test/paper.pdf",
+        "tasks": ["去噪"],
+        "rank_score": 0.9,
+        "report": {"tldr": "测试"},
+        "issue_url": "https://github.com/owner/repo/issues/1",
+        "appeared_dates": ["20260322"],
+    }
+    monkeypatch.setattr(
+        pipeline,
+        "load_index",
+        lambda _path: {"papers": {"2603.12345": record}, "report_dates": ["20260322"]},
+    )
+
+    report_path = pipeline.reconcile_date(settings(tmp_path), "20260322")
+    content = report_path.read_text(encoding="utf-8")
+    assert content.startswith("# 光场底层视觉周报 20260316 — 20260322")
+    assert "Light Field Denoising" in content

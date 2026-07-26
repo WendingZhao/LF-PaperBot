@@ -39,7 +39,7 @@ def build_weekly_report(
                 f"### {number}. {paper['title']}",
                 "",
                 f"- **任务**：{tasks}",
-                f"- **TL;DR**：{paper.get('report', {}).get('tldr', '暂无')} ",
+                f"- **TL;DR**：{paper.get('report', {}).get('tldr', '暂无')}",
                 f"- **入选理由**：{paper.get('evidence', '符合光场底层视觉筛选规则')}",
                 f"- **综合分数**：{paper.get('rank_score', 0):.2f}{update}",
                 f"- **链接**：[arXiv](https://arxiv.org/abs/{paper['arxiv_id']}) · [PDF]({paper['pdf_url']}) · [深度报告]({paper['issue_url']})",

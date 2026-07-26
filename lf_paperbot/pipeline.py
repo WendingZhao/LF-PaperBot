@@ -146,9 +146,13 @@ def run_pipeline(
     if index != original_index:
         save_index(index_path, index, datetime.now(settings.timezone))
     save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
+    weekly_papers = [
+        paper for paper in index["papers"].values() if date_key in paper.get("appeared_dates", [])
+    ]
+    weekly_papers.sort(key=lambda item: item.get("rank_score", 0), reverse=True)
     daily = build_weekly_report(
         date_key,
-        processed,
+        weekly_papers[: settings.max_daily_papers],
         fetched_count=len(fetched),
         hard_filtered_count=len(hard_filtered),
         failed=failed,
@@ -239,10 +243,13 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
     index = load_index(settings.root / "papers" / "index.json")
     papers = [paper for paper in index["papers"].values() if date_key in paper.get("appeared_dates", [])]
     papers.sort(key=lambda item: item.get("rank_score", 0), reverse=True)
+    target_date = datetime.strptime(date_key, "%Y%m%d").date()
+    period_start = (target_date - timedelta(days=target_date.weekday())).strftime("%Y%m%d")
     content = build_weekly_report(
         date_key,
         papers[: settings.max_daily_papers],
         fetched_count=len(papers),
         hard_filtered_count=len(papers),
+        period_start=period_start,
     )
     return write_daily_report(settings.root, date_key, content)
