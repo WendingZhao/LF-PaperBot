@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T18:23:47.363463+08:00",
+  "updated_at": "2026-07-26T21:24:05.878038+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -292,6 +292,53 @@
       "last_seen": "20260510",
       "appeared_dates": [
         "20260510"
+      ],
+      "is_version_update": false
+    },
+    "2607.14941": {
+      "base_id": "2607.14941",
+      "arxiv_id": "2607.14941v1",
+      "version": 1,
+      "title": "Frequency-Structured Field Learning for Light-Field Disparity Estimation",
+      "abstract": "Light-field disparity estimation requires global consistency in smooth or textureless regions and local precision near occlusion boundaries, thin structures, and abrupt depth transitions. Existing methods address these requirements through EPI matching, cost-volume or focal-stack construction, view aggregation, or direct convolutional regression, often relying on local windows, discrete disparity hypotheses, memory-intensive volumes, or attention-based aggregation. We instead formulate disparity estimation at the field level, predicting disparity from globally and locally updated EPI-derived latent features without explicitly constructing a disparity volume. We introduce FreqLF, an EPI-guided Fourier-local framework that encodes angular parallax cues from horizontal and vertical EPI stacks together with central-view appearance features. These cues are projected into a latent field and updated through stacked hybrid Fourier-local layers. Fourier low-mode updates enable global feature interaction, while local convolutions preserve spatial variations needed for fine disparity detail. A coordinate-conditioned Gaussian-mixture decoder then predicts disparity, using the mixture mean as the final estimate. Experiments on the HCI 4D Light Field Benchmark show that FreqLF approaches the accuracy of strong supervised baselines while avoiding explicit cost-volume construction in the base model. Ablations confirm the complementary roles of the Fourier and local branches, and scaling experiments demonstrate practical behavior across spatial resolutions. These results suggest that Fourier-local latent field learning is a competitive alternative for light-field disparity estimation. The code will be published soon.",
+      "authors": [
+        "Sara Monji-Azad",
+        "Yulin Liu",
+        "Jürgen Hesser"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-16T12:52:14Z",
+      "updated": "2026-07-16T12:52:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2607.14941v1",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.1,
+      "rank_score": 0.885,
+      "evidence": "摘要提出FreqLF框架，利用水平和垂直EPI堆栈提取角度视差特征进行光场视差估计。",
+      "report": {
+        "tldr": "FreqLF提出一种基于EPI引导的傅里叶-局部场学习框架用于光场视差估计，通过全局低频傅里叶特征交互与局部卷积更新替代显式代价体构建，在HCI 4D基准上达到接近有监督强基线的精度。",
+        "problem": "光场视差估计需在平滑或无纹理区域保持全局一致性，并在遮挡边界、薄结构和深度突变处保持局部精度。现有方法多依赖局部EPI匹配、离散视差假设、显式代价体或注意力聚合，存在内存消耗大、依赖局部窗口等局限。本文探索不显式构建代价体，而是从EPI派生的潜在特征场预测视差的场级新范式。",
+        "modeling": "将视差估计建模为场级预测问题。模型利用EPI（极线平面图）中直线斜率与视差的空间-角度对应关系，提取水平与垂直EPI堆栈的角视差线索，结合中心视图外观特征投影到潜在特征场。该方法放弃了显式枚举候选视差的代价体构建，通过混合傅里叶-局部层对潜在场进行全局与局部更新，并用坐标条件高斯混合解码器输出视差。",
+        "method": "FreqLF包含EPI引导编码器、混合傅里叶-局部层和概率解码器。1）特征提取：从水平与垂直EPI编码角视差线索与中心视图外观特征。2）场更新：傅里叶分支对保留的低频模态施加学习权重实现全局交互，以处理平滑区域；局部CNN分支通过3×3卷积保留遮挡边界和薄结构等局部空间变化。3）解码：坐标条件高斯混合解码器以混合均值作为最终视差预测。消融实验证实傅里叶与局部分支互补，去除局部CNN导致MSE×10^2从1.553升至6.148，去除傅里叶分支升至1.821。",
+        "occlusion": "不适用。任务为深度与视差估计，未涉及去遮挡任务或遮挡区域恢复机制，仅在局部CNN分支设计时考虑了遮挡边界处的精度保持需求。",
+        "experiments": "数据集：HCI 4D Light Field Benchmark（4个分层场景，9×9子孔径视图，512×512分辨率）。误差指标：报告MSE×10^2和BadPix(0.03与0.07)。结果：FreqLF+平均MSE为2.33（排名第3，与最佳差距2.0%），基础FreqLF为2.73（排名第5，差距4.1%），在EPI中心方法中表现最优。BadPix指标亦居前列。计算扩展：1024×1024下FreqLF推理5.876s，显存19456MB；FreqLF+需13.712s，显存51712MB。论文材料未说明PSNR、SSIM、LPIPS及模型参数量。",
+        "resources": "使用数据集为HCI 4D Light Field Benchmark。论文提及代码即将发布。论文材料未说明其他附加开源资源或代码链接。",
+        "limitations": "主要局限包括：1）无代价体的声明仅适用于基础FreqLF模型，FreqLF+因增强前端需更多资源；2）高度依赖光场标定，未对齐或非均匀采样会破坏EPI几何并降低性能；3）主要在HCI基准评估，缺乏真实世界非朗伯体或含噪数据验证；4）概率解码器的不确定性与绝对误差仅弱相关，存在欠置信；5）边界区域和薄结构仍是挑战。",
+        "insight": "FreqLF证明显式代价体并非光场视差估计的唯一途径。将算子学习的视角与EPI几何先验结合，通过傅里叶低频全局交互与局部卷积的混合更新，能在场级有效平衡全局平滑与局部边界精度。这种无代价体、基于潜在特征场的设计为高效低内存的光场深度感知提供了新思路。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/7",
+      "issue_number": 7,
+      "cover_url": "assets/previews/2607.14941.webp",
+      "first_seen": "20260719",
+      "last_seen": "20260719",
+      "appeared_dates": [
+        "20260719"
       ],
       "is_version_update": false
     }
