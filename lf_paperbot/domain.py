@@ -8,7 +8,12 @@ from .models import Candidate
 
 TASK_PATTERNS: dict[str, tuple[str, ...]] = {
     "空间超分": (r"spatial super[- ]resolution", r"light[- ]field super[- ]resolution", r"\bsuper[- ]resolution\b"),
-    "角度超分": (r"angular super[- ]resolution", r"angular resolution", r"view interpolation"),
+    "角度超分": (
+        r"angular super[- ]resolution",
+        r"angular resolution (?:enhancement|reconstruction)",
+        r"view interpolation",
+        r"sparse[- ]to[- ]dense (?:view|light[- ]field)",
+    ),
     "去噪": (r"denois", r"noise removal", r"noisy light[- ]field"),
     "去模糊": (r"deblur", r"blur removal", r"motion blur"),
     "低光增强": (r"low[- ]light", r"illumination enhancement", r"dark light[- ]field"),
@@ -21,7 +26,24 @@ TASK_PATTERNS: dict[str, tuple[str, ...]] = {
         r"restore[^.]{0,80}occlud",
     ),
     "去雨去雾": (r"dehaz", r"derain", r"fog removal", r"rain removal"),
-    "重建与插值": (r"light[- ]field reconstruction", r"light[- ]field interpolation", r"sparse[- ]view reconstruction"),
+    "重建与插值": (
+        r"light[- ]field reconstruction",
+        r"light[- ]field interpolation",
+        r"sparse[- ]view reconstruction",
+        r"dense light[- ]field synthesis",
+        r"light[- ]field completion",
+        r"sub[- ]aperture view synthesis",
+    ),
+    "深度与视差估计": (
+        r"light[- ]field depth estimation",
+        r"light[- ]field disparity estimation",
+        r"\bdepth estimation\b",
+        r"\bdisparity estimation\b",
+        r"depth (?:estimation )?from light[- ]fields?",
+        r"disparity (?:estimation )?from light[- ]fields?",
+        r"depth map estimation[^.]{0,80}light[- ]field",
+    ),
+    "重聚焦": (r"light[- ]field refocus", r"light[- ]field refocusing", r"digital refocusing"),
     "压缩恢复": (r"compression artifact", r"light[- ]field compression", r"compressed light[- ]field"),
     "质量增强": (r"light[- ]field enhancement", r"quality enhancement", r"light[- ]field restoration"),
 }
@@ -36,6 +58,7 @@ LF_PATTERNS = tuple(
         r"\bepipolar plane image\b",
         r"\blenslet(?: camera| image)?\b",
         r"\bmicro[- ]lens array\b",
+        r"\bsub[- ]aperture (?:image|view)s?\b",
     )
 )
 
@@ -55,12 +78,20 @@ HARD_EXCLUSIONS = tuple(
     )
 )
 
-GEOMETRY_ONLY = tuple(
+NON_STANDARD_LF = tuple(
     re.compile(pattern, re.I)
     for pattern in (
-        r"\bdepth estimation\b",
-        r"\bdisparity estimation\b",
-        r"\bscene flow\b",
+        r"\bevent[- ]based\b",
+        r"\bevent camera\b",
+        r"\bevent stream\b",
+        r"\bneuromorphic\b",
+        r"\blight[- ]field microscopy\b",
+        r"\bmicroscopic light[- ]field\b",
+        r"\bplenoptic microscopy\b",
+        r"\bacoustic light[- ]field\b",
+        r"\btransient light[- ]field\b",
+        r"\bx[- ]ray\b",
+        r"\bcomputed tomography\b",
     )
 )
 
@@ -71,6 +102,7 @@ GENERIC_3D = tuple(
         r"\bNeRF\b",
         r"\b3D Gaussian Splatting\b",
         r"\bnovel view synthesis\b",
+        r"\bneural rendering\b",
     )
 )
 
@@ -86,15 +118,14 @@ def deterministic_classify(candidate: Candidate) -> tuple[list[str], str]:
 
     tasks = [task for task, patterns in TASK_REGEX.items() if _any(patterns, text)]
     if not tasks:
-        return [], "缺少光场底层视觉恢复或增强任务证据"
+        return [], "缺少普通光场图像底层视觉任务证据"
 
     if _any(HARD_EXCLUSIONS, text):
         return [], "论文主要任务属于识别、分割、检测或显示"
 
-    restoration_signal = bool(set(tasks) - {"重建与插值"})
-    if _any(GEOMETRY_ONLY, text) and not restoration_signal:
-        return [], "论文主要任务是深度、视差或几何估计"
-    if _any(GENERIC_3D, text) and not restoration_signal:
+    if _any(NON_STANDARD_LF, text):
+        return [], "论文对象不是普通相机采集的光场图像"
+    if _any(GENERIC_3D, text):
         return [], "论文主要任务是通用 NeRF、3DGS 或新视点生成"
 
     return tasks, ""

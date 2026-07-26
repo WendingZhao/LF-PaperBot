@@ -38,3 +38,5 @@ def test_fetch_submitted_range_uses_server_date_query(monkeypatch):
     assert [paper.arxiv_id for paper in papers] == ["2601.00001v1"]
     query = urllib.parse.parse_qs(urllib.parse.urlsplit(captured[0]).query)["search_query"][0]
     assert "submittedDate:[202601010000 TO 202601312359]" in query
+    assert "cat:cs.GR" in query
+    assert 'all:"sub-aperture image"' in query

@@ -24,6 +24,7 @@ def candidate(title: str, abstract: str = "") -> Candidate:
     ("title", "task"),
     [
         ("Light Field Image Super-Resolution with Angular Priors", "空间超分"),
+        ("Angular Super-Resolution for Sparse Light Field Images", "角度超分"),
         ("Spatial-Angular Light Field Denoising", "去噪"),
         ("Light-Field Deblurring under Camera Motion", "去模糊"),
         ("Low-Light Light Field Enhancement", "低光增强"),
@@ -31,6 +32,10 @@ def candidate(title: str, abstract: str = "") -> Candidate:
         ("De-occlusion via Multi-view Complementarity in Light Fields", "去遮挡"),
         ("Light Field Dehazing and Quality Enhancement", "去雨去雾"),
         ("Artifact Removal for Compressed Light Fields", "压缩恢复"),
+        ("Light Field Reconstruction from Sparse Views", "重建与插值"),
+        ("Light Field Disparity Estimation with EPI Geometry", "深度与视差估计"),
+        ("Depth from Light Fields with Occlusion-Aware Cost Volumes", "深度与视差估计"),
+        ("Digital Refocusing for Plenoptic Images", "重聚焦"),
     ],
 )
 def test_accepts_supported_light_field_restoration_tasks(title, task):
@@ -43,10 +48,11 @@ def test_accepts_supported_light_field_restoration_tasks(title, task):
     "title",
     [
         "Single Image Super-Resolution with Transformers",
-        "Occlusion-Aware Light Field Depth Estimation",
         "Semantic Segmentation for Light Field Images with Restoration Features",
         "NeRF for Light Field Novel View Synthesis and Reconstruction",
         "A Holographic Light Field Display with Quality Enhancement",
+        "Event-Based Light Field Reconstruction from a Neuromorphic Camera",
+        "Light Field Microscopy Reconstruction and Enhancement",
     ],
 )
 def test_rejects_out_of_scope_papers(title):
@@ -55,7 +61,7 @@ def test_rejects_out_of_scope_papers(title):
     assert reason
 
 
-def test_depth_is_allowed_only_when_restoration_is_primary():
+def test_disparity_guidance_can_support_restoration_without_changing_primary_task():
     item = candidate(
         "Light Field De-occlusion with Disparity Guidance",
         "We restore occluded regions using disparity as an auxiliary geometric prior.",

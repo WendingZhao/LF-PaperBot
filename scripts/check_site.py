@@ -21,6 +21,7 @@ def main() -> int:
     assert isinstance(data["papers"], list)
     assert "LF-PaperBot" in html
     assert "去遮挡" in html
+    assert 'href="https://aqu1ver.fun/"' in html
     print("Static site structure is valid.")
     return 0
 

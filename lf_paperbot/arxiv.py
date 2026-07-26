@@ -19,9 +19,12 @@ ATOM = {
 }
 LIGHT_FIELD_QUERY = (
     'all:"light field" OR all:"light-field" OR all:plenoptic OR '
-    'all:"spatial-angular" OR all:"epipolar plane image"'
+    'all:"spatial-angular" OR all:"epipolar plane image" OR '
+    'all:"sub-aperture image" OR all:lenslet'
 )
-CATEGORY_QUERY = "cat:cs.CV OR cat:eess.IV OR cat:physics.optics"
+CATEGORY_QUERY = (
+    "cat:cs.CV OR cat:cs.GR OR cat:cs.MM OR cat:eess.IV OR cat:eess.SP OR cat:physics.optics"
+)
 
 
 def _read_url(url: str, user_agent: str, timeout: int = 90, retries: int = 4) -> bytes:
