@@ -1,8 +1,241 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-26T17:24:10.457526+08:00",
-  "papers": [],
+  "updated_at": "2026-07-26T18:07:21.322187+08:00",
+  "papers": [
+    {
+      "base_id": "2607.00965",
+      "arxiv_id": "2607.00965v1",
+      "version": 1,
+      "title": "Slope-Guided Mamba and Angular-Refined Transformer for Light Field Super-Resolution",
+      "abstract": "Light Field Super-Resolution (LFSR) necessitates accurate modeling of spatial-angular correlations while preserving intrinsic 4D ray coherence. However, maintaining such high-dimensional consistency remains challenging, primarily due to two inherent limitations in prevailing modeling paradigms. First, spatial and angular dimensions are often modeled in a decoupled manner, restricting early cross-dimensional interaction and leading to geometric inconsistencies. Moreover, although continuous sequence modeling paradigms show promise in representing epipolar structures, their rigid scanning mechanisms fundamentally conflict with epipolar geometry, limiting geometry-aware feature aggregation. To address these challenges, we propose a hybrid light field super-resolution network, termed SMART, which integrates a Slope-Guided Mamba and an Angular-Refined Transformer to effectively overcome these limitations. Specifically, we introduce an angular-modulated spatial module to bridge the decoupling gap, incorporating angular priors to strengthen spatial-angular correlation modeling. To mitigate the scan-geometry mismatch, we propose a manifold-aligned trajectory module that enables geometry-consistent sequence modeling along epipolar structures. Experiments on five benchmarks demonstrate that SMART achieves state-of-the-art performance, surpassing previous methods by 0.42 dB (PSNR) with significantly reduced artifacts.",
+      "authors": [
+        "Li Jin",
+        "Jian Huang",
+        "Junde Lu",
+        "Shuai Wang",
+        "Hao Sheng",
+        "Jie Wu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-07-01T14:01:21Z",
+      "updated": "2026-07-01T14:01:21Z",
+      "pdf_url": "https://arxiv.org/pdf/2607.00965v1",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.85,
+      "experiment_score": 0.85,
+      "code_score": 0.0,
+      "rank_score": 0.8975,
+      "evidence": "摘要明确指出本文研究光场图像超分辨率，提出混合网络建模空间-角度相关性。",
+      "report": {
+        "tldr": "本文提出了一种混合光场超分网络SMART，结合了斜率引导的Mamba和角度优化的Transformer。该网络通过角度调制空间模块（AMS）和流形对齐轨迹模块，解决了现有方法中空间与角度维度解耦以及序列扫描机制与极线几何不匹配的问题。实验表明，SMART在五个基准数据集上实现了SOTA性能，PSNR超越以往方法0.42 dB，并显著减少了伪影。",
+        "problem": "现有光场超分（LFSR）方法在保持高维几何一致性时面临两大固有局限。首先，空间和角度维度通常以解耦方式建模，如EPIT采用串行空间卷积与角度Transformer，LFT使用循环空间与角度模块。尽管这些方法缓解了长距离上下文建模的不足，但在集成解耦分支时主要依赖浅层特征拼接机制，限制了早期跨维度交互，缺乏深度几何感知和空间-角度协同，导致几何不一致且难以重建高频细节。其次，在EPI域中，场景信息表现为由视差控制的连续倾斜轨迹，而非正交网格。现有基于状态空间模型（SSM）的方法（如引入双向扫描的MLFSR和采用轻量级通道级SSM的LFmamba）直接继承了刚性网格扫描模式，导致扫描与极线几何根本性冲突。这种序列化过程中对相关像素的人为割裂，稀释了信息并分散了注意力，阻碍了对几何一致的极线线的关注，限制了特征提取精度。此外，LFSR在遮挡区域因空间-角度建模不足而受到阻碍。",
+        "modeling": "光场成像记录了光线的空间-角度分布，LFSR的核心在于准确建模空间-角度相关性并保持内在的4D光线相干性。在光场的EPI域中，深度的空间-角度一致性直接表现为由视差控制的独特线性结构。因此，模型设计需要打破传统空间与角度维度的解耦处理方式，建立深层的跨维度协同与早期交互。同时，针对序列建模方法，模型必须克服常规正交网格扫描的局限，使扫描轨迹能够自适应地沿着EPI的倾斜物理流形展开，从而实现几何感知的长距离特征聚合，确保全局4D几何一致性与高频细节的精确恢复。",
+        "method": "提出SMART网络，结合了角度优化的Transformer与斜率引导的Mamba。具体包含两个核心设计：1. 角度调制空间模块：利用基于Query-Key的注意力机制捕获视角内空间信息，并引入角度先验进行调制，以此桥接解耦间隙，增强空间-角度相关性与早期跨维度交互。2. 流形对齐轨迹模块：提出一种斜率引导的可变形扫描机制，该机制自适应地与光场视差结构对齐，替代了传统固定网格扫描。通过沿极线结构进行几何一致的序列建模，有效缓解了扫描与极线几何的不匹配，使状态空间模型能够聚焦于几何一致的极线，实现高效长程依赖与特征聚合。",
+        "occlusion": "论文材料提及LFSR任务受限于不充分的空间-角度建模，尤其在遮挡区域表现不佳。然而，论文未提出专门的视角互补、几何先验提取、遮挡掩码或特定的遮挡区域恢复机制。关于具体的遮挡处理或恢复机制，论文材料未说明。",
+        "experiments": "在五个基准数据集上进行了实验。SMART实现了当前最优（SOTA）性能，在重建精度上超越了以往方法，PSNR提升了0.42 dB，并显著减少了伪影，展现出在恢复复杂纹理和缓解几何不一致方面的鲁棒能力。至于具体使用的数据集名称、SSIM、LPIPS、模型参数量和运行速度等详细定量结果，论文材料未说明。",
+        "resources": "作者来自北京航空航天大学杭州国际创新创新学院。关于代码或数据集的公开链接，论文材料未说明。",
+        "limitations": "论文材料未说明明确的方法局限性。",
+        "insight": "光场图像的4D特性要求模型不仅具备长距离依赖建模能力，还需严格遵循其内在的几何物理规律（如EPI中的极线斜率结构）。传统的解耦建模或刚性网格扫描违背了光场的连续流形特征。本文通过“角度调制空间”实现跨维度的早期交互与深层协同，以及“斜率引导Mamba扫描”将序列模型与EPI极线几何对齐，证明了将状态空间模型与光场几何先验深度融合是提升LFSR性能、实现全局4D一致性并消除伪影的有效途径。几何对齐的自适应扫描机制或将成为光场序列建模的新范式。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/4",
+      "issue_number": 4,
+      "cover_url": "assets/previews/2607.00965.webp",
+      "first_seen": "20260705",
+      "last_seen": "20260705",
+      "appeared_dates": [
+        "20260705"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2606.24737",
+      "arxiv_id": "2606.24737v1",
+      "version": 1,
+      "title": "VSANet: View-aware Sparse Attention Network for Light Field Image Denoising",
+      "abstract": "Light field (LF) image denoising is challenging due to the high-dimensional structure of LF data. While noise is independent across sub-aperture images, scene content exhibits strong cross-view correlations. We introduce VSANet, a view-aware sparse attention network for LF denoising. Specifically, we propose a view-aware sparse attention (VSA) block that represents the 4D LF feature map as a unified spatial-angular token space and performs cross-view aggregation via locality-sensitive hashing-based sparse attention. This enables global feature interactions with linear complexity, effectively exploiting LF correlations across views and spatial locations. In addition, we design a feature refinement (FR) block to emphasize informative features in spatial, angular, and epipolar subspaces. The VSA and FR blocks are integrated within a sequential attention refinement module, forming the core of VSANet. Experiments demonstrate VSANet outperforms stateof-the-art LF denoising methods.",
+      "authors": [
+        "Gargi Panda",
+        "Soumitra Kundu",
+        "Saumik Bhattacharya",
+        "Aurobinda Routray"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-23T16:00:44Z",
+      "updated": "2026-06-23T16:00:44Z",
+      "pdf_url": "https://arxiv.org/pdf/2606.24737v1",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.1,
+      "rank_score": 0.885,
+      "evidence": "论文提出VSANet网络，利用视角感知稀疏注意力机制进行光场图像去噪。",
+      "report": {
+        "tldr": "VSANet提出了一种用于光场图像去噪的视图感知稀疏注意力网络。它将4D光场特征图表示为统一的空间-角度token序列，并利用局部敏感哈希（LSH）进行稀疏注意力计算，以线性复杂度实现全局跨视图特征聚合。结合空间、角度和极线子空间的特征细化模块，VSANet在多个基准数据集上超越了现有SOTA去噪方法，同时保持了计算效率。",
+        "problem": "光场（LF）图像去噪面临高维数据结构的挑战。在LF子孔径图像中，噪声是跨视图独立的，但场景内容表现出强烈的跨视图空间-角度相关性。传统方法依赖手工先验，难以适应复杂LF结构；现有基于深度学习的方法通常将LF数据分割为孤立的2D子空间，阻止了所有空间-角度位置的直接交互，限制了跨完整4D LF的长程依赖建模能力。",
+        "modeling": "4D LF图像包含S×T个SAIs，空间分辨率为H×W。含噪LF表示为Ln∈R^{S×T×H×W×3}，假设加性噪声在各视图间独立同分布且空间不相关。去噪目标是估计无噪LF Ld∈R^{S×T×H×W×3}。VSANet通过在包含四个互补LF子空间（空间SS、角度AS、水平极线EHS、垂直极线EVS）的统一表示上执行高效非局部聚合，利用视图间和视图内相关性恢复图像。",
+        "method": "VSANet首先在SS中通过卷积进行浅层特征提取并重塑回4D表示，然后通过G个堆叠的顺序提取注意力细化（SEAR）模块处理。每个SEAR包含三阶段：1) 顺序特征提取（SFE）：级联F个FE块，双分支在SS/AS和EHS/EVS域提取局部特征。2) 视图感知稀疏注意力（VSA）：将4D特征图重塑为长度N=S·T·H·W的统一token序列。采用局部敏感哈希（LSH）将相似token分入稀疏哈希桶，执行n_h轮哈希，每轮进行分块局部注意力计算，最后通过置信度加权聚合多轮输出，实现线性复杂度O(N·s)的全局跨视图非局部聚合。3) 特征细化（FR）：在SS、AS、EHS、EVS四个子空间使用CBAM模块增强判别性特征，融合后传至下一模块。",
+        "occlusion": "不适用。该论文的任务是光场图像去噪，未涉及去遮挡任务中的视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "在STFLytro（70训练/30测试）和EPFL（10测试，无微调）数据集上评估，采用5×5中心SAIs。噪声为零均值AWGN，σ=10, 20, 50。指标为PSNR和SSIM（LPIPS论文材料未说明）。在σ=50时，VSANet在STFLytro上PSNR/SSIM为37.34/0.9432，EPFL上为33.21/0.9408，均优于LFBM5D、DRLF、MSP、PFE和HLFRN。模型参数量为1142K，在532×364分辨率图像上运行时间为10.79秒。消融实验验证了VSA和FR模块及各超参数设置（如G=5, F=5）的有效性。",
+        "resources": "使用NVIDIA A40 GPU在PyTorch框架下进行实验。训练采用Adam优化器，10000个epoch，批大小为4，初始学习率2×10^-4（每2500epoch减半），裁剪大小32×32，L1损失。使用了Stanford和EPFL公开数据集。论文材料未说明是否开源代码。",
+        "limitations": "论文材料未明确列出具体局限性，但实验显示虽然增加SEAR模块数量（G=6）可略微提升性能，但会增加参数量和运行时间（如12.55秒），因此选择G=5以平衡效率。此外，虽然运行时间优于部分方法（如HLFRN的15.26秒），但相比较快的方法仍存在优化空间。未来工作提及可将VSA扩展至其他LF修复任务。",
+        "insight": "VSANet的核心洞察在于光场的信号-噪声不对称性：噪声独立于视图间，而场景内容具有强空间-角度相关性。通过将整个4D光场重塑为统一的token序列，打破了传统方法孤立子空间的限制。利用LSH稀疏注意力机制将全局注意力计算的二次复杂度O(N^2)降至线性O(N·s)，使得在4D全尺度上进行隐式跨视图非局部聚合在计算上变得可行，这为高维光场数据处理提供了高效范式。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/3",
+      "issue_number": 3,
+      "cover_url": "assets/previews/2606.24737.webp",
+      "first_seen": "20260628",
+      "last_seen": "20260628",
+      "appeared_dates": [
+        "20260628"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2606.19985",
+      "arxiv_id": "2606.19985v1",
+      "version": 1,
+      "title": "Vision-Reasoning-Guided Occlusion Removal from Light Fields",
+      "abstract": "Occlusion-robust scene recovery remains a major challenge in computational imaging, particularly in natural environments where dense foreground vegetation severely limits visibility. We propose a vision-reasoning-guided light field occlusion removal framework that combines the visibility recovery capability of light field integration (LFI) with the semantic reasoning capacity of vision-language models (VLMs). Multi-view observations are first integrated via LFI to suppress foreground occlusions and produce an initial visibility-enhanced representation. A VLM is then incorporated as a conditional semantic prior to restore degraded structures and recover fine details, guided by the observed measurements. To improve recovery consistency and reduce hallucination artifacts, we introduce a multi-sample fusion strategy that aggregates multiple generated hypotheses into a unified estimate. Experimental results on synthetic and real-world datasets demonstrate state-of-the-art performance, achieving the highest average SSIM across four synthetic light field benchmark scenes (4-Syn) and strong generalization across structured and unstructured acquisition settings. These results highlight the effectiveness of combining physical imaging constraints with vision-language reasoning for robust perception under severe occlusion, with applicability to search-and-rescue and exploratory robotic navigation.",
+      "authors": [
+        "Mohamed Youssef",
+        "Oliver Bimber"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-18T09:24:55Z",
+      "updated": "2026-06-18T09:24:55Z",
+      "pdf_url": "https://arxiv.org/pdf/2606.19985v1",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.85,
+      "experiment_score": 0.85,
+      "code_score": 0.1,
+      "rank_score": 0.8725,
+      "evidence": "提出结合光场积分与视觉推理的光场去遮挡框架以恢复遮挡场景",
+      "report": {
+        "tldr": "本文提出一种视觉推理引导的光场去遮挡框架，将光场积分（LFI）的物理可见性恢复能力与视觉语言模型（VLMs）的语义推理能力相结合。该方法通过LFI初步抑制前景遮挡，利用VLM作为条件语义先验恢复退化细节，并引入多样本融合策略减少幻觉。实验证明该方法在合成与真实数据集上达到SOTA，尤其适用于搜救和机器人导航等严重遮挡场景。",
+        "problem": "现有计算视觉感知系统在自然非结构化环境中（如密集植被遮挡）表现脆弱。遮挡鲁棒的场景恢复是计算成像领域的重大挑战。现有的单图像修复方法在面对严重遮挡时存在根本的病态问题，因为隐藏内容从未被传感器直接观测，过度依赖学习的语义先验会导致与真实场景不一致的幻觉结构，且通常需要难以在真实户外环境获取的预定义遮挡掩码。传统光场信号处理方法虽物理可解释，但存在残留模糊、抑制不完全和精细结构退化等问题。深度学习方法则受限于训练数据或先验能力。因此，如何在严重遮挡下结合物理观测与语义推理实现鲁棒感知是亟待解决的问题。",
+        "modeling": "该框架的建模核心在于将物理成像约束与视觉语言推理相结合。首先，多视角观测通过光场积分（LFI）模型进行整合，利用空间和角度信息的采样，在几何一致性的约束下对多视角冗余信息进行聚合，产生初始的可见性增强表示。随后，引入视觉语言模型（VLM）作为条件语义先验。VLM的建模目的不是无中生有，而是在初始物理恢复表示的基础上，受观测测量值引导，对退化的结构进行修复和细节恢复。为了优化这一过程，模型引入了多样本融合机制，将VLM生成的多个假设聚合为统一估计，从概率建模的角度降低了生成过程中的不确定性。",
+        "method": "1. 光场积分（LFI）：利用光场成像技术采样空间和角度信息。通过多视角冗余，使得在某些视点被遮挡的背景区域在其他视点中部分可见。采用大合成孔径和深度选择性重聚焦技术，利用几何一致性逐步抑制前景遮挡物，保留背景内容，生成初始可见性增强的表示。2. 视觉语言模型（VLM）引导恢复：不依赖预定义的遮挡掩码，而是将VLM作为条件语义先验。VLM在LFI生成的初始表示和原始观测数据的引导下，推理并恢复被物理积分过程模糊或退化的精细结构。3. 多样本融合策略：为了克服VLM生成中可能出现的幻觉伪影，对同一场景生成多个恢复假设。通过聚合这些多个假设，形成一个统一的最终估计，从而提高恢复的一致性，降低不确定性带来的视觉伪影。",
+        "occlusion": "该任务涉及去遮挡，其机制包含以下核心部分：1. 视角互补：利用光场多视角观测特性，当背景区域在某一个视角被遮挡时，可以通过其他视角进行补充观测，从而利用多视角冗余实现信息的互补恢复。2. 几何先验：通过大合成孔径和深度选择性重聚焦，利用场景的深度差异和几何一致性，将前景遮挡物与背景目标在积分过程中分离并抑制前景，保留背景辐射度。3. 遮挡掩码：与传统的单图像修复方法需要预定义遮挡掩码不同，本方法不需要在复杂户外环境中获取遮挡掩码，直接通过光场物理积分与VLM语义先验联合处理。4. 遮挡区域恢复机制：物理层面的LFI提供初始去遮挡视图，但可能存在细节退化；VLM在观测测量值引导下，作为语义先验对退化的遮挡区域结构进行细节恢复；最后通过多样本融合策略将多个恢复假设聚合，确保恢复内容与真实场景的几何和外观一致，减少幻觉。",
+        "experiments": "论文在合成和真实世界数据集上进行了实验评估。数据集：使用了四个合成光场基准场景（4-Syn）以及真实世界数据集。评价指标与结果：在4-Syn基准上取得了最高的平均SSIM（结构相似性），达到SOTA性能。同时，该方法在结构化和非结构化采集设置下展现出强大的泛化能力。其他指标如PSNR、LPIPS、参数量和推理速度：论文材料未说明。应用场景验证：实验结果支持该方法在搜救和探索性机器人导航等严重遮挡场景下的适用性。",
+        "resources": "论文材料未说明。",
+        "limitations": "论文材料未明确列出具体的局限性，但摘要中提到通过多样本融合策略来减少幻觉伪影，暗示在极端未观测区域中VLM的生成仍可能存在不确定性或幻觉风险。",
+        "insight": "本文的突出贡献在于构建了“物理成像约束+视觉语言推理”的双重驱动范式。底层视觉中严重的遮挡问题本质上是病态的，单纯依赖物理积分（LFI）会因混合前景与背景辐射导致细节退化，而单纯依赖深度学习语义先验会因缺乏观测而引入幻觉。将LFI提供的“物理观测证据”与VLM提供的“高级语义推理”结合，使得恢复过程既有几何物理的保真度，又有语义生成的合理性。多样本融合策略进一步从概率角度平滑了生成式模型的方差。这一思路对复杂非结构化环境下的计算成像、机器人视觉及无人系统感知具有深刻的启发意义，指出了多模态大模型与计算摄影学结合的新路径。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/2",
+      "issue_number": 2,
+      "cover_url": "assets/previews/2606.19985.webp",
+      "first_seen": "20260621",
+      "last_seen": "20260621",
+      "appeared_dates": [
+        "20260621"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2603.16243",
+      "arxiv_id": "2603.16243v1",
+      "version": 1,
+      "title": "RASLF: Representation-Aware State Space Model for Light Field Super-Resolution",
+      "abstract": "Current SSM-based light field super-resolution (LFSR) methods often fail to fully leverage the complementarity among various LF representations, leading to the loss of fine textures and geometric misalignments across views. To address these issues, we propose RASLF, a representation-aware state-space framework that explicitly models structural correlations across multiple LF representations. Specifically, a Progressive Geometric Refinement (PGR) block is created that uses a panoramic epipolar representation to explicitly encode multi-view parallax differences, thereby enabling integration across different LF representations. Furthermore, we introduce a Representation Aware Asymmetric Scanning (RAAS) mechanism that dynamically adjusts scanning paths based on the physical properties of different representation spaces, optimizing the balance between performance and efficiency through path pruning. Additionally, a Dual-Anchor Aggregation (DAA) module improves hierarchical feature flow, reducing redundant deeplayer features and prioritizing important reconstruction information. Experiments on various public benchmarks show that RASLF achieves the highest reconstruction accuracy while remaining highly computationally efficient.",
+      "authors": [
+        "Zeqiang Wei",
+        "Kai Jin",
+        "Kuan Song",
+        "Xiuzhuang Zhou",
+        "Wenlong Chen",
+        "Min Xu"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2026-03-17T08:28:00Z",
+      "updated": "2026-03-17T08:28:00Z",
+      "pdf_url": "https://arxiv.org/pdf/2603.16243v1",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.85,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.89,
+      "evidence": "标题和摘要明确指出该方法用于光场超分辨率（LFSR），并提出了多表示互补的状态空间模型。",
+      "report": {
+        "tldr": "RASLF是一种针对光场图像空间超分辨率（LFSR）的表征感知状态空间模型框架。针对现有SSM方法未能充分利用不同光场表征间互补性导致的纹理丢失与几何失准问题，该模型通过引入渐进几何细化模块（PGR）、表征感知非对称扫描机制（RAAS）和双锚点聚合模块（DAA），显式建模了多视角光场表征间的结构相关性。实验表明该方法在公共基准上实现了最高重建精度，并兼具极高的计算效率。",
+        "problem": "现有的基于状态空间模型（SSM）的光场图像超分辨率方法在处理高维光场数据时存在显著不足。首先，这些方法通常局限于单一的光场域，未能有效利用多种光场表征（如空间-角度表征与极线表征）之间的结构互补性，导致在重建过程中丢失精细纹理，并引发跨视图的几何失准。其次，当前方法多采用表征无关的配置，即为所有光场表征统一采用相同的扫描路径。然而，不同表征空间的物理属性存在固有差异：空间-角度纹理在各方向的依赖关系较为平衡，适合多方向扫描；而极线遵循明确的方向轨迹，部分扫描路径对于极线表征来说是冗余的。这种均匀的扫描策略不仅造成了不必要的计算开销，还降低了模型在高度结构化光场表征中的特征聚焦能力。此外，缺乏鲁棒的建模框架也使得现有方法难以通过简单的启发式聚合捕捉复杂的跨视图依赖和长程空间-角度关联。",
+        "modeling": "该工作将光场数据建模为包含空间强度与角度信息的高维结构，并强调其蕴含的丰富几何先验。为克服CNN局部感受野受限和Transformer二次计算复杂度的缺陷，模型选用具有线性计算复杂度且能建模长程依赖的SSM作为基础架构。在数据表征层面，模型不再局限于单一域，而是将碎片化的局部观测转化为全局连贯的几何空间，利用全景极线表征显式编码多视图视差差异。在序列化建模上，提出将扫描轨迹与不同光场表征的结构特性相对齐，通过非对称扫描机制在多方向与强方向性轨迹间寻找平衡。在特征流层面，采用层次化传播建模，通过双锚点机制过滤深层冗余，将计算预算聚焦于对重建最关键的特征线索上。",
+        "method": "论文提出了RASLF框架，核心包含三个关键模块。1) 渐进几何细化模块（PGR）与全景极线表征：利用全景极线表征将碎片化的局部约束转化为全局连贯的几何空间，促进显式的视差感知特征交互，从而实现不同光场表征间的有效整合。2) 表征感知非对称扫描机制（RAAS）：根据不同光场表征空间的物理属性动态调整扫描路径。针对空间-角度表征保留多方向扫描以捕获均衡依赖，针对极线表征则削减冗余路径。通过路径剪枝技术优化性能与效率的平衡，减少计算冗余并强化几何约束。3) 双锚点聚合模块（DAA）：用于调节层次化特征传播流，过滤掉深层网络中的冗余特征，使模型将计算预算集中于对图像重建至关重要的线索上。这三个模块协同工作，从几何空间转换、序列扫描优化到特征流控制，全面提升了光场超分的质量与效率。",
+        "occlusion": "不适用。该论文的任务为光场图像空间超分辨率，论文材料未说明涉及去遮挡任务，也未提及视角互补用于遮挡恢复、几何先验引导的遮挡掩码生成或特定的遮挡区域恢复机制。",
+        "experiments": "论文材料未说明具体的定量实验结果。摘要中仅定性地指出，在多个公共基准数据集上的广泛评估证实，RASLF在实现最高重建精度的同时，保持了极高的计算效率。由于提供的论文材料仅包含摘要与引言部分，缺乏实验部分的正文和数据表格，因此未能提供具体的PSNR、SSIM、LPIPS等客观评价指标数值，也未能提供具体的模型参数量和推理速度等可核验的数据。",
+        "resources": "论文材料未说明开源代码链接、预训练模型下载地址或数据集的详细统计信息。根据材料可知，该论文的作者包括Zeqiang Wei, Kai Jin, Kuan Song, Xiuzhuang Zhou, Wenlong Chen, Min Xu（通讯作者）。作者所属机构包括首都师范大学信息工程学院、Bigo Technology Pte. Ltd.、探者全球(苏州)人工智能科技有限公司以及北京邮电大学。论文的arXiv编号为2603.16243v1（提交于2026年3月17日）。",
+        "limitations": "论文材料未明确说明该模型或方法的具体局限性。但基于方法论推断，表征感知非对称扫描机制虽然能提升效率，但可能需要针对不同光场表征预先设计或动态学习特定的扫描路径剪枝策略，这增加了模型设计和实现的复杂性。另外，尽管全景极线表征能够转换几何空间，但其对极线几何估计的准确性可能有较强的依赖性，若输入光场存在严重的非朗伯特或噪声干扰，可能会影响全局几何连贯性的建立。",
+        "insight": "RASLF的核心洞察在于“表征感知”的引入。传统深度学习模型往往将光场数据视为通用的张量进行均匀处理，而本文深刻认识到光场不同表征空间（如空间-角度域与极线域）具有截然不同的物理和几何属性。极线表征具有强方向性，多方向扫描会带来冗余；而空间-角度表征则需求多方向扫描以捕获均衡依赖。基于此，模型打破了常规SSM的多方向均匀扫描范式，提出非对称扫描和路径剪枝，实现了计算效率与特征聚焦能力的双重提升。此外，通过全景极线表征将局部碎片化信息转换为全局几何空间，为显式视差感知提供了桥梁，这表明在底层视觉任务中，深度挖掘数据自身的物理先验并将其融入底层算子设计中，是突破性能与效率瓶颈的有效途径。双锚点聚合模块的引入则启示了深层特征冗余过滤对重建质量的关键作用。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/1",
+      "issue_number": 1,
+      "cover_url": "assets/previews/2603.16243.webp",
+      "first_seen": "20260322",
+      "last_seen": "20260322",
+      "appeared_dates": [
+        "20260322"
+      ],
+      "is_version_update": false
+    }
+  ],
   "reports": {
+    "20260104": [],
+    "20260111": [],
+    "20260118": [],
+    "20260125": [],
+    "20260201": [],
+    "20260208": [],
+    "20260215": [],
+    "20260222": [],
+    "20260301": [],
+    "20260308": [],
+    "20260315": [],
+    "20260322": [
+      "2603.16243"
+    ],
+    "20260329": [],
+    "20260405": [],
+    "20260412": [],
+    "20260419": [],
+    "20260426": [],
+    "20260503": [],
+    "20260510": [],
+    "20260517": [],
+    "20260524": [],
+    "20260531": [],
+    "20260607": [],
+    "20260614": [],
+    "20260621": [
+      "2606.19985"
+    ],
+    "20260628": [
+      "2606.24737"
+    ],
+    "20260705": [
+      "2607.00965"
+    ],
+    "20260712": [],
+    "20260719": [],
     "20260726": []
   }
 }
