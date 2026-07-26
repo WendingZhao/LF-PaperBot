@@ -43,7 +43,7 @@ def doctor_command(_args) -> int:
         try:
             reply = ArkClient(settings).complete(
                 "只回复字符串 LF-PAPERBOT-OK，不要输出其他内容。",
-                max_tokens=32,
+                max_tokens=512,
                 timeout=60,
                 retries=2,
             )
