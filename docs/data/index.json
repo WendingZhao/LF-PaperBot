@@ -1,7 +1,103 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-10T11:09:41.821823+08:00",
+  "updated_at": "2026-08-17T10:21:39.006244+08:00",
   "papers": [
+    {
+      "base_id": "2606.19985",
+      "arxiv_id": "2606.19985v2",
+      "version": 2,
+      "title": "Vision-Reasoning-Guided Occlusion Removal from Light Fields",
+      "abstract": "Occlusion-robust scene recovery remains a major challenge in computational imaging, particularly where dense vegetation severely limits visibility. We propose a visionreasoning-guided light field occlusion removal framework combining light field integration (LFI) with vision-language model (VLM) semantic reasoning. Multi-view observations are first integrated via LFI to suppress foreground occlusions, producing an initial visibility-enhanced representation, a VLM then acts as a conditional semantic prior to restore degraded structures and fine details. A multi-sample fusion strategy aggregates multiple generated hypotheses to improve consistency and reduce hallucination. Experimental results on synthetic and real-world datasets show state-of-the-art performance, achieving the highest average SSIM across four synthetic benchmark scenes (4-Syn) and strong generalization across structured and unstructured acquisition settings, with applicability to search-and-rescue and exploratory robotic navigation.",
+      "authors": [
+        "Mohamed Youssef",
+        "Oliver Bimber"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-06-18T09:24:55Z",
+      "updated": "2026-08-12T08:44:21Z",
+      "pdf_url": "https://arxiv.org/pdf/2606.19985v2",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.85,
+      "experiment_score": 0.85,
+      "code_score": 0.0,
+      "rank_score": 0.8675,
+      "evidence": "摘要提出一种视觉推理引导的光场去遮挡框架，通过多视角观测积分抑制前景遮挡。",
+      "report": {
+        "tldr": "提出一种结合光场积分（LFI）与视觉语言模型（VLM）语义推理的光场去遮挡框架。LFI先通过几何一致的多视角聚合抑制前景遮挡，VLM随后作为条件语义先验恢复退化结构与高频细节，多样本融合策略聚合多个生成假设以降低幻觉。在合成与真实数据集上达到SOTA，在4-Syn基准上取得最高平均SSIM，适用于搜索救援与机器人导航等场景。",
+        "problem": "在茂密植被等自然环境中，前景遮挡严重限制了场景可见性，场景恢复本质上是病态问题。单图像修复方法依赖语义先验，但被遮挡区域往往从未被任何视角直接观测，重建结果易与真实几何不一致并产生幻觉，且常需预定义遮挡掩码，在复杂户外环境中难以可靠获取。现有光场去遮挡方法分为两类：信号处理类利用几何一致性与合成孔径进行多视角积分，但存在残余模糊和不完全遮挡抑制；深度学习类利用视差与可见性线索分离前景遮挡物，但在严重遮挡下性能下降，对稀疏、噪声或非结构化视角配置泛化能力有限。VLM虽具备强语义推理与图像生成能力，但作为生成模型可能产生不受测量数据支持的幻觉内容。现有方法未联合利用LFI的物理几何约束与VLM的语义推理互补优势，在稀疏、部分观测下的感知一致性重建仍是开放挑战。",
+        "modeling": "将光场建模为四维表示，同时在空间域和角度域采样。多视角观测使背景区域在某些视角被遮挡但在其他视角可见，LFI利用此视角互补性进行几何一致的多视角聚合以抑制前景遮挡物，生成初始可见性增强表示。VLM以该表示为条件输入，作为语义先验对退化结构和高频细节进行恢复。多样本融合策略对VLM生成的多个假设进行聚合，提升一致性并抑制幻觉。整体建模思路为'物理积分约束生成空间、语义推理补全信息缺失'的两阶段范式。",
+        "method": "框架包含四个阶段：(1)从不同视角采集多视角图像；(2)可选的遮挡掩码预处理步骤抑制主要前景遮挡物，产生初始去遮挡表示；(3)LFI以几何一致方式聚合多视角观测，减轻残余遮挡并重建底层场景内容，产出初始可见性增强重建；(4)VLM对该重建进行细化，恢复高频细节、增强感知质量，生成最终无遮挡场景表示。多样本融合策略聚合多个VLM生成假设以提升一致性、降低幻觉。该流程将物理测量的几何约束与语义推理的生成能力串联，LFI提供几何一致的初始重建以约束VLM的生成空间，VLM的语义先验弥补LFI在严重遮挡区域的信息缺失。",
+        "occlusion": "视角互补：通过多视角采样利用空间和角度信息，背景区域在部分视角被遮挡但在其他视角可见，LFI通过几何一致的多视角聚合抑制前景遮挡物。几何先验：LFI基于几何一致性进行多视角积分与合成孔径处理。遮挡掩码：可选的遮挡掩码预处理步骤用于抑制主要前景遮挡物，产生初始去遮挡表示。遮挡区域恢复机制：VLM作为条件语义先验，对LFI输出进行细化，恢复退化结构与精细细节；多样本融合策略聚合多个生成假设以提升一致性并减少幻觉。该任务不涉及深度/视差估计，故EPI、焦点线索、代价体等深度估计相关机制不适用。",
+        "experiments": "数据集：合成数据集4-Syn（四个合成基准场景）及真实世界数据集。SSIM：在4-Syn上取得最高平均SSIM（具体数值论文材料未说明）。PSNR、LPIPS论文材料未说明。参数量与推理速度论文材料未说明。泛化性：在结构化与非结构化采集设置下均表现出强泛化能力。应用场景验证：搜索救援与探索性机器人导航。与现有单图像修复方法及光场去遮挡方法（信号处理类与深度学习类）对比，展示SOTA性能。",
+        "resources": "arXiv:2606.19985v2 [cs.CV]，2026年8月12日提交。资助：奥地利科学基金（FWF）Grant 32185-NBL 'Wide Synthetic Aperture Sampling'。作者单位：Johannes Kepler University Linz, Austria。代码与数据集链接论文材料未说明。",
+        "limitations": "论文材料未明确列出方法局限性。从方法描述可推断：VLM作为生成模型仍可能产生幻觉内容，虽通过多样本融合策略缓解但未完全消除；严重遮挡下部分场景区域可能从未被任何视角直接观测，恢复完全依赖语义先验，几何约束失效；可选遮挡掩码预处理在复杂户外环境中可能难以可靠获取；论文材料未说明计算开销与实时性。",
+        "insight": "该工作的核心创新在于将物理测量的几何约束（LFI）与语义推理的生成能力（VLM）解耦串联：LFI提供几何一致的初始重建以约束VLM生成空间，VLM语义先验弥补LFI在严重遮挡区域的信息缺失。多样本融合策略是控制VLM幻觉的关键机制。该框架展示了计算成像与大模型推理融合的新范式，对搜索救援、机器人导航等实际场景具有应用价值。未解决的问题包括VLM幻觉的完全消除、从未被观测区域的可靠恢复，以及计算效率与实时部署的可行性。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/2",
+      "issue_number": 2,
+      "cover_url": "assets/previews/2606.19985.webp",
+      "first_seen": "20260621",
+      "last_seen": "20260816",
+      "appeared_dates": [
+        "20260621",
+        "20260816"
+      ],
+      "is_version_update": true
+    },
+    {
+      "base_id": "2608.13949",
+      "arxiv_id": "2608.13949v1",
+      "version": 1,
+      "title": "Fast Implicit Neural Light Field Representation via Geometric Decomposition and Multi-Resolution Low-Rank Features",
+      "abstract": "Implicit neural representations provide a compact and continuous way to reconstruct dense light fields from sampled ray coordinates. However, fast light field reconstruction remains challenging because a light field is a high-dimensional signal with strong spatial-angular redundancy and structured disparity variations. Directly fitting 4D ray coordinates with a neural network often requires considerable optimization time to recover both view appearance and cross-view consistency. To address this issue, this paper proposes a fast implicit light field representation based on geometric decomposition and multi-resolution low-rank features. The proposed method decomposes a 4D light field into a horizontal disparity plane, a spatial texture plane, and a vertical disparity plane. Each plane is represented by a low-rank structure that combines a low-resolution 2D grid with the element-wise product of two high-resolution 1D line features at multiple resolution levels. The fused features are decoded by a lightweight multilayer perceptron to predict RGB values. Experiments on public light field datasets show that the proposed method achieves competitive reconstruction quality while providing a better trade-off among model parameters, training time, and inference efficiency.",
+      "authors": [
+        "Yao Guo",
+        "Ligen Shi",
+        "Shuchen Sun",
+        "Jun Qiu",
+        "Chang Liu"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-08-14T04:44:14Z",
+      "updated": "2026-08-14T04:44:14Z",
+      "pdf_url": "https://arxiv.org/pdf/2608.13949v1",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.82,
+      "evidence": "摘要明确提出基于几何分解和多分辨率低秩特征的快速隐式光场表示用于稠密光场重建。",
+      "report": {
+        "tldr": "本文提出一种基于几何分解和多分辨率低秩特征的快速隐式神经光场表示方法。该方法将4D光场分解为水平视差平面、空间纹理平面和垂直视差平面，每个平面采用低分辨率2D网格与高分辨率1D线特征乘积的多分辨率低秩结构表示，并由轻量级MLP解码预测RGB。实验表明，该方法在公开数据集上实现了极具竞争力的重建质量，并在模型参数量、训练时间和推理效率之间取得了更优的平衡。",
+        "problem": "光场是具有强空间-角度冗余和结构化视差变化的高维信号。直接使用神经网络拟合4D射线坐标以重建光场，通常需要大量的优化时间来恢复视图外观和跨视图一致性。现有的通用特征分解方法未针对光场的EPI几何特性进行专门设计，将4D坐标视为无结构输入导致优化效率低下，难以实现快速的光场重建与渲染。",
+        "modeling": "在标准的双平面参数化下，光线由四维坐标 r=(u,v,x,y) 表示，其中 为角度坐标， 为空间坐标。给定光场观测样本集 D={((u_i,v_i,x_i,y_i), c_i)}，模型旨在学习一个连续映射函数 F_Θ: r -> c，将光线坐标映射为RGB颜色值。由于光场坐标受视差耦合，模型摒弃了直接的无结构4D拟合，转而利用空间-角度几何耦合关系进行降维分解建模。",
+        "method": "1. 几何三平面分解：将4D光场分解为三个2D特征平面：水平视差平面 P_ux、空间纹理平面 P_xy 和垂直视差平面 P_vy。2. 多分辨率低秩平面表示：每个平面包含L个分辨率层级，每层结合低分辨率2D网格特征（通过双线性插值获取）与高分辨率1D线特征乘积（通过线性插值后进行元素级相乘获取）。3. 特征融合与解码：三平面提取的特征沿通道拼接，输入至隐藏层宽度为256的轻量级ReLU MLP中预测RGB颜色。4. 深度/视差处理：论文虽未将深度/视差估计作为独立任务输出，但明确利用了EPI几何先验和空间-角度对应关系（EPI线斜率反映场景视差，水平视差由 耦合，垂直视差由 耦合）作为先验设计特征平面。论文材料未说明深度/视差估计的常用误差指标。",
+        "occlusion": "不适用。本任务为光场重建与插值，未专门设计去遮挡机制（如视角互补、几何先验、遮挡掩码或遮挡区域恢复机制）。但论文在定性评估中提及，相较于基线方法，本方法在遮挡边界处产生更低的误差响应。",
+        "experiments": "1. 数据集：EPFL (10场景), INRIA Lytro (5场景), Stanford Gantry (2场景)，统一采用 9×9 光场设置。2. 重建质量：本方法取得了最佳的宏平均 PSNR (36.79 dB) 和 LPIPS (0.02)，SSIM 为 0.94。在 INRIA Lytro 上 PSNR 达 37.61 dB。3. 效率对比 (INRIA Lytro)：本方法参数量为 1.55M，训练时间 21 min，推理时间 8 s，显著优于 SIGNET (2.37M, 360 min, 20 s)、RSEN (1.40M, 180 min, 9 s) 和 RDF (0.66M, 72 min, 12 s)。4. 收敛速度：在 INRIA Lytro 达到相同目标 PSNR 平均仅需 1.7 min。5. 消融实验：在 INRIA Lytro 上验证了多分辨率、1D线特征乘积、2D网格均不可或缺，完整模型取得最佳 PSNR (37.61 dB)。6. 分辨率层级：在 Stanford Gantry 上测试显示 8 级分辨率效果最优 (PSNR 37.30 dB, SSIM 0.97, LPIPS 0.01, 训练耗时 21 min)。",
+        "resources": "论文材料未说明代码链接。实验硬件环境为 NVIDIA GeForce RTX 4090 GPU (24GB 内存)。软件环境基于 Python 3.12 和 PyTorch 2.8.0，并采用 CUDA 混合精度训练。",
+        "limitations": "在具有高度视角依赖非朗伯特效应的复杂场景中（如包含镜面反射和透明玻璃的 Tarot 场景），该方法仍会出现局部模糊和重影伪影。这表明此类复杂光学现象可能违反了所提低秩表示的假设，是当前方法的主要局限。",
+        "insight": "本文核心洞察在于将光场固有的EPI几何先验（即由视差引起的空间-角度坐标耦合）显式融入隐式神经表示的结构设计中。通过将高维4D光场拟合转化为三个几何相关的2D平面建模，并结合多分辨率低秩特征（低分辨率2D网格与高分辨率1D线特征乘积），大幅降低了特征网格的参数冗余与MLP的优化负担。这种结构化设计在不牺牲连续查询能力的前提下，实现了表征质量与计算效率的极佳平衡，为高效光场建模提供了新范式。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/8",
+      "issue_number": 8,
+      "cover_url": "assets/previews/2608.13949.webp",
+      "first_seen": "20260816",
+      "last_seen": "20260816",
+      "appeared_dates": [
+        "20260816"
+      ],
+      "is_version_update": false
+    },
     {
       "base_id": "2607.14941",
       "arxiv_id": "2607.14941v1",
@@ -144,52 +240,6 @@
       "last_seen": "20260628",
       "appeared_dates": [
         "20260628"
-      ],
-      "is_version_update": false
-    },
-    {
-      "base_id": "2606.19985",
-      "arxiv_id": "2606.19985v1",
-      "version": 1,
-      "title": "Vision-Reasoning-Guided Occlusion Removal from Light Fields",
-      "abstract": "Occlusion-robust scene recovery remains a major challenge in computational imaging, particularly in natural environments where dense foreground vegetation severely limits visibility. We propose a vision-reasoning-guided light field occlusion removal framework that combines the visibility recovery capability of light field integration (LFI) with the semantic reasoning capacity of vision-language models (VLMs). Multi-view observations are first integrated via LFI to suppress foreground occlusions and produce an initial visibility-enhanced representation. A VLM is then incorporated as a conditional semantic prior to restore degraded structures and recover fine details, guided by the observed measurements. To improve recovery consistency and reduce hallucination artifacts, we introduce a multi-sample fusion strategy that aggregates multiple generated hypotheses into a unified estimate. Experimental results on synthetic and real-world datasets demonstrate state-of-the-art performance, achieving the highest average SSIM across four synthetic light field benchmark scenes (4-Syn) and strong generalization across structured and unstructured acquisition settings. These results highlight the effectiveness of combining physical imaging constraints with vision-language reasoning for robust perception under severe occlusion, with applicability to search-and-rescue and exploratory robotic navigation.",
-      "authors": [
-        "Mohamed Youssef",
-        "Oliver Bimber"
-      ],
-      "categories": [
-        "cs.CV"
-      ],
-      "published": "2026-06-18T09:24:55Z",
-      "updated": "2026-06-18T09:24:55Z",
-      "pdf_url": "https://arxiv.org/pdf/2606.19985v1",
-      "tasks": [
-        "去遮挡"
-      ],
-      "relevance_score": 0.95,
-      "research_score": 0.85,
-      "experiment_score": 0.85,
-      "code_score": 0.1,
-      "rank_score": 0.8725,
-      "evidence": "提出结合光场积分与视觉推理的光场去遮挡框架以恢复遮挡场景",
-      "report": {
-        "tldr": "本文提出一种视觉推理引导的光场去遮挡框架，将光场积分（LFI）的物理可见性恢复能力与视觉语言模型（VLMs）的语义推理能力相结合。该方法通过LFI初步抑制前景遮挡，利用VLM作为条件语义先验恢复退化细节，并引入多样本融合策略减少幻觉。实验证明该方法在合成与真实数据集上达到SOTA，尤其适用于搜救和机器人导航等严重遮挡场景。",
-        "problem": "现有计算视觉感知系统在自然非结构化环境中（如密集植被遮挡）表现脆弱。遮挡鲁棒的场景恢复是计算成像领域的重大挑战。现有的单图像修复方法在面对严重遮挡时存在根本的病态问题，因为隐藏内容从未被传感器直接观测，过度依赖学习的语义先验会导致与真实场景不一致的幻觉结构，且通常需要难以在真实户外环境获取的预定义遮挡掩码。传统光场信号处理方法虽物理可解释，但存在残留模糊、抑制不完全和精细结构退化等问题。深度学习方法则受限于训练数据或先验能力。因此，如何在严重遮挡下结合物理观测与语义推理实现鲁棒感知是亟待解决的问题。",
-        "modeling": "该框架的建模核心在于将物理成像约束与视觉语言推理相结合。首先，多视角观测通过光场积分（LFI）模型进行整合，利用空间和角度信息的采样，在几何一致性的约束下对多视角冗余信息进行聚合，产生初始的可见性增强表示。随后，引入视觉语言模型（VLM）作为条件语义先验。VLM的建模目的不是无中生有，而是在初始物理恢复表示的基础上，受观测测量值引导，对退化的结构进行修复和细节恢复。为了优化这一过程，模型引入了多样本融合机制，将VLM生成的多个假设聚合为统一估计，从概率建模的角度降低了生成过程中的不确定性。",
-        "method": "1. 光场积分（LFI）：利用光场成像技术采样空间和角度信息。通过多视角冗余，使得在某些视点被遮挡的背景区域在其他视点中部分可见。采用大合成孔径和深度选择性重聚焦技术，利用几何一致性逐步抑制前景遮挡物，保留背景内容，生成初始可见性增强的表示。2. 视觉语言模型（VLM）引导恢复：不依赖预定义的遮挡掩码，而是将VLM作为条件语义先验。VLM在LFI生成的初始表示和原始观测数据的引导下，推理并恢复被物理积分过程模糊或退化的精细结构。3. 多样本融合策略：为了克服VLM生成中可能出现的幻觉伪影，对同一场景生成多个恢复假设。通过聚合这些多个假设，形成一个统一的最终估计，从而提高恢复的一致性，降低不确定性带来的视觉伪影。",
-        "occlusion": "该任务涉及去遮挡，其机制包含以下核心部分：1. 视角互补：利用光场多视角观测特性，当背景区域在某一个视角被遮挡时，可以通过其他视角进行补充观测，从而利用多视角冗余实现信息的互补恢复。2. 几何先验：通过大合成孔径和深度选择性重聚焦，利用场景的深度差异和几何一致性，将前景遮挡物与背景目标在积分过程中分离并抑制前景，保留背景辐射度。3. 遮挡掩码：与传统的单图像修复方法需要预定义遮挡掩码不同，本方法不需要在复杂户外环境中获取遮挡掩码，直接通过光场物理积分与VLM语义先验联合处理。4. 遮挡区域恢复机制：物理层面的LFI提供初始去遮挡视图，但可能存在细节退化；VLM在观测测量值引导下，作为语义先验对退化的遮挡区域结构进行细节恢复；最后通过多样本融合策略将多个恢复假设聚合，确保恢复内容与真实场景的几何和外观一致，减少幻觉。",
-        "experiments": "论文在合成和真实世界数据集上进行了实验评估。数据集：使用了四个合成光场基准场景（4-Syn）以及真实世界数据集。评价指标与结果：在4-Syn基准上取得了最高的平均SSIM（结构相似性），达到SOTA性能。同时，该方法在结构化和非结构化采集设置下展现出强大的泛化能力。其他指标如PSNR、LPIPS、参数量和推理速度：论文材料未说明。应用场景验证：实验结果支持该方法在搜救和探索性机器人导航等严重遮挡场景下的适用性。",
-        "resources": "论文材料未说明。",
-        "limitations": "论文材料未明确列出具体的局限性，但摘要中提到通过多样本融合策略来减少幻觉伪影，暗示在极端未观测区域中VLM的生成仍可能存在不确定性或幻觉风险。",
-        "insight": "本文的突出贡献在于构建了“物理成像约束+视觉语言推理”的双重驱动范式。底层视觉中严重的遮挡问题本质上是病态的，单纯依赖物理积分（LFI）会因混合前景与背景辐射导致细节退化，而单纯依赖深度学习语义先验会因缺乏观测而引入幻觉。将LFI提供的“物理观测证据”与VLM提供的“高级语义推理”结合，使得恢复过程既有几何物理的保真度，又有语义生成的合理性。多样本融合策略进一步从概率角度平滑了生成式模型的方差。这一思路对复杂非结构化环境下的计算成像、机器人视觉及无人系统感知具有深刻的启发意义，指出了多模态大模型与计算摄影学结合的新路径。"
-      },
-      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/2",
-      "issue_number": 2,
-      "cover_url": "assets/previews/2606.19985.webp",
-      "first_seen": "20260621",
-      "last_seen": "20260621",
-      "appeared_dates": [
-        "20260621"
       ],
       "is_version_update": false
     },
@@ -338,6 +388,10 @@
     ],
     "20260726": [],
     "20260802": [],
-    "20260809": []
+    "20260809": [],
+    "20260816": [
+      "2606.19985",
+      "2608.13949"
+    ]
   }
 }
