@@ -18,7 +18,7 @@
 
 ## 本地使用
 
-需要 Python 3.10+、Poppler（`pdftotext`、`pdftoppm`）和以下环境变量：
+需要 Python 3.10+、Poppler（`pdftotext`、`pdftoppm`）和以下环境变量。当前周更使用 DeepSeek 的 OpenAI-compatible 接口：
 
 ```powershell
 Copy-Item .env.example .env
@@ -45,12 +45,12 @@ python -m lf_paperbot prune [--apply]
 
 ## GitHub 配置
 
-1. 在仓库 Settings → Secrets and variables → Actions 中添加重新生成的 `ARK_API_KEY`。
+1. 在仓库 Settings → Secrets and variables → Actions 中添加 `DEEPSEEK_API_KEY`。Key 只保存在 GitHub Secret，不要写入 `.env`、代码或日志。
 2. Settings → Pages 将 Source 设为 **GitHub Actions**。
 3. 手动运行 `Weekly LF PaperBot`，确认 Issue、周报与索引生成。
-4. 需要历史数据时运行 `LF PaperBot Backfill`；它仅从仓库 Secret 读取 `ARK_API_KEY`。
+4. 需要历史数据时运行 `LF PaperBot Backfill`；它仅从仓库 Secret 读取 `DEEPSEEK_API_KEY`。
 
-`GITHUB_TOKEN` 使用 Actions 内置 token，无需额外创建 PAT。不要把 API Key 写入 `.env.example`、workflow、Issue 或日志。
+`GITHUB_TOKEN` 使用 Actions 内置 token，无需额外创建 PAT。DeepSeek 配置为：`DEEPSEEK_BASE_URL=https://api.deepseek.com`、`DEEPSEEK_MODEL=deepseek-v4-flash-vision-exp`。旧的 `ARK_*` 变量仍可作为迁移回退，但不再用于 GitHub Actions。
 
 ## 输出
 

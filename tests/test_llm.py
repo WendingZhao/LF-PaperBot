@@ -101,3 +101,18 @@ def test_invalid_json_fails_after_bounded_retries(monkeypatch, tmp_path):
     with pytest.raises(ArkError, match="valid JSON"):
         client.complete_json("test", json_retries=2)
     assert len(calls) == 2
+
+
+def test_deepseek_request_uses_openai_compatible_endpoint(monkeypatch, tmp_path):
+    captured = {}
+
+    def fake_urlopen(request, **_kwargs):
+        captured["url"] = request.full_url
+        captured["payload"] = json.loads(request.data.decode("utf-8"))
+        return FakeResponse("ok")
+
+    monkeypatch.setattr("lf_paperbot.llm.urllib.request.urlopen", fake_urlopen)
+    client = ArkClient(settings(tmp_path))
+    assert client.complete("test", retries=1) == "ok"
+    assert captured["url"] == "https://example.test/api/coding/v3/chat/completions"
+    assert captured["payload"]["model"] == "ark-code-latest"

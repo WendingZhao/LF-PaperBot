@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PATTERNS = {
     "Ark API key": re.compile(r"ark-[A-Za-z0-9][A-Za-z0-9_-]{20,}"),
+    "DeepSeek API key": re.compile(r"sk-[A-Za-z0-9][A-Za-z0-9_-]{20,}"),
     "GitHub token": re.compile(r"gh[pousr]_[A-Za-z0-9]{30,}"),
 }
 

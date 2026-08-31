@@ -32,9 +32,9 @@ jobs:
     timeout-minutes: 360
     env:
       GITHUB_TOKEN: ${{ github.token }}
-      ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
-      ARK_BASE_URL: https://ark.cn-beijing.volces.com/api/coding/v3
-      ARK_MODEL: ark-code-latest
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      DEEPSEEK_BASE_URL: https://api.deepseek.com
+      DEEPSEEK_MODEL: deepseek-v4-flash-vision-exp
       LF_GITHUB_REPO: WendingZhao/LF-PaperBot
       LF_MAX_DAILY_PAPERS: "5"
       LF_LOOKBACK_DAYS: "7"

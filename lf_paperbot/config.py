@@ -45,12 +45,17 @@ class Settings:
 
 
 def load_settings() -> Settings:
-    base_url = _env("ARK_BASE_URL", "https://ark.cn-beijing.volces.com/api/coding/v3").rstrip("/")
+    # DeepSeek is the current provider; retain ARK_* as a migration fallback.
+    base_url = (
+        _env("DEEPSEEK_BASE_URL")
+        or _env("ARK_BASE_URL")
+        or "https://api.deepseek.com"
+    ).rstrip("/")
     return Settings(
         root=ROOT,
         ark_base_url=base_url,
-        ark_api_key=_env("ARK_API_KEY"),
-        ark_model=_env("ARK_MODEL", "ark-code-latest"),
+        ark_api_key=_env("DEEPSEEK_API_KEY") or _env("ARK_API_KEY"),
+        ark_model=_env("DEEPSEEK_MODEL") or _env("ARK_MODEL") or "deepseek-v4-flash-vision-exp",
         github_token=_env("GITHUB_TOKEN"),
         github_repo=_env("LF_GITHUB_REPO", "WendingZhao/LF-PaperBot"),
         max_daily_papers=max(1, min(20, int(_env("LF_MAX_DAILY_PAPERS", "5")))),

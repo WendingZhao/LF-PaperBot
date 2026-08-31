@@ -15,6 +15,8 @@ class ArkError(RuntimeError):
 
 
 class ArkClient:
+    """OpenAI-compatible client, kept under its historical name for compatibility."""
+
     def __init__(self, settings: Settings):
         self.settings = settings
         self.endpoint = f"{settings.ark_base_url}/chat/completions"
@@ -29,7 +31,7 @@ class ArkClient:
         retries: int = 3,
     ) -> str:
         if not self.settings.ark_api_key:
-            raise ArkError("ARK_API_KEY is required")
+            raise ArkError("DEEPSEEK_API_KEY is required (ARK_API_KEY is accepted for legacy configs)")
         payload = {
             "model": self.settings.ark_model,
             "messages": [{"role": "user", "content": prompt}],

@@ -23,9 +23,9 @@ def doctor_command(_args) -> int:
     settings = load_settings()
     checks: list[tuple[str, bool, str]] = [
         ("Python", sys.version_info >= (3, 10), sys.version.split()[0]),
-        ("ARK_API_KEY", bool(settings.ark_api_key), "set" if settings.ark_api_key else "missing"),
+        ("DEEPSEEK_API_KEY", bool(settings.ark_api_key), "set" if settings.ark_api_key else "missing"),
         ("GITHUB_TOKEN", bool(settings.github_token), "set" if settings.github_token else "missing"),
-        ("ARK_BASE_URL", settings.ark_base_url.startswith("https://"), settings.ark_base_url),
+        ("DEEPSEEK_BASE_URL", settings.ark_base_url.startswith("https://"), settings.ark_base_url),
     ]
     for binary in ("pdftotext", "pdftoppm"):
         location = shutil.which(binary)
@@ -38,7 +38,7 @@ def doctor_command(_args) -> int:
     checks.append(("PyGithub", github_ok, "installed" if github_ok else "missing"))
 
     api_ok = False
-    api_detail = "skipped because ARK_API_KEY is missing"
+    api_detail = "skipped because DEEPSEEK_API_KEY is missing"
     if settings.ark_api_key:
         try:
             reply = ArkClient(settings).complete(
@@ -88,7 +88,7 @@ def run_command(args) -> int:
     if missing:
         raise RuntimeError(f"missing system dependencies: {', '.join(missing)}")
     if not settings.ark_api_key or not settings.github_token:
-        raise RuntimeError("ARK_API_KEY and GITHUB_TOKEN are required")
+        raise RuntimeError("DEEPSEEK_API_KEY and GITHUB_TOKEN are required")
     result = run_pipeline(settings, _parse_date(args.date), force=args.force)
     if result["failed"]:
         print(f"WARN: {len(result['failed'])} paper(s) failed; successful artifacts were preserved")
@@ -101,7 +101,7 @@ def backfill_command(args) -> int:
     if missing:
         raise RuntimeError(f"missing system dependencies: {', '.join(missing)}")
     if not settings.ark_api_key or not settings.github_token:
-        raise RuntimeError("ARK_API_KEY and GITHUB_TOKEN are required")
+        raise RuntimeError("DEEPSEEK_API_KEY and GITHUB_TOKEN are required")
     start_date = _parse_date(args.start)
     end_date = _parse_date(args.end) or datetime.now(settings.timezone).date()
     result = run_backfill(settings, start_date, end_date, force=args.force)
