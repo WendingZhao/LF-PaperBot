@@ -1,7 +1,56 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-08-17T10:21:39.006244+08:00",
+  "updated_at": "2026-08-31T19:34:12.543547+08:00",
   "papers": [
+    {
+      "base_id": "2608.23175",
+      "arxiv_id": "2608.23175v1",
+      "version": 1,
+      "title": "Neighbor-Aware View Synthesis for Restoring Missing Views in Light-Field Camera Arrays",
+      "abstract": "In light-field (LF) imaging systems, dense spatial sampling from a camera array enables powerful post-capture capabilities such as refocusing and depth estimation. However, real-world LF capture is often affected by hardware malfunctions, where one or more cameras in the array fail, leading to missing sub-aperture images and degraded reconstruction quality. This paper addresses the problem of defective or missing view restoration in light-field camera arrays. We propose a novel generative framework that synthesizes the absent views by exploiting information from a carefully selected subset of neighboring cameras. These selected images, along with a positional encoding map indicating both their locations and the desired target view, are fed into a conditional Generative Adversarial Network (cGAN) trained to generate the missing viewpoint in a geometrically consistent manner. Extensive experiments on synthetic and real-world LF datasets demonstrate that our method produces visually plausible and photometrically accurate reconstructions, outperforming baselines for view interpolation both quantitatively and qualitatively. The proposed framework thus offers a robust and efficient solution for fault-tolerant light-field image acquisition.",
+      "authors": [
+        "Sakshi Goel",
+        "Ayush Goyal",
+        "K S Venkatesh",
+        "Koteswar Rao Jerripothula"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-08-24T12:23:27Z",
+      "updated": "2026-08-24T12:23:27Z",
+      "pdf_url": "https://arxiv.org/pdf/2608.23175v1",
+      "tasks": [
+        "角度超分",
+        "重建与插值"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.88,
+      "evidence": "标题表明用于恢复缺失视图的邻域感知视图合成，摘要明确利用相机阵列相邻视角生成缺失的亚孔径图像。",
+      "report": {
+        "tldr": "基于cGAN和4个自适应邻居视图，利用位置编码图与3D-2D融合生成器恢复光场相机阵列缺失视角，在自建与MPI数据集上优于平均插值基线。",
+        "problem": "光场相机阵列中的硬件故障会导致一个或多个相机失效，形成缺失子孔径图像（SAI），破坏4D光场结构，并降低重聚焦、深度估计等后处理质量。本文解决该缺失视图恢复问题：在仅有部分可用邻居视图条件下，合成缺失视角。",
+        "modeling": "将4个所选邻居SAIs堆叠为输入张量X∈R^(4×3×H×W)，并生成一个低分辨率单通道位置编码图P，编码邻居与目标视角的坐标关系。以条件GAN为框架，生成器G以(X,P)为条件，输出目标视角I_t；判别器D以邻居均值图与生成图/真值拼接为输入，进行局部真实性判别。",
+        "method": "自适应邻居选择：在曼哈顿距离内（1到10）随机选择正负方向或对角线方向的4个邻居，形成plus或x配置。位置编码图作为显式几何先验。生成器采用3D-2D融合U-Net：先通过3D卷积（核4×4×4，步幅1,2,2）将4个视角压缩为特征F∈R^(64×H/2×W/2)，再将位置编码上采样至64×64并经过2层2D卷积，在第一个2D下采样层后与中间特征拼接（通道128+16=144），后续沿用U-Net编码器-解码器与跳跃连接。训练损失包括对抗损失、曼哈顿距离加权的L1和SSIM损失、基于VGG-19的感知损失、以及基于TEED的边缘损失（双重损失：加权交叉熵与追踪损失）。",
+        "occlusion": "不适用（论文材料未涉及去遮挡机制）。",
+        "experiments": "自建数据集：121个光场场景，通过精密滚珠丝杠2D位移平台单相机移动采集，51×51视角，水平步距2mm、垂直4mm；同时使用MPI Light Field Intrinsic Dataset。训练在NVIDIA RTX A6000上进行200轮，Adam优化器，学习率2e-4，β=(0.5,0.999)，80/20划分。主要结果：在自建数据集上，所提模型SSIM=0.7572、PSNR=24.24、LPIPS=0.1023；基线（四个输入平均）为SSIM=0.6519、PSNR=19.58、LPIPS=0.2582。在MPI数据集上，所提模型SSIM=0.7006、PSNR=22.51、LPIPS=0.1184；基线为SSIM=0.6337、PSNR=21.12、LPIPS=0.2778。消融显示：3D U-Net单独训练SSIM/PSNR/LPIPS分别为0.6792/13.73/0.2421；加PatchGAN后PSNR提升至23.61但LPIPS变差；再加位置编码侧输入后SSIM、LPIPS显著改善（自建数据集0.7244/0.1430）；完整模型最佳。论文材料未提供模型参数量和推理速度。",
+        "resources": "论文材料未提供代码链接或模型权重；资源包括自建121场景LF数据集和MPI Light Field Intrinsic Dataset [13]。",
+        "limitations": "论文材料未明确讨论局限性；但MPI数据集的SSIM（0.7006）低于自建数据集（0.7572），说明复杂场景性能仍有差距。",
+        "insight": "核心洞见是：邻居视图共享相似角度属性，合理选择4个邻居并结合显式位置编码，可以在不依赖全视角输入或深度估计的情况下，生成几何一致、视觉自然的光场缺失视图。3D-2D融合设计有效压缩多视角信息，位置编码的几何先验是SSIM和LPIPS改善的关键。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/9",
+      "issue_number": 9,
+      "cover_url": "assets/previews/2608.23175.webp",
+      "first_seen": "20260830",
+      "last_seen": "20260830",
+      "appeared_dates": [
+        "20260830"
+      ],
+      "is_version_update": false
+    },
     {
       "base_id": "2606.19985",
       "arxiv_id": "2606.19985v2",
@@ -392,6 +441,9 @@
     "20260816": [
       "2606.19985",
       "2608.13949"
+    ],
+    "20260830": [
+      "2608.23175"
     ]
   }
 }
