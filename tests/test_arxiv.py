@@ -3,6 +3,8 @@ from __future__ import annotations
 import urllib.parse
 from datetime import date
 from types import SimpleNamespace
+from urllib.error import HTTPError
+import io
 
 from lf_paperbot import arxiv
 
@@ -40,3 +42,28 @@ def test_fetch_submitted_range_uses_server_date_query(monkeypatch):
     assert "submittedDate:[202601010000 TO 202601312359]" in query
     assert "cat:cs.GR" in query
     assert 'all:"sub-aperture image"' in query
+
+
+def test_read_url_retries_transient_406_and_sets_atom_headers(monkeypatch):
+    responses = [
+        HTTPError("https://example.test", 406, "not acceptable", {}, io.BytesIO()),
+        type("Response", (), {
+            "__enter__": lambda self: self,
+            "__exit__": lambda self, *_args: False,
+            "read": lambda self: b"ok",
+        })(),
+    ]
+    captured = {}
+
+    def fake_urlopen(request, **_kwargs):
+        captured.update(request.headers)
+        response = responses.pop(0)
+        if isinstance(response, Exception):
+            raise response
+        return response
+
+    monkeypatch.setattr(arxiv.urllib.request, "urlopen", fake_urlopen)
+    monkeypatch.setattr(arxiv.time, "sleep", lambda _seconds: None)
+    assert arxiv._read_url("https://example.test", "LF-PaperBot/test", retries=2) == b"ok"
+    assert captured["Accept"].startswith("application/atom+xml")
+    assert captured["Accept-encoding"] == "identity"

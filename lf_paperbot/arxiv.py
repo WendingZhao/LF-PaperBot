@@ -31,15 +31,25 @@ def _read_url(url: str, user_agent: str, timeout: int = 90, retries: int = 4) ->
     last_error: Exception | None = None
     for attempt in range(retries):
         try:
-            request = urllib.request.Request(url, headers={"User-Agent": user_agent})
+            request = urllib.request.Request(
+                url,
+                headers={
+                    "User-Agent": user_agent,
+                    "Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.1",
+                    "Accept-Encoding": "identity",
+                },
+            )
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return response.read()
         except HTTPError as exc:
             last_error = exc
-            if exc.code not in {429, 500, 502, 503, 504} or attempt == retries - 1:
+            # arXiv occasionally returns 406 while its API edge is rate-limiting
+            # or negotiating content. Treat it as transient and retry with the
+            # explicit Atom Accept header above.
+            if exc.code not in {406, 429, 500, 502, 503, 504} or attempt == retries - 1:
                 raise
             retry_after = exc.headers.get("Retry-After", "")
-            delay = int(retry_after) if retry_after.isdigit() else min(60, 3 * 2**attempt)
+            delay = int(retry_after) if retry_after.isdigit() else min(60, 5 * 2**attempt)
             time.sleep(delay)
         except (URLError, TimeoutError) as exc:
             last_error = exc
