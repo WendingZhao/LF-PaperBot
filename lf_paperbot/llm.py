@@ -57,6 +57,11 @@ class ArkClient:
                     request_id = response.headers.get("x-request-id", "-")
                     data = json.loads(response.read().decode("utf-8"))
                 content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+                if isinstance(content, list):
+                    content = "".join(
+                        part.get("text", "") if isinstance(part, dict) else str(part)
+                        for part in content
+                    )
                 if not isinstance(content, str) or not content.strip():
                     raise ArkError(f"empty response (request_id={request_id})")
                 return content.strip()

@@ -50,7 +50,7 @@ python -m lf_paperbot prune [--apply]
 3. 手动运行 `Weekly LF PaperBot`，确认 Issue、周报与索引生成。
 4. 需要历史数据时运行 `LF PaperBot Backfill`；它仅从仓库 Secret 读取 `DEEPSEEK_API_KEY`。
 
-`GITHUB_TOKEN` 使用 Actions 内置 token，无需额外创建 PAT。DeepSeek 配置为：`DEEPSEEK_BASE_URL=https://api.deepseek.com`、`DEEPSEEK_MODEL=deepseek-v4-flash-vision-exp`。旧的 `ARK_*` 变量仍可作为迁移回退，但不再用于 GitHub Actions。
+`GITHUB_TOKEN` 使用 Actions 内置 token，无需额外创建 PAT。DeepSeek 配置为：`DEEPSEEK_BASE_URL=https://api.deepseek.com`、`DEEPSEEK_MODEL=deepseek-flash`。旧的 `ARK_*` 变量仍可作为迁移回退，但不再用于 GitHub Actions。
 
 ## 输出
 

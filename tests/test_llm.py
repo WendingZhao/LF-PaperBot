@@ -44,6 +44,14 @@ class FakeResponse:
         return self.body
 
 
+class ListContentResponse(FakeResponse):
+    def __init__(self):
+        self.headers = {"x-request-id": "test-request"}
+        self.body = json.dumps(
+            {"choices": [{"message": {"content": [{"type": "text", "text": "ok"}]}}]}
+        ).encode()
+
+
 @pytest.mark.parametrize("status", [429, 500, 503])
 def test_retries_transient_http_errors(monkeypatch, tmp_path, status):
     responses = [
@@ -116,3 +124,8 @@ def test_deepseek_request_uses_openai_compatible_endpoint(monkeypatch, tmp_path)
     assert client.complete("test", retries=1) == "ok"
     assert captured["url"] == "https://example.test/api/coding/v3/chat/completions"
     assert captured["payload"]["model"] == "ark-code-latest"
+
+
+def test_accepts_structured_message_content(monkeypatch, tmp_path):
+    monkeypatch.setattr("lf_paperbot.llm.urllib.request.urlopen", lambda *_args, **_kwargs: ListContentResponse())
+    assert ArkClient(settings(tmp_path)).complete("test", retries=1) == "ok"

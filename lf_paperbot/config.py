@@ -55,7 +55,7 @@ def load_settings() -> Settings:
         root=ROOT,
         ark_base_url=base_url,
         ark_api_key=_env("DEEPSEEK_API_KEY") or _env("ARK_API_KEY"),
-        ark_model=_env("DEEPSEEK_MODEL") or _env("ARK_MODEL") or "deepseek-v4-flash-vision-exp",
+        ark_model=_env("DEEPSEEK_MODEL") or _env("ARK_MODEL") or "deepseek-flash",
         github_token=_env("GITHUB_TOKEN"),
         github_repo=_env("LF_GITHUB_REPO", "WendingZhao/LF-PaperBot"),
         max_daily_papers=max(1, min(20, int(_env("LF_MAX_DAILY_PAPERS", "5")))),
