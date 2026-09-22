@@ -67,3 +67,29 @@ def test_read_url_retries_transient_406_and_sets_atom_headers(monkeypatch):
     assert arxiv._read_url("https://example.test", "LF-PaperBot/test", retries=2) == b"ok"
     assert captured["Accept"].startswith("application/atom+xml")
     assert captured["Accept-encoding"] == "identity"
+
+
+def test_read_url_uses_http_export_fallback_after_https_406(monkeypatch):
+    calls = []
+    responses = [
+        HTTPError("https://export.arxiv.org/api/query", 406, "not acceptable", {}, io.BytesIO()),
+        type("Response", (), {
+            "__enter__": lambda self: self,
+            "__exit__": lambda self, *_args: False,
+            "read": lambda self: b"ok",
+        })(),
+    ]
+
+    def fake_urlopen(request, **_kwargs):
+        calls.append(request.full_url)
+        response = responses.pop(0)
+        if isinstance(response, Exception):
+            raise response
+        return response
+
+    monkeypatch.setattr(arxiv.urllib.request, "urlopen", fake_urlopen)
+    assert arxiv._read_url("https://export.arxiv.org/api/query?start=0", "test", retries=2) == b"ok"
+    assert calls == [
+        "https://export.arxiv.org/api/query?start=0",
+        "http://export.arxiv.org/api/query?start=0",
+    ]

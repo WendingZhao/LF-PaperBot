@@ -17,6 +17,17 @@ ATOM = {
     "arxiv": "http://arxiv.org/schemas/atom",
     "opensearch": "http://a9.com/-/spec/opensearch/1.1/",
 }
+
+
+def _arxiv_fallback_url(url: str) -> str | None:
+    """Return the export.arXiv HTTP endpoint used when an edge rejects HTTPS."""
+    if url.startswith("https://export.arxiv.org/"):
+        return "http://export.arxiv.org/" + url[len("https://export.arxiv.org/") :]
+    if url.startswith("https://arxiv.org/"):
+        return "http://export.arxiv.org/" + url[len("https://arxiv.org/") :]
+    return None
+
+
 LIGHT_FIELD_QUERY = (
     'all:"light field" OR all:"light-field" OR all:plenoptic OR '
     'all:"spatial-angular" OR all:"epipolar plane image" OR '
@@ -29,10 +40,12 @@ CATEGORY_QUERY = (
 
 def _read_url(url: str, user_agent: str, timeout: int = 90, retries: int = 4) -> bytes:
     last_error: Exception | None = None
+    request_url = url
+    fallback_used = False
     for attempt in range(retries):
         try:
             request = urllib.request.Request(
-                url,
+                request_url,
                 headers={
                     "User-Agent": user_agent,
                     "Accept": "application/atom+xml, application/xml;q=0.9, */*;q=0.1",
@@ -48,6 +61,11 @@ def _read_url(url: str, user_agent: str, timeout: int = 90, retries: int = 4) ->
             # explicit Atom Accept header above.
             if exc.code not in {406, 429, 500, 502, 503, 504} or attempt == retries - 1:
                 raise
+            fallback_url = _arxiv_fallback_url(request_url)
+            if exc.code == 406 and fallback_url and not fallback_used:
+                request_url = fallback_url
+                fallback_used = True
+                continue
             retry_after = exc.headers.get("Retry-After", "")
             delay = int(retry_after) if retry_after.isdigit() else min(60, 5 * 2**attempt)
             time.sleep(delay)
