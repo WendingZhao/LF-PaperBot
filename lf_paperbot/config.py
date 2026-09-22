@@ -64,7 +64,7 @@ def load_settings() -> Settings:
         arxiv_api_url=_env("ARXIV_API_URL", "https://export.arxiv.org/api/query"),
         arxiv_user_agent=_env(
             "ARXIV_USER_AGENT",
-            "LF-PaperBot/0.1 (+https://github.com/WendingZhao/LF-PaperBot)",
+            "LF-PaperBot/0.1 (https://github.com/WendingZhao/LF-PaperBot; mailto:wendingzhao@users.noreply.github.com)",
         ),
         temp_dir=ROOT / "tmp",
     )

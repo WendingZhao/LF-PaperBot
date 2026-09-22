@@ -89,7 +89,9 @@ def fetch_recent(settings: Settings, target_date: date | None = None) -> list[Ca
     params = {
         "search_query": query,
         "start": 0,
-        "max_results": 300,
+        # Keep requests below arXiv's edge-size threshold; larger pages can
+        # intermittently receive HTTP 406 even when the query is valid.
+        "max_results": 100,
         "sortBy": "lastUpdatedDate",
         "sortOrder": "descending",
     }
@@ -120,7 +122,7 @@ def fetch_submitted_range(settings: Settings, start_date: date, end_date: date) 
         raise ValueError("start_date must not be after end_date")
     submitted = f"submittedDate:[{start_date:%Y%m%d}0000 TO {end_date:%Y%m%d}2359]"
     query = f"({CATEGORY_QUERY}) AND ({LIGHT_FIELD_QUERY}) AND {submitted}"
-    page_size = 300
+    page_size = 100
     start = 0
     output: list[Candidate] = []
     while True:
