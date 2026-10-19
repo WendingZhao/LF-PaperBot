@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:41:11.420223+08:00",
+  "updated_at": "2026-10-19T12:42:21.752608+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -537,13 +537,14 @@
       "pdf_url": "https://arxiv.org/pdf/2601.21179v2",
       "source": "arxiv",
       "source_url": "https://arxiv.org/abs/2601.21179v2",
-      "doi": "",
+      "doi": "10.1109/tip.2026.3705197",
       "venue": "",
       "publication_year": 0,
       "publication_month": "",
       "date_basis": "published",
       "sources": [
-        "arxiv"
+        "arxiv",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -573,6 +574,411 @@
       "last_seen": "20260131",
       "appeared_dates": [
         "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d266c85575ebc0383f54",
+      "arxiv_id": "crossref-d266c85575ebc0383f54",
+      "version": 1,
+      "title": "Preconditioned stochastic gradient Langevin dynamics for light field denoising",
+      "abstract": "",
+      "authors": [
+        "Haiyan Guo",
+        "Haimiao Zhang",
+        "Jun Qiu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.sigpro.2025.110097",
+      "doi": "10.1016/j.sigpro.2025.110097",
+      "venue": "Signal Processing",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.1,
+      "rank_score": 0.71,
+      "evidence": "标题明确为光场去噪的随机梯度朗之万动力学方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/167",
+      "issue_number": 167,
+      "cover_url": "",
+      "first_seen": "20260131",
+      "last_seen": "20260131",
+      "appeared_dates": [
+        "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-233421d2c3135d83b9db",
+      "arxiv_id": "crossref-233421d2c3135d83b9db",
+      "version": 1,
+      "title": "A novel EPI-guided network with progressive fusion for light field reconstruction",
+      "abstract": "",
+      "authors": [
+        "Baoshuai Wang",
+        "Yilei Chen",
+        "Xinpeng Huang",
+        "Ping An"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.eswa.2025.128964",
+      "doi": "10.1016/j.eswa.2025.128964",
+      "venue": "Expert Systems with Applications",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.1,
+      "rank_score": 0.71,
+      "evidence": "标题为EPI引导的渐进融合光场重建网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/168",
+      "issue_number": 168,
+      "cover_url": "",
+      "first_seen": "20260131",
+      "last_seen": "20260131",
+      "appeared_dates": [
+        "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-897345662d9c0773affb",
+      "arxiv_id": "crossref-897345662d9c0773affb",
+      "version": 1,
+      "title": "Low-Bitrate Light Field Video Compression Through Key Sequences Encoding and Joint Reconstruction Network",
+      "abstract": "",
+      "authors": [
+        "Huan Li",
+        "Xinpeng Huang",
+        "Yilei Chen",
+        "Chao Yang",
+        "Mounir Kaaniche",
+        "Qiuwen Zhang",
+        "Ping An"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2025.3598022",
+      "doi": "10.1109/tcsvt.2025.3598022",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复",
+        "重建与插值"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.6,
+      "experiment_score": 0.35,
+      "code_score": 0.1,
+      "rank_score": 0.6875,
+      "evidence": "标题涉及低码率光场视频压缩及联合重建网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/169",
+      "issue_number": 169,
+      "cover_url": "",
+      "first_seen": "20260131",
+      "last_seen": "20260131",
+      "appeared_dates": [
+        "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-dc30fa2ddbcaf8d1c149",
+      "arxiv_id": "crossref-dc30fa2ddbcaf8d1c149",
+      "version": 1,
+      "title": "ARMLF: Anomalous region representation learning for multi-exposure fused light field image quality assessment",
+      "abstract": "",
+      "authors": [
+        "Guanglong Liao",
+        "Gangyi Jiang",
+        "Linwei Zhu",
+        "Yeyao Chen",
+        "Yueli Cui",
+        "Ting Luo",
+        "Haiyong Xu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.eswa.2025.128843",
+      "doi": "10.1016/j.eswa.2025.128843",
+      "venue": "Expert Systems with Applications",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.55,
+      "experiment_score": 0.3,
+      "code_score": 0.1,
+      "rank_score": 0.67,
+      "evidence": "标题为多曝光融合光场图像质量评价的异常区域表示学习。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/170",
+      "issue_number": 170,
+      "cover_url": "",
+      "first_seen": "20260131",
+      "last_seen": "20260131",
+      "appeared_dates": [
+        "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-9549ffe65c869491a9de",
+      "arxiv_id": "crossref-9549ffe65c869491a9de",
+      "version": 1,
+      "title": "Physically–Guided Angular–Spatial Transformer for Light Field Disparity Estimation",
+      "abstract": "Abstract Depth estimation from light-field images is a physics-constrained inverse problem in computational optics. Under the two-plane parameterization, disparity-based reconstruction provides a physically grounded interpretation of angular parallax in densely sampled multi-view observations. However, traditional model-based reconstructions with hand-crafted costs and heuristic regularizers are often fragile under model deviations, especially near depth discontinuities and fine structures. We propose a reconstruction framework that integrates the physical model of light-field formation with a learning-based optimizer. Its core is an Angular—Spatial Transformer (AST) that addresses two aspects of the inverse problem: angular attention enforces ray consistency across views, while spatial attention imposes intra-view coherence as an adaptive regularizer to preserve sharp boundaries. We further construct a disparity-indexed cost volume via dilation-controlled angular sampling and perform coarse-to-fine residual refinement. Experiments on the 4D Light Field Benchmark show state-of-the-art performance: our method achieves an average MSE$\\times$100 of 1.15 (2.5% improvement over 1.18) and reduces BadPix$_{0.07}$ to 2.803 (4.2% decrease from 2.927), while ranking second at BadPix$_{0.01}$. These gains, particularly at depth boundaries, validate robust light-field depth reconstruction with preserved physical interpretability and competitive efficiency.",
+      "authors": [
+        "Zhiheng Zhou",
+        "Zhixin Yang",
+        "Xiyuan Tao",
+        "Binhong Li"
+      ],
+      "categories": [],
+      "published": "2026-01-21",
+      "updated": "2026-01-21",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1088/1674-1056/ae3b30",
+      "doi": "10.1088/1674-1056/ae3b30",
+      "venue": "Chinese Physics B",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.86,
+      "evidence": "提出角度—空间Transformer结合光场成像物理模型，通过角度注意力强制跨视角光线一致性，在4D光场基准上实现视差估计SOTA。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。该文面向光场图像视差估计，将光场成像的物理模型与学习型优化器结合，提出角—空间 Transformer（AST）：角向注意力约束跨视角光线一致性，空间注意力作为自适应正则项约束单视角内相干性以保持边界；并通过膨胀控制的角度采样构建视差索引代价体，进行由粗到细的残差细化。在 4D Light Field Benchmark 上报告了当前最优的平均 MSE×100 与 BadPix 指标。",
+        "problem": "仅基于公开摘要，未读取全文。光场深度估计被视为计算光学中的物理约束反问题：在双平面参数化下，基于视差的 reconstruction 为密集采样多视角观测中的角度视差提供具有物理依据的解释。问题在于传统基于模型的重建依赖手工设计的代价函数与启发式正则项，在模型偏差下较为脆弱，尤其在深度不连续处与精细结构附近容易失效。论文因此希望在保留物理可解释性的同时提升边界与细节处的鲁棒性。",
+        "modeling": "仅基于公开摘要，未读取全文。建模上沿用光场形成的物理模型与双平面参数化，将视差作为连接角度视差与场景深度的核心变量，把深度/视差估计表述为受物理约束的反问题，并用学习型优化器替代手工代价与启发式正则。摘要提到构建“视差索引的代价体”（disparity-indexed cost volume），并通过膨胀控制的角度采样（dilation-controlled angular sampling）获得角度采样；随后进行由粗到细的残差细化。关于 EPI 斜率、焦点线索、遮挡边界显式建模、代价体具体维度与聚合方式，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。核心模块为 Angular—Spatial Transformer（AST），针对反问题的两个方面：角向注意力（angular attention）在视角之间施加光线一致性约束，空间注意力（spatial attention）作为自适应正则项施加单视角内相干性，以保持锐利边界。流程上先以膨胀控制的角度采样构建视差索引代价体，再以由粗到细的残差细化得到最终视差/深度。网络层数、注意力具体形式、损失函数、训练策略与推理细节论文材料未说明。",
+        "occlusion": "仅基于公开摘要，未读取全文。论文材料未说明显式的遮挡掩码、遮挡区域恢复机制或视角互补的遮挡处理策略；摘要仅提及角向注意力强制跨视角光线一致性、空间注意力保持边界，以及在深度边界处取得增益，但未给出针对遮挡的专门建模。",
+        "experiments": "仅基于公开摘要，未读取全文。实验在 4D Light Field Benchmark 上进行，报告平均 MSE×100 为 1.15，相对 1.18 提升 2.5%；BadPix_{0.07} 降至 2.803，相对 2.927 下降 4.2%；BadPix_{0.01} 排名第二。摘要称在深度边界处增益尤为明显，并强调具有竞争力的效率。数据集具体合成/真实划分、训练测试场景数、PSNR、SSIM、LPIPS、参数量、运行时间与硬件平台等论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码、模型权重、数据链接或复现所需的具体资源；仅提及方法具有“competitive efficiency”，但未给出参数量、FLOPs、帧率或显存占用等量化资源信息。",
+        "limitations": "仅基于公开摘要，未读取全文。可确认的局限信息有限：摘要未报告 PSNR、SSIM、LPIPS 等常用指标，也未说明参数量与速度的量化结果；未说明遮挡处理机制；未说明在真实光场数据上的泛化表现；未说明对稀疏角度采样或大视差范围的适用性。上述方面的具体限制论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作的启示在于把光场形成的物理模型与学习型优化器结合：用角向注意力显式表达跨视角光线一致性，用空间注意力充当自适应正则项以保护深度边界，并以膨胀控制的角度采样构建视差索引代价体、配合由粗到细残差细化。这一“物理引导 + 注意力正则”的思路可能有助于在保持可解释性的同时改善不连续区域的视差估计；但其在遮挡、真实数据与效率方面的实际表现需全文与复现实验进一步核验，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/165",
+      "issue_number": 165,
+      "cover_url": "",
+      "first_seen": "20260125",
+      "last_seen": "20260125",
+      "appeared_dates": [
+        "20260125"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-12d73ddf83f532f3c2a2",
+      "arxiv_id": "crossref-12d73ddf83f532f3c2a2",
+      "version": 1,
+      "title": "TriORU2-Net++: Attention-Guided Three-StageU2-Net++ for Light Field Occlusion Removal",
+      "abstract": "Abstract We introduce TriORU2-Net++, a novel three-stage architecture designed to address the persistent challenge of occlusion removal in light-field (LF) images by leveraging adaptive attention-guided feature integration and progressive hierarchical reconstruction. Unlike existing methods that struggle to fully exploit spatial hierarchies and adaptively restore occluded regions across scales, our model incorporates a ResASPP-AttFPN feature extractor, which integrates Residual Atrous Spatial Pyramid Pooling (ResASPP) with a spatial attention-enhanced Feature Pyramid Network (AttFPN) to selectively fuse multiscale features while emphasizing salient spatial cues essential for occlusion localization. The core of our framework is a tri-stage U2-Net++ reconstruction module, which performs progressive restoration through three hierarchically connected encoder-decoder stages of decreasing depth (4-level, 3-level, and 2-level), each built on VGG-based blocks and dense skip connections to recover increasingly refined background content. To further enhance detail preservation and structural consistency, we introduce a residual feature refiner (RFR) that consolidates residual cues and sharpens the boundaries of objects. Extensive experiments show that our method outperforms state-of-the-art (SOTA) approaches in both quantitative metrics and visual quality.",
+      "authors": [
+        "Mostafa Farouk Senussi",
+        "Mahmoud Abdalla",
+        "Mahmoud SalahEldin Kasem",
+        "Mohamed Mahmoud",
+        "Hyun-Soo Kang"
+      ],
+      "categories": [],
+      "published": "2026-01-19",
+      "updated": "2026-01-19",
+      "pdf_url": "https://link.springer.com/content/pdf/10.1186/s40537-026-01457-x.pdf",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.21203/rs.3.rs-7599592/v1",
+      "doi": "10.21203/rs.3.rs-7599592/v1",
+      "venue": "Journal of Big Data",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.2,
+      "rank_score": 0.825,
+      "evidence": "提出三阶段U2-Net++架构，利用自适应注意力引导特征融合与渐进式分层重建，专门解决光场图像遮挡去除问题。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出 TriORU2-Net++，一种面向光场图像去遮挡的三阶段网络：先用 ResASPP-AttFPN 提取并选择性融合多尺度特征，再以 4级、3级、2级逐级变浅的 U2-Net++ 编码器—解码器进行渐进式背景重建，最后用残差特征精修器（RFR）强化细节与物体边界；摘要称其在定量指标和视觉质量上优于现有 SOTA。",
+        "problem": "仅基于公开摘要，未读取全文。论文针对光场图像中的遮挡去除问题。摘要指出，现有方法难以充分利用空间层级信息，也难以在不同尺度上自适应地恢复被遮挡区域，因此遮挡区域的多尺度定位与背景内容渐进恢复仍是持续存在的挑战。摘要未说明具体应用场景（如合成遮挡、真实遮挡、前景物体移除等），也未给出遮挡类型、遮挡比例或数据采集条件的定义。",
+        "modeling": "仅基于公开摘要，未读取全文。模型由三部分组成：ResASPP-AttFPN 特征提取器，将残差空洞空间金字塔池化（ResASPP）与带空间注意力增强的特征金字塔网络（AttFPN）结合，用于多尺度特征的选择性融合并突出对遮挡定位关键的空间显著线索；核心为三阶段 U2-Net++ 重建模块，由三个层级相连、深度递减（4级、3级、2级）的编码器—解码器阶段组成，各阶段基于 VGG 块与密集跳跃连接，逐步恢复更精细的背景内容；末端为残差特征精修器（RFR），整合残差线索并锐化物体边界。摘要未说明输入的光场表示形式（如子孔径图像阵列、宏像素、EPI 等）、角度与空间维度的具体组织方式，也未给出损失函数与训练策略。",
+        "method": "仅基于公开摘要，未读取全文。方法流程可概括为：输入光场图像后，由 ResASPP-AttFPN 进行多尺度特征提取与注意力引导融合，强调遮挡定位所需的显著空间线索；随后进入三阶段 U2-Net++ 重建，按 4级→3级→2级的递减深度逐级进行编码—解码，并借助密集跳跃连接在阶段间传递多尺度信息，实现由粗到细的背景内容恢复；最后由 RFR 汇聚残差特征、锐化边界，提升细节保持与结构一致性。摘要未说明各阶段之间特征如何传递与融合的具体算子、注意力模块的具体形式、训练数据构造方式及推理流程细节。",
+        "occlusion": "仅基于公开摘要，未读取全文。摘要强调通过空间注意力增强的多尺度特征融合来突出“对遮挡定位至关重要的显著空间线索”，并以三阶段渐进重建恢复被遮挡区域的背景内容，RFR 用于锐化物体边界。但摘要未明确说明是否使用视角互补信息、几何先验（如光场角度—空间对应、视差一致性）、显式遮挡掩码，也未说明遮挡区域恢复的具体机制（如跨视角聚合、可见视角选择或置信度加权）。因此这些细节论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅笼统声称“大量实验表明本方法在定量指标和视觉质量上均优于 SOTA”，未给出任何数据集名称、对比方法、PSNR、SSIM、LPIPS 数值、参数量或运行速度。因此具体实验设置与结果数值论文材料未说明，无法核验其性能提升幅度。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提及参数量、计算量（FLOPs）、推理时间、硬件平台、训练时长或代码/数据是否公开，故复现所需资源信息论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可核验的边界是：三阶段结构含 4级、3级、2级多个编码器—解码器与 VGG 块、密集跳跃连接及 RFR，摘要未报告其计算开销与实时性；对遮挡类型、遮挡比例、视角数量与视差范围的适用性未说明；注意力与多尺度融合在极端遮挡或弱纹理区域的表现亦无材料支持。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的思路是：将遮挡去除拆解为“注意力引导的多尺度特征选择”与“深度递减的渐进式重建”两个环节，用阶段间层级递减降低冗余并逐级细化背景，再用残差精修专门处理边界与细节；这一“先定位、再渐进恢复、后边界精修”的组织方式对光场去遮挡具有结构设计参考价值。但其相对现有方法的具体增益、对光场角度信息的利用程度及效率代价，均需全文实验与消融结果验证，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/166",
+      "issue_number": 166,
+      "cover_url": "",
+      "first_seen": "20260125",
+      "last_seen": "20260125",
+      "appeared_dates": [
+        "20260125"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-a137bc293deadf8e1b69",
+      "arxiv_id": "crossref-a137bc293deadf8e1b69",
+      "version": 1,
+      "title": "Light Field Reconstruction Using Multi-orientation Epipolar Plane Images",
+      "abstract": "Light field reconstruction is one of the most important techniques for future glass-free 3D media production. However, current techniques suffer from low view-consistency and fixed patterns of view-trajectory. This article presents the 3D Multi-orientation Epipolar Plane Image (MOEPI) representation for high-quality light field reconstruction with both the inter-view and extra-view settings. Each layer in MOEPI is composed of EPI lines with a fixed orientation. To infer the MOEPI, a new Multi-reference Focal Stack (MRFS) intermediate representation is proposed. The optimization of MOEPI could be regarded as the problem of the most-focused content extraction from the MRFS. This optimization is implemented with a 3D U-shaped network. We also propose the LPIPS-EPI metric for evaluating the view-consistency. Experiments on light fields with both high and low signal-to-noise ratios demonstrate that the proposed MOEPI representation could synthesize high-quality light fields especially in occlusion or un-captured areas.",
+      "authors": [
+        "Yaning Li",
+        "Hao Zhu",
+        "Bing-Kun Bao"
+      ],
+      "categories": [],
+      "published": "2026-01-12",
+      "updated": "2026-01-12",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1145/3777898",
+      "doi": "10.1145/3777898",
+      "venue": "ACM Transactions on Multimedia Computing, Communications, and Applications",
+      "publication_year": 2026,
+      "publication_month": "2026-01",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.7,
+      "code_score": 0.2,
+      "rank_score": 0.835,
+      "evidence": "提出3D多方向极平面图像表示用于高质量光场重建，并合成遮挡或未捕获区域的高质量光场。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出3D多方向极平面图像（MOEPI）表示，用于视角间与额外视角两种光场重建设置，并引入多参考焦点堆栈（MRFS）中间表示，通过3D U形网络从MRFS中提取最聚焦内容来优化MOEPI，同时提出LPIPS-EPI指标评估视角一致性；摘要称其在高/低信噪比光场上均能合成高质量光场，尤其在遮挡或未捕获区域。",
+        "problem": "仅基于公开摘要，未读取全文。光场重建是未来裸眼3D媒体生产的重要技术，但现有技术存在视角一致性低和视角轨迹模式固定两个问题。论文旨在同时支持视角间（inter-view）与额外视角（extra-view）两种重建设置，并提升遮挡或未捕获区域的重建质量。",
+        "modeling": "仅基于公开摘要，未读取全文。论文提出3D多方向极平面图像（MOEPI）表示，其中每一层由固定方向的EPI线组成；为推断MOEPI，进一步提出多参考焦点堆栈（MRFS）作为中间表示，并将MOEPI优化建模为从MRFS中提取最聚焦内容的问题。摘要未说明EPI方向数量、MRFS构建方式、代价体或空间—角度对应关系的具体形式。",
+        "method": "仅基于公开摘要，未读取全文。方法核心包括：构建3D MOEPI表示，每层由固定方向EPI线组成；引入MRFS中间表示；将MOEPI优化视为从MRFS中进行最聚焦内容提取；使用3D U形网络实现该优化；提出LPIPS-EPI指标用于评估视角一致性。摘要未说明网络层数、训练损失、输入输出维度、视角轨迹生成方式及是否使用几何先验或遮挡掩码。",
+        "occlusion": "仅基于公开摘要，未读取全文。摘要明确称所提MOEPI表示在遮挡或未捕获区域能合成高质量光场，但未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制的具体设计。因此，涉及遮挡恢复的机制细节论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。实验在高信噪比与低信噪比光场上进行，摘要称所提MOEPI表示能合成高质量光场，尤其在遮挡或未捕获区域。摘要未给出具体数据集名称、PSNR、SSIM、LPIPS数值、参数量或运行速度；这些实验细节论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源、训练时长或复现步骤。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确讨论方法局限性。由于仅有摘要，无法核验其在不同视角轨迹、真实噪声条件、大基线或复杂遮挡场景下的泛化能力；相关限制论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。MOEPI以固定方向EPI线分层建模，将光场重建转化为从MRFS中提取最聚焦内容，为同时处理视角间与额外视角重建提供了统一表示思路；LPIPS-EPI指标则针对视角一致性评估提出。上述 insight 仅来自摘要表述，具体有效性需全文实验验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/164",
+      "issue_number": 164,
+      "cover_url": "",
+      "first_seen": "20260118",
+      "last_seen": "20260118",
+      "appeared_dates": [
+        "20260118"
       ],
       "is_version_update": false
     },
@@ -9726,10 +10132,19 @@
     ],
     "20260104": [],
     "20260111": [],
-    "20260118": [],
-    "20260125": [],
+    "20260118": [
+      "crossref-a137bc293deadf8e1b69"
+    ],
+    "20260125": [
+      "crossref-9549ffe65c869491a9de",
+      "crossref-12d73ddf83f532f3c2a2"
+    ],
     "20260131": [
-      "2601.21179"
+      "2601.21179",
+      "crossref-d266c85575ebc0383f54",
+      "crossref-233421d2c3135d83b9db",
+      "crossref-897345662d9c0773affb",
+      "crossref-dc30fa2ddbcaf8d1c149"
     ],
     "20260201": [],
     "20260208": [],
@@ -10884,6 +11299,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 58
       }
     },
     "20260111": {
@@ -10894,6 +11313,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 58
       }
     },
     "20260118": {
@@ -10904,6 +11327,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 58
       }
     },
     "20260125": {
@@ -10914,6 +11341,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 58
       }
     },
     "20260131": {
@@ -10924,6 +11355,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 58
       }
     },
     "20260201": {
