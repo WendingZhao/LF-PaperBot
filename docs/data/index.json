@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:12:54.816296+08:00",
+  "updated_at": "2026-10-19T12:14:14.534617+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -622,6 +622,127 @@
       "is_version_update": false
     },
     {
+      "base_id": "2509.14761",
+      "arxiv_id": "2509.14761v1",
+      "version": 1,
+      "title": "Subjective Evaluation of Low Distortion Coded Light Fields with View Synthesis",
+      "abstract": "Light field technology is a powerful imaging method that captures both the intensity and direction of light rays in a scene, enabling the reconstruction of 3D information and supporting a range of unique applications. However, light fields produce vast amounts of data, making efficient compression essential for their practical use. View synthesis plays a key role in light field technology by enabling the generation of new views, yet its interaction with compression has not been fully explored. In this work, a subjective analysis of the effect of view synthesis on light field compression is conducted. To achieve this, a sparsely sampled light field is created by dropping views from an original light field. Both light fields are then encoded using JPEG Pleno and VVC. View synthesis is then applied to the compressed sampled light field to reconstruct the same number of views as the original. The subjective evaluation follows the proposed JPEG AIC-3 test methodology designed to assess the quality of high-fidelity compressed images. This test consists of two test stimuli displayed side-by-side, each alternating between an original and a coded view, creating a flicker effect on both sides. The user must choose which side has the stronger flicker and, therefore, the lower quality. Using these subjective results, a selection of metrics is validated.",
+      "authors": [
+        "Daniela Saraiva",
+        "Joao Prazeres",
+        "Manuela Pereira",
+        "Antonio M. G. Pinheiro"
+      ],
+      "categories": [
+        "eess.IV"
+      ],
+      "published": "2025-09-18T09:08:54Z",
+      "updated": "2025-09-18T09:08:54Z",
+      "pdf_url": "https://arxiv.org/pdf/2509.14761v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2509.14761v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.7,
+      "code_score": 0.0,
+      "rank_score": 0.765,
+      "evidence": "摘要表明该工作对压缩光场结合视图合成进行主观质量评价并验证指标。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文；以下依据所给论文材料。该工作研究低失真编码光场中视点合成对压缩质量的影响，采用 JPEG AIC-3 闪烁式主观评价，并用主观结果验证客观指标。",
+        "problem": "光场同时记录光线强度与方向，可重建三维信息并支持重聚焦等应用，但数据量巨大，压缩是实用化关键。视点合成可从有限视点重建或预测新视点，但其与压缩的交互尚未充分探索；在高保真场景下，压缩和视点合成导致的失真难以被受试者察觉，且缺乏面向角度一致性的质量模型。论文材料未说明具体应用场景与失真类型分布。",
+        "modeling": "材料给出的评价流程是：从原始光场丢弃部分视点得到稀疏采样光场；原始光场与稀疏光场均用 JPEG Pleno 和 VVC 编码；对编码后的稀疏光场应用选定的视点合成方法，重建到与原始光场相同数量的视点；再比较原始视点与编码/合成视点。该流程属于主观质量评价实验设计，论文材料未给出显式数学模型、采样矩阵、丢弃比例、合成算法细节或编码参数。",
+        "method": "主观实验遵循 JPEG AIC-3 高保真压缩图像质量评价方法：屏幕上并排显示两个刺激，每个刺激在原始视点与编码视点之间交替，形成闪烁效应；受试者选择闪烁更强、即质量更低的一侧。该方法针对接近视觉无损的高质量图像，利用交替显示放大原本难以察觉的失真。材料还说明将新获得的主观结果与客观结果建立相关性，并验证一组指标；但具体配对比较分析、受试者筛选、显示条件和统计模型论文材料未说明。",
+        "occlusion": "不适用：该工作聚焦低失真编码光场的质量评价，而非去遮挡任务；论文材料未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。视点合成可能涉及新视点生成，但材料未展开其遮挡处理。",
+        "experiments": "实验使用原始光场构造稀疏采样光场，并以 JPEG Pleno 与 VVC 编码，再对编码稀疏光场做视点合成；主观评价采用 JPEG AIC-3 闪烁比较。论文材料未说明数据集名称、空间与角度分辨率、视点数量、丢弃策略、码率点、视点合成方法、受试者人数和实验环境。材料未报告 PSNR、SSIM、LPIPS、参数量或速度数值；仅提及客观评价中曾使用 MS-SSIM 等指标，并称将主观结果与客观结果建立相关性，但具体指标列表、相关系数和性能排序论文材料未说明。因此无法核验各方法的定量优劣。",
+        "resources": "论文材料未说明代码链接、模型权重、编码配置文件、主观实验原始数据、运行平台或复现步骤；也未给出参数量、计算复杂度、编码/解码时间和视点合成耗时。仅可确认使用了 JPEG Pleno、VVC 和 JPEG AIC-3 方法，具体版本与参数设置论文材料未说明。",
+        "limitations": "仅依据所给材料，无法评估方法的统计显著性和泛化性：缺少数据集、受试者规模、置信区间、客观指标数值和码率条件。材料未说明视点合成与压缩的交互机理，也未说明角度一致性失真的具体表征。由于是主观质量评价研究，不涉及去遮挡和深度/视差估计；相关几何先验、EPI、焦点线索或代价体均未说明。上述缺口限制了对结论的定量复现。",
+        "insight": "该材料提示：在高保真光场压缩中，常规客观指标可能难以充分反映视点合成引入的角度不一致和微弱失真；闪烁式成对主观比较可用于暴露接近视觉无损条件下的质量差异，并为主观—客观指标相关性验证提供数据。后续报告应补充数据集、码率点、合成方法、受试者统计和 PSNR/SSIM/LPIPS 等数值，以便核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/21",
+      "issue_number": 21,
+      "cover_url": "assets/previews/2509.14761.webp",
+      "first_seen": "20250921",
+      "last_seen": "20250921",
+      "appeared_dates": [
+        "20250921"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2509.04824",
+      "arxiv_id": "2509.04824v1",
+      "version": 1,
+      "title": "Exploring Non-Local Spatial-Angular Correlations with a Hybrid Mamba-Transformer Framework for Light Field Super-Resolution",
+      "abstract": "Recently, Mamba-based methods, with its advantage in long-range information modeling and linear complexity, have shown great potential in optimizing both computational cost and performance of light field image super-resolution (LFSR). However, current multi-directional scanning strategies lead to inefficient and redundant feature extraction when applied to complex LF data. To overcome this challenge, we propose a Subspace Simple Scanning (Sub-SS) strategy, based on which we design the Subspace Simple Mamba Block (SSMB) to achieve more efficient and precise feature extraction. Furthermore, we propose a dual-stage modeling strategy to address the limitation of state space in preserving spatial-angular and disparity information, thereby enabling a more comprehensive exploration of non-local spatial-angular correlations. Specifically, in stage I, we introduce the Spatial-Angular Residual Subspace Mamba Block (SA-RSMB) for shallow spatial-angular feature extraction; in stage II, we use a dual-branch parallel structure combining the Epipolar Plane Mamba Block (EPMB) and Epipolar Plane Transformer Block (EPTB) for deep epipolar feature refinement. Building upon meticulously designed modules and strategies, we introduce a hybrid Mamba-Transformer framework, termed LFMT. LFMT integrates the strengths of Mamba and Transformer models for LFSR, enabling comprehensive information exploration across spatial, angular, and epipolar-plane domains. Experimental results demonstrate that LFMT significantly outperforms current state-of-the-art methods in LFSR, achieving substantial improvements in performance while maintaining low computational complexity on both real-word and synthetic LF datasets.",
+      "authors": [
+        "Haosong Liu",
+        "Xiancheng Zhu",
+        "Huanqiang Zeng",
+        "Jianqing Zhu",
+        "Jiuwen Cao",
+        "Junhui Hou"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published": "2025-09-05T05:50:38Z",
+      "updated": "2025-09-05T05:50:38Z",
+      "pdf_url": "https://arxiv.org/pdf/2509.04824v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2509.04824v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.85,
+      "experiment_score": 0.85,
+      "code_score": 0.0,
+      "rank_score": 0.8675,
+      "evidence": "论文提出混合Mamba-Transformer框架LFMT，利用空间—角度与EPI相关进行光场图像超分，并在真实和合成数据集上优于SOTA。",
+      "report": {
+        "tldr": "论文提出 LFMT，一种混合 Mamba-Transformer 的光场图像空间超分框架，核心是用 Sub-SS/SSMB 降低多方向扫描的冗余，并以双阶段建模分别提取浅层空间—角度特征和深层极平面特征。摘要称其在真实与合成光场数据集上显著优于当前先进方法并保持低计算复杂度；但材料未给出具体数据集名称、PSNR、SSIM、LPIPS、参数量和速度数值。",
+        "problem": "现有基于 Mamba 的 LFSR 方法虽具长程建模和线性复杂度优势，但多方向扫描策略用于复杂光场数据时存在低效和冗余特征提取；CNN 受局部感受野限制，难以充分挖掘空间—角度相关性；Transformer 受自注意力二次复杂度限制，难以构建更深网络提取高频信息。此外，材料指出状态空间在保持空间—角度和视差信息方面存在局限，需要更全面的非局部空间—角度相关性建模。",
+        "modeling": "论文将 LFSR 视为对光场空间、角度及极平面域非局部相关性的联合建模。Stage I 用 SA-RSMB 提取浅层空间—角度特征；Stage II 用 EPMB 与 EPTB 双分支并行进行深层极平面特征精炼，从空间、角度和极平面域探索信息。材料提及 preserving spatial-angular and disparity information 和 epipolar plane，但未给出深度/视差估计流程、EPI 具体构建公式、焦点线索、遮挡边界、代价体或空间—角度对应关系细节；任务不是深度/视差估计，故常用视差误差指标不适用且论文材料未说明。",
+        "method": "方法包括 Subspace Simple Scanning（Sub-SS）策略及 Subspace Simple Mamba Block（SSMB），用于更高效精确地提取特征；双阶段建模策略中，Stage I 引入 Spatial-Angular Residual Subspace Mamba Block（SA-RSMB）做浅层空间—角度特征提取，Stage II 采用 Epipolar Plane Mamba Block（EPMB）与 Epipolar Plane Transformer Block（EPTB）双分支并行结构做深层极平面特征精炼。最终构成 hybrid Mamba-Transformer framework（LFMT），整合 Mamba 与 Transformer 优势，跨空间、角度和极平面域探索信息。具体模块公式、损失函数、上采样方式和训练细节论文材料未说明。",
+        "occlusion": "不适用。该任务为光场图像空间超分，论文材料未涉及去遮挡；也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。材料仅提及空间—角度、视差信息和极平面特征建模，不能据此认定其包含显式遮挡处理。",
+        "experiments": "摘要称 LFMT 在 real-word and synthetic LF datasets 上显著优于当前 state-of-the-art，并在保持低计算复杂度的同时取得明显性能提升。可见实验结论为真实与合成光场数据集上的 LFSR 对比；但论文材料未说明具体数据集名称、合成/真实数据划分、PSNR、SSIM、LPIPS、参数量、运行速度、FLOPs、训练配置及消融实验数值。正文节选未见实验表格，无法核验提升幅度。",
+        "resources": "论文材料给出代码链接 https://github.com/hsliu01/LFMT，摘要和引言均提及代码可用。其余复现资源，如数据集获取方式、预训练模型、训练超参数、硬件环境、参数量和推理速度，论文材料未说明。",
+        "limitations": "当前可见材料仅含摘要、引言和作者简介，未含完整方法公式、实验设置与结果表，因此无法核验 PSNR、SSIM、LPIPS、参数量和速度等定量结论，也无法判断不同模块的消融贡献。摘要宣称的低计算复杂度和显著性能提升缺少材料内数值支撑；对真实光场数据的泛化性、遮挡/视差误差表现和失败案例亦未说明。方法依赖极平面与空间—角度建模，但其对复杂遮挡和视差变化的稳健性论文材料未说明。",
+        "insight": "可核验的设计启示是：用 Sub-SS/SSMB 简化扫描以降低多方向扫描的冗余，再用双阶段结构分离浅层空间—角度特征与深层极平面特征，并以 Mamba 分支和 Transformer 分支并行互补，兼顾长程依赖与计算成本。该思路把非局部空间—角度相关性拆解到空间、角度和极平面域建模，为 LFSR 中混合架构设计提供了可验证的模块组合；但其有效性幅度仍需原文实验数值和消融结果支持，材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/20",
+      "issue_number": 20,
+      "cover_url": "assets/previews/2509.04824.webp",
+      "first_seen": "20250907",
+      "last_seen": "20250907",
+      "appeared_dates": [
+        "20250907"
+      ],
+      "is_version_update": false
+    },
+    {
       "base_id": "2508.08900",
       "arxiv_id": "2508.08900v4",
       "version": 4,
@@ -1051,9 +1172,13 @@
     ],
     "20250824": [],
     "20250831": [],
-    "20250907": [],
+    "20250907": [
+      "2509.04824"
+    ],
     "20250914": [],
-    "20250921": [],
+    "20250921": [
+      "2509.14761"
+    ],
     "20250928": [],
     "20250930": [],
     "20251005": [],
@@ -1717,30 +1842,50 @@
       }
     },
     "20250907": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250914": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250921": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250928": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250930": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 0
