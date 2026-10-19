@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:17:34.691795+08:00",
+  "updated_at": "2026-10-19T12:17:59.618631+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -295,6 +295,72 @@
       "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/4",
       "issue_number": 4,
       "cover_url": "assets/previews/2607.00965.webp",
+      "first_seen": "20260705",
+      "last_seen": "20260705",
+      "appeared_dates": [
+        "20260705"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2607.03494",
+      "arxiv_id": "2607.03494v1",
+      "version": 1,
+      "title": "Towards Standardized Light Field Quality Assessment: Hybrid Subjective Benchmarking and Objective Metric Evaluation",
+      "abstract": "Benchmarking immersive media coding solutions, especially in the standardization context, requires reliable and reproducible subjective quality assessment (QA) procedures, along with objective quality metrics that remain accurate across different distortion types. This paper presents a standardized workflow for light field QA, developed and deployed in the context of JPEG Pleno standardization activities, which integrates benchmark generation, a hybrid subjective evaluation, and objective metric analysis into a common workflow. The benchmark is designed to encompass not only traditional coding-only artifacts but also distortions that arise in processing pipelines in which light field encoding is accompanied with view synthesis and reconstruction techniques. A hybrid subjective method is proposed enabling fine-grained assessment by combining reference-anchored quality rating with targeted pairwise refinement in perceptually ambiguous regions. The reliability of subjective scores is verified using statistical consistency analyses between observers of two cohorts. Finally, a large set of objective metrics is systematically evaluated in terms of global prediction accuracy, local agreement in ambiguous quality regions, and robustness across distortion families. The results show that several metrics achieve strong agreement for coding-only stimuli, but their performance consistently drops when view synthesis distortions are included. The analysis further highlights the importance of view-pooling strategy in the design of future light field quality metrics. The work provides a reproducible and standardization-ready framework for fine-grained light field QA, while identifying key limitations of current objective metrics under emerging coding pipelines. The subjectively annotated dataset is publicly available at https://plenodb.jpeg.org/lfqa/objectivecfp.",
+      "authors": [
+        "Saeed Mahmoudpour",
+        "Mylene C. Q. Farias",
+        "Gi-Mun Um",
+        "Myllena A. Prado",
+        "Ismael Seidel",
+        "Leonardo de Sousa Marques",
+        "Leonardo Andrade",
+        "Shengyang Zhao",
+        "Carla L Pagliari"
+      ],
+      "categories": [
+        "cs.CV",
+        "cs.MM",
+        "eess.IV"
+      ],
+      "published": "2026-07-03T17:03:45Z",
+      "updated": "2026-07-03T17:03:45Z",
+      "pdf_url": "https://arxiv.org/pdf/2607.03494v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2607.03494v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.96,
+      "research_score": 0.82,
+      "experiment_score": 0.88,
+      "code_score": 0.0,
+      "rank_score": 0.872,
+      "evidence": "论文提出面向光场质量评价的标准化流程，结合混合主观评测与大规模客观指标评估，并覆盖编码及视图合成失真。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文面向JPEG Pleno标准化场景提出光场质量评价标准化工作流，将基准生成、混合主观评价和客观指标分析整合；主观上结合参考锚定评分与感知模糊区域成对细化，并用两观察者队列一致性验证；客观指标在编码失真和视角合成失真下评估，发现仅编码刺激时部分指标一致性较强，但加入视角合成失真后性能持续下降，且视角池化策略重要。",
+        "problem": "问题在于沉浸式光场编码与处理流程缺乏可靠、可复现且面向标准化的主观质量评价程序，同时现有客观质量指标需跨不同失真类型保持准确。传统编码伪影之外，光场编码伴随视角合成/重建的处理管线会引入新失真；论文关注这些失真对主观评分可靠性和客观指标预测性能的影响。材料未说明具体标准化提案编号或评测条目。",
+        "modeling": "论文将光场表示为四维(s,t,u,v)光场并采样为子孔径图像阵列，强调单视角内空间冗余与相邻角度视角间冗余；质量评价工作流覆盖基准生成、主观评价和客观指标分析。基准同时设计编码型失真与编码加视角合成/重建型失真。客观分析从全局预测精度、感知模糊区域局部一致性和跨失真族鲁棒性三方面考察。材料未给出具体客观指标公式、训练模型或质量融合模型细节。",
+        "method": "主观方法为混合式：先进行参考锚定的质量评分，再在感知上模糊的区域进行有针对性的成对比较细化，以获得更细粒度评分；通过两个观察者队列间的统计一致性分析验证主观分数可靠性。客观部分系统评价大量指标，并比较其在仅编码刺激和包含视角合成失真刺激上的表现。论文还讨论视角池化策略对未来光场质量指标设计的重要性。材料未说明评分量表、显示设备、观察者人数、筛选规则和成对比较具体协议。",
+        "occlusion": "不适用：该论文是光场质量评价/基准与客观指标评估，不是去遮挡任务。材料虽提到视角合成与重建失真，但未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；这些细节论文材料未说明。",
+        "experiments": "实验部分在材料中只给出高层结论：基准包含仅编码伪影以及编码伴随视角合成/重建的失真；使用两观察者队列做统计一致性验证；系统评估大量客观指标。结果显示若干指标在仅编码刺激上强一致，但性能在加入视角合成失真后持续下降；分析强调视角池化策略的重要性。论文材料未说明具体数据集名称或规模、PSNR、SSIM、LPIPS、参数量、推理速度及具体统计值；这些数值论文材料未给出，不能核验。",
+        "resources": "论文声明主观标注数据集公开于 https://plenodb.jpeg.org/lfqa/objectivecfp。材料未说明代码仓库、预训练模型、硬件配置、运行时间、参数量或复现实验脚本；这些信息论文材料未说明。",
+        "limitations": "材料可见的限制包括：现有客观指标在包含视角合成失真的新兴编码管线下性能下降；仅编码失真的结论不能直接外推；视角池化策略会影响指标设计。由于提供的正文或节选未包含完整实验表、指标清单、观察者统计和实现细节，无法核验具体数值与可复现性；论文材料未说明这些细节。论文材料也未说明统一标准阈值或最终推荐指标。",
+        "insight": "对光场质量评价的启示是：标准化工作流需同时覆盖编码伪影和视角合成/重建失真，并采用混合主观协议在模糊区域细化评分；客观指标评估不应只看全局精度，还应看模糊区域局部一致性和跨失真族鲁棒性；未来指标设计需重视角度视角的池化策略。该框架可支持JPEG Pleno基准比较，但具体指标推荐和数值结论仍需全文实验表核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/26",
+      "issue_number": 26,
+      "cover_url": "assets/previews/2607.03494.webp",
       "first_seen": "20260705",
       "last_seen": "20260705",
       "appeared_dates": [
@@ -1489,7 +1555,8 @@
       "cvf-3fb3a9830933e1d178c0"
     ],
     "20260705": [
-      "2607.00965"
+      "2607.00965",
+      "2607.03494"
     ],
     "20260712": [],
     "20260719": [
@@ -2599,30 +2666,50 @@
       }
     },
     "20260705": {
+      "arxiv": {
+        "status": "ok",
+        "count": 10
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260712": {
+      "arxiv": {
+        "status": "ok",
+        "count": 10
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260719": {
+      "arxiv": {
+        "status": "ok",
+        "count": 10
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260726": {
+      "arxiv": {
+        "status": "ok",
+        "count": 10
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260731": {
+      "arxiv": {
+        "status": "ok",
+        "count": 10
+      },
       "cvf": {
         "status": "ok",
         "count": 0
