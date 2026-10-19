@@ -346,9 +346,9 @@
       "updated_at": "2026-10-19T13:01:51.238965+08:00"
     },
     "20260901-20260930": {
-      "status": "partial",
+      "status": "complete",
       "all_papers": true,
-      "candidate_fingerprint": "6f3a633d16c09e7434fc47d9be2d5dee932e0f6a6d3cdf8535fcdfbe56b35a9f",
+      "candidate_fingerprint": "91b9589811a14237b3211d319fc8f17f6c123bb1fa442c1003783d57dd4e1cc5",
       "sources": {
         "arxiv": {
           "status": "ok",
@@ -357,12 +357,16 @@
         "cvf": {
           "status": "ok",
           "count": 0
+        },
+        "crossref": {
+          "status": "ok",
+          "count": 54
         }
       },
-      "processed": 0,
-      "failed": 1,
-      "attempt": 2,
-      "updated_at": "2026-10-19T12:21:55.206928+08:00"
+      "processed": 11,
+      "failed": 0,
+      "attempt": 1,
+      "updated_at": "2026-10-19T13:03:44.157473+08:00"
     },
     "20261001-20261019": {
       "status": "complete",

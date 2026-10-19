@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T13:01:51.218235+08:00",
+  "updated_at": "2026-10-19T13:03:44.135938+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -9810,6 +9810,648 @@
         "20260831"
       ],
       "is_version_update": false
+    },
+    "crossref-bc4b4e7c7a3955108285": {
+      "base_id": "crossref-bc4b4e7c7a3955108285",
+      "arxiv_id": "crossref-bc4b4e7c7a3955108285",
+      "version": 1,
+      "title": "Cross-Domain Mesh–Progressive Fusion for Light Field Reconstruction",
+      "abstract": "Light field angular super-resolution (LFASR) seeks to recover missing viewpoints from sparsely captured angular samples, while preserving the underlying scene structure across views. This task is complicated by disparity-induced variations, incomplete visibility near occlusion boundaries, and view-dependent appearance changes caused by reflective surfaces. In this work, we propose a Cross-Domain EPI–Spatial–Angular (X-ESA) framework that combines EPI-based geometric modeling with complementary spatial and angular feature extraction. A CSWin-based EPI transformer captures long-range, slope-aligned dependencies, while dedicated convolutional branches refine spatial details and cross-view relationships. These features are integrated through a mesh–progressive fusion strategy, followed by channel attention and spatial residual refinement. Extensive experiments on real-world and synthetic datasets demonstrate that the proposed method achieves competitive reconstruction performance compared with state-of-the-art LFASR approaches.",
+      "authors": [
+        "Ebrahem Elkady",
+        "Ahmed Salem",
+        "Hyun-Soo Kang",
+        "Jae-Won Suh"
+      ],
+      "categories": [],
+      "published": "2026-09-15",
+      "updated": "2026-09-15",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.20944/preprints202609.1181.v1",
+      "doi": "10.20944/preprints202609.1181.v1",
+      "venue": "",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "角度超分",
+        "重建与插值"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "针对光场角度超分，提出结合EPI几何建模与空间—角度特征融合的X-ESA框架恢复缺失视角。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出跨域EPI–空间–角度（X-ESA）框架用于光场角度超分辨率，结合EPI几何建模与空间/角度特征提取，通过网格渐进融合策略整合特征，在真实与合成数据集上取得与先进方法有竞争力的重建性能。",
+        "problem": "仅基于公开摘要，未读取全文。光场角度超分辨率（LFASR）旨在从稀疏角度采样中恢复缺失视角，同时保持跨视角的场景结构。该任务面临三个主要挑战：视差引起的变化、遮挡边界附近可见性不完整，以及反射表面导致的视角相关外观变化。论文材料未说明具体数据集名称、评价指标数值或对比方法细节。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将LFASR建模为跨域特征学习问题，提出X-ESA框架，融合基于EPI的几何建模与互补的空间和角度特征提取。具体地，采用基于CSWin的EPI Transformer捕获长程、斜率对齐的依赖关系，同时使用专用卷积分支细化空间细节和跨视角关系。特征通过网格渐进融合策略整合，并经过通道注意力和空间残差细化。论文材料未说明EPI构建方式、代价体设计或空间—角度对应关系的具体数学形式。",
+        "method": "仅基于公开摘要，未读取全文。方法核心包括：1）CSWin-based EPI Transformer：利用EPI表示捕获长程、斜率对齐的几何依赖；2）空间与角度卷积分支：分别细化空间细节和跨视角关系；3）网格渐进融合策略：整合上述特征；4）通道注意力与空间残差细化：进一步增强特征表达。论文材料未说明网络层数、参数配置、训练损失或具体实现细节。",
+        "occlusion": "仅基于公开摘要，未读取全文。摘要明确指出遮挡边界附近可见性不完整是LFASR的挑战之一，但未说明具体的视角互补机制、几何先验、遮挡掩码或遮挡区域恢复机制。论文材料未说明如何处理遮挡区域。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要称在真实世界和合成数据集上进行了广泛实验，所提方法相比最先进的LFASR方法取得了有竞争力的重建性能。论文材料未说明具体数据集名称、PSNR、SSIM、LPIPS、参数量或运行速度等数值结果。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源或复现细节。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确讨论方法局限性。论文材料未说明模型在极端遮挡、大视差或反射表面等挑战场景下的具体失败案例或性能边界。",
+        "insight": "仅基于公开摘要，未读取全文。该工作通过跨域融合将EPI几何先验与空间/角度特征结合，为LFASR提供了一种整合长程几何依赖与局部细节的思路。网格渐进融合策略可能有助于多尺度特征的有效整合，但具体有效性需全文实验验证。论文材料未说明该框架对其他光场任务的泛化能力。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/230",
+      "issue_number": 230,
+      "cover_url": "",
+      "first_seen": "20260920",
+      "last_seen": "20260920",
+      "appeared_dates": [
+        "20260920"
+      ],
+      "is_version_update": false
+    },
+    "2609.19747": {
+      "base_id": "2609.19747",
+      "arxiv_id": "2609.19747v1",
+      "version": 1,
+      "title": "STAR: Structure-aware Test-time Adaptation for diffusion-based light field Reconstruction",
+      "abstract": "Light field (LF) reconstruction from limited and noisy focal stack (FS) measurements is a highly ill-posed inverse problem. Although the LF-to-FS imaging geometry is fixed for a given optical setup, LF spatial-angular structure---including within-view spatial details, cross-view angular dependencies, and disparity across views---varies across scenes. Consequently, a fixed pre-trained prior may not optimally capture the spatial-angular structure of each test LF. We propose Structure-aware Test-time Adaptation for diffusion-based light field Reconstruction (STAR), the first test-time adaptation framework for reconstructing an LF from FS. For each test LF, STAR freezes a pre-trained diffusion prior and fits three lightweight adapters to the observed FS to jointly adapt the three components of the LF's spatial-angular structure. STAR outperforms existing state-of-the-art methods in both two- and three-focal-sheet settings, with shorter inference times than those with test-time parameter updates.",
+      "authors": [
+        "Wontae Choi",
+        "Ki Ryum Moon",
+        "Jae Young Lee",
+        "Hyung Sup Yun",
+        "Il Yong Chun"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-09-17T06:18:08Z",
+      "updated": "2026-09-17T06:18:08Z",
+      "pdf_url": "https://arxiv.org/pdf/2609.19747v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2609.19747v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.8,
+      "experiment_score": 0.75,
+      "code_score": 0.2,
+      "rank_score": 0.8225,
+      "evidence": "提出首个面向扩散先验的光场重建测试时自适应框架，从有限含噪焦栈重建光场并利用空间—角度结构。",
+      "report": {
+        "tldr": "STAR 是首个面向扩散式光场重建的测试时自适应框架：对每个测试光场冻结预训练扩散先验 LF-HDiT，仅拟合三个轻量适配器（空间卷积适配器、低秩角度适配器、多域 EPI 适配器），分别适配视图内空间细节、跨视角角度依赖和跨视角视差，从而在两张与三张焦平面设置下均优于现有 SOTA，且推理时间短于需要测试时参数更新的求解器。",
+        "problem": "从有限且含噪的焦栈（FS）测量重建 4D 光场是高度病态逆问题，对应系统矩阵严重欠定。论文指出：给定光学装置后 LF-to-FS 成像几何固定，但 LF 的空间—角度结构（视图内空间细节、跨视角角度依赖、跨视角视差）随场景变化，因此固定预训练先验难以最优捕捉每个测试 LF 的结构。现有方法分两类：FSNet、Momentum-Net、Joint FDL、DDLFRM、DDNM、DAPS 等在测试时保持参数固定，不针对测试 LF 结构自适应；DDS2M、DDIP 等在测试时优化参数，但 DDS2M 从零训练未利用 LF 先验且计算代价高，DDIP 未显式针对 LF 空间—角度结构。论文由此提出“哪些场景相关结构应被适配、哪些共享知识应被保留”的设计问题。",
+        "modeling": "论文将 LF 定义为含两个空间维和两个角度维的 4D 函数，重建目标是从含噪 FS 测量 y 反演 LF，成像算子由式 (1) 给出且对给定光学装置固定。扩散先验为作者提出的 Light Field Hourglass Diffusion Transformer（LF-HDiT），在 HDiT 骨干上扩展专用角度注意力并在 LF 数据上预训练；采样使用 DDIM，并结合 DDRM 更新与 DDLFRM 的可处理系统矩阵分解。STAR 的设计原则是冻结预训练 LF 骨干、只适配场景相关的空间—角度结构：三个适配器分别对应视图内空间细节、跨视角角度依赖、以及经 EPI 特征显式建模的跨视角视差。DDRM 采样得到的 x_{t-1} 作为固定目标，梯度仅通过 x̂_{0|t} 回传以更新三个适配器。",
+        "method": "STAR 对每个测试 LF 冻结 LF-HDiT 骨干，拟合三个轻量适配器：(1) 空间卷积适配器（LF-CA）建模视图内空间细节；(2) 低秩角度适配器（LoRA）建模跨视角角度依赖；(3) 多域适配器（LF-MA）通过 EPI 特征显式捕捉含跨视角视差的空间—角度结构，其中包含 EH-EPI、EV-EPI 以及 Espa、Eang 等组件。消融显示：全参数微调相对冻结基线仅带来有限提升；组合适配器通常优于单一适配器；LF-MA2（去掉 Espa、Eang）优于 LF-MA1（去掉 EH-EPI、EV-EPI），说明 EPI 特征的价值；完整适配器组合配合 3×3 LF-CA 卷积核最佳，5×5 核无进一步提升。最优配置为 LF-CA (3×3,1×1) + LoRA + LF-MA，在 C=3 下取得 38.23 dB / 0.9463。",
+        "occlusion": "论文在预训练数据描述中提到 Lytro Illum 花卉植物 LF 数据含复杂遮挡，但未提出专门的去遮挡机制；未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复策略。就任务而言，本文是有限焦栈下的 LF 重建与插值，不涉及显式去遮挡，故相关机制不适用。",
+        "experiments": "预训练使用文献[5]的 LF 数据集，共 3,343 个花卉与植物 LF（Lytro Illum 拍摄，含复杂遮挡与多样视差），通过中心、左、右裁剪与水平翻转做六倍增广；测试时自适应使用 HCI LF 数据集[27]，共 53 个与预训练数据物体和场景不同的 LF。测量按[8]合成 C=2 或 3 张焦平面，加入 SNR 25 dB 的加性高斯白噪声，U=V=5、H=W=192。指标为 PSNR(dB)、SSIM 和每 LF 推理时间（秒）。主结果（表 1）：C=2 时 STAR 为 37.16 dB / 0.9355 / 106.74 s，C=3 时为 38.23 dB / 0.9463 / 106.98 s；对比 DAPS 36.73/0.9234/139.17 与 37.65/0.9384/143.66，DDIP 36.54/0.9229/122.32 与 37.11/0.9311/123.01，DDLFRM 33.49/0.8618/55.88 与 34.92/0.8876/57.70，DDS2M 31.67/0.8282/275.43 与 32.96/0.9041/313.51，FSNet 31.40/0.8594/1.5e-2 与 31.59/0.8644/1.6e-2，Joint FDL 30.42/0.7342/0.81 与 32.67/0.8301/0.83，伪逆 3.83/0.0801 与 9.24/0.3008。STAR 质量最优且快于 DAPS、DDIP、DDS2M 等测试时优化方法。消融（HCI，C=3）：冻结基线 37.09/0.9269，全微调 37.40/0.9297，仅 LoRA 37.19/0.9286，LF-MA 37.50/0.9317，LF-CA(3×3,1×1) 37.94/0.9321，LoRA+LF-MA 37.66/0.9293，LF-CA+LoRA 37.96/0.9357，LF-CA+LF-MA 38.11/0.9447，LF-CA+LoRA+LF-MA1 37.96/0.9406，+LF-MA2 38.10/0.9438，完整组合 38.23/0.9463，5×5 核 38.11/0.9459。实现细节：P=3、R=32、学习率 5e-6、100 步 DDIM；LF-HDiT 预训练 999K 次迭代，4 块 NVIDIA A100，批大小 4，4×4 patch。论文材料未报告 LPIPS 与参数量。",
+        "resources": "预训练：4 块 NVIDIA A100 GPU，批大小 4，999K 次迭代，4×4 patch token 嵌入。测试时自适应超参：P=3、R=32、学习率 λ=5×10−6、100 步 DDIM 并配合 DDRM 更新；对比方法统一用 100 步去噪并保留默认超参。推理时间以秒/LF 报告，STAR 约 106.7–107.0 s。论文材料未说明模型参数量、显存占用与代码/数据链接。",
+        "limitations": "论文材料未设专门局限性章节。可核验的边界包括：适配器组合与核尺寸经消融确定，5×5 核无增益；全微调收益有限，说明适配容量与结构选择敏感；实验仅在 C=2、3 两种焦平面设置、SNR 25 dB、U=V=5、192×192 条件下评估，其他焦平面数、噪声水平与分辨率未说明；测试集为 HCI 53 个 LF，规模有限；未报告 LPIPS 与参数量，效率对比仅以秒/LF 给出；未讨论失败案例或对极端遮挡、大视差场景的鲁棒性。",
+        "insight": "STAR 的核心洞见是把“测试时适配什么”结构化为 LF 空间—角度结构的三个可分离成分，并用轻量适配器在冻结扩散先验上分别注入，从而在保留共享 LF 先验的同时获得场景特异性；EPI 特征被证明是承载跨视角视差的有效多域表示，去掉 Espa/Eang 的性能下降小于去掉 EPI 项，说明 EPI 是更关键的适配通道。该思路可推广到其他具有固定成像算子但场景结构多变的逆问题，例如以角度—空间对应关系为核心的深度/视差联合估计；但论文未报告视差误差指标，相关结论需在全文数据上进一步核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/231",
+      "issue_number": 231,
+      "cover_url": "assets/previews/2609.19747.webp",
+      "first_seen": "20260920",
+      "last_seen": "20260920",
+      "appeared_dates": [
+        "20260920"
+      ],
+      "is_version_update": false
+    },
+    "crossref-0325741213d2ef019b36": {
+      "base_id": "crossref-0325741213d2ef019b36",
+      "arxiv_id": "crossref-0325741213d2ef019b36",
+      "version": 1,
+      "title": "Efficient Light Field Transmission via Enhanced Resampling Reconstruction and Angular Attention Estimation",
+      "abstract": "Light field (LF) imaging technology has significantly enhanced immersive virtual reality experiences and advanced computer vision tasks like depth estimation and 3D reconstruction. However, the massive data volume of light field images presents a transmission challenge. To address this issue, we propose a novel intelligent LF transmission approach integrating enhanced resampling reconstruction and angular attention estimation. The proposed enhanced resampling reconstruction method reduces spatial redundancy by downsampling before transmission and upsampling afterward, aided by a pre-calculated residual map to minimizing quality loss. To reduce angular redundancy while preserving perceptual quality, we designed a LF angular attention estimation network employing specifically designed angular attention kernels to guide differential transmission within the angular domain. To train this network, we construct the first LF eye-tracking dataset, featuring numerous samples, diverse realistic scenes, and a wealth of data elements, particularly real user angular attention data, establishing it as a key benchmark in LF transmission. Extensive experiments demonstrate that our transmission strategy decreases transmission time by 97.3% with only a 3.1% perceptual quality loss. Subjective experiments further confirm the superior performance of our method. An implementation of this article and the constructed dataset are available at https://github.com/VincentQQu/LF-Transmission .",
+      "authors": [
+        "Zongyou Yu",
+        "Qiang Qu",
+        "Wei Zheng",
+        "Zeke Zexi Hu",
+        "Xiaoming Chen"
+      ],
+      "categories": [],
+      "published": "2026-09-21",
+      "updated": "2026-09-21",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1145/3716168",
+      "doi": "10.1145/3716168",
+      "venue": "ACM Transactions on Sensor Networks",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "质量增强",
+        "重建与插值"
+      ],
+      "relevance_score": 0.75,
+      "research_score": 0.65,
+      "experiment_score": 0.7,
+      "code_score": 0.9,
+      "rank_score": 0.73,
+      "evidence": "提出增强重采样重建与角度注意力估计的光场传输方法，通过下采样传输后上采样重建并利用残差图减少质量损失。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种智能光场传输方法，结合增强重采样重建与角度注意力估计：传输前对空间维度降采样、传输后上采样，并用预计算残差图抑制质量损失；同时用角度注意力核引导角度域差分传输，以降低角度冗余。摘要称传输时间降低97.3%，感知质量仅损失3.1%，并构建了首个光场眼动数据集。",
+        "problem": "仅基于公开摘要，未读取全文。光场图像数据量巨大，给传输带来挑战；需要在空间与角度两个维度上压缩冗余，同时尽量保持感知质量。摘要将任务定位为光场传输中的质量增强、重建与插值相关问题，但未给出具体退化模型、传输协议或码率约束。",
+        "modeling": "仅基于公开摘要，未读取全文。方法将传输问题拆为两部分：空间冗余通过“传输前降采样—传输后上采样”的重采样重建处理，并借助预计算残差图最小化质量损失；角度冗余通过光场角度注意力估计网络处理，该网络使用专门设计的角度注意力核，在角度域引导差分传输。摘要未说明网络结构、注意力核的具体形式、训练损失、残差图生成方式及与编码器的耦合关系。",
+        "method": "仅基于公开摘要，未读取全文。流程可概括为：发送端对光场做空间降采样以减少空间冗余；接收端进行增强重采样重建，上采样过程由预计算残差图辅助以补偿质量损失；同时，角度注意力估计网络预测角度域的重要性，利用角度注意力核引导差分传输，从而在保持感知质量的前提下降低角度冗余。摘要未说明重采样算子、残差图的计算与存储位置、角度注意力网络输入输出、差分传输的量化或打包方式。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。摘要未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要报告：传输策略使传输时间降低97.3%，感知质量仅损失3.1%；主观实验进一步确认方法性能优越。摘要称构建了首个光场眼动数据集，具有大量样本、多样真实场景和丰富数据元素，尤其包含真实用户角度注意力数据，并称其为光场传输的关键基准。摘要未给出数据集名称与规模、PSNR、SSIM、LPIPS、参数量、运行速度、对比方法及消融实验数值，论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。摘要给出实现与数据集链接：https://github.com/VincentQQu/LF-Transmission 。摘要未说明代码许可、数据集获取条件、训练硬件、参数量、推理时延与显存占用，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限。可核验的缺失包括：未给出客观质量指标PSNR、SSIM、LPIPS的具体数值；未报告参数量与速度；未说明残差图预计算的开销与泛化性；未说明角度注意力估计在真实眼动数据分布外场景的鲁棒性；未说明主观实验规模与统计细节。以上均论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的思路是：将光场传输冗余分解为空间与角度两类，空间侧用“降采样—残差图辅助上采样”做轻量重建，角度侧用注意力估计实现非均匀差分传输，并以真实用户眼动数据作为角度重要性的监督或基准。该思路对光场压缩传输与感知质量权衡有参考价值，但具体机制与有效性仍需全文实验核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/232",
+      "issue_number": 232,
+      "cover_url": "",
+      "first_seen": "20260927",
+      "last_seen": "20260927",
+      "appeared_dates": [
+        "20260927"
+      ],
+      "is_version_update": false
+    },
+    "crossref-d33e3a6e292ef4b28c27": {
+      "base_id": "crossref-d33e3a6e292ef4b28c27",
+      "arxiv_id": "crossref-d33e3a6e292ef4b28c27",
+      "version": 1,
+      "title": "Learning domain-agnostic spatial-angular feature for light field image super-resolution",
+      "abstract": "",
+      "authors": [
+        "Wang Xia",
+        "Yao Lu",
+        "Shunzhou Wang",
+        "Lingwen Xu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.patcog.2026.113335",
+      "doi": "10.1016/j.patcog.2026.113335",
+      "venue": "Pattern Recognition",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为学习域无关空间-角度特征用于光场图像超分辨率，属光场空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/233",
+      "issue_number": 233,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-177e6fb5ccc0e6f6745d": {
+      "base_id": "crossref-177e6fb5ccc0e6f6745d",
+      "arxiv_id": "crossref-177e6fb5ccc0e6f6745d",
+      "version": 1,
+      "title": "LV-BLiF: Harnessing Language-Vision Representation Learning for Blind Light Field Image Quality Assessment",
+      "abstract": "",
+      "authors": [
+        "Xin Liao",
+        "Xiongli Chai",
+        "Hangwei Chen",
+        "Weiyi Jing",
+        "Feng Shao",
+        "Qiuping Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tbc.2026.3668512",
+      "doi": "10.1109/tbc.2026.3668512",
+      "venue": "IEEE Transactions on Broadcasting",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为利用语言-视觉表征学习的盲光场图像质量评价，属光场质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/234",
+      "issue_number": 234,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-71d644ba785acd6d2b19": {
+      "base_id": "crossref-71d644ba785acd6d2b19",
+      "arxiv_id": "crossref-71d644ba785acd6d2b19",
+      "version": 1,
+      "title": "Explicit Spatial-Angular Pattern Embedding for Heterogeneous Imaging-Oriented Light Field Spatial Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Yeyao Chen",
+        "Chongchong Jin",
+        "Haiyong Xu",
+        "Ting Luo",
+        "Gangyi Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2026.3694512",
+      "doi": "10.1109/tcsvt.2026.3694512",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为面向异构成像的显式空间-角度模式嵌入光场空间超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/235",
+      "issue_number": 235,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-4f5e69e1e99e0690250f": {
+      "base_id": "crossref-4f5e69e1e99e0690250f",
+      "arxiv_id": "crossref-4f5e69e1e99e0690250f",
+      "version": 1,
+      "title": "Frequency-Guided Multi-View Super-Resolution for Light Field Images",
+      "abstract": "",
+      "authors": [
+        "Vivek Dwivedi",
+        "Gregor Rozinaj",
+        "Jaromír Hrad",
+        "Javlon Tursunov",
+        "Rashmi Mishra"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/elmar71231.2026.11712186",
+      "doi": "10.1109/elmar71231.2026.11712186",
+      "venue": "2026 International Symposium ELMAR",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为频率引导的多视角超分辨率用于光场图像，属光场空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/236",
+      "issue_number": 236,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-fdd37df0464caf5ad633": {
+      "base_id": "crossref-fdd37df0464caf5ad633",
+      "arxiv_id": "crossref-fdd37df0464caf5ad633",
+      "version": 1,
+      "title": "SynLF: Zero-Shot Metric Depth from Light Field Cameras via Physics-Grounded Synthesis",
+      "abstract": "",
+      "authors": [
+        "Zhexuan Cao",
+        "Yuduo Guo",
+        "Peisheng Ding",
+        "Zhan Shi",
+        "Hui Qiao"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-3-032-37461-5_25",
+      "doi": "10.1007/978-3-032-37461-5_25",
+      "venue": "Lecture Notes in Computer Science / Computer Vision – ECCV 2026",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.75,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.78,
+      "evidence": "标题为通过物理合成实现光场相机零样本度量深度估计，明确利用光场相机多视角结构。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/237",
+      "issue_number": 237,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-72079087d041679c8b30": {
+      "base_id": "crossref-72079087d041679c8b30",
+      "arxiv_id": "crossref-72079087d041679c8b30",
+      "version": 1,
+      "title": "A unified occlusion-free framework for unsupervised light field depth estimation",
+      "abstract": "",
+      "authors": [
+        "Longzhao Guo",
+        "Shuo Zhang",
+        "Youfang Lin"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.patcog.2026.113296",
+      "doi": "10.1016/j.patcog.2026.113296",
+      "venue": "Pattern Recognition",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计",
+        "去遮挡"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.77,
+      "evidence": "标题明确为无监督光场深度估计的统一无遮挡框架，利用光场多视角结构处理遮挡。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/238",
+      "issue_number": 238,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-5d90c091ac77c70c0830": {
+      "base_id": "crossref-5d90c091ac77c70c0830",
+      "arxiv_id": "crossref-5d90c091ac77c70c0830",
+      "version": 1,
+      "title": "HyLF: Sparse Angular Super-Resolution From Hybrid Light Fields Without Known Camera Parameters",
+      "abstract": "",
+      "authors": [
+        "Mingyuan Zhao",
+        "Da Yang",
+        "Ruixuan Cong",
+        "Zhenglong Cui",
+        "Rongshan Chen",
+        "Wei Ke",
+        "Hao Sheng"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2026.3688726",
+      "doi": "10.1109/tcsvt.2026.3688726",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "角度超分",
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.77,
+      "evidence": "标题为未知相机参数下混合光场的稀疏角度超分辨率，涉及光场角度与空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/239",
+      "issue_number": 239,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
+    },
+    "crossref-dee561a8f1997cda7752": {
+      "base_id": "crossref-dee561a8f1997cda7752",
+      "arxiv_id": "crossref-dee561a8f1997cda7752",
+      "version": 1,
+      "title": "Minimal Angular Sampling for Arbitrary-View Light Field Reconstruction Using Spectral-Angular View Selection",
+      "abstract": "",
+      "authors": [
+        "Vivek Dwivedi",
+        "Javlon Tursunov",
+        "Gregor Rozinaj",
+        "Rashmi Mishra"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/elmar71231.2026.11712242",
+      "doi": "10.1109/elmar71231.2026.11712242",
+      "venue": "2026 International Symposium ELMAR",
+      "publication_year": 2026,
+      "publication_month": "2026-09",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.77,
+      "evidence": "标题为基于谱-角度视图选择的最小角度采样任意视图光场重建，属光场重建与视图插值。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/240",
+      "issue_number": 240,
+      "cover_url": "",
+      "first_seen": "20260930",
+      "last_seen": "20260930",
+      "appeared_dates": [
+        "20260930"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -11013,6 +11655,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 54
       }
     },
     "20260913": {
@@ -11023,6 +11669,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 54
       }
     },
     "20260920": {
@@ -11033,6 +11683,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 54
       }
     },
     "20260927": {
@@ -11043,6 +11697,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 54
       }
     },
     "20260930": {
@@ -11053,6 +11711,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 54
       }
     },
     "20261004": {
