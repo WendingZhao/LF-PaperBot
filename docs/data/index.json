@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:11:24.339598+08:00",
+  "updated_at": "2026-10-19T12:11:50.167115+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -622,6 +622,65 @@
       "is_version_update": false
     },
     {
+      "base_id": "2502.19238",
+      "arxiv_id": "2502.19238v1",
+      "version": 1,
+      "title": "Arbitrary Volumetric Refocusing of Dense and Sparse Light Fields",
+      "abstract": "A four-dimensional light field (LF) captures both textural and geometrical information of a scene in contrast to a two-dimensional image that captures only the textural information of a scene. Post-capture refocusing is an exciting application of LFs enabled by the geometric information captured. Previously proposed LF refocusing methods are mostly limited to the refocusing of single planar or volumetric region of a scene corresponding to a depth range and cannot simultaneously generate in-focus and out-of-focus regions having the same depth range. In this paper, we propose an end-to-end pipeline to simultaneously refocus multiple arbitrary planar or volumetric regions of a dense or a sparse LF. We employ pixel-dependent shifts with the typical shift-and-sum method to refocus an LF. The pixel-dependent shifts enables to refocus each pixel of an LF independently. For sparse LFs, the shift-and-sum method introduces ghosting artifacts due to the spatial undersampling. We employ a deep learning model based on U-Net architecture to almost completely eliminate the ghosting artifacts. The experimental results obtained with several LF datasets confirm the effectiveness of the proposed method. In particular, sparse LFs refocused with the proposed method archive structural similarity index higher than 0.9 despite having only 20% of data compared to dense LFs.",
+      "authors": [
+        "Tharindu Samarakoon",
+        "Kalana Abeywardena",
+        "Chamira U. S. Edussooriya"
+      ],
+      "categories": [
+        "cs.CV",
+        "eess.IV"
+      ],
+      "published": "2025-02-26T15:47:23Z",
+      "updated": "2025-02-26T15:47:23Z",
+      "pdf_url": "https://arxiv.org/pdf/2502.19238v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2502.19238v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "重聚焦"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.0,
+      "rank_score": 0.815,
+      "evidence": "提出端到端流程同时重聚焦密集或稀疏光场的多个任意平面或体积区域，并用U-Net消除稀疏光场重聚焦伪影。",
+      "report": {
+        "tldr": "基于所给论文材料，本文提出一种面向密集与稀疏光场的任意体式重聚焦端到端流程：以像素相关位移结合移位求和，使每个像素可独立重聚焦，从而同时生成多个任意平面或体区域，并可同时保留同一深度范围内部分清晰、部分失焦的效果。稀疏光场因空间欠采样会产生鬼影，作者用基于U-Net的深度学习模型加以抑制。",
+        "problem": "论文指出，四维光场同时捕获纹理与几何信息，因而支持拍摄后重聚焦。已有重聚焦方法多局限于对应某一深度范围的单个平面或体区域，无法在同一深度范围内同时生成清晰区域与失焦区域；并且这些方法主要面向密集光场，来自相机阵列或透镜式光场相机，带来较高内存与计算复杂度。本文要解决密集和稀疏光场中多个任意平面或体区域的同时重聚焦问题。",
+        "modeling": "材料将重聚焦建模为：用户选择一个或多个待重聚焦区域后，密集光场先生成深度图，再由深度图产生所需位移；稀疏光场不显式使用深度图，而是在可行深度范围内穷举搜索所需位移。随后采用典型的shift-and-sum，但位移为像素相关位移，因此可对光场每个像素独立重聚焦。材料未说明EPI、焦点线索、遮挡边界或代价体的具体公式，也未报告深度/视差估计的误差指标。",
+        "method": "方法流程包括：对密集光场生成深度图并计算像素相关位移；对稀疏光场通过穷举搜索确定位移；用shift-and-sum完成重聚焦；针对稀疏光场空间欠采样导致的鬼影伪影，采用基于U-Net架构的深度学习模型进行抑制，摘要称可几乎完全消除鬼影。由于位移逐像素确定，方法可同时聚焦多个任意平面或体区域，而不是只对整个深度范围统一聚焦。",
+        "occlusion": "不适用。材料没有将任务定义为去遮挡，也未描述视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；文中仅提到稀疏光场因空间欠采样在shift-and-sum时产生鬼影伪影，并用U-Net模型抑制。",
+        "experiments": "论文称在若干光场数据集上验证有效性。图1展示Bush光场的单平面重聚焦、两体区域重聚焦，以及本文密集光场和十字形稀疏光场任意体式重聚焦结果，并标出窄深度与宽深度区域。定量方面，摘要明确报告稀疏光场在仅使用密集光场20%数据的情况下，重聚焦结果的结构相似性指数SSIM高于0.9。速度方面，密集光场9×9×512×512的处理时间为3.64 s，对应十字形稀疏光场为0.71 s。论文材料未说明PSNR、LPIPS、参数量、具体数据集名称与训练/测试划分。",
+        "resources": "论文材料未说明代码链接、预训练模型、模型参数量、训练超参数及具体训练与测试数据划分。实验部分仅称使用若干光场数据集，并给出9×9×512×512密集光场3.64 s、对应十字形稀疏光场0.71 s的处理时间；未提供可复现实验脚本或资源链接。",
+        "limitations": "材料未报告PSNR、LPIPS和参数量，也未给出深度/视差误差指标、消融实验及与基线方法的完整定量对比，因而难以核验各模块贡献和跨数据集泛化能力。稀疏光场的鬼影抑制依赖U-Net模型，但材料未说明训练数据规模、失败案例和计算复杂度分解。另未说明任意区域选择方式、边界处理及密集与稀疏光场在更多配置下的稳定性。",
+        "insight": "本文的核心思路是将传统shift-and-sum中的聚焦控制推广为像素相关位移，使重聚焦不再由单一深度范围整体决定，而可逐像素选择焦点，从而支持同一深度范围内清晰与失焦共存。对稀疏光场，则将空间欠采样导致的鬼影视为可学习伪影抑制问题，与几何移位重聚焦结合。该组合强调传统光场几何操作与深度学习后处理的协同，但材料未给出理论保证或误差界。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/17",
+      "issue_number": 17,
+      "cover_url": "assets/previews/2502.19238.webp",
+      "first_seen": "20250228",
+      "last_seen": "20250228",
+      "appeared_dates": [
+        "20250228"
+      ],
+      "is_version_update": false
+    },
+    {
       "base_id": "2412.07079",
       "arxiv_id": "2412.07079v1",
       "version": 1,
@@ -835,6 +894,7 @@
     "20250216": [],
     "20250223": [],
     "20250228": [
+      "2502.19238",
       "cvf-c8fe3c60c5d48b9b0503"
     ],
     "20250302": [],
@@ -1165,33 +1225,53 @@
       }
     },
     "20250202": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
-        "count": 1
+        "count": 0
       }
     },
     "20250209": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
-        "count": 1
+        "count": 0
       }
     },
     "20250216": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
-        "count": 1
+        "count": 0
       }
     },
     "20250223": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
-        "count": 1
+        "count": 0
       }
     },
     "20250228": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
-        "count": 1
+        "count": 0
       }
     },
     "20250302": {
