@@ -67,6 +67,10 @@ def _read_url(url: str, user_agent: str, timeout: int = 90, retries: int = 4) ->
                 fallback_used = True
                 continue
             retry_after = exc.headers.get("Retry-After", "")
+            # A long Retry-After belongs in the next batch rather than an
+            # unbounded sleep. Do not retry sooner than the server requested.
+            if retry_after.isdigit() and int(retry_after) > 60:
+                raise
             delay = int(retry_after) if retry_after.isdigit() else min(60, 5 * 2**attempt)
             time.sleep(delay)
         except (URLError, TimeoutError) as exc:

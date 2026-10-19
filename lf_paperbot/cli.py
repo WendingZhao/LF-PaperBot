@@ -4,6 +4,8 @@ import argparse
 import json
 import shutil
 import sys
+from dataclasses import fields, replace
+from pathlib import Path
 from datetime import datetime
 
 from .analysis import classify_with_llm, rank_candidates
@@ -107,13 +109,24 @@ def backfill_command(args) -> int:
         raise RuntimeError("DEEPSEEK_API_KEY and GITHUB_TOKEN are required")
     start_date = _parse_date(args.start)
     end_date = _parse_date(args.end) or datetime.now(settings.timezone).date()
-    result = run_backfill(settings, start_date, end_date, force=args.force)
+    if args.monthly:
+        from .backfill_batches import run_monthly_backfill
+        result = run_monthly_backfill(settings, start_date, end_date, force=args.force,
+                                      all_papers=args.all_papers, commit=args.commit,
+                                      candidate_file=Path(args.candidate_file) if args.candidate_file else None)
+    else:
+        if args.commit or args.candidate_file:
+            raise ValueError("--commit and --candidate-file require --monthly")
+        result = run_backfill(settings, start_date, end_date, force=args.force, all_papers=args.all_papers)
     print(
         f"backfill={result['start']}..{result['end']} periods={len(result['periods'])} "
         f"processed={result['processed']} failed={result['failed']}"
     )
     if result["failed"]:
         print(f"WARN: {result['failed']} paper(s) failed; successful artifacts were preserved")
+    if result.get("incomplete_batches"):
+        print("INCOMPLETE_BATCHES=" + ",".join(result["incomplete_batches"]))
+        return 1
     return 0
 
 
@@ -121,6 +134,37 @@ def paper_command(args) -> int:
     record = process_single(load_settings(), args.arxiv_id, force=not args.no_force)
     print(json.dumps(record, ensure_ascii=False, indent=2))
     return 0
+
+
+def discover_command(args) -> int:
+    from .public_sources import deduplicate, fetch_sources
+    from .models import Candidate
+    from .storage import save_json
+    settings = load_settings()
+    if args.sources:
+        settings = replace(settings, sources=tuple(x.strip() for x in args.sources.split(",") if x.strip()))
+    start = _parse_date(args.start)
+    end = _parse_date(args.end) or datetime.now(settings.timezone).date()
+    candidates, stats = fetch_sources(settings, end, start_date=start, historical=True, require_any=False)
+    output = Path(args.output)
+    if output.exists():
+        previous = json.loads(output.read_text(encoding="utf-8"))
+        if previous.get("start") != str(start) or previous.get("end") != str(end):
+            raise ValueError("Existing discovery file has a different date range; choose another output path")
+        allowed = {f.name for f in fields(Candidate)}
+        old_candidates = [Candidate(**{k: v for k, v in record.items() if k in allowed})
+                          for record in previous.get("candidates", [])]
+        candidates = deduplicate([*old_candidates, *candidates])
+        old_stats = previous.get("sources", {})
+        for name, info in stats.items():
+            if old_stats.get(name, {}).get("status") == "ok" and info["status"] != "ok":
+                continue
+            old_stats[name] = info
+        stats = old_stats
+    save_json(Path(args.output), {"start": str(start), "end": str(end),
+                                 "sources": stats, "candidates": [c.to_dict() for c in candidates]})
+    print(f"[DISCOVERY] {len(candidates)} candidates saved to {args.output}")
+    return 0 if all(s["status"] == "ok" for s in stats.values()) else 1
 
 
 def reconcile_command(args) -> int:
@@ -160,7 +204,18 @@ def build_parser() -> argparse.ArgumentParser:
     backfill.add_argument("--start", default="20260101", help="起始日期 YYYYMMDD")
     backfill.add_argument("--end", help="结束日期 YYYYMMDD，默认今天")
     backfill.add_argument("--force", action="store_true", help="强制重新处理已有版本")
+    backfill.add_argument("--all", dest="all_papers", action="store_true", help="历史全量收录，取消每周精选数量上限，保留仅题录论文")
+    backfill.add_argument("--monthly", action="store_true", help="按月分批检索并保存断点，重跑时跳过已完成月份")
+    backfill.add_argument("--commit", action="store_true", help="每月完成后提交和推送生成数据（需 --monthly）")
+    backfill.add_argument("--candidate-file", help="使用已保存的公开元数据快照（需 --monthly），避免重复抓取")
     backfill.set_defaults(func=backfill_command)
+
+    discover = subparsers.add_parser("discover", help="无 Key 抓取历史公开元数据并保存快照")
+    discover.add_argument("--start", required=True, help="YYYYMMDD")
+    discover.add_argument("--end", help="YYYYMMDD，默认今天")
+    discover.add_argument("--output", required=True, help="候选快照 JSON 输出文件")
+    discover.add_argument("--sources", help="只重试指定来源，如 arxiv 或 crossref,cvf；自动合并同范围现有快照")
+    discover.set_defaults(func=discover_command)
 
     paper = subparsers.add_parser("paper", help="处理单篇 arXiv 论文")
     paper.add_argument("arxiv_id")

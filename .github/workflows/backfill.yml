@@ -17,6 +17,15 @@ on:
         required: false
         default: false
         type: boolean
+      all_papers:
+        description: "Collect every relevant paper without the weekly Top 5 limit"
+        required: false
+        default: true
+        type: boolean
+      candidate_file:
+        description: "Optional committed public metadata snapshot path"
+        required: false
+        type: string
 
 concurrency:
   group: lf-paperbot-weekly
@@ -73,19 +82,53 @@ jobs:
           INPUT_START: ${{ inputs.start }}
           INPUT_END: ${{ inputs.end }}
           INPUT_FORCE: ${{ inputs.force }}
+          INPUT_ALL: ${{ inputs.all_papers }}
+          INPUT_CANDIDATES: ${{ inputs.candidate_file }}
         run: |
           set -euo pipefail
           end_arg=()
           force_arg=()
+          all_arg=()
+          candidate_arg=()
           if [[ -n "${INPUT_END:-}" ]]; then end_arg=(--end "$INPUT_END"); fi
           if [[ "${INPUT_FORCE:-false}" == "true" ]]; then force_arg=(--force); fi
-          python -m lf_paperbot backfill --start "$INPUT_START" "${end_arg[@]}" "${force_arg[@]}"
+          if [[ "${INPUT_ALL:-true}" == "true" ]]; then all_arg=(--all); fi
+          if [[ -n "${INPUT_CANDIDATES:-}" ]]; then candidate_arg=(--candidate-file "$INPUT_CANDIDATES"); fi
+          if [[ -n "${INPUT_CANDIDATES:-}" ]]; then
+            pending_sources=$(python -c 'import json,os; d=json.load(open(os.environ["INPUT_CANDIDATES"])); print(",".join(k for k,v in d["sources"].items() if v["status"]!="ok"))')
+            if [[ -n "$pending_sources" ]]; then
+              python -m lf_paperbot discover --start "$INPUT_START" "${end_arg[@]}" --output "$INPUT_CANDIDATES" --sources "$pending_sources" || echo "Some sources remain incomplete; preserving available results"
+            fi
+          fi
+          git config user.name "LF-PaperBot[bot]"
+          git config user.email "lf-paperbot[bot]@users.noreply.github.com"
+          if [[ -n "${INPUT_CANDIDATES:-}" ]]; then
+            git add -- "$INPUT_CANDIDATES"
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: refresh public history candidates"
+              git pull --rebase origin main
+              git push origin HEAD:main
+            fi
+          fi
+          python -m lf_paperbot backfill --start "$INPUT_START" "${end_arg[@]}" "${force_arg[@]}" "${all_arg[@]}" "${candidate_arg[@]}" --monthly --commit
+      - name: Preserve partial results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lf-history-partial-results
+          path: |
+            papers/*.json
+            daily_reports
+            docs/data
+          retention-days: 14
       - name: Commit generated artifacts
+        if: always()
         run: |
           set -euo pipefail
           git config user.name "LF-PaperBot[bot]"
           git config user.email "lf-paperbot[bot]@users.noreply.github.com"
           git add papers/index.json daily_reports docs/data docs/assets/previews
+          if [[ -f papers/backfill_status.json ]]; then git add papers/backfill_status.json; fi
           if git diff --cached --quiet; then
             echo "No generated changes"
             exit 0

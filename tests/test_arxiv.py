@@ -5,6 +5,7 @@ from datetime import date
 from types import SimpleNamespace
 from urllib.error import HTTPError
 import io
+import pytest
 
 from lf_paperbot import arxiv
 
@@ -93,3 +94,17 @@ def test_read_url_uses_http_export_fallback_after_https_406(monkeypatch):
         "https://export.arxiv.org/api/query?start=0",
         "http://export.arxiv.org/api/query?start=0",
     ]
+
+
+def test_long_retry_after_is_reported_without_early_retry_or_long_sleep(monkeypatch):
+    calls = []
+
+    def reject(*_args, **_kwargs):
+        calls.append(1)
+        raise HTTPError("https://example.test", 429, "rate limited", {"Retry-After": "900"}, io.BytesIO())
+
+    monkeypatch.setattr(arxiv.urllib.request, "urlopen", reject)
+    monkeypatch.setattr(arxiv.time, "sleep", lambda *_: pytest.fail("must defer the batch"))
+    with pytest.raises(HTTPError):
+        arxiv._read_url("https://example.test", "test")
+    assert len(calls) == 1

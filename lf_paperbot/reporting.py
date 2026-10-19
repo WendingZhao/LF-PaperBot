@@ -51,7 +51,7 @@ def build_weekly_report(
                 "",
                 f"- **任务**：{tasks}",
                 f"- **来源**：{' / '.join(paper.get('sources', [source]))}",
-                f"- **材料范围**：{'仅公开摘要' if paper.get('content_scope') == 'abstract_only' else '全文节选'}",
+                f"- **材料范围**：{ {'abstract_only': '仅公开摘要', 'metadata_only': '仅题录'}.get(paper.get('content_scope'), '全文节选') }",
                 f"- **收录依据**：{paper.get('date_basis', 'published')}（discovered 为首次发现，indexed 为新登记；不等于本周发表）",
                 f"- **TL;DR**：{paper.get('report', {}).get('tldr', '暂无')}",
                 f"- **入选理由**：{paper.get('evidence', '符合光场底层视觉筛选规则')}",

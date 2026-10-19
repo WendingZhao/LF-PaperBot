@@ -161,3 +161,33 @@ def test_partial_query_keeps_candidates_and_records_incomplete_status(monkeypatc
     items, stats = sources.fetch_sources(cfg(), date(2026, 10, 18))
     assert len(items) == 1
     assert stats["crossref"]["status"] == "partial"
+
+
+def test_history_crossref_uses_large_pages_and_has_no_weekly_page_cap(monkeypatch):
+    urls = []
+
+    def read(url, _agent):
+        query = parse_qs(urlsplit(url).query)
+        urls.append(query)
+        if query["query.title"] == ["plenoptic"]:
+            items = []
+        elif query["cursor"] == ["*"]:
+            items = [metadata(DOI=f"10.1234/p{i}") for i in range(1000)]
+        else:
+            items = [metadata(DOI="10.1234/last")]
+        return json.dumps({"message": {"items": items, "next-cursor": "next", "total-results": 1001}}).encode()
+
+    monkeypatch.setattr(sources, "read_public", read)
+    monkeypatch.setattr(sources.time, "sleep", lambda *_: None)
+    c = cfg()
+    c.crossref_max_pages = 1
+    items = sources.fetch_crossref(c, date(2025, 1, 1), date(2025, 1, 31), historical=True)
+    assert len(items) == 1001
+    assert all(q["rows"] == ["1000"] for q in urls)
+    assert len(urls) == 3
+
+
+def test_cvf_bibtex_month_preserves_precision_without_fake_publication_day():
+    item = sources.parse_cvf_page(CVF_PAPER + '\nmonth = {June}', "https://example.test/cvf", "CVPR2026")
+    assert item.publication_month == "2026-06"
+    assert item.published == ""

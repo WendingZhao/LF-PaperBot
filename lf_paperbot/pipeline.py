@@ -5,7 +5,7 @@ from dataclasses import replace
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from .analysis import classify_with_llm, generate_report, rank_candidates, report_to_markdown
+from .analysis import REPORT_FIELDS, classify_with_llm, generate_report, rank_candidates, report_to_markdown
 from .arxiv import download_pdf, fetch_by_id
 from .public_sources import SourceCandidates, deduplicate, fetch_recent, fetch_submitted_range
 from .config import Settings
@@ -64,6 +64,7 @@ def _paper_record(
         "doi": candidate.doi,
         "venue": candidate.venue,
         "publication_year": candidate.publication_year,
+        "publication_month": candidate.publication_month,
         "date_basis": candidate.date_basis,
         "sources": candidate.sources,
         "content_scope": content_scope,
@@ -92,6 +93,8 @@ def process_candidate(
     index: dict,
     client: ArkClient,
     github: GitHubStore,
+    *,
+    allow_metadata: bool = False,
 ) -> dict:
     pdf_path = None
     cover_path = settings.root / "docs" / "assets" / "previews" / f"{candidate.base_id}.webp"
@@ -113,14 +116,20 @@ def process_candidate(
             except Exception as exc:
                 print(f"[WARN] full text unavailable for {candidate.base_id}: {type(exc).__name__}; using abstract")
         if content_scope == "abstract_only" and not candidate.abstract.strip():
-            raise RuntimeError("Neither public full text nor abstract is available")
+            if not allow_metadata:
+                raise RuntimeError("Neither public full text nor abstract is available")
+            content_scope = "metadata_only"
         if content_scope == "full_text":
             try:
                 render_cover_webp(pdf_path, cover_path)
                 cover_url = f"assets/previews/{candidate.base_id}.webp"
             except Exception as exc:
                 print(f"[WARN] cover unavailable for {candidate.base_id}: {type(exc).__name__}")
-        report = generate_report(candidate, context, client, content_scope=content_scope)
+        if content_scope == "metadata_only":
+            report = {field: "公开题录未提供摘要或全文，无法核实，待读原文。" for field in REPORT_FIELDS}
+            report["tldr"] = "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。"
+        else:
+            report = generate_report(candidate, context, client, content_scope=content_scope)
         image_url = (f"https://raw.githubusercontent.com/{settings.github_repo}/main/docs/{cover_url}"
                      if cover_url else "")
         body = report_to_markdown(candidate, report, image_url, content_scope=content_scope)
@@ -149,6 +158,7 @@ def run_pipeline(
     *,
     candidates: list[Candidate] | None = None,
     window_start: date | None = None,
+    all_papers: bool = False,
 ) -> dict:
     date_key = _date_key(settings, target_date)
     effective_end = target_date or datetime.now(settings.timezone).date()
@@ -169,10 +179,10 @@ def run_pipeline(
                 previous["doi"] = candidate.doi
     hard_filtered = deterministic_filter(fetched)
     pending = [candidate for candidate in hard_filtered
-               if (candidate.abstract or candidate.pdf_url) and _needs_processing(candidate, index["papers"], force)]
+               if (all_papers or candidate.abstract or candidate.pdf_url) and _needs_processing(candidate, index["papers"], force)]
     client = ArkClient(settings)
     classified = classify_with_llm(pending, client)
-    selected = rank_candidates(classified, settings.max_daily_papers)
+    selected = rank_candidates(classified, len(classified) if all_papers else settings.max_daily_papers)
     github = GitHubStore(settings) if selected else None
 
     processed: list[dict] = []
@@ -180,9 +190,13 @@ def run_pipeline(
     for candidate in selected:
         try:
             assert github is not None
-            record = process_candidate(settings, candidate, date_key, index, client, github)
+            record = process_candidate(settings, candidate, date_key, index, client, github,
+                                       **({"allow_metadata": True} if all_papers else {}))
             index["papers"][candidate.base_id] = record
             processed.append(record)
+            # Preserve each completed paper even if a later request fails.
+            save_index(index_path, index, datetime.now(settings.timezone))
+            save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
         except Exception as exc:
             failed.append(candidate.arxiv_id)
             print(f"[ERROR] failed to process {candidate.arxiv_id}: {type(exc).__name__}: {exc}")
@@ -192,6 +206,11 @@ def run_pipeline(
         index["report_dates"].sort()
     if source_stats:
         index.setdefault("source_runs", {})[date_key] = source_stats
+    if all_papers:
+        unlimited = index.setdefault("unlimited_report_dates", [])
+        if date_key not in unlimited:
+            unlimited.append(date_key)
+            unlimited.sort()
     if index != original_index:
         save_index(index_path, index, datetime.now(settings.timezone))
     save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
@@ -201,7 +220,7 @@ def run_pipeline(
     weekly_papers.sort(key=lambda item: item.get("rank_score", 0), reverse=True)
     daily = build_weekly_report(
         date_key,
-        weekly_papers[: settings.max_daily_papers],
+        weekly_papers if date_key in index.get("unlimited_report_dates", []) else weekly_papers[: settings.max_daily_papers],
         fetched_count=len(fetched),
         hard_filtered_count=len(hard_filtered),
         failed=failed,
@@ -210,7 +229,8 @@ def run_pipeline(
     )
     report_path = write_daily_report(settings.root, date_key, daily)
     print(f"[DONE] {date_key}: {len(processed)} papers, report={report_path}")
-    return {"date": date_key, "processed": processed, "failed": failed}
+    return {"date": date_key, "processed": processed, "failed": failed, "sources": source_stats,
+            "fetched": len(fetched), "hard_filtered": len(hard_filtered), "classified": len(classified)}
 
 
 def weekly_windows(start_date: date, end_date: date):
@@ -224,18 +244,19 @@ def weekly_windows(start_date: date, end_date: date):
         current = period_end + timedelta(days=1)
 
 
-def run_backfill(settings: Settings, start_date: date, end_date: date, force: bool = False) -> dict:
-    candidates = fetch_submitted_range(settings, start_date, end_date)
+def run_backfill(settings: Settings, start_date: date, end_date: date, force: bool = False, *,
+                 all_papers: bool = False, candidates: list[Candidate] | None = None) -> dict:
+    candidates = fetch_submitted_range(settings, start_date, end_date) if candidates is None else candidates
     dated: list[tuple[date, Candidate]] = []
     for candidate in candidates:
         try:
-            published_day = datetime.fromisoformat(candidate.published.replace("Z", "+00:00")).astimezone(
-                timezone.utc
-            ).date()
+            stamp = datetime.fromisoformat(candidate.published.replace("Z", "+00:00"))
+            published_day = stamp.astimezone(timezone.utc).date() if stamp.tzinfo else stamp.date()
         except ValueError:
             # Year-only CVF records are discoveries at the end of the backfill.
-            if candidate.date_basis != "discovered":
+            if candidate.date_basis != "discovered" and not candidate.publication_year:
                 continue
+            candidate.date_basis = "discovered"
             published_day = end_date
         dated.append((published_day, candidate))
 
@@ -253,6 +274,7 @@ def run_backfill(settings: Settings, start_date: date, end_date: date, force: bo
             force=force,
             candidates=period_candidates,
             window_start=period_start,
+            **({"all_papers": True} if all_papers else {}),
         )
         total_processed += len(result["processed"])
         total_failed += len(result["failed"])
@@ -267,6 +289,7 @@ def run_backfill(settings: Settings, start_date: date, end_date: date, force: bo
         "periods": periods,
         "processed": total_processed,
         "failed": total_failed,
+        "sources": getattr(candidates, "stats", {}),
     }
 
 
@@ -301,7 +324,7 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
     period_start = (target_date - timedelta(days=target_date.weekday())).strftime("%Y%m%d")
     content = build_weekly_report(
         date_key,
-        papers[: settings.max_daily_papers],
+        papers if date_key in index.get("unlimited_report_dates", []) else papers[: settings.max_daily_papers],
         fetched_count=len(papers),
         hard_filtered_count=len(papers),
         period_start=period_start,

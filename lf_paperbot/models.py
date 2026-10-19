@@ -50,6 +50,7 @@ class Candidate:
     doi: str = ""
     venue: str = ""
     publication_year: int = 0
+    publication_month: str = ""
     date_basis: str = "published"
     sources: list[str] = field(default_factory=list)
     alternate_pdf_urls: list[str] = field(default_factory=list)

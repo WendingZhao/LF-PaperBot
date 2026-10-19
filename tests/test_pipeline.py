@@ -90,6 +90,23 @@ def test_pdf_download_failure_can_fall_back_to_abstract(monkeypatch, tmp_path):
     assert scopes == ["abstract_only"]
 
 
+def test_history_metadata_only_does_not_invent_a_model_report(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    item = candidate()
+    item.abstract = item.pdf_url = ""
+    monkeypatch.setattr(pipeline, "generate_report", lambda *_a, **_kw: (_ for _ in ()).throw(AssertionError("no source text")))
+
+    def upsert(_candidate, body, _date):
+        assert "仅题录，未获取摘要或全文" in body
+        assert "无法核实" in body
+        return SimpleNamespace(number=1, html_url="https://example.test/1"), "created"
+
+    store = SimpleNamespace(upsert_paper_issue=upsert)
+    record = pipeline.process_candidate(settings(tmp_path), item, "20261019", {"papers": {}}, object(), store, allow_metadata=True)
+    assert record["content_scope"] == "metadata_only"
+    assert record["cover_url"] == ""
+
+
 def test_pipeline_orchestrates_and_is_idempotent(monkeypatch, tmp_path):
     item = candidate()
     monkeypatch.setattr(pipeline, "fetch_recent", lambda *_args, **_kwargs: [item])
@@ -154,6 +171,32 @@ def test_backfill_groups_candidates_by_natural_week(monkeypatch, tmp_path):
         (date(2026, 1, 5), date(2026, 1, 11), ["2601.54321v1"], False),
     ]
     assert len(result["periods"]) == 2
+
+
+def test_all_history_removes_five_paper_limit_and_is_idempotent(monkeypatch, tmp_path):
+    from dataclasses import replace
+    items = [replace(candidate(), arxiv_id=f"2501.{n:05d}v1", base_id="", title=f"Light Field Denoising Method {n}") for n in range(8)]
+    monkeypatch.setattr(pipeline, "classify_with_llm", lambda items, _client: items)
+    monkeypatch.setattr(pipeline, "GitHubStore", lambda _cfg: object())
+    calls = []
+
+    def process(_cfg, selected, date_key, index, *_args, **kwargs):
+        calls.append((selected.base_id, kwargs["allow_metadata"]))
+        return {"base_id": selected.base_id, "arxiv_id": selected.arxiv_id, "version": 1,
+                "title": selected.title, "tasks": selected.tasks, "pdf_url": selected.pdf_url,
+                "rank_score": 1, "appeared_dates": [date_key], "issue_url": "https://example.test/issue"}
+
+    monkeypatch.setattr(pipeline, "process_candidate", process)
+    cfg = settings(tmp_path)
+    first = pipeline.run_pipeline(cfg, date(2025, 1, 5), candidates=items, all_papers=True)
+    assert len(first["processed"]) == 8
+    assert len(calls) == 8
+    content = (tmp_path / "daily_reports/202501/20250105.md").read_text(encoding="utf-8")
+    assert "最终精选：8 篇" in content
+    second = pipeline.run_pipeline(cfg, date(2025, 1, 5), candidates=items, all_papers=True)
+    assert not second["processed"]
+    pipeline.reconcile_date(cfg, "20250105")
+    assert "最终精选：8 篇" in (tmp_path / "daily_reports/202501/20250105.md").read_text(encoding="utf-8")
 
 
 def test_reconcile_uses_natural_week_start(monkeypatch, tmp_path):

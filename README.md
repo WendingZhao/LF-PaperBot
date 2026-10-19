@@ -19,12 +19,25 @@
 | 渠道 | 覆盖与时间口径 | 全文 |
 |---|---|---|
 | arXiv | 原有六个类别，按版本更新时间筛选 | 公开 PDF |
-| CVF Open Access | 自动发现当前及上一年度的 CVPR、ICCV、WACV 主会（从 2026 年起）；可用 `LF_CVF_VENUES=CVPR2026,WACV2026` 指定 | CVF 官方开放 PDF |
+| CVF Open Access | 周更自动发现当前及上一年度的 CVPR、ICCV、WACV 主会；历史检索覆盖请求的所有年份，可用 `LF_CVF_VENUES=CVPR2026,WACV2026` 指定 | CVF 官方开放 PDF |
 | Crossref | 标题检索 light field / plenoptic，补充会议和期刊 DOI；按发表日期及 DOI 首次登记日期查询 | 有明确 CC 许可的 PDF 才尝试下载，否则用公开摘要 |
 
 CVF 页面常只有发表年份。此类记录按本次首次发现纳入周报，显示“首次发现”，**不代表本周发表**；历史回填时归入回填末期。Crossref 本周登记的旧论文会标记“新登记”。Crossref 并不保证有摘要或开放全文：两者都没有时不生成报告；只有摘要时页面和 Issue 明确标注“仅摘要”，不推测实验数据。来源合并目前使用 DOI、ID 和规范化后的完整标题；改名且没有共同 DOI 的预印本/会议版仍可能需要人工核对。
 
 `CROSSREF_MAILTO` 可选填真实联系邮箱以使用礼貌访问池；`CROSSREF_MAX_PAGES` 默认每条查询最多 20 页（每页 100 条），达到上限会在周报标注检索不完整，也可调小以减少网络请求。单个来源不可用时保留其他来源结果，并在周报显示异常；所有来源均失败则中止，不发布空周报。来源适配与检索词位于 `lf_paperbot/public_sources.py`；底层视觉任务筛选仍位于 `lf_paperbot/domain.py` 和 `analysis.py`。
+
+## 两年历史全量回填
+
+普通周更保留 Top 5；历史回填加 `--all` 则收录全部通过领域筛选的候选，并保留缺少摘要/全文的相关题录（标注“仅题录”，不生成推测性分析）。`--monthly` 按月保存断点，失败月份重试一次；`--commit` 每月提交和推送数据。完成状态见 `papers/backfill_status.json`，重复执行会跳过已完成的月份和已有论文。
+
+```powershell
+# 不需要模型 Key：抓取公开元数据，可在本机代理下执行。
+python -m lf_paperbot discover --start 20241019 --end 20261019 --output papers/history_20241019_20261019.json
+# 使用现有 DeepSeek/GitHub 凭据分析；Actions 可读取仓库内同一快照。
+python -m lf_paperbot backfill --start 20241019 --end 20261019 --all --monthly --candidate-file papers/history_20241019_20261019.json
+```
+
+GitHub Actions 的 `LF PaperBot Backfill` 可设置日期、`all_papers=true` 和可选 `candidate_file`。历史 Crossref 使用每页 1000 条并翻页到结束，不受周更分页上限限制；CVF 读取 BibTeX 月份但不伪造具体发表日。缺少精确日期时按所属月份/年份的发现记录归档，并标注时间口径。源限流或论文处理失败会记为未完成；只有完整获取且处理成功的批次才标记 complete。快照改变后会重新检查月份，已有 Issue 不会重复创建。
 
 ## 领域范围
 

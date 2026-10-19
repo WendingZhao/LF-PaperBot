@@ -170,7 +170,7 @@ def report_to_markdown(candidate: Candidate, report: dict[str, str], image_url: 
     source_link = f"[{candidate.source}]({candidate.paper_url})"
     if candidate.pdf_url:
         source_link += f" · [PDF]({candidate.pdf_url})"
-    scope = "全文节选" if content_scope == "full_text" else "仅公开摘要，未读取全文"
+    scope = {"full_text": "全文节选", "abstract_only": "仅公开摘要，未读取全文", "metadata_only": "仅题录，未获取摘要或全文"}[content_scope]
     return f"""# {candidate.title}
 
 ## 基础信息
