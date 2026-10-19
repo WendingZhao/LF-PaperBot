@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T11:55:28.362360+08:00",
+  "updated_at": "2026-10-19T11:55:58.249077+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -448,6 +448,63 @@
         "20261018"
       ],
       "is_version_update": false
+    },
+    "cvf-c8fe3c60c5d48b9b0503": {
+      "base_id": "cvf-c8fe3c60c5d48b9b0503",
+      "arxiv_id": "cvf-c8fe3c60c5d48b9b0503",
+      "version": 1,
+      "title": "Dense Scene Reconstruction from Light-Field Images Affected by Rolling Shutter",
+      "abstract": "This paper presents a dense depth estimation approach from light-field (LF) images that is able to compensate for strong rolling shutter (RS) effects. Our method estimates RS compensated views and dense RS compensated disparity maps. We present a two-stage method based on a 2D Gaussians Splatting that allows for a \"render and compare\" strategy with a point cloud formulation. In the first stage a subset of sub-aperture images is used to estimate an RS agnostic 3D shape that is related to the scene target shape \"up to a motion\". In the second stage the deformation of the 3D shape is computed by estimating an admissible camera motion. We demonstrate the effectiveness and advantages of this approach through several experiments conducted for different scenes and types of motions. Due to lack of suitable datasets for evaluation we also present a new carefully designed synthetic dataset of RS LF images. The source code trained models and dataset will be made publicly available at: https://github.com/ICB-Vision-AI/DenseRSLF.",
+      "authors": [
+        "McGriff, Hermes",
+        "Martins, Renato",
+        "Andreff, Nicolas",
+        "Demonceaux, Cedric"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "https://openaccess.thecvf.com/content/WACV2025/papers/McGriff_Dense_Scene_Reconstruction_from_Light-Field_Images_Affected_by_Rolling_Shutter_WACV_2025_paper.pdf",
+      "source": "cvf",
+      "source_url": "https://openaccess.thecvf.com/content/WACV2025/html/McGriff_Dense_Scene_Reconstruction_from_Light-Field_Images_Affected_by_Rolling_Shutter_WACV_2025_paper.html",
+      "doi": "",
+      "venue": "WACV2025",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "discovered",
+      "sources": [
+        "cvf"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.8,
+      "experiment_score": 0.7,
+      "code_score": 0.8,
+      "rank_score": 0.845,
+      "evidence": "摘要提出从受卷帘快门影响的光场图像估计致密视差，并利用子孔径图像和多视角结构补偿卷帘快门。",
+      "report": {
+        "tldr": "论文提出面向受强卷帘快门（RS）影响的光场（LF）图像的稠密深度估计方法，同时输出RS补偿视图与稠密RS补偿视差图。方法为基于2D Gaussian Splatting的两阶段“渲染并比较”框架：先用部分子孔径图像估计与目标形状“相差一个运动”的RS无关3D形状，再通过估计容许相机运动计算3D形变。材料称在多种场景和运动类型上验证了有效性，并构造了新的合成RS光场数据集。",
+        "problem": "光场相机通常被假设为全局快门采集，但消费级相机常具RS逐行曝光；相机运动或动态物体造成图像形变，使运动与形状影响耦合，难以从单次LF捕获中同时恢复深度与运动。论文指出，已有RS光场联合形状—运动方法仍依赖子孔径视图间2D点对应，导致点云稀疏、对特征区域依赖；本文目标是无形状先验、无速度剖面先验、无需多帧采集，直接从受RS影响的LF图像获得稠密重建。",
+        "modeling": "论文以光场子孔径图像（SAIs）为输入，采用2D高斯泼溅表示场景，并以点云形式嵌入“渲染并比较”策略。第一阶段只用一部分SAIs估计一个RS agnostic的3D形状，该形状与真实场景目标形状“up to a motion”相关；第二阶段将该形状的形变归因于一个容许的相机运动，通过拟合运动参数恢复去RS表示。材料未说明使用EPI、焦点线索、遮挡边界或显式代价体；空间—角度对应由LF的SAIs与可渲染高斯表示间接承担，而非显式2D对应。任务涉及深度/视差估计，但论文材料未给出常用深度/视差误差指标及其数值。",
+        "method": "方法分为两阶段：步骤1从图像中央行相关或一部分子孔径图像获得2D高斯泼溅表示；步骤2利用该表示可渲染、可比较的特性，在其他行/视图上估计最能解释RS形变的运动，从而得到RS补偿的LF表示和稠密视差。与常规3D高斯泼溅不同，论文采用2D高斯以适配光场相机采集特性。整体流程不显式求子孔径间2D对应，而是通过点云/高斯表示与相机运动参数进行render-and-compare。",
+        "occlusion": "不适用。论文材料未将去遮挡作为任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；仅在相关工作中引用遮挡感知光场深度方法，本文具体遮挡处理细节论文材料未说明。",
+        "experiments": "论文称通过不同场景和运动类型的实验验证方法有效性与优势，并因缺少合适评测数据集，提出一个新的、精心设计的合成RS光场图像数据集；该数据集面向高纹理表面和不同几何细节层次。论文材料未给出实验所用真实/合成数据集名称清单，也未给出PSNR、SSIM、LPIPS、视差/深度误差指标、参数量、运行速度或对比方法的具体数值；这些定量结果论文材料未说明。",
+        "resources": "论文材料写明源代码、训练模型和数据集将公开于https://github.com/ICB-Vision-AI/DenseRSLF。除该计划公开链接外，材料未说明代码许可、模型大小、训练时长、硬件配置或复现实验细节。",
+        "limitations": "论文材料未系统列出局限性。可核验的缺口是：缺少定量精度、效率与泛化实验数据，未报告与现有RS光场或光场深度方法的数值比较、参数量和速度；新数据集为合成数据，真实RS光场数据上的表现论文材料未说明。方法依赖“容许相机运动”建模，材料未说明该假设在复杂非刚性运动、严重遮挡或低纹理场景下的失效边界。",
+        "insight": "核心启发是把RS光场重建转化为“先用部分视图学习可渲染的高斯形状，再用渲染比较拟合RS运动”的两阶段问题，从而绕开显式子孔径2D对应带来的稀疏性；2D高斯泼溅同时作为形状表示和可比较渲染器，为单次LF捕获下的稠密视差与运动补偿提供统一思路。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/11",
+      "issue_number": 11,
+      "cover_url": "assets/previews/cvf-c8fe3c60c5d48b9b0503.webp",
+      "first_seen": "20250228",
+      "last_seen": "20250228",
+      "appeared_dates": [
+        "20250228"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -470,6 +527,11 @@
     "20250119",
     "20250126",
     "20250131",
+    "20250202",
+    "20250209",
+    "20250216",
+    "20250223",
+    "20250228",
     "20260104",
     "20260111",
     "20260118",
@@ -640,6 +702,36 @@
         "status": "ok",
         "count": 0
       }
+    },
+    "20250202": {
+      "cvf": {
+        "status": "ok",
+        "count": 1
+      }
+    },
+    "20250209": {
+      "cvf": {
+        "status": "ok",
+        "count": 1
+      }
+    },
+    "20250216": {
+      "cvf": {
+        "status": "ok",
+        "count": 1
+      }
+    },
+    "20250223": {
+      "cvf": {
+        "status": "ok",
+        "count": 1
+      }
+    },
+    "20250228": {
+      "cvf": {
+        "status": "ok",
+        "count": 1
+      }
     }
   },
   "unlimited_report_dates": [
@@ -661,6 +753,11 @@
     "20250112",
     "20250119",
     "20250126",
-    "20250131"
+    "20250131",
+    "20250202",
+    "20250209",
+    "20250216",
+    "20250223",
+    "20250228"
   ]
 }
