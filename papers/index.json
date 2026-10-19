@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:17:25.375158+08:00",
+  "updated_at": "2026-10-19T12:17:26.770645+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -2450,30 +2450,50 @@
       }
     },
     "20260503": {
+      "arxiv": {
+        "status": "ok",
+        "count": 14
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260510": {
+      "arxiv": {
+        "status": "ok",
+        "count": 14
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260517": {
+      "arxiv": {
+        "status": "ok",
+        "count": 14
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260524": {
+      "arxiv": {
+        "status": "ok",
+        "count": 14
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20260531": {
+      "arxiv": {
+        "status": "ok",
+        "count": 14
+      },
       "cvf": {
         "status": "ok",
         "count": 0
