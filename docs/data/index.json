@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:43:56.224923+08:00",
+  "updated_at": "2026-10-19T12:44:40.134546+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -462,6 +462,243 @@
       "last_seen": "20260510",
       "appeared_dates": [
         "20260510"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-492f919b8cff085a1153",
+      "arxiv_id": "crossref-492f919b8cff085a1153",
+      "version": 1,
+      "title": "Cross-domain adaptive disparity-aware light field images spatial super-resolution method based on contrastive learning",
+      "abstract": "",
+      "authors": [
+        "Yong-Chao Li",
+        "Guo-Yu Wang",
+        "Shao-Yu Liu",
+        "Sen Zhang",
+        "Chang Liu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.eswa.2025.130762",
+      "doi": "10.1016/j.eswa.2025.130762",
+      "venue": "Expert Systems with Applications",
+      "publication_year": 2026,
+      "publication_month": "2026-04",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.755,
+      "evidence": "标题明确为跨域自适应视差感知光场图像空间超分辨率方法，基于对比学习。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/184",
+      "issue_number": 184,
+      "cover_url": "",
+      "first_seen": "20260430",
+      "last_seen": "20260430",
+      "appeared_dates": [
+        "20260430"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-7f98f4b510663651a5ba",
+      "arxiv_id": "crossref-7f98f4b510663651a5ba",
+      "version": 1,
+      "title": "Multi-task guided blind light field image quality assessment via spatial-frequency collaborative modeling",
+      "abstract": "",
+      "authors": [
+        "Daoqiang Zhu",
+        "Guanglong Liao",
+        "Yeyao Chen",
+        "Zhouyan He",
+        "Chongchong Jin",
+        "Yueli Cui",
+        "Ming Jin",
+        "Gangyi Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.eswa.2025.130971",
+      "doi": "10.1016/j.eswa.2025.130971",
+      "venue": "Expert Systems with Applications",
+      "publication_year": 2026,
+      "publication_month": "2026-04",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.755,
+      "evidence": "标题明确为多任务引导的盲光场图像质量评价，采用空间-频率协同建模。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/185",
+      "issue_number": 185,
+      "cover_url": "",
+      "first_seen": "20260430",
+      "last_seen": "20260430",
+      "appeared_dates": [
+        "20260430"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-9ec2b5553e3836f99f9a",
+      "arxiv_id": "crossref-9ec2b5553e3836f99f9a",
+      "version": 1,
+      "title": "Neural light field representation and reconstruction based on a ray displacement field",
+      "abstract": "High-quality light field (LF) acquisition involves a trade-off between spatial and angular resolution. Hybrid camera systems offer a practical solution but present challenges for dense reconstruction due to sparse angular sampling and complex occlusions. To address these issues, this paper proposes a geometry-aware implicit neural representation (INR) framework for LF reconstruction. Distinct from traditional discrete representations or generic ray-space embeddings, we introduce a compact, continuous representation that combines a radiance field with a geometry module, where scalar disparity provides an ideal geometric interpretation and a ray-displacement field serves as the practical realization for occlusion-aware reconstruction. This framework leverages the global epipolar geometry of the 2D LF grid while utilizing the displacement field to correct local geometric inconsistencies caused by occlusions and non-Lambertian effects. By coupling these fields with a radiance network, our method enables end-to-end differentiable optimization from sparse, multi-resolution inputs without relying on large-scale external training datasets. Experiments on hybrid camera data fusion and spatial-angular super-resolution tasks demonstrate that our approach preserves high-frequency details and geometric consistency.",
+      "authors": [
+        "Chang Liu",
+        "Ligen Shi",
+        "Lina Wu",
+        "Kaiwen Yu",
+        "Jun Qiu"
+      ],
+      "categories": [],
+      "published": "2026-04-16",
+      "updated": "2026-04-16",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.583881",
+      "doi": "10.1364/oe.583881",
+      "venue": "Optics Express",
+      "publication_year": 2026,
+      "publication_month": "2026-04",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重建与插值",
+        "空间超分",
+        "角度超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.75,
+      "experiment_score": 0.7,
+      "code_score": 0.2,
+      "rank_score": 0.805,
+      "evidence": "提出几何感知隐式神经表示框架用于光场重建，结合辐射场与光线位移场处理遮挡，实验涵盖混合相机数据融合与空间-角度超分任务。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种几何感知的隐式神经表示（INR）框架，用于光场重建与插值、空间超分和角度超分；其核心是把辐射场与几何模块耦合，用标量视差提供几何解释、用光线位移场实现遮挡感知重建，并借助2D光场网格的全局极线几何与位移场修正局部几何不一致，从而在稀疏、多分辨率输入上端到端可微优化，且不依赖大规模外部训练数据集。",
+        "problem": "仅基于公开摘要，未读取全文。高质量光场采集存在空间分辨率与角度分辨率之间的权衡；混合相机系统是实用方案，但因角度采样稀疏和复杂遮挡，稠密重建困难。论文针对稀疏角度采样与遮挡条件下的光场重建与插值、空间超分、角度超分问题展开。摘要未给出具体误差指标、数据集名称或定量结果。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场表示为紧凑的连续隐式表示，由辐射场与几何模块组成：标量视差（scalar disparity）提供几何解释，光线位移场（ray-displacement field）作为遮挡感知重建的实用实现。该框架利用2D光场网格的全局极线几何，同时用位移场校正由遮挡和非朗伯效应引起的局部几何不一致，再与辐射网络耦合，形成端到端可微优化。摘要未说明网络结构、损失函数、采样策略与训练细节。",
+        "method": "仅基于公开摘要，未读取全文。方法从稀疏、多分辨率输入出发进行端到端可微优化，不依赖大规模外部训练数据集；通过辐射场与几何模块联合建模，在全局极线几何约束下用光线位移场修正局部几何不一致，以保持高频细节与几何一致性。摘要未说明具体优化流程、初始化方式、正则项、训练时长与实现平台。",
+        "occlusion": "仅基于公开摘要，未读取全文。论文明确将光线位移场作为遮挡感知重建的实现，并指出位移场用于校正遮挡与非朗伯效应造成的局部几何不一致；这体现了视角互补与几何先验的思路。但摘要未说明是否使用显式遮挡掩码、遮挡区域恢复机制的具体形式，也未给出遮挡区域的定量评估。",
+        "experiments": "仅基于公开摘要，未读取全文。实验涉及混合相机数据融合与空间—角度超分辨率任务，摘要称方法能保持高频细节与几何一致性。论文材料未说明所用数据集名称、PSNR、SSIM、LPIPS、参数量与运行速度等具体数值，也未说明对比方法与消融实验设置。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、参数量、计算资源（GPU型号与数量）、训练时长与推理速度；也未说明是否公开数据或复现脚本。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未列出方法局限；从摘要可确认的信息看，论文未报告定量指标、数据集规模、参数量与速度，因此难以核验其精度与效率优势。摘要提到非朗伯效应与遮挡，但未说明在强遮挡、大视差或极端稀疏采样下的失效情形。",
+        "insight": "仅基于公开摘要，未读取全文。可核验的启示是：将标量视差与光线位移场结合，可在隐式神经光场表示中同时利用全局极线几何与局部遮挡修正；以稀疏、多分辨率输入进行端到端优化且不依赖大规模外部数据集，为混合相机光场融合提供了一条几何感知的建模思路。具体实现细节与定量收益需以全文为准。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/183",
+      "issue_number": 183,
+      "cover_url": "",
+      "first_seen": "20260419",
+      "last_seen": "20260419",
+      "appeared_dates": [
+        "20260419"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-c01196792d852d1164ad",
+      "arxiv_id": "crossref-c01196792d852d1164ad",
+      "version": 1,
+      "title": "DAORNet: Dense-attentive network for occlusion removal in light field images",
+      "abstract": "",
+      "authors": [
+        "Mostafa Farouk Senussi",
+        "Mahmoud Abdalla",
+        "Mahmoud SalahEldin Kasem",
+        "Mohamed Mahmoud",
+        "Hyun-Soo Kang"
+      ],
+      "categories": [],
+      "published": "2026-04-09",
+      "updated": "2026-04-09",
+      "pdf_url": "https://link.springer.com/content/pdf/10.1007/s44443-026-00668-9.pdf",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/s44443-026-00668-9",
+      "doi": "10.1007/s44443-026-00668-9",
+      "venue": "Journal of King Saud University Computer and Information Sciences",
+      "publication_year": 2026,
+      "publication_month": "2026-04",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.735,
+      "evidence": "标题明确为面向光场图像的密集注意力网络去遮挡方法（DAORNet: Dense-attentive network for occlusion removal in light field images）。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/182",
+      "issue_number": 182,
+      "cover_url": "",
+      "first_seen": "20260412",
+      "last_seen": "20260412",
+      "appeared_dates": [
+        "20260412"
       ],
       "is_version_update": false
     },
@@ -10813,10 +11050,17 @@
     "20260329": [],
     "20260331": [],
     "20260405": [],
-    "20260412": [],
-    "20260419": [],
+    "20260412": [
+      "crossref-c01196792d852d1164ad"
+    ],
+    "20260419": [
+      "crossref-9ec2b5553e3836f99f9a"
+    ],
     "20260426": [],
-    "20260430": [],
+    "20260430": [
+      "crossref-492f919b8cff085a1153",
+      "crossref-7f98f4b510663651a5ba"
+    ],
     "20260503": [],
     "20260510": [
       "2605.04581"
@@ -12176,6 +12420,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 27
       }
     },
     "20260412": {
@@ -12186,6 +12434,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 27
       }
     },
     "20260419": {
@@ -12196,6 +12448,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 27
       }
     },
     "20260426": {
@@ -12206,6 +12462,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 27
       }
     },
     "20260430": {
@@ -12216,6 +12476,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 27
       }
     },
     "20260503": {
