@@ -277,9 +277,27 @@
       "updated_at": "2026-10-19T12:58:57.725692+08:00"
     },
     "20260601-20260630": {
-      "status": "running",
+      "status": "complete",
       "all_papers": true,
-      "candidate_fingerprint": "5ecb34f9cd621ae1403ef8be5ec0446f754ff6e805247e5901f817f8caa53360"
+      "candidate_fingerprint": "91b9589811a14237b3211d319fc8f17f6c123bb1fa442c1003783d57dd4e1cc5",
+      "sources": {
+        "arxiv": {
+          "status": "ok",
+          "count": 15
+        },
+        "cvf": {
+          "status": "ok",
+          "count": 1
+        },
+        "crossref": {
+          "status": "ok",
+          "count": 50
+        }
+      },
+      "processed": 2,
+      "failed": 0,
+      "attempt": 1,
+      "updated_at": "2026-10-19T12:59:13.467665+08:00"
     },
     "20260701-20260731": {
       "status": "complete",

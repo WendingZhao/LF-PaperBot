@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:58:30.996126+08:00",
+  "updated_at": "2026-10-19T12:59:13.448547+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -711,6 +711,126 @@
       },
       "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/209",
       "issue_number": 209,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-80e3210a55135fedd229",
+      "arxiv_id": "crossref-80e3210a55135fedd229",
+      "version": 1,
+      "title": "Benchmarking Subjective Quality Assessment Methodologies for Light Field Compression",
+      "abstract": "",
+      "authors": [
+        "Saeed Mahmoudpour",
+        "Myllena A. Prado",
+        "Shengyang Zhao",
+        "Carla L. Pagliari",
+        "Joao Prazeres",
+        "Mylène C. Q. Farias",
+        "Antonio M. G. Pinheiro",
+        "Adrian Munteanu",
+        "Peter Schelkens"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tbc.2026.3661409",
+      "doi": "10.1109/tbc.2026.3661409",
+      "venue": "IEEE Transactions on Broadcasting",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价",
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.745,
+      "evidence": "标题表明该论文对光场压缩的主观质量评估方法进行基准测试。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/210",
+      "issue_number": 210,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-e6d1a95a84d2c219183a",
+      "arxiv_id": "crossref-e6d1a95a84d2c219183a",
+      "version": 1,
+      "title": "A Hybrid Subjective Quality Assessment Framework for Light Field Coding",
+      "abstract": "",
+      "authors": [
+        "Saeed Mahmoudpour",
+        "Mylène C. Q. Farias",
+        "Shengyang Zhao"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/qomex69967.2026.11618314",
+      "doi": "10.1109/qomex69967.2026.11618314",
+      "venue": "2026 18th International Conference on Quality of Multimedia Experience (QoMEX)",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价",
+        "压缩恢复"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.55,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.705,
+      "evidence": "标题表明该论文提出面向光场编码的混合主观质量评估框架。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/213",
+      "issue_number": 213,
       "cover_url": "",
       "first_seen": "20260630",
       "last_seen": "20260630",
@@ -9008,7 +9128,9 @@
       "crossref-d6c9c6d03d2abb9cc06e",
       "crossref-d2b9313ba0ddd7c9a4d5",
       "crossref-345eaf0ffb150a8c8c03",
-      "crossref-f2802b0a3a45877fc472"
+      "crossref-f2802b0a3a45877fc472",
+      "crossref-80e3210a55135fedd229",
+      "crossref-e6d1a95a84d2c219183a"
     ],
     "20260705": [
       "2607.00965",
@@ -9987,6 +10109,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 50
       }
     },
     "20260705": {
