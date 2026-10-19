@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T11:58:41.184639+08:00",
+  "updated_at": "2026-10-19T12:00:45.850560+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -505,6 +505,177 @@
         "20250228"
       ],
       "is_version_update": false
+    },
+    "cvf-6c8182dcb5d0bae06700": {
+      "base_id": "cvf-6c8182dcb5d0bae06700",
+      "arxiv_id": "cvf-6c8182dcb5d0bae06700",
+      "version": 1,
+      "title": "Rethinking the Upsampling Process in Light Field Super-Resolution with Spatial-Epipolar Implicit Image Function",
+      "abstract": "Deep learning-based light field image super-resolution methods have witnessed remarkable success in recent years. However, most of them only focus on the encoder design and overlook the importance of upsampling process in decoder part. Inspired by the recent progress in single image domain with implicit neural representation, we elaborately propose spatial-epipolar implicit image function (SEIIF), which optimizes upsampling process to significantly improve performance and supports arbitrary-scale light filed image super-resolution. Specifically, SEIIF contains two complementary upsampling patterns. One is spatial implicit image function (SIIF) that exploits intra-view information in sub-aperture images. The other is epipolar implicit image function (EIIF) that mines inter-view information in epipolar plane images. By unifying the upsampling step of two branches, SEIIF extra introduces cross-branch feature interaction to fully fuse intra-view information and inter-view information. Besides, given that line structure in epipolar plane image integrates spatial-angular correlation of light field, we present an oriented line sampling strategy to exactly aggregate inter-view information. The experimental results demonstrate that our SEIIF can be effectively combined with most encoders and achieve outstanding performance on both fixed-scale and arbitrary-scale light field image super-resolution. Our code is available at https://github.com/Congrx/SEIIF.",
+      "authors": [
+        "Cong, Ruixuan",
+        "Wang, Yu",
+        "Zhao, Mingyuan",
+        "Yang, Da",
+        "Chen, Rongshan",
+        "Sheng, Hao"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Cong_Rethinking_the_Upsampling_Process_in_Light_Field_Super-Resolution_with_Spatial-Epipolar_ICCV_2025_paper.pdf",
+      "source": "cvf",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Cong_Rethinking_the_Upsampling_Process_in_Light_Field_Super-Resolution_with_Spatial-Epipolar_ICCV_2025_paper.html",
+      "doi": "",
+      "venue": "ICCV2025",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "discovered",
+      "sources": [
+        "cvf"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.97,
+      "research_score": 0.87,
+      "experiment_score": 0.86,
+      "code_score": 1.0,
+      "rank_score": 0.935,
+      "evidence": "提出空间-极线隐式图像函数优化上采样过程，实现固定尺度和任意尺度光场图像空间超分。",
+      "report": {
+        "tldr": "SEIIF将光场超分解码器中的上采样从转置卷积或pixel shuffle改为空间—极线隐式图像函数，联合子孔径图像内视图信息与极线平面图间视图信息，支持固定尺度和任意尺度光场图像超分辨率，并可作为多数编码器的可插拔上采样模块。",
+        "problem": "现有深度光场图像超分辨率方法多集中于编码器设计，忽视解码器上采样过程的重要性；逐子孔径图像使用转置卷积或pixel shuffle难以利用4D光场几何结构，且固定上采样因子对未见尺度缺乏灵活性。论文摘要与引言均明确指出这两个问题。",
+        "modeling": "SEIIF将高分辨率坐标处的RGB值预测建模为隐式图像函数，包含互补的SIIF和EIIF两支：SIIF利用子孔径图像中的内视图信息，EIIF利用水平与垂直极线平面图中的间视图信息；通过统一两分支的上采样步骤并引入跨分支特征交互，融合内视图与间视图信息。针对极线平面图中的线结构整合空间—角度相关，论文提出有向线采样策略聚合间视图信息。材料未在节选中给出显式公式、代价体或更细的几何推导。",
+        "method": "方法上用SEIIF替换原上采样模块，与LF-InterNet、LF-DFnet、LF-IINet、LFT、DistgSSR、HLFSR、EPIT、LF-DET等编码器结合；默认Ce=64、Cd=32，训练采用L1损失；将光场图像裁成32α×32α作为GT，再bicubic下采样到32×32作为LR输入；每轮从(1,4]按0.5间隔采样α，固定尺度任务第二阶段以α=2、3、4分别微调10、5、5个epoch，第一阶段100个epoch；使用水平翻转、垂直翻转和90°旋转增强。视差相关处理上，材料指出α倍空间下采样后有效视差按α倍缩小，因此按α设置不同斜率候选以覆盖LR数据视差范围，保证有向线采样可靠；未将其表述为深度或视差估计任务。",
+        "occlusion": "不适用。该任务为光场空间超分辨率，论文材料未将其定义为去遮挡任务，未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "表1比较固定尺度2×和4×超分，节选未列出表1六组数据的具体数据集名称，也未给出SSIM、LPIPS和速度数值。可核验的代表性PSNR结果包括：LF-InterNet第一组2×由34.11升至34.28（+0.17），4×由28.81升至29.08（+0.27）；DistgSSR第一组2×由34.81升至34.88（+0.07），4×由28.99升至29.54（+0.55）；EPIT第一组2×由34.83升至34.96（+0.13），4×由29.34升至29.67（+0.33）；HLFSR第一组2×由35.31略降至35.26（-0.05），4×由29.20升至29.78（+0.58）。表2报告参数量与FLOPs变化，例如DistgSSR 2×为3.53M（+0.10M）、64.1G（+7.9G），4×为3.58M（+0.05M）、65.4G（+25.4G）；LF-InterNet 2×为4.80M（+0.20M）、47.5G（-0.5G），4×为5.23M（-0.22M）、50.1G（+15.7G）。任意尺度实验称将CNN类DistgSSR与Transformer类EPIT分别结合单图像解码器及SEIIF比较，但节选未给出具体数值。",
+        "resources": "论文提供代码链接 https://github.com/Congrx/SEIIF ；实验使用BasicLFSR基准 https://github.com/ZhengyuLiang24/BasicLFSR 。材料节选未说明GPU型号、训练总时长、推理速度、内存占用等资源信息。",
+        "limitations": "论文材料未说明作者明确列出的局限性。基于节选结果可观察：部分配置提升很小或首组2×略降，如HLFSR由35.31降至35.26、LF-DET由35.26降至35.24；表2显示4×下多数配置FLOPs增加，如DistgSSR增加25.4G、LFT增加26.6G；节选未报告SSIM、LPIPS与速度，无法核验感知质量和效率权衡；任意尺度仅有比较设置说明，缺少具体数值。以上为材料内结果观察，非作者明确结论。",
+        "insight": "该工作提示光场超分不应只优化编码器，解码器上采样也应显式建模4D空间—角度结构；SIIF与EIIF互补、跨分支交互以及基于极线线结构的有向采样是核心设计，使SEIIF具备可插拔性和任意尺度能力。材料未进一步说明理论保证或跨数据集泛化机制。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/12",
+      "issue_number": 12,
+      "cover_url": "assets/previews/cvf-6c8182dcb5d0bae06700.webp",
+      "first_seen": "20251031",
+      "last_seen": "20251031",
+      "appeared_dates": [
+        "20251031"
+      ],
+      "is_version_update": false
+    },
+    "cvf-53c3b146ad2befa54627": {
+      "base_id": "cvf-53c3b146ad2befa54627",
+      "arxiv_id": "cvf-53c3b146ad2befa54627",
+      "version": 1,
+      "title": "Epipolar Consistent Attention Aggregation Network for Unsupervised Light Field Disparity Estimation",
+      "abstract": "Disparity estimation is an essential step in processing and analyzing Light Field (LF) images. Recent methods construct the cost volume to exploit the correspondence of the LFs over the preset maximum disparity, limiting them to process the large parallax scenes. Different from constructing cost volume, the self-attention mechanism calculates the parallax attention between epipolar lines to find the matching points. However, for LFs that have different views, the related disparity scales are different in parallax attention since the baselines with the central view are different. Moreover, if the matching information is occluded in one view, the disparity information can be explored through other views. Therefore, mapping these attentions to the same scale and selecting effective matching information are key points for disparity estimation from parallax attention. In this paper, we explore parallax attention for LF and design an unsupervised method, named Epipolar Consistent Attention Aggregation Network (ECAAN). We first introduce an epipolar consistent scale unification block by considering the consistency relationships to standardize disparity scales of the parallax attention maps. Based on the intra-properties and inter-relationships of parallax attention, we further propose a consistent occlusion-free aggregation block to integrate the information from the occlusion-free areas. Besides, we design an improved photometric loss to constrain the model. ECAAN achieves state-of-the-art performance in LF depth estimation. Notably, ECAAN attains a mean square error (MSE) of 0.2 on large-disparity LF datasets, achieving a 68% error reduction compared to the second-best method.",
+      "authors": [
+        "Gao, Chen",
+        "Zhang, Shuo",
+        "Lin, Youfang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Gao_Epipolar_Consistent_Attention_Aggregation_Network_for_Unsupervised_Light_Field_Disparity_ICCV_2025_paper.pdf",
+      "source": "cvf",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Gao_Epipolar_Consistent_Attention_Aggregation_Network_for_Unsupervised_Light_Field_Disparity_ICCV_2025_paper.html",
+      "doi": "",
+      "venue": "ICCV2025",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "discovered",
+      "sources": [
+        "cvf"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.97,
+      "research_score": 0.86,
+      "experiment_score": 0.88,
+      "code_score": 0.0,
+      "rank_score": 0.886,
+      "evidence": "提出极线一致尺度统一与无遮挡聚合的视差注意力网络，实现无监督光场视差估计。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文；以下仅归纳所给元信息与正文节选中可核验内容。论文提出无监督的极线一致注意力聚合网络ECAAN，用于光场视差估计，核心是统一不同视角视差注意图的尺度，并从遮挡无关区域聚合匹配信息；摘要称其在大视差光场数据上达到MSE 0.2，较第二名误差降低68%。",
+        "problem": "光场视差估计需在不同视角间找对应像素。基于代价体的方法通常预设最大视差范围，内存与计算负担较大，并限制大幅视差场景处理；基于自注意力的视差注意力虽可沿极线找匹配点，但不同视角相对中心视角的基线不同，导致注意图中的视差尺度不一致；若某一视角的匹配信息被遮挡，还需利用其他视角的无遮挡信息。论文材料将“统一视差注意力尺度”和“选择有效匹配信息”列为关键问题。",
+        "modeling": "任务为光场深度/视差估计，采用无监督学习。模型不构造传统代价体，而是显式计算参考点与极线上候选匹配点的相关性，形成视差注意图，利用极线几何和空间—角度对应关系寻找匹配。材料未说明使用焦点线索；明确讨论的是极线一致性与不同视角基线导致的尺度差异。评价指标包括MSE与Bp（坏点比例，阈值0.3、0.1、0.05、0.07），未报告EPE等材料未说明指标。",
+        "method": "ECAAN首先引入极线一致尺度统一块，依据一致性关系标准化不同视差注意图的视差尺度；随后提出一致无遮挡聚合块，基于视差注意图的内部属性与相互关系整合无遮挡区域信息；并设计改进光度损失约束模型。整体为无监督框架，损失包含光度损失Lp、水平/垂直上采样光度损失Lhp与Lvp、PAM损失Ls及平滑损失Lsm；节选给出总损失形式及权重εhv=0.5、εs=0.01、εP=1，PAM损失按0.2/0.3/0.5组合三个层级。",
+        "occlusion": "涉及去遮挡/遮挡处理。论文指出若某视角匹配信息被遮挡，视差信息可由其他视角探索；一致无遮挡聚合块用于从无遮挡区域整合信息。节选还提到若遮挡物标记在O(0,v)，认为该遮挡物也会出现在沿O(0,v)垂直方向移动的视角中，并对D(0,v)与D(u,0)施加上采样光度损失Lhp和Lvp以保证上采样准确性。论文材料未说明完整遮挡掩码生成流程和遮挡区域恢复的全部细节。",
+        "experiments": "材料提及SLFD与HCI数据集。SLFD相关表中，ECAAN3的MSE列为0.173、0.177、0.332、0.290，ECAAN5为0.087、0.101、0.408、0.211（对应表列；材料未说明各列数据集名称）；ECAAN3的Bp(0.3)为1.559、2.588、3.741、9.095，ECAAN5为1.138、0.801、3.207、5.630。摘要称大视差光场数据上MSE为0.2、较第二名误差降低68%。HCI表在节选中未给ECAAN完整行，无法核验其HCI均值。论文材料未报告PSNR、SSIM、LPIPS和参数量；图1含推理时间但正文未给具体速度数值，仅称计算效率有竞争力。",
+        "resources": "实现使用PyTorch，训练于NVIDIA RTX A5000 GPU；训练时裁成100×100图像块，batch size为2，Adam优化器，β1=0.9、β2=0.999，初始学习率1e-3；采用水平/垂直翻转和90度旋转增强；材料称模型收敛约需2天。论文材料未说明参数量、数据集划分、代码链接及完整推理速度数值。",
+        "limitations": "论文材料未给出作者明确的局限性讨论，节选未见失败案例分析、复杂度分析或跨数据集泛化实验细节。可核验信息中，方法仍依赖极线视差注意力、视角间尺度一致性和无遮挡视角信息聚合；完整遮挡掩码流程、网络结构细节、参数量、PSNR/SSIM/LPIPS及具体推理时间未说明，因此复现与全面比较受限。",
+        "insight": "材料显示，ECAAN的启示在于以极线视差注意力替代预设范围代价体，并通过尺度统一处理多视角基线差异，再利用多视角互补从无遮挡区域聚合匹配信息；配合改进光度损失进行无监督约束，可缓解大视差与遮挡下的视差估计问题。上述判断仅基于摘要与节选，需全文核验其结构、复杂度与泛化性。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/13",
+      "issue_number": 13,
+      "cover_url": "assets/previews/cvf-53c3b146ad2befa54627.webp",
+      "first_seen": "20251031",
+      "last_seen": "20251031",
+      "appeared_dates": [
+        "20251031"
+      ],
+      "is_version_update": false
+    },
+    "cvf-f607b3d48a48b69f3f82": {
+      "base_id": "cvf-f607b3d48a48b69f3f82",
+      "arxiv_id": "cvf-f607b3d48a48b69f3f82",
+      "version": 1,
+      "title": "Exploring View Consistency for Scene-Adaptive Low-Light Light Field Image Enhancement",
+      "abstract": "Light Field (LF) images captured under low illumination conditions typically exhibit low quality. Recent learning-based methods for low-light LF enhancement are generally tailored to specific illumination inputs, limiting their performance in real-world scenes. Moreover, how to maintain the inherent view-consistency in the enhanced images also remain as a difficult problem. In this paper, we propose to explore the view consistency for scene-adaptive low-light LF enhancement. We first analyze the view consistency for LF illumination maps and design a self-supervised view-consistent loss to keep the consistency between the illumination maps of different views in LFs. To enhance the model's perception of illumination, we combine both global and local information to estimate the illumination map, which is easily plugged into other models. Subsequently, we use the illumination maps to light up the low-light LF images and restore the corruption to produce the final enhanced image. Extensive experiments demonstrate that our View-Consistenct Network (VCNet) outperforms state-of-the-art methods on real-world low-light LF datasets in both fixed lighting conditions and dynamic lighting conditions. Our proposed illumination adjustment is also demonstrated that can comprehensively improve the performance of existing methods in terms of both image quality and view consistency.",
+      "authors": [
+        "Zhang, Shuo",
+        "Gao, Chen",
+        "Lin, Youfang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Zhang_Exploring_View_Consistency_for_Scene-Adaptive_Low-Light_Light_Field_Image_Enhancement_ICCV_2025_paper.pdf",
+      "source": "cvf",
+      "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Zhang_Exploring_View_Consistency_for_Scene-Adaptive_Low-Light_Light_Field_Image_Enhancement_ICCV_2025_paper.html",
+      "doi": "",
+      "venue": "ICCV2025",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "discovered",
+      "sources": [
+        "cvf"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "低光增强"
+      ],
+      "relevance_score": 0.96,
+      "research_score": 0.82,
+      "experiment_score": 0.86,
+      "code_score": 0.0,
+      "rank_score": 0.869,
+      "evidence": "提出视图一致性自监督损失和全局-局部光照图估计，用于场景自适应低光光场图像增强。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。所给材料表明，论文针对低光光场图像增强提出VCNet，以光照图跨视角一致性为核心：自监督视图一致损失约束不同视角光照图一致，并用全局与局部信息估计光照图，再据此提亮并恢复退化，从而面向固定和动态光照场景。摘要称其在真实低光LF数据集上优于SOTA，并可作为光照调整模块提升现有方法；具体数据集名称、PSNR/SSIM/LPIPS数值、参数量和速度在节选中未给出，需全文核验。",
+        "problem": "低光条件下捕获的LF图像通常质量低。现有基于学习的低光LF增强方法多针对特定光照输入，限制真实场景表现；同时增强图像如何保持LF固有视图一致性仍是难题。材料还指出，逐视角一对一调整会使不同视角光照图差异大，导致跨视角颜色变化；仅估计每视角同一增益或可学习全图光照图也不合适。因此问题可概括为：在未知或动态低光退化下进行场景自适应增强，同时保持跨视角一致。论文材料未说明具体退化模型和数据集统计。",
+        "modeling": "论文先分析LF光照图的视图一致性，并设计自监督视图一致损失，约束不同视角光照图之间的一致性。为增强模型对光照的感知，方法结合全局与局部信息估计光照图，该光照图估计易插入其他模型。随后利用光照图照亮低光LF图像并恢复损坏以得到最终增强图。材料提到Retinex式思路将提亮分为低对比度调整与损坏恢复两阶段，但VCNet完整网络结构、损失权重、训练策略未说明。该任务不涉及深度或视差估计，故无EPI、焦点线索、代价体或空间—角度对应误差指标报告；论文材料未说明。",
+        "method": "核心为VCNet。关键设计包括：1）以LF光照图为对象构造自监督视图一致损失，使不同视角的光照图保持一致，而非仅约束最终图像；2）融合全局和局部信息估计光照图，以提高光照感知；3）用估计光照图对低光LF进行提亮，并恢复噪声、伪影、颜色失真等损坏，输出增强图像；4）所提光照调整可插拔，材料称加入标记为“+E”的模块可提升现有方法的图像质量与视图一致性。摘要和节选未说明网络层数、特征融合方式、损失函数数学形式、训练数据构造及推理流程细节。",
+        "occlusion": "不适用。该任务为低光光场图像增强，材料未涉及去遮挡、视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；也未报告遮挡相关实验。材料中虽提到LF可用于深度估计等应用，并提及利用视图间视差或冗余信息的背景方法，但VCNet本身未描述去遮挡或遮挡恢复模块。",
+        "experiments": "材料称在真实低光LF数据集上，于固定光照和动态光照条件下同SOTA比较；VCNet在动态光照任务中取得更高PSNR和更高AP（图注称AP反映视图一致性保持），细节恢复更好，并在视图一致性保持上更优；加入所提光照调整模块“+E”后，所有方法性能均提升，图像质量和视图一致性改善。图1以点大小表示处理一个LF的运行时间，但节选未给出具体速度值。具体数据集名称未说明；PSNR、SSIM、LPIPS、参数量、运行时间的具体数值论文材料未说明。因此不能核验具体提升幅度，也不能报告常用误差指标（本任务不涉及深度或视差估计）。",
+        "resources": "材料给出代码链接：https://github.com/shuozh/VCNet。论文标注为ICCV Open Access版本。材料未说明训练环境、GPU型号、参数量、FLOPs、推理速度、训练与测试划分、数据采集设备与标注细节；复现信息不足，论文材料未说明。",
+        "limitations": "所给节选未明确讨论VCNet自身局限，因此不能编造。可核验的限制是证据范围：缺少具体数据集名称、PSNR/SSIM/LPIPS数值、参数量、速度、训练细节和消融表；图1仅给出相对趋势。材料称方法面向真实场景固定与动态光照，但对极端低光、强噪声、跨数据集泛化、失败案例和计算成本的定量表现论文材料未说明。对遮挡场景不适用，不能据此推断其去遮挡能力。",
+        "insight": "该工作把LF视图一致性从最终图像约束前移到光照图域，以自监督损失约束跨视角光照估计，这为低光增强中“场景自适应”与“视角一致”之间的耦合提供了可核验思路；全局与局部光照信息结合、光照调整模块可插拔，也有利于兼容现有方法。实际价值需全文中的数据集、PSNR/SSIM/LPIPS、AP、参数量和速度共同验证；当前材料只能支持摘要与节选层面的结论，具体数值和泛化边界论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/14",
+      "issue_number": 14,
+      "cover_url": "assets/previews/cvf-f607b3d48a48b69f3f82.webp",
+      "first_seen": "20251031",
+      "last_seen": "20251031",
+      "appeared_dates": [
+        "20251031"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -569,6 +740,11 @@
     "20250921",
     "20250928",
     "20250930",
+    "20251005",
+    "20251012",
+    "20251019",
+    "20251026",
+    "20251031",
     "20260104",
     "20260111",
     "20260118",
@@ -991,6 +1167,36 @@
         "status": "ok",
         "count": 0
       }
+    },
+    "20251005": {
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
+    },
+    "20251012": {
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
+    },
+    "20251019": {
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
+    },
+    "20251026": {
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
+    },
+    "20251031": {
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
     }
   },
   "unlimited_report_dates": [
@@ -1054,6 +1260,11 @@
     "20250914",
     "20250921",
     "20250928",
-    "20250930"
+    "20250930",
+    "20251005",
+    "20251012",
+    "20251019",
+    "20251026",
+    "20251031"
   ]
 }

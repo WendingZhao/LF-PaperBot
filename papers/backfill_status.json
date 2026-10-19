@@ -179,6 +179,21 @@
       "failed": 0,
       "attempt": 1,
       "updated_at": "2026-10-19T11:58:41.186677+08:00"
+    },
+    "20251001-20251031": {
+      "status": "complete",
+      "all_papers": true,
+      "candidate_fingerprint": "45e4a11163e75e63d037ace164a2c1dfb0ea9308f848c1084cab5cea8553bcf8",
+      "sources": {
+        "cvf": {
+          "status": "ok",
+          "count": 4
+        }
+      },
+      "processed": 3,
+      "failed": 0,
+      "attempt": 1,
+      "updated_at": "2026-10-19T12:00:45.853606+08:00"
     }
   },
   "requested_start": "2024-10-19",
