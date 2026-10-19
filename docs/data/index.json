@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:15:18.308541+08:00",
+  "updated_at": "2026-10-19T12:16:09.406582+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -447,6 +447,65 @@
       "last_seen": "20260322",
       "appeared_dates": [
         "20260322"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "2511.05866",
+      "arxiv_id": "2511.05866v1",
+      "version": 1,
+      "title": "Light-Field Dataset for Disparity Based Depth Estimation",
+      "abstract": "A Light Field (LF) camera consists of an additional two-dimensional array of micro-lenses placed between the main lens and sensor, compared to a conventional camera. The sensor pixels under each micro-lens receive light from a sub-aperture of the main lens. This enables the image sensor to capture both spatial information and the angular resolution of a scene point. This additional angular information is used to estimate the depth of a 3-D scene. The continuum of virtual viewpoints in light field data enables efficient depth estimation using Epipolar Line Images (EPIs) with robust occlusion handling. However, the trade-off between angular information and spatial information is very critical and depends on the focal position of the camera. To design, develop, implement, and test novel disparity-based light field depth estimation algorithms, the availability of suitable light field image datasets is essential. In this paper, a publicly available light field image dataset is introduced and thoroughly described. We have also demonstrated the effect of focal position on the disparity of a 3-D point as well as the shortcomings of the currently available light field dataset. The proposed dataset contains 285 light field images captured using a Lytro Illum LF camera and 13 synthetic LF images. The proposed dataset also comprises a synthetic dataset with similar disparity characteristics to those of a real light field camera. A real and synthetic stereo light field dataset is also created by using a mechanical gantry system and Blender. The dataset is available at https://github.com/aupendu/light-field-dataset.",
+      "authors": [
+        "Suresh Nehra",
+        "Aupendu Kar",
+        "Jayanta Mukhopadhyay",
+        "Prabir Kumar Biswas"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2025-11-08T05:39:05Z",
+      "updated": "2025-11-08T05:39:05Z",
+      "pdf_url": "https://arxiv.org/pdf/2511.05866v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2511.05866v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.78,
+      "research_score": 0.35,
+      "experiment_score": 0.4,
+      "code_score": 0.9,
+      "rank_score": 0.643,
+      "evidence": "摘要提出用于基于视差的光场深度估计的公开数据集，包含Lytro Illum采集的真实光场及合成光场，并利用EPI和多视角角度信息。",
+      "report": {
+        "tldr": "该论文提出并系统描述一个面向视差深度估计的公开光场数据集：含285幅Lytro Illum真实光场、13幅合成光场，以及由机械龙门架和Blender构建的真实/合成立体光场数据；并提供深度图、前景图与物体距离等标注，强调焦距位置对3-D点视差的影响及现有数据集不足。",
+        "problem": "论文针对视差式光场深度估计缺少合适数据的问题：光场相机以微透镜阵列同时记录空间与角度信息，但角度/空间分辨率权衡受焦距位置影响；EPI深度估计需要深度与视差呈反比、不同距离物体间有足够视差差；现有光场数据集存在不足，故需公开数据集支撑算法设计、实现与测试。论文材料未说明具体算法精度提升目标或在线基准协议。",
+        "modeling": "材料将深度估计建模为基于光场EPI的视差/深度关系：利用连续虚拟视角与极线几何，从EPI斜率估计结构/深度；需满足深度与视差反比及足够视差差。文中还分析真实微透镜相机中3-D点视差随深度和焦距距离变化的特性，并以归一化视差图作独立比较；涉及空间—角度对应和焦点位置对角度—空间权衡的影响。材料未说明具体代价函数、网络结构、代价体或优化细节。",
+        "method": "真实数据由Lytro Illum采集285幅光场；合成数据13幅，且合成场景具有与真实光场相机相似的视差特性；立体光场用机械龙门系统采真实场景、Blender渲染合成场景；流程包括相机标定、龙门采集、Blender场景/物体创建、多次采集、深度图提取/生成、真实与合成数据集及标注深度图/Blender物体深度图。论文称提供物体真值距离和前景图。材料未说明微透镜解码、标定参数、训练/测试划分或采集参数。",
+        "occlusion": "不适用（非专门去遮挡任务）：论文未提出专门去遮挡方法或遮挡掩码/遮挡区域恢复机制；仅在动机中称连续虚拟视角使EPI深度估计可进行稳健遮挡处理。材料未说明遮挡边界建模、遮挡掩码生成或遮挡区域评价。",
+        "experiments": "实验为在提出数据集上的定量光场基准：使用归一化视差图比较多种深度估计方法，表中列出Jeon、Wang、Zhang、Nehra、Yang、Honsi、Liu、Yan等方法的数值（节选可见0.17、0.043、0.37、0.026等），但材料节选未明确该表指标名称/单位、误差方向及完整数据集划分，不能据此核验PSNR/SSIM/LPIPS。论文未报告PSNR、SSIM、LPIPS、参数量或运行速度。数据集含285真实+13合成光场及立体数据，并称具有足够视差变化以适合视差式深度估计；论文材料未说明标准深度误差RMSE/MAE/BadPix等数值。",
+        "resources": "论文提供公开数据链接 https://github.com/aupendu/light-field-dataset；数据由Lytro Illum、机械龙门系统与Blender构建。材料未说明数据许可、下载大小、文件格式、训练/验证/测试划分、标注精度、代码与预训练模型是否发布。",
+        "limitations": "基于材料可见内容，论文主要贡献是数据集与焦距/视差分析，而非新深度估计算法；实验节选只列归一化视差基准表，缺少PSNR/SSIM/LPIPS、参数量、速度及标准深度误差指标的明确报告；材料未说明数据划分、评测协议、遮挡评价和合成到真实的泛化实验。因正文节选不完整，上述缺失均记为论文材料未说明，不能推断全文没有。",
+        "insight": "该数据集的价值在于把真实Lytro Illum光场、与真实视差特性接近的合成光场以及真实/合成立体光场放在同一资源中，并提供深度图、前景图和物体距离，便于研究聚焦位置、视差范围与遮挡边界对EPI深度估计的影响。后续可基于该数据核验EPI斜率、空间—角度对应和视差归一化策略，但需以全文补充具体指标和协议。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/24",
+      "issue_number": 24,
+      "cover_url": "assets/previews/2511.05866.webp",
+      "first_seen": "20251109",
+      "last_seen": "20251109",
+      "appeared_dates": [
+        "20251109"
       ],
       "is_version_update": false
     },
@@ -1315,7 +1374,9 @@
       "cvf-f607b3d48a48b69f3f82"
     ],
     "20251102": [],
-    "20251109": [],
+    "20251109": [
+      "2511.05866"
+    ],
     "20251116": [],
     "20251123": [],
     "20251130": [],
@@ -2066,30 +2127,50 @@
       }
     },
     "20251102": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20251109": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20251116": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20251123": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20251130": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
