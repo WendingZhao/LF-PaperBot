@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:30:14.903142+08:00",
+  "updated_at": "2026-10-19T12:30:55.697189+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -1101,6 +1101,293 @@
       "last_seen": "20250817",
       "appeared_dates": [
         "20250817"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-9a21307f1285f2ffc486",
+      "arxiv_id": "crossref-9a21307f1285f2ffc486",
+      "version": 1,
+      "title": "Hierarchical spatial–angular integration for lightweight light field image super-resolution",
+      "abstract": "",
+      "authors": [
+        "Meng Li",
+        "Bo Ma",
+        "Shunzhou Wang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.knosys.2025.113240",
+      "doi": "10.1016/j.knosys.2025.113240",
+      "venue": "Knowledge-Based Systems",
+      "publication_year": 2025,
+      "publication_month": "2025-04",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题明确为轻量级光场图像超分辨率的分层空间—角度集成方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/75",
+      "issue_number": 75,
+      "cover_url": "",
+      "first_seen": "20250430",
+      "last_seen": "20250430",
+      "appeared_dates": [
+        "20250430"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-e276a8bd711a2cb58326",
+      "arxiv_id": "crossref-e276a8bd711a2cb58326",
+      "version": 1,
+      "title": "Light Field Image Super-Resolution Network Based on Attention Mechanism",
+      "abstract": "",
+      "authors": [
+        "Chenhao Han",
+        "Shixu Ying",
+        "Shubo Zhou",
+        "Yi Yang",
+        "Xiaoming Ding",
+        "Xue-Qin Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-981-96-4279-3_14",
+      "doi": "10.1007/978-981-96-4279-3_14",
+      "venue": "Communications in Computer and Information Science / Digital Multimedia Communications",
+      "publication_year": 2025,
+      "publication_month": "2025-04",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.5,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.665,
+      "evidence": "标题明确为基于注意力机制的光场图像超分辨率网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/76",
+      "issue_number": 76,
+      "cover_url": "",
+      "first_seen": "20250430",
+      "last_seen": "20250430",
+      "appeared_dates": [
+        "20250430"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-2fca48fe438a2d8b08a3",
+      "arxiv_id": "crossref-2fca48fe438a2d8b08a3",
+      "version": 1,
+      "title": "Light Field Super-Resolution via Dual-Domain High-Frequency Restoration and State-Space Fusion",
+      "abstract": "The current light field super-resolution methods mainly face the following challenges: difficulty in handling redundant information in light fields; heavy reliance on the spatial domain to recover details; and insufficient interaction of spatial and angular features. We propose a novel light field super-resolution (LF-SR) network, termed DHSFNet, which effectively enhances super-resolution performance from a dual-domain perspective, encompassing both the frequency and spatial domains. Our DHSFNet contains three key points. (1) A local sparse angular attention module (LSAA) is proposed to selectively capture relationships between adjacent sub-views using geometric prior information to reduce computational complexity. (2) We design a dual-domain high-frequency restoration sub-network, with a frequency-domain branch using mask-guided multi-scale discrete cosine transform (DCT) restoration and a spatial-domain branch employing multi-scale cross-attention to recover texture details. (3) A Mamba-based fusion module (MF) is introduced to efficiently facilitate global spatial–angular interaction, which achieves linear complexity and outperforms Transformer-based methods in both accuracy and speed. Comprehensive experiments conducted on three benchmark datasets demonstrate the superior performance of our method in the LF-SR task.",
+      "authors": [
+        "Zhineng Zhang",
+        "Tao Yan",
+        "Hao Huang",
+        "Jinsheng Liu",
+        "Chenglong Wang",
+        "Cihang Wei"
+      ],
+      "categories": [],
+      "published": "2025-04-25",
+      "updated": "2025-04-25",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.3390/electronics14091747",
+      "doi": "10.3390/electronics14091747",
+      "venue": "Electronics",
+      "publication_year": 2025,
+      "publication_month": "2025-04",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.86,
+      "evidence": "提出光场超分辨率网络DHSFNet，利用双域高频恢复与空间-角度融合处理光场冗余信息。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出DHSFNet，从频率域与空间域双域视角进行光场空间超分，包含局部稀疏角度注意力、双域高频恢复子网络和基于Mamba的融合模块，在三个基准数据集上取得优于对比方法的性能。",
+        "problem": "仅基于公开摘要，未读取全文。现有光场超分方法面临三个挑战：光场中冗余信息难以处理；过度依赖空间域恢复细节；空间特征与角度特征交互不足。论文旨在从双域（频率域和空间域）角度提升超分性能。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场超分建模为双域高频恢复与空间-角度融合问题。频率域分支采用掩码引导的多尺度离散余弦变换（DCT）恢复高频信息；空间域分支采用多尺度交叉注意力恢复纹理细节；并引入基于Mamba的融合模块进行全局空间-角度交互，实现线性复杂度。摘要未说明具体的网络架构参数、损失函数或训练策略。",
+        "method": "仅基于公开摘要，未读取全文。DHSFNet包含三个关键组件：（1）局部稀疏角度注意力模块（LSAA），利用几何先验信息选择性捕获相邻子视图间关系，以降低计算复杂度；（2）双域高频恢复子网络，频率域分支使用掩码引导的多尺度DCT恢复，空间域分支使用多尺度交叉注意力恢复纹理细节；（3）基于Mamba的融合模块（MF），高效促进全局空间-角度交互，具有线性复杂度，在精度和速度上优于基于Transformer的方法。摘要未提供各模块的具体实现细节。",
+        "occlusion": "不适用。论文任务为光场空间超分，摘要未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。论文在三个基准数据集上进行了综合实验，证明DHSFNet在光场超分任务上具有优越性能。摘要未说明具体数据集名称、PSNR、SSIM、LPIPS、参数量或运行速度等数值结果。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源或复现细节。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可能的方向包括：局部稀疏角度注意力依赖几何先验的准确性；双域高频恢复子网络的计算开销未量化；Mamba融合模块在光场超分中的泛化性未说明。以上仅为基于摘要的推测，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。DHSFNet从频率域和空间域联合恢复高频信息，并利用Mamba实现线性复杂度的全局空间-角度交互，为光场超分提供了双域协同与高效融合的新思路。局部稀疏角度注意力利用几何先验降低冗余计算，可能对光场其他任务有借鉴意义。具体效果需全文实验验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/74",
+      "issue_number": 74,
+      "cover_url": "",
+      "first_seen": "20250427",
+      "last_seen": "20250427",
+      "appeared_dates": [
+        "20250427"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-bf22c017d46518a9eafa",
+      "arxiv_id": "crossref-bf22c017d46518a9eafa",
+      "version": 1,
+      "title": "Occlusion-Embedded Hybrid Transformer for Light Field Super-Resolution",
+      "abstract": "Transformer-based networks have set new benchmarks in light field super-resolution (SR), but adapting them to capture both global and local spatial-angular correlations efficiently remains challenging. Moreover, many methods fail to account for geometric details like occlusions, leading to performance drops. To tackle these issues, we introduce OHT. This hybrid network leverages occlusion maps through an occlusion-embedded mix layer. It combines the strengths of convolutional networks and Transformers via spatial-angular separable convolution (SASep-Conv) and angular self-attention (ASA). SASep-Conv offers a lightweight alternative to 3D convolution for capturing spatial-angular correlations, while the ASA mechanism applies 3D self-attention across the angular dimension. These designs allow OHT to capture global angular correlations effectively. Extensive experiments on multiple datasets demonstrate OHT's superior performance.",
+      "authors": [
+        "Zeyu Xiao",
+        "Zhuoyuan Li",
+        "Wei Jia"
+      ],
+      "categories": [],
+      "published": "2025-04-11",
+      "updated": "2025-04-11",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1609/aaai.v39i8.32940",
+      "doi": "10.1609/aaai.v39i8.32940",
+      "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-04",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "提出遮挡嵌入混合Transformer用于光场超分辨率，利用遮挡图与空间-角度可分离卷积及角度自注意力捕获全局角度相关性。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出 OHT（Occlusion-Embedded Hybrid Transformer），用于光场图像空间超分辨率；其核心是用遮挡嵌入混合层引入遮挡图，并以空间—角度可分离卷积（SASep-Conv）与角度自注意力（ASA）结合卷积网络和 Transformer，以同时建模全局与局部空间—角度相关性。摘要称在多个数据集上取得更优性能，但未给出具体数值。",
+        "problem": "仅基于公开摘要，未读取全文。问题背景是：基于 Transformer 的光场超分方法虽已刷新基准，但高效同时捕获全局与局部空间—角度相关性仍具挑战；同时，许多方法未考虑遮挡等几何细节，导致性能下降。论文针对光场空间超分中的空间—角度相关性建模效率与遮挡几何利用不足两个问题展开。",
+        "modeling": "仅基于公开摘要，未读取全文。摘要将 OHT 描述为混合网络：通过遮挡嵌入混合层（occlusion-embedded mix layer）利用遮挡图；用空间—角度可分离卷积（SASep-Conv）作为 3D 卷积的轻量替代来捕获空间—角度相关性；用角度自注意力（ASA）在角度维度上施加 3D 自注意力，以捕获全局角度相关性。摘要未说明遮挡图如何生成、网络层数、特征融合方式、损失函数及训练策略，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法要点为：1）遮挡嵌入混合层将遮挡信息嵌入网络，以缓解遮挡导致的性能下降；2）SASep-Conv 以可分离方式处理空间与角度维度，降低相对 3D 卷积的计算负担；3）ASA 在角度维度进行 3D 自注意力，建模全局角度相关性；4）整体为卷积网络与 Transformer 的混合架构。摘要未给出模块顺序、通道配置、上采样方式与实现细节，论文材料未说明。",
+        "occlusion": "仅基于公开摘要，未读取全文。论文涉及遮挡：通过遮挡嵌入混合层将遮挡图引入网络，摘要称许多方法忽略遮挡等几何细节会导致性能下降，OHT 以遮挡图嵌入来应对。摘要未说明遮挡图来源、是否使用遮挡掩码、视角互补或遮挡区域恢复机制，也未说明遮挡边界处理，论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅称在多个数据集上进行大量实验并显示 OHT 性能更优；未给出数据集名称、放大倍数、PSNR、SSIM、LPIPS、参数量、运行速度或对比方法数值，论文材料未说明。因此无法核验具体实验结论与复现信息。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提供代码链接、预训练模型、训练硬件、参数量、计算量、推理时间或数据集获取方式，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限；从摘要可确认的信息缺口包括：缺少定量实验结果、缺少遮挡图生成与嵌入细节、缺少效率指标（参数量与速度）、缺少失败案例分析。上述均需全文核实，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可核验的启示是：光场超分中空间—角度相关性可分解建模，SASep-Conv 提供轻量局部建模，ASA 提供全局角度建模，二者混合可兼顾效率与全局性；将遮挡图作为显式几何先验嵌入网络，是缓解遮挡导致性能下降的设计思路。该思路的实际收益与代价需依据全文实验判断，摘要未给出数值。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/73",
+      "issue_number": 73,
+      "cover_url": "",
+      "first_seen": "20250413",
+      "last_seen": "20250413",
+      "appeared_dates": [
+        "20250413"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-2e6b1679d680821c08dc",
+      "arxiv_id": "crossref-2e6b1679d680821c08dc",
+      "version": 1,
+      "title": "LFSRDiff: Light Field Image Super-Resolution via Diffusion Models",
+      "abstract": "",
+      "authors": [
+        "Wentao Chao",
+        "Junli Zhao",
+        "Fuqing Duan",
+        "Guanghui Wang"
+      ],
+      "categories": [],
+      "published": "2025-04-06",
+      "updated": "2025-04-06",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icassp49660.2025.10889642",
+      "doi": "10.1109/icassp49660.2025.10889642",
+      "venue": "ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "publication_year": 2025,
+      "publication_month": "2025-04",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为基于扩散模型的光场图像超分辨率，属于光场空间超分底层视觉任务。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/72",
+      "issue_number": 72,
+      "cover_url": "",
+      "first_seen": "20250406",
+      "last_seen": "20250406",
+      "appeared_dates": [
+        "20250406"
       ],
       "is_version_update": false
     },
@@ -4119,11 +4406,20 @@
       "crossref-c550090df1e4355108f9",
       "crossref-d2df2d85d8450e2a4b52"
     ],
-    "20250406": [],
-    "20250413": [],
+    "20250406": [
+      "crossref-2e6b1679d680821c08dc"
+    ],
+    "20250413": [
+      "crossref-bf22c017d46518a9eafa"
+    ],
     "20250420": [],
-    "20250427": [],
-    "20250430": [],
+    "20250427": [
+      "crossref-2fca48fe438a2d8b08a3"
+    ],
+    "20250430": [
+      "crossref-9a21307f1285f2ffc486",
+      "crossref-e276a8bd711a2cb58326"
+    ],
     "20250504": [],
     "20250511": [],
     "20250518": [],
@@ -4697,6 +4993,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250413": {
@@ -4707,6 +5007,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250420": {
@@ -4717,6 +5021,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250427": {
@@ -4727,6 +5035,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250430": {
@@ -4737,6 +5049,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250504": {
