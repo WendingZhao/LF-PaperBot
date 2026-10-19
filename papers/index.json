@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:36:04.370256+08:00",
+  "updated_at": "2026-10-19T12:36:45.117288+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -532,13 +532,14 @@
       "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Cong_Rethinking_the_Upsampling_Process_in_Light_Field_Super-Resolution_with_Spatial-Epipolar_ICCV_2025_paper.pdf",
       "source": "cvf",
       "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Cong_Rethinking_the_Upsampling_Process_in_Light_Field_Super-Resolution_with_Spatial-Epipolar_ICCV_2025_paper.html",
-      "doi": "",
+      "doi": "10.1109/iccv51701.2025.00709",
       "venue": "ICCV2025",
       "publication_year": 2025,
       "publication_month": "2025-10",
       "date_basis": "discovered",
       "sources": [
-        "cvf"
+        "cvf",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -588,13 +589,14 @@
       "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Gao_Epipolar_Consistent_Attention_Aggregation_Network_for_Unsupervised_Light_Field_Disparity_ICCV_2025_paper.pdf",
       "source": "cvf",
       "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Gao_Epipolar_Consistent_Attention_Aggregation_Network_for_Unsupervised_Light_Field_Disparity_ICCV_2025_paper.html",
-      "doi": "",
+      "doi": "10.1109/iccv51701.2025.00612",
       "venue": "ICCV2025",
       "publication_year": 2025,
       "publication_month": "2025-10",
       "date_basis": "discovered",
       "sources": [
-        "cvf"
+        "cvf",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -644,13 +646,14 @@
       "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Zhang_Exploring_View_Consistency_for_Scene-Adaptive_Low-Light_Light_Field_Image_Enhancement_ICCV_2025_paper.pdf",
       "source": "cvf",
       "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Zhang_Exploring_View_Consistency_for_Scene-Adaptive_Low-Light_Light_Field_Image_Enhancement_ICCV_2025_paper.html",
-      "doi": "",
+      "doi": "10.1109/iccv51701.2025.00689",
       "venue": "ICCV2025",
       "publication_year": 2025,
       "publication_month": "2025-10",
       "date_basis": "discovered",
       "sources": [
-        "cvf"
+        "cvf",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -1188,13 +1191,14 @@
       "pdf_url": "https://arxiv.org/pdf/2510.15775v1",
       "source": "arxiv",
       "source_url": "https://arxiv.org/abs/2510.15775v1",
-      "doi": "",
+      "doi": "10.1109/tmm.2026.3686627",
       "venue": "",
       "publication_year": 0,
       "publication_month": "",
       "date_basis": "published",
       "sources": [
-        "arxiv"
+        "arxiv",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -6919,6 +6923,294 @@
         "20250930"
       ],
       "is_version_update": false
+    },
+    "crossref-de3d3a3601ea62977a8d": {
+      "base_id": "crossref-de3d3a3601ea62977a8d",
+      "arxiv_id": "crossref-de3d3a3601ea62977a8d",
+      "version": 1,
+      "title": "Structure-Aware and Implicit Restoration for Low-Light Light Field Image Compression",
+      "abstract": "",
+      "authors": [
+        "Yuan Shi",
+        "Jimin Wang",
+        "Yiren Chen",
+        "Xianyang Wang",
+        "Deyang Liu"
+      ],
+      "categories": [],
+      "published": "2025-10-14",
+      "updated": "2025-10-14",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/cw68232.2025.00015",
+      "doi": "10.1109/cw68232.2025.00015",
+      "venue": "2025 International Conference on Cyberworlds (CW）",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "低光增强",
+        "压缩恢复"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.705,
+      "evidence": "标题为低光光场图像压缩的结构感知与隐式恢复，涉及低光增强与压缩恢复。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/121",
+      "issue_number": 121,
+      "cover_url": "",
+      "first_seen": "20251019",
+      "last_seen": "20251019",
+      "appeared_dates": [
+        "20251019"
+      ],
+      "is_version_update": false
+    },
+    "crossref-3934cf19f3078dbfece0": {
+      "base_id": "crossref-3934cf19f3078dbfece0",
+      "arxiv_id": "crossref-3934cf19f3078dbfece0",
+      "version": 1,
+      "title": "Deep Learning Based Light-Field Refocusing of Burner Flames",
+      "abstract": "",
+      "authors": [
+        "Bamidele Ogunjumelo",
+        "Md. Moinul Hossain",
+        "Qi Qi",
+        "Gang Lu"
+      ],
+      "categories": [],
+      "published": "2025-10-15",
+      "updated": "2025-10-15",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/ist66504.2025.11268429",
+      "doi": "10.1109/ist66504.2025.11268429",
+      "venue": "2025 IEEE International Conference on Imaging Systems and Techniques (IST)",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重聚焦"
+      ],
+      "relevance_score": 0.7,
+      "research_score": 0.5,
+      "experiment_score": 0.4,
+      "code_score": 0.0,
+      "rank_score": 0.58,
+      "evidence": "标题明确为基于深度学习的光场重聚焦，应用于燃烧器火焰成像。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/122",
+      "issue_number": 122,
+      "cover_url": "",
+      "first_seen": "20251019",
+      "last_seen": "20251019",
+      "appeared_dates": [
+        "20251019"
+      ],
+      "is_version_update": false
+    },
+    "crossref-1d7f0197bceda3c7bba2": {
+      "base_id": "crossref-1d7f0197bceda3c7bba2",
+      "arxiv_id": "crossref-1d7f0197bceda3c7bba2",
+      "version": 1,
+      "title": "Prex-NetII: Attention-Based Back-Projection Network for Light Field Reconstruction",
+      "abstract": "We propose an attention-based back-projection network that enhances light field reconstruction quality by modeling inter-view dependencies. The network uses pixel shuffle to efficiently extract initial features. Spatial attention focuses on important regions while capturing inter-view dependencies. Skip connections in the refinement network improve stability and reconstruction performance. In addition, channel attention within the projection blocks enhances structural representation across views. The proposed method reconstructs high-quality light field images not only in general scenes but also in complex scenes containing occlusions and reflections. The experimental results show that the proposed method outperforms existing approaches.",
+      "authors": [
+        "Dong-Myung Kim",
+        "Jae-Won Suh"
+      ],
+      "categories": [],
+      "published": "2025-10-21",
+      "updated": "2025-10-21",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.3390/electronics14204117",
+      "doi": "10.3390/electronics14204117",
+      "venue": "Electronics",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重建与插值",
+        "质量增强"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.2,
+      "rank_score": 0.795,
+      "evidence": "提出基于注意力反投影网络提升光场重建质量，建模视图间依赖并处理遮挡与反射场景。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出 Prex-NetII，一种基于注意力的反投影网络，通过建模视角间依赖关系提升光场重建质量；摘要称其在普通场景及含遮挡与反射的复杂场景中均能重建高质量光场图像，并优于现有方法，但未给出具体数据集、指标数值或复现信息。",
+        "problem": "仅基于公开摘要，未读取全文。论文针对光场重建与插值、质量增强任务，目标是提升光场图像重建质量。摘要指出，现有方法在复杂场景（尤其含遮挡与反射）中重建质量仍受限，因此需要更好地建模视角间依赖关系。摘要未说明具体退化类型（如稀疏视角采样率、角度分辨率不足或压缩失真）、输入输出配置及评价协议，论文材料未说明。",
+        "modeling": "仅基于公开摘要，未读取全文。方法以视角间依赖关系为核心建模对象：通过空间注意力关注重要区域并捕捉视角间依赖，通过投影块内的通道注意力增强跨视角的结构表征。网络采用反投影（back-projection）结构，并在精炼网络中引入跳跃连接以提升稳定性与重建性能。摘要未给出反投影的迭代次数、投影算子形式、视角间对应关系的具体建模方式（如视差、EPI 或代价体），论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。整体流程可概括为：先用像素重排（pixel shuffle）高效提取初始特征；随后由空间注意力模块聚焦重要区域并建模视角间依赖；再通过带跳跃连接的精炼网络提升稳定性与重建效果；投影块内部使用通道注意力增强跨视角结构表示。摘要未说明网络层数、通道数、损失函数、训练策略、输入视角排布及是否采用多阶段训练，论文材料未说明。",
+        "occlusion": "仅基于公开摘要，未读取全文。摘要明确声称方法在包含遮挡与反射的复杂场景中也能重建高质量光场图像，说明其设计考虑了遮挡带来的视角间不一致问题；但摘要未给出视角互补机制、几何先验、遮挡掩码或遮挡区域恢复的具体实现，论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅给出定性结论：所提方法优于现有方法，并在普通场景与含遮挡、反射的复杂场景中均能重建高质量光场图像。摘要未报告数据集名称、PSNR、SSIM、LPIPS、参数量、运行速度或对比方法列表，论文材料未说明；因此无法核验具体数值与实验设置。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提及参数量、计算量、推理时间、硬件平台、训练数据规模、代码或模型是否公开，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。由于仅有摘要，无法核验方法的定量增益、泛化性与效率；摘要未说明在极端稀疏采样、大遮挡或真实噪声条件下的表现，也未给出失败案例。方法依赖注意力与反投影结构，其计算开销与内存占用未知，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可借鉴的思路是将空间注意力与通道注意力分别用于视角间依赖建模和跨视角结构表征，并结合反投影与跳跃连接提升重建稳定性；像素重排用于低成本初始特征提取。后续研究可在公开数据集上补充 PSNR/SSIM/LPIPS、参数量与速度的定量对比，并针对遮挡区域设计显式掩码或几何先验以验证摘要中的复杂场景优势。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/123",
+      "issue_number": 123,
+      "cover_url": "",
+      "first_seen": "20251026",
+      "last_seen": "20251026",
+      "appeared_dates": [
+        "20251026"
+      ],
+      "is_version_update": false
+    },
+    "crossref-493cc58131cba932c51f": {
+      "base_id": "crossref-493cc58131cba932c51f",
+      "arxiv_id": "crossref-493cc58131cba932c51f",
+      "version": 1,
+      "title": "Progressive Multi-Plane Images Construction for Light Field Occlusion Removal",
+      "abstract": "",
+      "authors": [
+        "Shuo Zhang",
+        "Song Chang",
+        "Zhuoyu Shi",
+        "Youfang Lin"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tvcg.2025.3561374",
+      "doi": "10.1109/tvcg.2025.3561374",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题表明该论文研究光场遮挡去除，采用渐进式多平面图像构建方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/124",
+      "issue_number": 124,
+      "cover_url": "",
+      "first_seen": "20251031",
+      "last_seen": "20251031",
+      "appeared_dates": [
+        "20251031"
+      ],
+      "is_version_update": false
+    },
+    "crossref-ebe2809e09c7043db314": {
+      "base_id": "crossref-ebe2809e09c7043db314",
+      "arxiv_id": "crossref-ebe2809e09c7043db314",
+      "version": 1,
+      "title": "Multiplane-Based Cross-View Interaction Mechanism for Robust Light Field Angular Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Rongshan Chen",
+        "Hao Sheng",
+        "Da Yang",
+        "Ruixuan Cong",
+        "Zhenglong Cui",
+        "Sizhe Wang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tvcg.2025.3564643",
+      "doi": "10.1109/tvcg.2025.3564643",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "publication_year": 2025,
+      "publication_month": "2025-10",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "角度超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题表明该论文研究光场角度超分辨率，提出基于多平面的跨视角交互机制。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/125",
+      "issue_number": 125,
+      "cover_url": "",
+      "first_seen": "20251031",
+      "last_seen": "20251031",
+      "appeared_dates": [
+        "20251031"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -7924,6 +8216,10 @@
       "cvf": {
         "status": "ok",
         "count": 4
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 48
       }
     },
     "20251012": {
@@ -7934,6 +8230,10 @@
       "cvf": {
         "status": "ok",
         "count": 4
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 48
       }
     },
     "20251019": {
@@ -7944,6 +8244,10 @@
       "cvf": {
         "status": "ok",
         "count": 4
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 48
       }
     },
     "20251026": {
@@ -7954,6 +8258,10 @@
       "cvf": {
         "status": "ok",
         "count": 4
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 48
       }
     },
     "20251031": {
@@ -7964,6 +8272,10 @@
       "cvf": {
         "status": "ok",
         "count": 4
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 48
       }
     },
     "20251102": {
