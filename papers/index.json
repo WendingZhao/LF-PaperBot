@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:56:04.005057+08:00",
+  "updated_at": "2026-10-19T12:58:30.996126+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -8631,6 +8631,122 @@
       "last_seen": "20260630",
       "appeared_dates": [
         "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-fb3734eaca38bee4eb53": {
+      "base_id": "crossref-fb3734eaca38bee4eb53",
+      "arxiv_id": "crossref-fb3734eaca38bee4eb53",
+      "version": 1,
+      "title": "Advances in Light Field Spatial Super-Resolution: A Comprehensive Literature Survey",
+      "abstract": "",
+      "authors": [
+        "Wenqi Lyu",
+        "Hao Sheng",
+        "Wei Ke",
+        "Xiao Ma"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/access.2025.3532610",
+      "doi": "10.1109/access.2025.3532610",
+      "venue": "IEEE Access",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.2,
+      "code_score": 0.0,
+      "rank_score": 0.69,
+      "evidence": "标题明确为光场空间超分辨率综述，属于光场图像底层视觉范围。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/211",
+      "issue_number": 211,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    "crossref-7daa6edc4a82b6a955bc": {
+      "base_id": "crossref-7daa6edc4a82b6a955bc",
+      "arxiv_id": "crossref-7daa6edc4a82b6a955bc",
+      "version": 1,
+      "title": "A Comprehensive Review on Light Field Occlusion Removal: Trends, Challenges, and Future Directions",
+      "abstract": "",
+      "authors": [
+        "Mostafa Farouk Senussi",
+        "Mahmoud Abdalla",
+        "Mahmoud Salaheldin Kasem",
+        "Mohamed Mahmoud",
+        "Bilel Yagoub",
+        "Hyun-Soo Kang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/access.2025.3548133",
+      "doi": "10.1109/access.2025.3548133",
+      "venue": "IEEE Access",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.2,
+      "code_score": 0.0,
+      "rank_score": 0.69,
+      "evidence": "标题明确为光场去遮挡综述，聚焦恢复遮挡内容，符合去遮挡纳入标准。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/212",
+      "issue_number": 212,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
       ],
       "is_version_update": false
     }
