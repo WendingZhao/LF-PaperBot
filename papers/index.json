@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:43:37.694744+08:00",
+  "updated_at": "2026-10-19T12:43:56.224923+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -10429,6 +10429,64 @@
         "20260228"
       ],
       "is_version_update": false
+    },
+    "crossref-0783b85fcb98540fd5cb": {
+      "base_id": "crossref-0783b85fcb98540fd5cb",
+      "arxiv_id": "crossref-0783b85fcb98540fd5cb",
+      "version": 1,
+      "title": "EPI-guided adaptive refocusing for high-SNR 3D measurement in a large-DOF MEMS-based structured light field",
+      "abstract": "Structured light field (SLF) 3D measurement integrating micro-electro-mechanical system (MEMS) projection with unfocused plenoptic cameras (UPC) offers a promising solution for large depth of field (DOF) metrology. However, the high coherence of laser illumination and small UPC sub-apertures generates severe speckle and low signal-to-noise ratio (SNR), degrading reconstruction accuracy. To alleviate these issues, this paper proposes an EPI-guided adaptive refocusing model (EGARM). The model employs a phase-encoded epipolar plane image (EPI) analysis to extract phase features and adaptively estimate a depth-related slope factor. This factor subsequently guides digital refocusing to aggregate multiple sub-aperture views from the 4D light field. By averaging speckle patterns across viewpoints, the method synthesizes sharp images while effectively suppressing speckle. Additionally, a refocused ray calibration and global geometric refinement framework is introduced to impose global geometric constraints and help limit the degradation of reconstruction accuracy across the measurement volume. Experimental results demonstrate stable 3D reconstruction over an extended depth range of approximately 400-1856 mm, during which the effective field of view (FOV) expands from 120 mm × 200 mm to 580 mm × 780 mm, with reconstruction accuracy consistently better than 0.45 mm.",
+      "authors": [
+        "Yupei Miao",
+        "Ziwei Wang",
+        "Xiaojie Zhang",
+        "Qijian Tang",
+        "Xiaoli Liu"
+      ],
+      "categories": [],
+      "published": "2026-03-18",
+      "updated": "2026-03-18",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.593020",
+      "doi": "10.1364/oe.593020",
+      "venue": "Optics Express",
+      "publication_year": 2026,
+      "publication_month": "2026-03",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重聚焦"
+      ],
+      "relevance_score": 0.72,
+      "research_score": 0.6,
+      "experiment_score": 0.65,
+      "code_score": 0.1,
+      "rank_score": 0.6545,
+      "evidence": "提出EPI引导的自适应重聚焦模型，利用相位编码EPI分析估计深度相关斜率因子并引导数字重聚焦聚合子孔径视图以抑制散斑。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出EPI引导的自适应重聚焦模型（EGARM），用于MEMS结构光场与无聚焦光场相机的大景深3D测量，通过相位编码EPI分析估计深度相关斜率因子以指导数字重聚焦，聚合多子孔径视图抑制散斑，并结合重聚焦光线标定与全局几何精化，在约400–1856 mm深度范围实现优于0.45 mm的重建精度。",
+        "problem": "仅基于公开摘要，未读取全文。MEMS投影与无聚焦光场相机（UPC）结合的结构光场3D测量适用于大景深计量，但激光照明的高相干性与UPC小子孔径导致严重散斑和低信噪比（SNR），降低重建精度；同时需在扩展深度范围内维持几何约束以限制重建精度退化。",
+        "modeling": "仅基于公开摘要，未读取全文。模型采用相位编码极平面图像（EPI）分析提取相位特征，并自适应估计与深度相关的斜率因子；该因子随后指导数字重聚焦，从4D光场中聚合多个子孔径视图。摘要未说明EPI构建方式、相位编码具体形式、斜率因子估计网络结构或损失函数，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法核心为EPI引导的自适应重聚焦模型（EGARM）：先对EPI进行相位编码分析以提取相位特征并估计深度相关斜率因子，再以该因子引导数字重聚焦，聚合多子孔径视图；通过跨视角平均散斑图案合成清晰图像并抑制散斑。此外引入重聚焦光线标定与全局几何精化框架，施加全局几何约束以限制测量体积内重建精度退化。具体重聚焦算法、标定流程与精化实现细节论文材料未说明。",
+        "occlusion": "不适用。摘要未涉及去遮挡任务，未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。实验报告在约400–1856 mm的扩展深度范围内实现稳定3D重建，有效视场（FOV）从120 mm × 200 mm扩展至580 mm × 780 mm，重建精度始终优于0.45 mm。摘要未给出数据集名称、PSNR、SSIM、LPIPS、参数量或速度等具体数值，论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码、数据集、模型权重或计算资源的可用性与链接。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性；由于仅有摘要，无法核验EGARM在不同散斑强度、深度边界、标定误差或实时性方面的表现，相关限制论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作将EPI相位特征与深度相关斜率因子用于自适应重聚焦，为结构光场在低SNR与大景深条件下的散斑抑制和几何一致性提供了一种思路；重聚焦光线标定与全局几何精化的结合提示几何约束对扩展测量体积内精度稳定性的重要性。更深入的机理与泛化性需全文验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/181",
+      "issue_number": 181,
+      "cover_url": "",
+      "first_seen": "20260322",
+      "last_seen": "20260322",
+      "appeared_dates": [
+        "20260322"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -11784,6 +11842,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260308": {
@@ -11794,6 +11856,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260315": {
@@ -11804,6 +11870,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260322": {
@@ -11814,6 +11884,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260329": {
@@ -11824,6 +11898,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260331": {
@@ -11834,6 +11912,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 46
       }
     },
     "20260405": {
