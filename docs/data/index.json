@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:37:31.325977+08:00",
+  "updated_at": "2026-10-19T12:41:11.420223+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -573,6 +573,1876 @@
       "last_seen": "20260131",
       "appeared_dates": [
         "20260131"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-34d1a4364ed00ecb1023",
+      "arxiv_id": "crossref-34d1a4364ed00ecb1023",
+      "version": 1,
+      "title": "Geometry-Aware RWKV for Heterogeneous Light Field Spatial Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Zean Chen",
+        "Yeyao Chen",
+        "Linwei Zhu",
+        "Haiyong Xu",
+        "Gangyi Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/lsp.2025.3555445",
+      "doi": "10.1109/lsp.2025.3555445",
+      "venue": "IEEE Signal Processing Letters",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.85,
+      "evidence": "标题明确为异构光场空间超分辨率的几何感知RWKV方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/138",
+      "issue_number": 138,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d72d998cce73e0ee0a92",
+      "arxiv_id": "crossref-d72d998cce73e0ee0a92",
+      "version": 1,
+      "title": "Edge-aware self-supervised light field depth estimation with semantics guided and view correlation enhancement",
+      "abstract": "",
+      "authors": [
+        "Wenbin Yan",
+        "Xiaogang Zhang",
+        "Hua Chen",
+        "Qingwei Wu",
+        "Shengjie Hu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.measurement.2025.117830",
+      "doi": "10.1016/j.measurement.2025.117830",
+      "venue": "Measurement",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.85,
+      "evidence": "标题为边缘感知自监督光场深度估计，利用视图相关性增强。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/139",
+      "issue_number": 139,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-335780f1a24f2f139471",
+      "arxiv_id": "crossref-335780f1a24f2f139471",
+      "version": 1,
+      "title": "Multi-level disparity-guided transformers for light field spatial super-resolution",
+      "abstract": "",
+      "authors": [
+        "Yigeng Liao",
+        "Le Song",
+        "Gaoyan Zhang",
+        "Fengzhou Fang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.patcog.2025.111803",
+      "doi": "10.1016/j.patcog.2025.111803",
+      "venue": "Pattern Recognition",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.84,
+      "evidence": "标题为多级视差引导Transformer用于光场空间超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/140",
+      "issue_number": 140,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-91d5b92a708812778234",
+      "arxiv_id": "crossref-91d5b92a708812778234",
+      "version": 1,
+      "title": "Blind light field image quality assessment with bidirectional angular features and diffusion model-based quality perception",
+      "abstract": "",
+      "authors": [
+        "Panqing Wang",
+        "Rui Zhou",
+        "Yeyao Chen",
+        "Zhidi Jiang",
+        "Gangyi Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.displa.2025.103127",
+      "doi": "10.1016/j.displa.2025.103127",
+      "venue": "Displays",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.84,
+      "evidence": "标题为盲光场图像质量评价，采用双向角度特征与扩散模型。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/141",
+      "issue_number": 141,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-4d964c601b2943a05135",
+      "arxiv_id": "crossref-4d964c601b2943a05135",
+      "version": 1,
+      "title": "Multidimension Attention Network for Full-Reference Light Field Image Quality Assessment",
+      "abstract": "",
+      "authors": [
+        "Youzhi Zhang",
+        "Junming Jiang",
+        "Deyang Liu",
+        "Xiaofei Zhou",
+        "Caifeng Shan"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tim.2025.3584161",
+      "doi": "10.1109/tim.2025.3584161",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.83,
+      "evidence": "标题为多维注意力网络用于全参考光场图像质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/142",
+      "issue_number": 142,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-1b36e69ff5e66a541dd6",
+      "arxiv_id": "crossref-1b36e69ff5e66a541dd6",
+      "version": 1,
+      "title": "Beyond Subspace Isolation: Many-to-Many Transformer for Light Field Image Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Zeke Zexi Hu",
+        "Xiaoming Chen",
+        "Vera Yuk Ying Chung",
+        "Yiran Shen"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tmm.2024.3521795",
+      "doi": "10.1109/tmm.2024.3521795",
+      "venue": "IEEE Transactions on Multimedia",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为面向光场图像超分辨率的Many-to-Many Transformer。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/143",
+      "issue_number": 143,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-45ed5b26437a0fcf25a8",
+      "arxiv_id": "crossref-45ed5b26437a0fcf25a8",
+      "version": 1,
+      "title": "Towards Depth-Continuous Scene Representation With a Displacement Field for Robust Light Field Depth Estimation",
+      "abstract": "",
+      "authors": [
+        "Rongshan Chen",
+        "Hao Sheng",
+        "Da Yang",
+        "Ruixuan Cong",
+        "Zhenglong Cui",
+        "Sizhe Wang",
+        "Tun Wang",
+        "Mingyuan Zhao"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tmm.2025.3535352",
+      "doi": "10.1109/tmm.2025.3535352",
+      "venue": "IEEE Transactions on Multimedia",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为利用位移场的深度连续场景表示用于鲁棒光场深度估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/144",
+      "issue_number": 144,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-6f4d977c33c959f59aaf",
+      "arxiv_id": "crossref-6f4d977c33c959f59aaf",
+      "version": 1,
+      "title": "Mask-Aware Light Field De-Occlusion With Gated Feature Aggregation and Texture-Semantic Attention",
+      "abstract": "",
+      "authors": [
+        "Jieyu Chen",
+        "Ping An",
+        "Xinpeng Huang",
+        "Yilei Chen",
+        "Chao Yang",
+        "Liquan Shen"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tmm.2025.3543048",
+      "doi": "10.1109/tmm.2025.3543048",
+      "venue": "IEEE Transactions on Multimedia",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为基于门控特征聚合与纹理语义注意力的掩码感知光场去遮挡。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/145",
+      "issue_number": 145,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-808c65f9922758121c13",
+      "arxiv_id": "crossref-808c65f9922758121c13",
+      "version": 1,
+      "title": "L3FMamba: Low-Light Light Field Image Enhancement With Prior-Injected State Space Models",
+      "abstract": "",
+      "authors": [
+        "Deyang Liu",
+        "Shizheng Li",
+        "Zeyu Xiao",
+        "Ping An",
+        "Caifeng Shan"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/lsp.2025.3599733",
+      "doi": "10.1109/lsp.2025.3599733",
+      "venue": "IEEE Signal Processing Letters",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "低光增强",
+        "质量增强"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为低光光场图像增强，使用先验注入状态空间模型。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/146",
+      "issue_number": 146,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-3b392eb8e843ec5e3643",
+      "arxiv_id": "crossref-3b392eb8e843ec5e3643",
+      "version": 1,
+      "title": "Progressive epipolar geometry for robust light field super-resolution",
+      "abstract": "",
+      "authors": [
+        "Hao Zhang",
+        "Hao Sheng",
+        "Rongshan Chen",
+        "Da Yang",
+        "Ruixuan Cong",
+        "Zhenglong Cui",
+        "Xuefei Huang",
+        "Guanqun Su"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.engappai.2025.112137",
+      "doi": "10.1016/j.engappai.2025.112137",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为基于渐进极几何的鲁棒光场超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/147",
+      "issue_number": 147,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-1e235a320181484f488b",
+      "arxiv_id": "crossref-1e235a320181484f488b",
+      "version": 1,
+      "title": "TO-LF: A Texture and Occlusion-Oriented Benchmark Dataset for Light Field Disparity Estimation",
+      "abstract": "",
+      "authors": [
+        "Shubo Zhou",
+        "Yunlong Wang",
+        "Yingqian Wang",
+        "Fei Liu",
+        "Xue-qin Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/lsp.2025.3598728",
+      "doi": "10.1109/lsp.2025.3598728",
+      "venue": "IEEE Signal Processing Letters",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为面向纹理与遮挡的光场视差估计基准数据集。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/148",
+      "issue_number": 148,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-9af7b480115590971419",
+      "arxiv_id": "crossref-9af7b480115590971419",
+      "version": 1,
+      "title": "Enhancing Underwater Imaging With 4-D Light Fields: Dataset and Method",
+      "abstract": "",
+      "authors": [
+        "Yuji Lin",
+        "Junhui Hou",
+        "Xianqiang Lyu",
+        "Qian Zhao",
+        "Deyu Meng"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/jstsp.2025.3589758",
+      "doi": "10.1109/jstsp.2025.3589758",
+      "venue": "IEEE Journal of Selected Topics in Signal Processing",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量增强"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.4,
+      "rank_score": 0.8,
+      "evidence": "标题为利用四维光场增强水下成像，含数据集与方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/149",
+      "issue_number": 149,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-41f950e7405ccf6d79d8",
+      "arxiv_id": "crossref-41f950e7405ccf6d79d8",
+      "version": 1,
+      "title": "Dualf-D: Disentangled Dual-Hyperprior Approach for Light Field Image Compression",
+      "abstract": "",
+      "authors": [
+        "Soheib Takhtardeshir",
+        "Roger Olsson",
+        "Christine Guillemot",
+        "Mårten Sjöström"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.2139/ssrn.5294260",
+      "doi": "10.2139/ssrn.5294260",
+      "venue": "Signal Processing: Image Communication",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.75,
+      "experiment_score": 0.6,
+      "code_score": 0.3,
+      "rank_score": 0.795,
+      "evidence": "标题为解耦双超先验的光场图像压缩方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/150",
+      "issue_number": 150,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-f8cf45d5f482a8ebc6ac",
+      "arxiv_id": "crossref-f8cf45d5f482a8ebc6ac",
+      "version": 1,
+      "title": "RLNet: Reshaping Learning Network for Accurate Low-Light Light Field Image Enhancement",
+      "abstract": "",
+      "authors": [
+        "Xingzheng Wang",
+        "Jiahao Lin",
+        "Kaiqiang Chen",
+        "Wenhao Huang",
+        "Zixuan Wang",
+        "Yuanlong Deng"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tci.2025.3544070",
+      "doi": "10.1109/tci.2025.3544070",
+      "venue": "IEEE Transactions on Computational Imaging",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "低光增强",
+        "质量增强"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.79,
+      "evidence": "标题为用于精确低光光场图像增强的RLNet。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/151",
+      "issue_number": 151,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d76f92f6124ffdecc50c",
+      "arxiv_id": "crossref-d76f92f6124ffdecc50c",
+      "version": 1,
+      "title": "Blind Light Field Image Quality Assessment via Frequency Domain Analysis and Auxiliary Learning",
+      "abstract": "",
+      "authors": [
+        "Rui Zhou",
+        "Gangyi Jiang",
+        "Linwei Zhu",
+        "Yueli Cui",
+        "Ting Luo"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/lsp.2025.3531209",
+      "doi": "10.1109/lsp.2025.3531209",
+      "venue": "IEEE Signal Processing Letters",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.785,
+      "evidence": "标题为基于频域分析与辅助学习的盲光场图像质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/152",
+      "issue_number": 152,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-0a527069bdae73b1bbe0",
+      "arxiv_id": "crossref-0a527069bdae73b1bbe0",
+      "version": 1,
+      "title": "Blind Light Field Image Quality Assessment Using Multiplane Texture and Multilevel Wavelet Information",
+      "abstract": "",
+      "authors": [
+        "Zhengyu Zhang",
+        "Shishun Tian",
+        "Jianjun Xiang",
+        "Wenbin Zou",
+        "Luce Morin",
+        "Lu Zhang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tbc.2025.3627787",
+      "doi": "10.1109/tbc.2025.3627787",
+      "venue": "IEEE Transactions on Broadcasting",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.785,
+      "evidence": "标题为基于多平面纹理与多级小波信息的盲光场图像质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/153",
+      "issue_number": 153,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-90f6c5555e9459a64d16",
+      "arxiv_id": "crossref-90f6c5555e9459a64d16",
+      "version": 1,
+      "title": "Disparity Enhancement-Based Light Field Angular Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Dongjun Cai",
+        "Yilei Chen",
+        "Xinpeng Huang",
+        "Ping An"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/lsp.2024.3496582",
+      "doi": "10.1109/lsp.2024.3496582",
+      "venue": "IEEE Signal Processing Letters",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.4,
+      "code_score": 0.2,
+      "rank_score": 0.76,
+      "evidence": "标题明确为基于视差增强的光场角度超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/154",
+      "issue_number": 154,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-5e41b72f37c8a69f03fe",
+      "arxiv_id": "crossref-5e41b72f37c8a69f03fe",
+      "version": 1,
+      "title": "DIVC-Based Pseudo-Temporal Light Field Coding",
+      "abstract": "The JPEG Pleno Light Field has been developed to fill the gap in standardized methods for Light Field (LF) coding.Alternatively, LFs can be represented as pseudo-temporal sequences, unlocking the myriad of video coding techniques and standards for LF coding.Recently, the Decoupled Interpolated Video Coding (DIVC) method has been proposed, combining novel Neural Network-based techniques with hybrid video coding techniques.Such method eliminates frames from a video sequence being encoded and then, on the decoder side, it employs Video Frame Interpolation (VFI) as a way of regenerating removed frames.In this work, we demonstrate the application of the DIVC for Light Field Coding (DIVC-LF) method as a way of efficiently coding LF data while also relying on well established and optimized hybrid video coding techniques.According to our experiments, DIVC-LF improves the coding efficiency compared to the state-of-the-art VVC Test Model (VTM).On average, our method achieves BD-BR of -5.44% up to -28.93%, depending on different combinations of coding configuration, LF dataset, and quality metrics.The DIVC-LF also provides better coding efficiency compared to JPEG Pleno 4DTM by achieving, on average, BD-BR between -45.92% and -59.74%, depending on coding configuration.",
+      "authors": [
+        "André Beims Bräscher",
+        "Gabriela Furtado da Silveira",
+        "Luiz Henrique Cancellier",
+        "Ismael Seidel",
+        "José Luís Güntzel"
+      ],
+      "categories": [],
+      "published": "2025-12-30",
+      "updated": "2025-12-30",
+      "pdf_url": "https://jics.org.br/ojs/index.php/JICS/article/download/1017/565",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.29292/jics.v20i3.1017",
+      "doi": "10.29292/jics.v20i3.1017",
+      "venue": "Journal of Integrated Circuits and Systems",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.6,
+      "code_score": 0.2,
+      "rank_score": 0.76,
+      "evidence": "摘要提出DIVC-LF伪时序光场编码方法，利用视频帧插值重建被移除帧以提升编码效率。",
+      "report": {
+        "tldr": "论文提出 DIVC-LF，将光场按蛇形扫描转为伪时序视频序列，编码时丢弃一半帧，解码端用视频帧插值（VFI）重建被丢弃帧，从而在标准混合视频编码框架下提升光场压缩效率；实验报告相对 VTM 平均 BD-BR 为 -5.44% 至 -28.93%，相对 JPEG Pleno 4DTM 为 -45.92% 至 -59.74%。",
+        "problem": "光场图像角分辨率高、数据量大，传统上多依赖非标准化压缩方案；JPEG Pleno Part 2 虽定义了 4DTM 与 4DPM 两种模式，但参考软件 JPLM 仅实现 4DTM，且尚无广泛可用的整体硬件加速器。论文希望利用成熟的混合视频编码标准与神经网络帧插值，在保持标准兼容性的同时提升光场编码效率，并与 VVC 测试模型 VTM 及 JPEG Pleno 4DTM 进行对比。",
+        "modeling": "论文将 M×N 光场视图矩阵按 JPEG Pleno 通用测试条件（CTC）的蛇形扫描顺序展开为伪时序序列，使相邻视图在时序上连续，从而可套用视频编码的帧间预测与运动补偿。DIVC 的核心建模是“编码端丢弃每隔一帧、不向解码端传输被丢帧信息；解码端以已重建的保留帧为参考，通过 VFI 再生被丢帧”，恢复原始帧数。该方法对视频编码技术和插值技术均保持无关性，论文材料未说明 DIVC-LF 具体采用哪一种 VFI 网络结构及其训练细节。",
+        "method": "DIVC-LF 流程为：先将光场表示转换为蛇形扫描伪时序序列；编码时按 DIVC 规则移除一半帧，仅对保留帧使用标准化混合视频编码器进行编码与解码；解码后以重建保留帧作为 VFI 参考，插值生成被移除帧，最终重组为完整光场。论文强调保留帧编码可受益于数十年优化的混合视频编码器及其硬件加速器，而 VFI 部分可独立替换。材料提到 CTC 锚点使用 HEVC 的 x265 实现，并指出 VTM 是编码效率更高的组合；DIVC-LF 与 VTM、JPEG Pleno 4DTM 比较。具体编码配置组合、扫描顺序之外的预处理、VFI 模型名称与推理设备，论文材料未说明。",
+        "occlusion": "不适用。论文任务为光场压缩与解码端帧插值恢复，材料未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "实验以 BD-BR 为主要指标，比较 DIVC-LF 与 VVC 测试模型 VTM 及 JPEG Pleno 4DTM。摘要报告：相对 VTM，平均 BD-BR 为 -5.44% 至 -28.93%，取决于编码配置、光场数据集和质量指标的组合；相对 JPEG Pleno 4DTM，平均 BD-BR 为 -45.92% 至 -59.74%，取决于编码配置。正文节选补充：以 SSIMdB 为质量指标时，DIVC-LF 在 LDP 数据集上平均 BD-BR 为 -13.68%，在 RA 配置上为 -19.05%（CTC-QA 数据集），并提到另一数据集上为 -10.54%（该句在节选中被截断，完整数值论文材料未说明）。论文材料未给出 PSNR、SSIM、LPIPS 的绝对数值，未报告参数量、编码/解码速度或运行时间；数据集名称仅出现 LDP 与 CTC-QA，RA 为编码配置而非数据集。",
+        "resources": "论文材料未说明 DIVC-LF 的参数量、模型大小、训练数据规模、GPU 型号、编码与解码运行时间、VFI 推理速度，也未给出代码或模型下载链接。材料仅提及使用标准化混合视频编码器、VTM、x265/HEVC、JPEG Pleno 4DTM 及 CTC-QA 等测试条件；复现所需的软件版本、配置文件与硬件环境论文材料未说明。",
+        "limitations": "论文材料未系统讨论局限性。可核验的边界包括：DIVC-LF 依赖 VFI 重建被丢弃帧，插值质量直接影响最终光场质量，但材料未给出 VFI 失败案例或质量下限分析；实验仅报告 BD-BR 类相对增益，缺少 PSNR、SSIM、LPIPS 绝对值和计算复杂度、速度、参数量对比；数据集覆盖有限，材料中仅明确出现 LDP 与 CTC-QA；与 4DTM 的比较仅基于 JPLM 已实现的 4DTM 模式，未涉及 4DPM。更全面的局限性论述论文材料未说明。",
+        "insight": "DIVC-LF 的可借鉴点在于把光场视图矩阵的扫描顺序与视频帧丢弃/插值机制解耦：编码端只传一半帧，解码端用 VFI 补全，从而在不改动标准视频编码器的前提下引入神经网络能力。其效果高度依赖伪时序序列中相邻视图的时空连续性，蛇形扫描正是为增强这种连续性；同时该方法对编码器和插值器均保持可替换性，便于后续换用更强 VFI 或更新视频标准。论文材料未提供消融实验来分离扫描顺序、丢帧比例与 VFI 质量各自的贡献，相关机理仍需进一步核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/155",
+      "issue_number": 155,
+      "cover_url": "assets/previews/crossref-5e41b72f37c8a69f03fe.webp",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-96c8fdee23fa2496631f",
+      "arxiv_id": "crossref-96c8fdee23fa2496631f",
+      "version": 1,
+      "title": "Scene Complexity Attention-Guided Real-Time 3D Light Field Super-Resolution Reconstruction Based on Viewpoint-Disparity Joint Representation",
+      "abstract": "",
+      "authors": [
+        "ningchi Li",
+        "Xunbo Yu",
+        "xin gao",
+        "Binbin Yan",
+        "donghu Li",
+        "haojun Shi",
+        "Hanyu Li",
+        "xudong Wen",
+        "jinhong He",
+        "kexin Liu",
+        "xinzhu Sang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.2139/ssrn.5599530",
+      "doi": "10.2139/ssrn.5599530",
+      "venue": "Optics and Lasers in Engineering",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.755,
+      "evidence": "标题为基于视差联合表示的场景复杂度注意力引导实时3D光场超分辨率重建。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/156",
+      "issue_number": 156,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-1c54bfabf11da1f65f1b",
+      "arxiv_id": "crossref-1c54bfabf11da1f65f1b",
+      "version": 1,
+      "title": "高效Mamba驱动的端到端光场图像压缩 Efficient mamba-driven end-to-end light field image compression",
+      "abstract": "",
+      "authors": [
+        "FENG Zheyu",
+        "宁波大学 信息科学与工程学院，浙江 宁波 315211 Faculty of Information Science and Engineering， Ningbo University， Ningbo 315211， China",
+        "JIANG Zhidi",
+        "WAN Lifei",
+        "XU Haiyong",
+        "JIANG Gangyi",
+        "宁波大学 科技学院， 浙江 宁波 315300 College of Science and Technology Ningbo University， Ningbo 315300， China"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.37188/ope.20253318.2980",
+      "doi": "10.37188/ope.20253318.2980",
+      "venue": "Optics and Precision Engineering",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.755,
+      "evidence": "标题为高效Mamba驱动的端到端光场图像压缩。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/157",
+      "issue_number": 157,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d2b9890a8913d4f2d675",
+      "arxiv_id": "crossref-d2b9890a8913d4f2d675",
+      "version": 1,
+      "title": "Hybrid Spatial and Frequency Network for Light Field Image Restoration",
+      "abstract": "",
+      "authors": [
+        "Vinh Van Duong",
+        "Thuc Nguyen Huu",
+        "Jonghoon Yim",
+        "Byeungwoo Jeon"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tci.2025.3587603",
+      "doi": "10.1109/tci.2025.3587603",
+      "venue": "IEEE Transactions on Computational Imaging",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量增强"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.7,
+      "experiment_score": 0.6,
+      "code_score": 0.3,
+      "rank_score": 0.755,
+      "evidence": "标题为混合空间频率网络用于光场图像恢复。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/158",
+      "issue_number": 158,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-46ea8a4aef445986fa85",
+      "arxiv_id": "crossref-46ea8a4aef445986fa85",
+      "version": 1,
+      "title": "Efficient and Fast Light Field Compression via VAE-Based Spatial and Angular Disentanglement",
+      "abstract": "",
+      "authors": [
+        "Soheib Takhtardeshir",
+        "Roger Olsson",
+        "Christine Guillemot",
+        "Mårten Sjöström"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/access.2025.3532608",
+      "doi": "10.1109/access.2025.3532608",
+      "venue": "IEEE Access",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.75,
+      "evidence": "标题为基于VAE空间角度解耦的高效快速光场压缩。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/159",
+      "issue_number": 159,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-a9808ac86799fe9ded62",
+      "arxiv_id": "crossref-a9808ac86799fe9ded62",
+      "version": 1,
+      "title": "Light field depth estimation based on sub-pixel displacement and multi-directional pixel gradient",
+      "abstract": "",
+      "authors": [
+        "Hongbo Zhang",
+        "Xuanwei Liu",
+        "Wenjie Lai",
+        "Donglai Li",
+        "Daming Wang",
+        "Ziji Liu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.optlastec.2025.113892",
+      "doi": "10.1016/j.optlastec.2025.113892",
+      "venue": "Optics & Laser Technology",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.745,
+      "evidence": "标题为基于亚像素位移与多方向像素梯度的光场深度估计，明确利用光场结构。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/160",
+      "issue_number": 160,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-7d5a31ddc095d3796ab0",
+      "arxiv_id": "crossref-7d5a31ddc095d3796ab0",
+      "version": 1,
+      "title": "LRFNet: Learning Light Field Reconstruction via a Large Receptive Field Network",
+      "abstract": "",
+      "authors": [
+        "Ahmed Salem",
+        "Ebrahem Elkady",
+        "Hatem Ibrahem",
+        "Jae-Won Suh",
+        "Hyun-Soo Kang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/access.2025.3634563",
+      "doi": "10.1109/access.2025.3634563",
+      "venue": "IEEE Access",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.745,
+      "evidence": "标题为大感受野网络的光场重建，属于稠密光场重建/视图插值。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/161",
+      "issue_number": 161,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-928e3ddbb964c16088f3",
+      "arxiv_id": "crossref-928e3ddbb964c16088f3",
+      "version": 1,
+      "title": "MaskBlur: Spatial and Angular Data Augmentation for Light Field Image Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Wentao Chao",
+        "Fuqing Duan",
+        "Yulan Guo",
+        "Guanghui Wang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tmm.2024.3521781",
+      "doi": "10.1109/tmm.2024.3521781",
+      "venue": "IEEE Transactions on Multimedia",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.55,
+      "experiment_score": 0.4,
+      "code_score": 0.3,
+      "rank_score": 0.695,
+      "evidence": "标题为光场图像超分辨率的空间与角度数据增强方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/162",
+      "issue_number": 162,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-4d6de3d65385849c2c06",
+      "arxiv_id": "crossref-4d6de3d65385849c2c06",
+      "version": 1,
+      "title": "CutMAA: Motion-Aware Data Augmentation for Light Field Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Sojin Yun",
+        "Namhyuk Ahn",
+        "In Kyu Park"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/access.2025.3539920",
+      "doi": "10.1109/access.2025.3539920",
+      "venue": "IEEE Access",
+      "publication_year": 2025,
+      "publication_month": "",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.55,
+      "experiment_score": 0.4,
+      "code_score": 0.3,
+      "rank_score": 0.695,
+      "evidence": "标题为面向光场超分辨率的运动感知数据增强CutMAA。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/163",
+      "issue_number": 163,
+      "cover_url": "",
+      "first_seen": "20251231",
+      "last_seen": "20251231",
+      "appeared_dates": [
+        "20251231"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-55aa044b84567a93dfba",
+      "arxiv_id": "crossref-55aa044b84567a93dfba",
+      "version": 1,
+      "title": "Physics-Aware Baseline Decoupling for Light Field Depth Estimation",
+      "abstract": "",
+      "authors": [
+        "Zexin Sun",
+        "Tun Wang",
+        "Rongshan Chen",
+        "Ruixuan Cong",
+        "Hao Sheng"
+      ],
+      "categories": [],
+      "published": "2025-12-19",
+      "updated": "2025-12-19",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icvrv67992.2025.00046",
+      "doi": "10.1109/icvrv67992.2025.00046",
+      "venue": "2025 International Conference on Virtual Reality and Visualization (ICVRV)",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.2,
+      "code_score": 0.0,
+      "rank_score": 0.69,
+      "evidence": "标题明确为光场深度估计，并提出物理感知的基线解耦方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/137",
+      "issue_number": 137,
+      "cover_url": "",
+      "first_seen": "20251221",
+      "last_seen": "20251221",
+      "appeared_dates": [
+        "20251221"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d773736d5b332e24d9a9",
+      "arxiv_id": "crossref-d773736d5b332e24d9a9",
+      "version": 1,
+      "title": "Benchmarking Objective Quality Assessment Methods for Light Field Coding Applications",
+      "abstract": "",
+      "authors": [
+        "Saeed Mahmoudpour",
+        "Gi-Mun Um",
+        "Hyon-Gon Choo",
+        "Peter Schelkens"
+      ],
+      "categories": [],
+      "published": "2025-12-08",
+      "updated": "2025-12-08",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/pcs65673.2025.11417538",
+      "doi": "10.1109/pcs65673.2025.11417538",
+      "venue": "2025 Picture Coding Symposium (PCS)",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价",
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.6,
+      "code_score": 0.2,
+      "rank_score": 0.76,
+      "evidence": "标题表明该文对光场编码应用中的客观质量评价方法进行基准测试，属于光场图像压缩与质量评价范畴。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/135",
+      "issue_number": 135,
+      "cover_url": "",
+      "first_seen": "20251214",
+      "last_seen": "20251214",
+      "appeared_dates": [
+        "20251214"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-cc9f954f36ec7eddaa5e",
+      "arxiv_id": "crossref-cc9f954f36ec7eddaa5e",
+      "version": 1,
+      "title": "Towards Privacy-Preserving Light Field Super-Resolution: A Federated Learning Approach",
+      "abstract": "",
+      "authors": [
+        "Wenqi Lyu",
+        "Wei Ke",
+        "Hao Sheng",
+        "Xiao Ma",
+        "Da Yang",
+        "Su Liu"
+      ],
+      "categories": [],
+      "published": "2025-12-12",
+      "updated": "2025-12-12",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1145/3788149.3788210",
+      "doi": "10.1145/3788149.3788210",
+      "venue": "Proceedings of the 2025 9th International Conference on Computer Science and Artificial Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.725,
+      "evidence": "标题明确为面向隐私保护的光场超分辨率联邦学习方法，属于光场图像空间超分底层视觉任务。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/136",
+      "issue_number": 136,
+      "cover_url": "",
+      "first_seen": "20251214",
+      "last_seen": "20251214",
+      "appeared_dates": [
+        "20251214"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-d5b555a72e0a1d684774",
+      "arxiv_id": "crossref-d5b555a72e0a1d684774",
+      "version": 1,
+      "title": "Large-area specular highlight removal based on disparity layering and multi-strategy hierarchical restoration with light field camera arrays",
+      "abstract": "In this paper, what we believe to be a new highlight removal method based on disparity layering and multi-strategy hierarchical restoration is proposed to address the challenge of large-area specular highlights by using a light field camera array. Initially, the dichromatic reflection model is combined with unsupervised k-means clustering to precisely detect highlight regions and generate multi-view highlight masks. Subsequently, a strategy based on disparity estimation and energy minimization, which guided by the disparity reliability of non-highlight regions, is proposed to properly assign highlight pixels to their corresponding disparity layers. Finally, a multi-strategy hierarchical restoration framework based on multi-view observation availability is designed to adaptively recover highlight pixels within their assigned disparity layers. Furthermore, a composite evaluation metric, named PSSE, is designed to quantitatively assess the overall restoration performance. Experimental results on both public light field datasets and real captured scenes demonstrate that the method effectively removes large-area highlights while preserving geometric structure and photometric consistency, and it shows strong robustness and adaptability in complex textured environments. Compared with single-view methods that often lose structural details and multi-view methods that rely on sequential capture and unstable feature matching, the proposed approach achieves more accurate detection and robust restoration, and it also holds promising potential for industrial inspection and digital preservation of cultural heritage.",
+      "authors": [
+        "Wei Feng",
+        "Jiangtao Xu",
+        "Huazong Ni",
+        "Hanzhong Wu",
+        "Yuchu Qin",
+        "Yongjia Xu",
+        "Feng Gao",
+        "Xiangqian Jiang"
+      ],
+      "categories": [],
+      "published": "2025-12-03",
+      "updated": "2025-12-03",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.581122",
+      "doi": "10.1364/oe.581122",
+      "venue": "Optics Express",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "去遮挡",
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.7,
+      "experiment_score": 0.75,
+      "code_score": 0.2,
+      "rank_score": 0.7725,
+      "evidence": "利用光场相机阵列，通过视差分层与多视角分层修复去除大面积镜面高光，恢复遮挡内容。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种面向光场相机阵列的大面积镜面高光去除方法，核心是“视差分层 + 多策略分层修复”：先用二色反射模型与无监督 k-means 检测高光并生成多视角高光掩码，再借助非高光区域的视差可靠性把高光像素分配到对应视差层，最后按多视角观测可用性自适应恢复高光像素，并设计 PSSE 复合指标定量评估整体修复性能。",
+        "problem": "仅基于公开摘要，未读取全文。论文针对的是大面积镜面高光去除难题，且明确面向光场相机阵列采集场景。摘要指出单视角方法常丢失结构细节，多视角方法依赖顺序采集与不稳定的特征匹配，因此需要一种既能准确检测大面积高光、又能稳健恢复几何结构与光度一致性的方案。任务同时涉及去遮挡与深度/视差估计：高光区域可视为对底层纹理与几何的遮挡，而视差分层是方法的关键中间环节。",
+        "modeling": "仅基于公开摘要，未读取全文。建模层面可确认三点：其一，采用二色反射模型描述镜面高光成分，并结合无监督 k-means 聚类检测高光区域，输出多视角高光掩码；其二，以非高光区域的视差可靠性为先验，通过视差估计与能量最小化把高光像素归入相应视差层，即利用空间—角度对应关系约束高光像素的几何归属；其三，修复阶段按多视角观测可用性设计多策略分层框架，在各自视差层内自适应恢复。摘要未说明具体能量函数形式、代价体构造、EPI 或焦点线索的使用方式，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法流程为：第一步，二色反射模型结合无监督 k-means 聚类精确检测高光区域并生成多视角高光掩码；第二步，提出基于视差估计与能量最小化的策略，由非高光区域的视差可靠性引导，将高光像素合理分配到对应视差层；第三步，设计基于多视角观测可用性的多策略分层修复框架，在已分配的视差层内自适应恢复高光像素；第四步，设计名为 PSSE 的复合评价指标，定量评估整体修复性能。摘要未给出网络结构、优化求解细节或各策略的具体触发条件，论文材料未说明。",
+        "occlusion": "仅基于公开摘要，未读取全文。该任务涉及去遮挡：大面积镜面高光遮挡了底层纹理与几何信息，方法通过多视角高光掩码、非高光区域视差可靠性引导的视差分层，以及按多视角观测可用性组织的分层修复来恢复被高光遮挡的像素。摘要强调多视角观测可用性与视差层归属，可理解为利用视角互补与几何先验进行遮挡区域恢复；但摘要未明确给出遮挡掩码的独立生成机制或遮挡边界处理细节，论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。实验在公开光场数据集与真实拍摄场景上进行，结论为该方法能有效去除大面积高光，同时保持几何结构与光度一致性，并在复杂纹理环境中表现出较强鲁棒性与适应性；与单视角方法（常丢失结构细节）和依赖顺序采集与不稳定特征匹配的多视角方法相比，所提方法检测更准确、修复更稳健。摘要未报告 PSNR、SSIM、LPIPS、参数量、运行速度等具体数值，论文材料未说明；PSSE 仅为摘要提及的复合评价指标，其定义与数值结果论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提供代码链接、数据集名称、预训练模型、参数量、计算资源或运行时间等信息，论文材料未说明。可确认的实验资源仅为公开光场数据集与真实采集场景两类数据来源，具体数据集与采集设备配置论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确列出方法局限。可推断的边界包括：方法依赖光场相机阵列的多视角观测，若视角可用性不足或视差可靠性下降，分层与修复效果可能受影响；摘要称在复杂纹理环境中具有鲁棒性，但未给出失败案例或定量误差指标。由于仅有摘要，无法核验 PSSE 的合理性、视差分层精度及与基线方法的数值差距，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作的启发在于把高光去除从“像素级修复”转化为“视差层归属 + 分层修复”的几何一致性问题：先用非高光区域的可靠视差为高光像素定位几何层，再按多视角观测可用性选择恢复策略，从而兼顾结构保持与光度一致。PSSE 复合指标也提示该任务需要整体性评价而非单一像素误差。摘要提到该方法在工业检测与文化遗产数字化保存方面具有潜力，但具体验证论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/132",
+      "issue_number": 132,
+      "cover_url": "",
+      "first_seen": "20251207",
+      "last_seen": "20251207",
+      "appeared_dates": [
+        "20251207"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-254ee79642b2397c72ac",
+      "arxiv_id": "crossref-254ee79642b2397c72ac",
+      "version": 1,
+      "title": "DUALF-C: Disentangled Light Field Compression with Entropy-Aware Bitstream Generation",
+      "abstract": "",
+      "authors": [
+        "Soheib Takhtardeshir",
+        "Roger Olsson",
+        "Christine Guillemot",
+        "Mårten Sjöström"
+      ],
+      "categories": [],
+      "published": "2025-12-01",
+      "updated": "2025-12-01",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/vcip67698.2025.11396841",
+      "doi": "10.1109/vcip67698.2025.11396841",
+      "venue": "2025 International Conference on Visual Communications and Image Processing (VCIP)",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.8,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.695,
+      "evidence": "标题为解耦光场压缩与熵感知比特流生成，属于光场图像压缩方向。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/133",
+      "issue_number": 133,
+      "cover_url": "",
+      "first_seen": "20251207",
+      "last_seen": "20251207",
+      "appeared_dates": [
+        "20251207"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-00dcecf811a450c8e86a",
+      "arxiv_id": "crossref-00dcecf811a450c8e86a",
+      "version": 1,
+      "title": "Virtual transparency of visual obstructions by real-time light field reconstruction from a single RGB-D image",
+      "abstract": "",
+      "authors": [
+        "Tessei Watanabe",
+        "Kazuya Kodama",
+        "Takayuki Hamamoto"
+      ],
+      "categories": [],
+      "published": "2025-12-01",
+      "updated": "2025-12-01",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/vcip67698.2025.11396910",
+      "doi": "10.1109/vcip67698.2025.11396910",
+      "venue": "2025 International Conference on Visual Communications and Image Processing (VCIP)",
+      "publication_year": 2025,
+      "publication_month": "2025-12",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值",
+        "去遮挡"
+      ],
+      "relevance_score": 0.75,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.655,
+      "evidence": "从单张RGB-D图像实时重建光场以实现视觉遮挡物的虚拟透明，涉及光场重建与遮挡处理。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/134",
+      "issue_number": 134,
+      "cover_url": "",
+      "first_seen": "20251207",
+      "last_seen": "20251207",
+      "appeared_dates": [
+        "20251207"
       ],
       "is_version_update": false
     },
@@ -7813,11 +9683,47 @@
       "crossref-46cf851744c45e1f80ca",
       "crossref-876760c83bac376ed7eb"
     ],
-    "20251207": [],
-    "20251214": [],
-    "20251221": [],
+    "20251207": [
+      "crossref-d5b555a72e0a1d684774",
+      "crossref-254ee79642b2397c72ac",
+      "crossref-00dcecf811a450c8e86a"
+    ],
+    "20251214": [
+      "crossref-d773736d5b332e24d9a9",
+      "crossref-cc9f954f36ec7eddaa5e"
+    ],
+    "20251221": [
+      "crossref-55aa044b84567a93dfba"
+    ],
     "20251228": [],
-    "20251231": [],
+    "20251231": [
+      "crossref-34d1a4364ed00ecb1023",
+      "crossref-d72d998cce73e0ee0a92",
+      "crossref-335780f1a24f2f139471",
+      "crossref-91d5b92a708812778234",
+      "crossref-4d964c601b2943a05135",
+      "crossref-1b36e69ff5e66a541dd6",
+      "crossref-45ed5b26437a0fcf25a8",
+      "crossref-6f4d977c33c959f59aaf",
+      "crossref-808c65f9922758121c13",
+      "crossref-3b392eb8e843ec5e3643",
+      "crossref-1e235a320181484f488b",
+      "crossref-9af7b480115590971419",
+      "crossref-41f950e7405ccf6d79d8",
+      "crossref-f8cf45d5f482a8ebc6ac",
+      "crossref-d76f92f6124ffdecc50c",
+      "crossref-0a527069bdae73b1bbe0",
+      "crossref-90f6c5555e9459a64d16",
+      "crossref-5e41b72f37c8a69f03fe",
+      "crossref-96c8fdee23fa2496631f",
+      "crossref-1c54bfabf11da1f65f1b",
+      "crossref-d2b9890a8913d4f2d675",
+      "crossref-46ea8a4aef445986fa85",
+      "crossref-a9808ac86799fe9ded62",
+      "crossref-7d5a31ddc095d3796ab0",
+      "crossref-928e3ddbb964c16088f3",
+      "crossref-4d6de3d65385849c2c06"
+    ],
     "20260104": [],
     "20260111": [],
     "20260118": [],
@@ -8908,6 +10814,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 151
       }
     },
     "20251214": {
@@ -8918,6 +10828,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 151
       }
     },
     "20251221": {
@@ -8928,6 +10842,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 151
       }
     },
     "20251228": {
@@ -8938,6 +10856,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 151
       }
     },
     "20251231": {
@@ -8948,6 +10870,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 151
       }
     },
     "20260104": {
