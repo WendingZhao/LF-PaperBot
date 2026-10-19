@@ -33,11 +33,19 @@ def commit_checkpoint(settings: Settings, message: str) -> None:
 
     git("add", "papers/index.json", "papers/backfill_status.json", "daily_reports", "docs/data", "docs/assets/previews")
     changes = git("diff", "--cached", "--name-only", capture_output=True).stdout
-    if not changes.strip():
-        return
-    git("commit", "-m", message)
-    git("pull", "--rebase", "origin", "main")
-    git("push", "origin", "HEAD:main")
+    if changes.strip():
+        git("commit", "-m", message)
+    # Another authorized publisher may update main between pull and push.
+    # Keep local checkpoints and retry a normal rebase; never force-push.
+    for attempt in range(3):
+        git("pull", "--rebase", "origin", "main")
+        try:
+            git("push", "origin", "HEAD:main")
+            return
+        except subprocess.CalledProcessError:
+            if attempt == 2:
+                raise
+            time.sleep(3)
 
 
 def run_monthly_backfill(settings: Settings, start: date, end: date, *,

@@ -2,9 +2,28 @@ from datetime import date
 from types import SimpleNamespace
 from zoneinfo import ZoneInfo
 import json
+import subprocess
 
 from lf_paperbot import backfill_batches as batches
 from lf_paperbot.models import Candidate
+
+
+def test_checkpoint_rebases_and_retries_a_push_race_without_recommitting(monkeypatch, tmp_path):
+    calls = []
+    failures = [True, False]
+
+    def git(command, **_kwargs):
+        calls.append(command[1:])
+        if command[1] == "push" and failures.pop(0):
+            raise subprocess.CalledProcessError(1, command)
+        return SimpleNamespace(stdout="papers/index.json\n")
+
+    monkeypatch.setattr(batches.subprocess, "run", git)
+    monkeypatch.setattr(batches.time, "sleep", lambda *_: None)
+    batches.commit_checkpoint(SimpleNamespace(root=tmp_path), "checkpoint")
+    assert sum(c[0] == "commit" for c in calls) == 1
+    assert sum(c[0] == "pull" for c in calls) == 2
+    assert sum(c[0] == "push" for c in calls) == 2
 
 
 def test_monthly_windows_cover_two_year_boundary_without_gaps():
