@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:31:31.761907+08:00",
+  "updated_at": "2026-10-19T12:32:31.940509+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -1101,6 +1101,656 @@
       "last_seen": "20250817",
       "appeared_dates": [
         "20250817"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-4cca25e05d8f3e14acf3",
+      "arxiv_id": "crossref-4cca25e05d8f3e14acf3",
+      "version": 1,
+      "title": "Adaptive Feature Transfer for Light Field Super-Resolution With Hybrid Lenses",
+      "abstract": "",
+      "authors": [
+        "Gaosheng Liu",
+        "Huanjing Yue",
+        "Xin Luo",
+        "Jingyu Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tetci.2025.3542130",
+      "doi": "10.1109/tetci.2025.3542130",
+      "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.6,
+      "code_score": 0.0,
+      "rank_score": 0.77,
+      "evidence": "标题为混合透镜光场超分的自适应特征迁移，属于光场空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/86",
+      "issue_number": 86,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-96f0bb5f8e47facca05e",
+      "arxiv_id": "crossref-96f0bb5f8e47facca05e",
+      "version": 1,
+      "title": "Unsupervised light field disparity estimation using confidence weight and occlusion-aware",
+      "abstract": "",
+      "authors": [
+        "Bo Xiao",
+        "Xiujing Gao",
+        "Huadong Zheng",
+        "Huibao Yang",
+        "Hongwu Huang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.optlaseng.2025.108928",
+      "doi": "10.1016/j.optlaseng.2025.108928",
+      "venue": "Optics and Lasers in Engineering",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.6,
+      "code_score": 0.0,
+      "rank_score": 0.77,
+      "evidence": "标题为无监督光场视差估计，利用置信度权重与遮挡感知，明确为光场视差估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/87",
+      "issue_number": 87,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-302dbad8df21f57021de",
+      "arxiv_id": "crossref-302dbad8df21f57021de",
+      "version": 1,
+      "title": "Generalized Multi-scale Separable EPI Information for Light Field Image Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Yiming Kan",
+        "Wentao Chao",
+        "Junli Zhao",
+        "Liang Wang",
+        "Fuqing Duan"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-981-96-6596-9_1",
+      "doi": "10.1007/978-981-96-6596-9_1",
+      "venue": "Lecture Notes in Computer Science / Neural Information Processing",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.6,
+      "code_score": 0.0,
+      "rank_score": 0.77,
+      "evidence": "标题为广义多尺度可分离EPI信息的光场图像超分，利用EPI结构进行空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/88",
+      "issue_number": 88,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-04fde19798d8ef71440b",
+      "arxiv_id": "crossref-04fde19798d8ef71440b",
+      "version": 1,
+      "title": "NTIRE 2025 Challenge on Light Field Image Super-Resolution: Methods and Results",
+      "abstract": "",
+      "authors": [
+        "Yingqian Wang",
+        "Zhengyu Liang",
+        "Fengyuan Zhang",
+        "Lvli Tian",
+        "Longguang Wang",
+        "Juncheng Li",
+        "Jungang Yang",
+        "Radu Timofte",
+        "Yulan Guo",
+        "Kai Jin",
+        "Zeqiang Wei",
+        "Angulia Yang",
+        "Di Wu",
+        "Mingzhi Gao",
+        "Xiuzhuang Zhou",
+        "Yue Yan",
+        "Yuhao Wang",
+        "Shuang Chen",
+        "Zeping Tian",
+        "Yizhi Hu",
+        "Yao Lu",
+        "Haosong Liu",
+        "Xiancheng Zhu",
+        "Huanqiang Zeng",
+        "Jianqing Zhu",
+        "Yifan Shi",
+        "Junhui Hou",
+        "Mingyang Yu",
+        "Zhijian Wu",
+        "Dingjiang Huang",
+        "Wenli Zheng",
+        "Zekai Xu",
+        "Huiyuan Fu",
+        "Heng Zhang",
+        "Zhijuan Huang",
+        "Hongyuan Yu",
+        "Zeke Zexi Hu",
+        "Haodong Chen",
+        "Vera Yuk Ying Chung",
+        "Xiaoming Chen",
+        "Zean Chen",
+        "Yeyao Chen",
+        "Gangyi Jiang",
+        "Haiyong Xu",
+        "Ting Luo",
+        "Guanglong Liao",
+        "Danhao Zhang",
+        "Siyu Zhang",
+        "Wendong Mao",
+        "Zhongfeng Wang",
+        "Sunita Arya",
+        "Abhishek Kumar Sinha",
+        "S Manthira Moorthi",
+        "Hao Zhang",
+        "Hao Sheng",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Shuai Wang",
+        "Haotian Zhang",
+        "Xingzheng Wang",
+        "Yuanbo Huang",
+        "Jiahao Lin",
+        "Yuhang Lin",
+        "Ahmed Salem",
+        "Ebrahem Elkady",
+        "Hatem Ibrahem",
+        "Jae-Won Suh",
+        "Hyun-Soo Kang",
+        "Changguang Wu",
+        "Hao Hou",
+        "Pengpeng Li",
+        "Peng Huang",
+        "Jiangxin Dong",
+        "Jinhui Tang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/cvprw67362.2025.00116",
+      "doi": "10.1109/cvprw67362.2025.00116",
+      "venue": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.7,
+      "code_score": 0.0,
+      "rank_score": 0.765,
+      "evidence": "标题为NTIRE 2025光场图像超分挑战赛方法与结果，属于光场空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/89",
+      "issue_number": 89,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-c7df7d8561d42892adda",
+      "arxiv_id": "crossref-c7df7d8561d42892adda",
+      "version": 1,
+      "title": "Mamba-Based Blind Stitched Wide Field of View Light Field Image Quality Assessment via Dual-Viewport Sampling",
+      "abstract": "",
+      "authors": [
+        "Rui Zhou",
+        "Gangyi Jiang",
+        "Linwei Zhu",
+        "Yeyao Chen",
+        "Yueli Cui",
+        "Ting Luo",
+        "Haiyong Xu"
+      ],
+      "categories": [],
+      "published": "2025-06-30",
+      "updated": "2025-06-30",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icme59968.2025.11209926",
+      "doi": "10.1109/icme59968.2025.11209926",
+      "venue": "2025 IEEE International Conference on Multimedia and Expo (ICME)",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.7,
+      "experiment_score": 0.6,
+      "code_score": 0.0,
+      "rank_score": 0.74,
+      "evidence": "标题为基于Mamba的双视口采样盲拼接宽视场光场图像质量评价，属于光场质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/90",
+      "issue_number": 90,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-4b9a0a9a2bc8b87455b8",
+      "arxiv_id": "crossref-4b9a0a9a2bc8b87455b8",
+      "version": 1,
+      "title": "An End-to-End Spatially Scalable Light Field Image Compression Method",
+      "abstract": "",
+      "authors": [
+        "Jianjun Lei",
+        "Hao Li",
+        "Bo Peng",
+        "Bo Zhao",
+        "Nam Ling"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tbc.2025.3553295",
+      "doi": "10.1109/tbc.2025.3553295",
+      "venue": "IEEE Transactions on Broadcasting",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.705,
+      "evidence": "标题为端到端空间可伸缩光场图像压缩方法，属于光场图像压缩。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/91",
+      "issue_number": 91,
+      "cover_url": "",
+      "first_seen": "20250630",
+      "last_seen": "20250630",
+      "appeared_dates": [
+        "20250630"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-9fd4c7dd926bec9bb9f6",
+      "arxiv_id": "crossref-9fd4c7dd926bec9bb9f6",
+      "version": 1,
+      "title": "LFTramba: Comprehensive Information Learning for Light Field Image Super-Resolution via a Hybrid Transformer-Mamba Framework",
+      "abstract": "",
+      "authors": [
+        "Haosong Liu",
+        "Xiancheng Zhu",
+        "Huanqiang Zeng",
+        "Jianqing Zhu",
+        "Yifan Shi",
+        "Jing Chen",
+        "Junhui Hou"
+      ],
+      "categories": [],
+      "published": "2025-06-11",
+      "updated": "2025-06-11",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/cvprw67362.2025.00109",
+      "doi": "10.1109/cvprw67362.2025.00109",
+      "venue": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题表明该文提出混合Transformer-Mamba框架用于光场图像超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/83",
+      "issue_number": 83,
+      "cover_url": "",
+      "first_seen": "20250615",
+      "last_seen": "20250615",
+      "appeared_dates": [
+        "20250615"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-dca1543d92dae9f87911",
+      "arxiv_id": "crossref-dca1543d92dae9f87911",
+      "version": 1,
+      "title": "LFTransMamba: A Hybrid Mamba-Transformer Model for Light Field Image Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Kai Jin",
+        "Zeqiang Wei",
+        "Angulia Yang",
+        "Di Wu",
+        "Mingzhi Gao",
+        "Xiuzhuang Zhou"
+      ],
+      "categories": [],
+      "published": "2025-06-11",
+      "updated": "2025-06-11",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/cvprw67362.2025.00113",
+      "doi": "10.1109/cvprw67362.2025.00113",
+      "venue": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题表明该文提出混合Mamba-Transformer模型用于光场图像超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/84",
+      "issue_number": 84,
+      "cover_url": "",
+      "first_seen": "20250615",
+      "last_seen": "20250615",
+      "appeared_dates": [
+        "20250615"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-8f61440a7f862be792a4",
+      "arxiv_id": "crossref-8f61440a7f862be792a4",
+      "version": 1,
+      "title": "LFMix: A Lightweight Hybrid Architecture for Light Field Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Mingyang Yu",
+        "Zhijian Wu",
+        "Dingjiang Huang"
+      ],
+      "categories": [],
+      "published": "2025-06-11",
+      "updated": "2025-06-11",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/cvprw67362.2025.00134",
+      "doi": "10.1109/cvprw67362.2025.00134",
+      "venue": "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题表明该文提出轻量混合架构用于光场超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/85",
+      "issue_number": 85,
+      "cover_url": "",
+      "first_seen": "20250615",
+      "last_seen": "20250615",
+      "appeared_dates": [
+        "20250615"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-b5d1e0a88d19fa17734a",
+      "arxiv_id": "crossref-b5d1e0a88d19fa17734a",
+      "version": 1,
+      "title": "Depth estimation from light fields via epipolar geometry and an axial attention mechanism",
+      "abstract": "Light-field depth estimation plays a pivotal role in various applications. This technology facilitates the creation of immersive 3D environments in virtual and augmented reality, and supports real-time environmental perception for enhanced autonomous driving safety. The academic community widely recognizes that the epipolar plane image (EPI) contains essential depth cues. To further explore this characteristic, we analyze the linear texture of EPI patches from the vector sequence perspective, through which we find that the coupling relationship between sequences can represent the complex morphology of EPI strips. Moreover, we discover that using the horizontal and vertical EPIs of an object point as depth-estimation metadata aligns well with the axial-attention calculation method. Building upon these findings, we design an EGAA model, which combines E PI g eometry and an a xial- a ttention mechanism. EGAAs encoder module is designed to process multi-directional image volumes, where directional features are independently extracted before undergoing comprehensive fusion encoding. At the heart of this encoder lies a sophisticated axial attention block, which integrates dual attention mechanisms: horizontal attention and vertical attention. EGAAs decoder is composed of stacked hourglass-shaped decoding blocks. These hourglass-shaped decoding blocks are implemented by convolutional neural networks and can simultaneously receive the skip connections from the encoding layer and the output of the previous decoder layer. We carried out comparative experiments and ablation experiments on both synthetic light-field datasets and real light-field datasets. The experimental results show that the EGAA model exhibits excellent performance in both quantitative and qualitative comparisons.",
+      "authors": [
+        "Lei Han",
+        "Zhan Shi",
+        "Xing Wang",
+        "Yunfei Gao"
+      ],
+      "categories": [],
+      "published": "2025-06-02",
+      "updated": "2025-06-02",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.558649",
+      "doi": "10.1364/oe.558649",
+      "venue": "Optics Express",
+      "publication_year": 2025,
+      "publication_month": "2025-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "标题和摘要明确利用EPI极平面几何与轴向注意力进行光场深度估计，并在合成与真实光场数据集上实验。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出 EGAA 模型，将 EPI 几何与轴向注意力结合用于光场深度估计：从向量序列视角分析 EPI 片段的线性纹理，利用水平与垂直 EPI 的耦合关系表征 EPI 条带的复杂形态，并据此设计双方向轴向注意力编码器与沙漏式解码器；摘要称在合成与真实光场数据集上比较与消融实验均表现优异，但未给出具体数值。",
+        "problem": "仅基于公开摘要，未读取全文。光场深度估计在虚拟/增强现实的沉浸式三维环境构建与自动驾驶实时环境感知中具有重要作用。学界普遍认为极平面图像（EPI）包含关键深度线索，但如何更充分地挖掘 EPI 的结构特性并据此设计深度估计网络，是论文关注的问题。摘要未说明现有方法的具体缺陷分类、失败模式或定量差距。",
+        "modeling": "仅基于公开摘要，未读取全文。作者从向量序列视角分析 EPI 片段的线性纹理，发现序列之间的耦合关系可以表示 EPI 条带的复杂形态；并发现将物点的水平 EPI 与垂直 EPI 作为深度估计的元数据，与轴向注意力的计算方式高度契合。基于此建立 EPI 几何与轴向注意力相结合的表征思路。摘要未给出具体的几何公式、代价体构造、视差假设范围或损失函数形式。",
+        "method": "仅基于公开摘要，未读取全文。EGAA 模型由编码器与解码器组成。编码器处理多方向图像体，先独立提取各方向特征再进行综合融合编码；其核心是轴向注意力块，同时包含水平注意力与垂直注意力两种机制。解码器由堆叠的沙漏形解码块构成，这些块用卷积神经网络实现，可同时接收来自编码层的跳跃连接与上一解码层的输出。摘要未说明网络层数、通道数、注意力具体计算式、训练策略与输入 EPI 的采样方式。",
+        "occlusion": "仅基于公开摘要，未读取全文。论文材料未说明显式的去遮挡任务设定，也未提及视角互补、遮挡掩码或遮挡区域恢复机制；摘要仅提到水平与垂直 EPI 的耦合关系用于深度估计。是否隐含处理遮挡边界，论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。作者在合成光场数据集与真实光场数据集上开展了对比实验与消融实验，摘要称 EGAA 在定量与定性比较中均表现优异。但摘要未给出数据集名称、PSNR、SSIM、LPIPS、参数量、推理速度或视差误差指标（如 bad pixel 比例、MSE 等）的具体数值，也未说明消融实验的具体配置与增益。上述数值信息论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提及代码链接、预训练模型、训练硬件、训练时长、参数量或推理速度等复现资源信息，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。由于仅有摘要，无法核验方法的完整细节、实验设置与数值结果；摘要未讨论模型在弱纹理、重复纹理、大视差或遮挡区域的失效情况，也未说明计算复杂度与实时性限制。这些方面的信息论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可核验的启发是：将 EPI 的水平与垂直切片视为相互耦合的序列，并把两个方向分别对应到轴向注意力的水平/垂直分支，为光场几何先验与注意力计算提供了一种结构上的对应思路；多方向特征先独立提取再融合编码、解码端采用沙漏结构与跳跃连接，也是摘要明确给出的设计取向。其实际收益幅度与适用边界需依据全文实验才能判断，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/82",
+      "issue_number": 82,
+      "cover_url": "",
+      "first_seen": "20250608",
+      "last_seen": "20250608",
+      "appeared_dates": [
+        "20250608"
       ],
       "is_version_update": false
     },
@@ -4724,11 +5374,24 @@
       "crossref-d55066d5b6468fef0079"
     ],
     "20250601": [],
-    "20250608": [],
-    "20250615": [],
+    "20250608": [
+      "crossref-b5d1e0a88d19fa17734a"
+    ],
+    "20250615": [
+      "crossref-9fd4c7dd926bec9bb9f6",
+      "crossref-dca1543d92dae9f87911",
+      "crossref-8f61440a7f862be792a4"
+    ],
     "20250622": [],
     "20250629": [],
-    "20250630": [],
+    "20250630": [
+      "crossref-4cca25e05d8f3e14acf3",
+      "crossref-96f0bb5f8e47facca05e",
+      "crossref-302dbad8df21f57021de",
+      "crossref-04fde19798d8ef71440b",
+      "crossref-c7df7d8561d42892adda",
+      "crossref-4b9a0a9a2bc8b87455b8"
+    ],
     "20250706": [],
     "20250713": [],
     "20250720": [],
@@ -5431,6 +6094,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250608": {
@@ -5441,6 +6108,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250615": {
@@ -5451,6 +6122,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250622": {
@@ -5461,6 +6136,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250629": {
@@ -5471,6 +6150,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250630": {
@@ -5481,6 +6164,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 65
       }
     },
     "20250706": {
