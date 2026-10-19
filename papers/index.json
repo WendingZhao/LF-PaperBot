@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-12T14:54:09.212474+08:00",
+  "updated_at": "2026-10-19T11:31:52.152347+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -391,6 +391,63 @@
         "20260830"
       ],
       "is_version_update": false
+    },
+    "cvf-3fb3a9830933e1d178c0": {
+      "base_id": "cvf-3fb3a9830933e1d178c0",
+      "arxiv_id": "cvf-3fb3a9830933e1d178c0",
+      "version": 1,
+      "title": "LF-BVN: Blind-View Network for Self-Supervised Light Field Denoising",
+      "abstract": "Recent advances in learning-based Light Field (LF) image denoising have achieved impressive results. However, these methods rely heavily on large-scale noisy-clean image pairs and often fail to generalize to unseen or complex noise.In this work, we observe that the inherent multi-view consistency of LF images makes it highly unlikely for noise to be coherent across views, offering a more reliable supervisory signal for self-supervised denoising.Building on this insight, we extend the blind-spot principle to the LF domain and propose a novel LF Blind-View denoising Network (LF-BVN). We first introduce a geometric invariance mask that leverages angular redundancy for efficient full-view supervision. To enforce cross-view photometric consistency, we further introduce latent representation volumes and enforce consistency between them.Additionally, we exploit focus stacks to extract latent depth cues from noisy observations, providing further guidance.Extensive experiments show that LF-BVN achieves competitive denoising performance while maintaining strong cross-view consistency without requiring clean data or external supervision.",
+      "authors": [
+        "Guo, Longzhao",
+        "Zhang, Shuo",
+        "Gao, Chen",
+        "Tian, Qian",
+        "Lin, Youfang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Guo_LF-BVN_Blind-View_Network_for_Self-Supervised_Light_Field_Denoising_CVPR_2026_paper.pdf",
+      "source": "cvf",
+      "source_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Guo_LF-BVN_Blind-View_Network_for_Self-Supervised_Light_Field_Denoising_CVPR_2026_paper.html",
+      "doi": "",
+      "venue": "CVPR2026",
+      "publication_year": 2026,
+      "date_basis": "discovered",
+      "sources": [
+        "cvf"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.8,
+      "experiment_score": 0.75,
+      "code_score": 0.0,
+      "rank_score": 0.8725,
+      "evidence": "论文提出LF-BVN，将盲点原理扩展到光场领域，利用多视角一致性和焦点堆栈实现自监督光场去噪。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文；结合所给正文节选，LF-BVN 将单目盲点去噪扩展到光场“盲视图”去噪：利用跨视角噪声不相干与多视图一致性构造自监督信号，并通过几何不变掩码、潜在表示体一致性和焦点堆栈深度线索提升去噪与视角一致性。材料称其无需干净数据或外部监督，但节选未给实验数值。",
+        "problem": "现有学习式光场去噪依赖大规模 noisy-clean 图像对，难以泛化到未见或复杂噪声；部分光场显微自监督方法依赖 PSF，而常规光场成像中并不具备该 PSF，且用多个独立网络处理不同视角难以保持视角一致性并易产生可见伪影。材料据此提出无需干净数据或外部监督的光场去噪问题。",
+        "modeling": "核心假设是光场固有的多视图一致性使噪声跨视角高度不相干，因此可用其他视角的上下文重建当前视角的“盲视图”，而非仅依赖空间邻域。材料指出盲视图需要固定掩码以保持几何不变；全视角去噪还需保证输出一致性。方法还利用焦点堆栈从含噪观测中提取潜在深度线索作为引导。该任务不是深度/视差估计，论文材料未说明 EPI、代价体或视差误差指标。",
+        "method": "LF-BVN 将盲点原则扩展到光场盲视图：首先引入几何不变掩码，利用角度冗余实现高效全视角监督；其次引入潜在表示体，并约束其跨视角一致性以强化跨视角光度一致性；同时利用焦点堆栈提取潜在深度线索提供进一步引导。整体为自监督去噪，不需要干净数据或外部监督。材料强调跨视角上下文可重建高频细节；但网络层数、损失权重和训练细节论文材料未说明。",
+        "occlusion": "不适用。该任务为光场去噪，材料未提出去遮挡、遮挡掩码或遮挡区域恢复机制；其“盲视图”是跨视角自监督策略，不应等同于遮挡处理。",
+        "experiments": "所给节选仅称大量实验表明 LF-BVN 取得有竞争力的去噪性能，并在无需干净数据或外部监督下保持较强跨视角一致性。论文材料未说明具体数据集名称、PSNR、SSIM、LPIPS、参数量、推理速度或训练配置，因此无法核验量化对比；节选仅以示意图比较盲点与盲视图策略，称后者更利于重建高频细节，但未给出对应数值结论。",
+        "resources": "论文材料称代码将公开于 https://github.com/shuozh/LF-BVN 。作者单位包括北京交通大学计算机科学与技术学院等。论文材料未说明参数量、模型大小、GPU 型号、训练时长、推理速度、内存开销与许可证信息。",
+        "limitations": "所给节选未设专门局限性章节。可核验的限制只能从材料推断：方法依赖多视图一致性及固定几何不变掩码来构造盲视图监督；若真实光场视角配准/视差关系不满足或噪声跨视角相关，效果未知。对复杂或未见噪声的泛化仅有文字声明，节选未给量化证据；具体失败场景、效率与内存开销论文材料未说明。",
+        "insight": "主要启发是把盲点原则从空间邻域迁移到光场的角度维度，利用多视图冗余形成自监督信号；几何不变掩码与潜在表示体一致性把全视角监督和跨视角一致性结合，焦点堆栈则从含噪输入中挖掘潜在深度线索。该思路对无干净配对的光场去噪有参考价值，但实用边界仍需完整实验与效率数据核验。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/10",
+      "issue_number": 10,
+      "cover_url": "assets/previews/cvf-3fb3a9830933e1d178c0.webp",
+      "first_seen": "20261018",
+      "last_seen": "20261018",
+      "appeared_dates": [
+        "20261018"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -431,6 +488,25 @@
     "20260906",
     "20260921",
     "20261004",
-    "20261011"
-  ]
+    "20261011",
+    "20261018"
+  ],
+  "source_runs": {
+    "20261018": {
+      "arxiv": {
+        "status": "failed",
+        "count": 0,
+        "error": "HTTP 429"
+      },
+      "crossref": {
+        "status": "partial",
+        "count": 4,
+        "error": "result limit reached; increase CROSSREF_MAX_PAGES"
+      },
+      "cvf": {
+        "status": "ok",
+        "count": 4
+      }
+    }
+  }
 }
