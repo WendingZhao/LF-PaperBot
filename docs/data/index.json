@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T13:07:30.541276+08:00",
+  "updated_at": "2026-10-19T13:41:00.663240+08:00",
   "papers": [
     {
       "base_id": "crossref-08fe3815bb3b5f29db3d",
@@ -12278,15 +12278,16 @@
     "20261018": {
       "arxiv": {
         "status": "ok",
-        "count": 9
+        "count": 4
+      },
+      "crossref": {
+        "status": "partial",
+        "count": 4,
+        "error": "result limit reached; increase CROSSREF_MAX_PAGES"
       },
       "cvf": {
         "status": "ok",
-        "count": 0
-      },
-      "crossref": {
-        "status": "ok",
-        "count": 108
+        "count": 13
       }
     },
     "20250601": {
