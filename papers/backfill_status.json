@@ -453,8 +453,8 @@
       },
       "processed": 0,
       "failed": 1,
-      "attempt": 1,
-      "updated_at": "2026-10-19T12:19:49.185008+08:00"
+      "attempt": 2,
+      "updated_at": "2026-10-19T12:21:53.773398+08:00"
     },
     "20261001-20261019": {
       "status": "complete",
