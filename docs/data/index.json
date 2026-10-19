@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:36:45.117288+08:00",
+  "updated_at": "2026-10-19T12:37:31.325977+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -577,6 +577,307 @@
       "is_version_update": false
     },
     {
+      "base_id": "crossref-46cf851744c45e1f80ca",
+      "arxiv_id": "crossref-46cf851744c45e1f80ca",
+      "version": 1,
+      "title": "Combining independent and joint spatial-angular information learning for light field image super-resolution",
+      "abstract": "",
+      "authors": [
+        "Dezhang Ke",
+        "Yeyao Chen",
+        "Chongchong Jin",
+        "Haiyong Xu",
+        "Zhidi Jiang",
+        "Ting Luo",
+        "Gangyi Jiang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.knosys.2025.114619",
+      "doi": "10.1016/j.knosys.2025.114619",
+      "venue": "Knowledge-Based Systems",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.785,
+      "evidence": "标题明确为光场图像超分辨率，结合独立与联合的空间—角度信息学习。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/130",
+      "issue_number": 130,
+      "cover_url": "",
+      "first_seen": "20251130",
+      "last_seen": "20251130",
+      "appeared_dates": [
+        "20251130"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-876760c83bac376ed7eb",
+      "arxiv_id": "crossref-876760c83bac376ed7eb",
+      "version": 1,
+      "title": "Multiplane depth image for view-consistent light field depth estimation",
+      "abstract": "",
+      "authors": [
+        "Tun Wang",
+        "Hao Sheng",
+        "Rongshan Chen",
+        "Ruixuan Cong",
+        "Mingyuan Zhao",
+        "Da Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.knosys.2025.114363",
+      "doi": "10.1016/j.knosys.2025.114363",
+      "venue": "Knowledge-Based Systems",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.4,
+      "code_score": 0.2,
+      "rank_score": 0.73,
+      "evidence": "标题明确为光场深度估计，并采用多平面深度图像实现视图一致的光场深度估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/131",
+      "issue_number": 131,
+      "cover_url": "",
+      "first_seen": "20251130",
+      "last_seen": "20251130",
+      "appeared_dates": [
+        "20251130"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-200b4c5689706823580f",
+      "arxiv_id": "crossref-200b4c5689706823580f",
+      "version": 1,
+      "title": "Depth State Space Model for Light Field Depth Estimation via Text-Similar Representation",
+      "abstract": "",
+      "authors": [
+        "Zexin Sun",
+        "Tun Wang",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Rongshan Chen",
+        "Ying Li",
+        "Guanqun Su",
+        "Hao Sheng"
+      ],
+      "categories": [],
+      "published": "2025-11-17",
+      "updated": "2025-11-17",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-981-95-3001-4_25",
+      "doi": "10.1007/978-981-95-3001-4_25",
+      "venue": "Lecture Notes in Computer Science / Knowledge Science, Engineering and Management",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.735,
+      "evidence": "标题明确为光场深度估计，并采用文本相似表示与状态空间模型，属于利用光场结构进行视差估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/129",
+      "issue_number": 129,
+      "cover_url": "",
+      "first_seen": "20251123",
+      "last_seen": "20251123",
+      "appeared_dates": [
+        "20251123"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-c1d263a7ba8876feaeb6",
+      "arxiv_id": "crossref-c1d263a7ba8876feaeb6",
+      "version": 1,
+      "title": "Enhancing 4D Consistency for Mamba-Based Light Field Spatial Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Yu Wang",
+        "Ruixuan Cong",
+        "Zexin Sun",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Siyang Li",
+        "Shuai Wang",
+        "Hao Sheng"
+      ],
+      "categories": [],
+      "published": "2025-11-14",
+      "updated": "2025-11-14",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-981-95-4097-6_12",
+      "doi": "10.1007/978-981-95-4097-6_12",
+      "venue": "Communications in Computer and Information Science / Neural Information Processing",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分",
+        "质量增强"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题明确为基于Mamba的光场空间超分辨率，并强调增强4D一致性，属于光场图像底层视觉。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/128",
+      "issue_number": 128,
+      "cover_url": "",
+      "first_seen": "20251116",
+      "last_seen": "20251116",
+      "appeared_dates": [
+        "20251116"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-63571d45d0992a50335f",
+      "arxiv_id": "crossref-63571d45d0992a50335f",
+      "version": 1,
+      "title": "Learned Light Field Compression for Resource-Constrained Acquisition Systems",
+      "abstract": "",
+      "authors": [
+        "Lili Zhao",
+        "Wanxin Shi",
+        "Jie Li",
+        "Meng Guo",
+        "Lei Yang",
+        "Wei Yu"
+      ],
+      "categories": [],
+      "published": "2025-11-05",
+      "updated": "2025-11-05",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/acp66871.2025.11349751",
+      "doi": "10.1109/acp66871.2025.11349751",
+      "venue": "2025 Asia Communications and Photonics Conference (ACP)",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.75,
+      "evidence": "标题表明该论文研究面向资源受限采集系统的学习式光场压缩，属于光场图像压缩范畴。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/127",
+      "issue_number": 127,
+      "cover_url": "",
+      "first_seen": "20251109",
+      "last_seen": "20251109",
+      "appeared_dates": [
+        "20251109"
+      ],
+      "is_version_update": false
+    },
+    {
       "base_id": "2511.05866",
       "arxiv_id": "2511.05866v1",
       "version": 1,
@@ -596,13 +897,14 @@
       "pdf_url": "https://arxiv.org/pdf/2511.05866v1",
       "source": "arxiv",
       "source_url": "https://arxiv.org/abs/2511.05866v1",
-      "doi": "",
+      "doi": "10.1145/3774521.3774522",
       "venue": "",
       "publication_year": 0,
       "publication_month": "",
       "date_basis": "published",
       "sources": [
-        "arxiv"
+        "arxiv",
+        "crossref"
       ],
       "content_scope": "full_text",
       "tasks": [
@@ -632,6 +934,65 @@
       "last_seen": "20251109",
       "appeared_dates": [
         "20251109"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-c009ef6c3fd34a653704",
+      "arxiv_id": "crossref-c009ef6c3fd34a653704",
+      "version": 1,
+      "title": "Leveraging a Dual-Learning Methodology Based on Degradation Modeling and Fractional Fourier Image Transformer for Light Field Image Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Haiyang Liu",
+        "Jian Ma",
+        "Sheng Chen",
+        "Dong Liang",
+        "Linsheng Huang",
+        "Rui Xu"
+      ],
+      "categories": [],
+      "published": "2025-11-01",
+      "updated": "2025-11-01",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-981-95-3398-5_40",
+      "doi": "10.1007/978-981-95-3398-5_40",
+      "venue": "Lecture Notes in Computer Science / Image and Graphics",
+      "publication_year": 2025,
+      "publication_month": "2025-11",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题明确针对光场图像超分辨率，结合退化建模与分数傅里叶图像Transformer。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/126",
+      "issue_number": 126,
+      "cover_url": "",
+      "first_seen": "20251102",
+      "last_seen": "20251102",
+      "appeared_dates": [
+        "20251102"
       ],
       "is_version_update": false
     },
@@ -7435,13 +7796,23 @@
       "crossref-493cc58131cba932c51f",
       "crossref-ebe2809e09c7043db314"
     ],
-    "20251102": [],
+    "20251102": [
+      "crossref-c009ef6c3fd34a653704"
+    ],
     "20251109": [
+      "crossref-63571d45d0992a50335f",
       "2511.05866"
     ],
-    "20251116": [],
-    "20251123": [],
-    "20251130": [],
+    "20251116": [
+      "crossref-c1d263a7ba8876feaeb6"
+    ],
+    "20251123": [
+      "crossref-200b4c5689706823580f"
+    ],
+    "20251130": [
+      "crossref-46cf851744c45e1f80ca",
+      "crossref-876760c83bac376ed7eb"
+    ],
     "20251207": [],
     "20251214": [],
     "20251221": [],
@@ -8467,6 +8838,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 44
       }
     },
     "20251109": {
@@ -8477,6 +8852,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 44
       }
     },
     "20251116": {
@@ -8487,6 +8866,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 44
       }
     },
     "20251123": {
@@ -8497,6 +8880,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 44
       }
     },
     "20251130": {
@@ -8507,6 +8894,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 44
       }
     },
     "20251207": {
