@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:11:50.167115+08:00",
+  "updated_at": "2026-10-19T12:12:16.019946+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -862,6 +862,67 @@
         "20250228"
       ],
       "is_version_update": false
+    },
+    "2503.19253": {
+      "base_id": "2503.19253",
+      "arxiv_id": "2503.19253v1",
+      "version": 1,
+      "title": "$L^2$FMamba: Lightweight Light Field Image Super-Resolution with State Space Model",
+      "abstract": "Transformers bring significantly improved performance to the light field image super-resolution task due to their long-range dependency modeling capability. However, the inherently high computational complexity of their core self-attention mechanism has increasingly hindered their advancement in this task. To address this issue, we first introduce the LF-VSSM block, a novel module inspired by progressive feature extraction, to efficiently capture critical long-range spatial-angular dependencies in light field images. LF-VSSM successively extracts spatial features within sub-aperture images, spatial-angular features between sub-aperture images, and spatial-angular features between light field image pixels. On this basis, we propose a lightweight network, $L^2$FMamba (Lightweight Light Field Mamba), which integrates the LF-VSSM block to leverage light field features for super-resolution tasks while overcoming the computational challenges of Transformer-based approaches. Extensive experiments on multiple light field datasets demonstrate that our method reduces the number of parameters and complexity while achieving superior super-resolution performance with faster inference speed.",
+      "authors": [
+        "Zeqiang Wei",
+        "Kai Jin",
+        "Zeyi Hou",
+        "Kuan Song",
+        "Xiuzhuang Zhou"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV"
+      ],
+      "published": "2025-03-25T01:24:52Z",
+      "updated": "2025-03-25T01:24:52Z",
+      "pdf_url": "https://arxiv.org/pdf/2503.19253v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2503.19253v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.85,
+      "evidence": "提出轻量级光场Mamba网络用于光场图像超分，利用子孔径图像内及图像间的空间-角度依赖，并在多个光场数据集上验证性能。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文；以下分析依据用户提供的论文全文节选（含摘要、引言、贡献与参考文献）进行。论文提出轻量级光场图像超分网络L^2FMamba，核心是LF-VSSM块，通过渐进式空间—角度特征提取替代高复杂度自注意力，以降低参数量和计算负担并提升推理速度。",
+        "problem": "论文针对光场图像空间超分任务。光场相机在角度分辨率与空间分辨率之间存在权衡，导致子孔径图像空间分辨率偏低。现有Transformer方法虽能建模长程依赖，但核心自注意力具有高计算与内存复杂度；卷积方法受限于窄感受野，难以充分利用长程空间—角度特征。因此问题可概括为：在光场空间超分中高效捕获关键长程空间—角度依赖，同时降低参数量、计算复杂度和推理时间。",
+        "modeling": "论文将光场超分建模为利用光场空间—角度对应关系重建高分辨率子孔径图像的任务。材料强调需捕获子孔径图像内部、子孔径图像之间以及光场图像像素之间的空间—角度依赖，并用状态空间模型进行序列化建模。论文材料未给出显式数学公式、代价体或深度/视差估计模型；该任务不是深度/视差估计，故EPI、焦点线索、遮挡边界和常用视差误差指标不适用。",
+        "method": "方法核心是LF-VSSM块，受渐进式特征提取策略启发，依次提取三类特征：子孔径图像内部的空间特征、子孔径图像之间的空间—角度特征、光场图像像素之间的空间—角度特征。该块基于状态空间模型/Mamba思想，旨在以较低复杂度捕获长程空间—角度依赖。在此基础上构建轻量网络L^2FMamba，将LF-VSSM集成到光场超分流程中。材料还指出该模块可替换现有LFSR网络中的CNN或Transformer特征提取组件，从而与现有架构无缝集成。论文材料未说明具体网络层数、通道数、扫描顺序细节及损失函数。",
+        "occlusion": "不适用。该任务为光场图像空间超分，论文材料未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "论文材料称在多个光场数据集上进行大量实验，结论为该方降低参数量和复杂度，同时取得更优超分性能并具有更快推理速度。但所提供节选未给出具体数据集名称，也未给出PSNR、SSIM、LPIPS、参数量、FLOPs或推理速度的数值，未列出对比方法表格和消融实验细节。因此无法核验具体增益；上述定量信息应标注为“论文材料未说明”。",
+        "resources": "论文材料未说明代码链接、预训练模型、训练环境、训练轮数、学习率、硬件配置和复现步骤。材料显示论文标识为arXiv:2503.19253v1 [eess.IV] 25 Mar 2025；作者单位包括北京邮电大学人工智能学院、Bigo Technology Pte. Ltd.和Explorer Global (Suzhou) Artificial Intelligence Technology Co., Ltd.；资助信息包括国家自然科学基金Grant 61972046。",
+        "limitations": "所提供材料为全文节选，未包含完整实验章节和实现细节，因而无法核验具体数据集、PSNR、SSIM、LPIPS、参数量、复杂度和速度数值，也无法判断不同退化设置、真实场景、遮挡和大视差条件下的稳健性。论文材料未说明训练策略、模块超参数、复杂度公式及与具体基线方法的逐项比较。因此“性能更优、速度更快、参数更少”目前只能作为作者定性结论，需完整实验表格和复现信息支持。",
+        "insight": "LF-VSSM的渐进式空间—角度特征提取思路具有可迁移性：先建模单子孔径空间特征，再建模子孔径间角度相关，最后建模像素级空间—角度对应，可作为一种轻量特征提取组件替换CNN或Transformer模块。状态空间模型有望缓解自注意力二次复杂度问题，但实际收益需结合具体参数量、FLOPs、推理速度和重建指标核验。论文材料未说明其在深度/视差估计或去遮挡中的适用性。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/18",
+      "issue_number": 18,
+      "cover_url": "assets/previews/2503.19253.webp",
+      "first_seen": "20250330",
+      "last_seen": "20250330",
+      "appeared_dates": [
+        "20250330"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -1242,36 +1303,60 @@
       }
     },
     "20250302": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250309": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250316": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250323": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250330": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250331": {
+      "arxiv": {
+        "status": "ok",
+        "count": 8
+      },
       "cvf": {
         "status": "ok",
         "count": 0
