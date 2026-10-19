@@ -327,6 +327,8 @@ def fetch_sources(settings: Settings, target_date: date | None = None, *,
                   require_any: bool = True) -> tuple[list[Candidate], dict]:
     end = target_date or datetime.now(settings.timezone).date()
     start = start_date or end - timedelta(days=settings.lookback_days - 1)
+    from .date_policy import before_cutoff, bounded_start
+    start = bounded_start(settings, start, end)
     adapters = {
         "arxiv": lambda: arxiv.fetch_submitted_range(settings, start, end) if historical else arxiv.fetch_recent(settings, end),
         "crossref": lambda: fetch_crossref(settings, start, end, historical=historical),
@@ -354,7 +356,7 @@ def fetch_sources(settings: Settings, target_date: date | None = None, *,
             print(f"[WARN] source {name} unavailable: {detail}")
     if require_any and all(x["status"] == "failed" for x in stats.values()):
         raise RuntimeError("All paper sources failed; no empty report will be published")
-    return deduplicate(candidates), stats
+    return deduplicate([c for c in candidates if not before_cutoff(c, getattr(settings, "earliest_date", None))]), stats
 
 
 def fetch_recent(settings: Settings, target_date: date | None = None) -> SourceCandidates:

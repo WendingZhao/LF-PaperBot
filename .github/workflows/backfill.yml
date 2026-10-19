@@ -6,7 +6,7 @@ on:
       start:
         description: "Start date (YYYYMMDD)"
         required: true
-        default: "20260101"
+        default: "20250601"
         type: string
       end:
         description: "End date (YYYYMMDD), blank means today"
@@ -47,6 +47,7 @@ jobs:
       LF_GITHUB_REPO: WendingZhao/LF-PaperBot
       LF_MAX_DAILY_PAPERS: "5"
       LF_LOOKBACK_DAYS: "7"
+      LF_EARLIEST_DATE: "20250601"
       LF_SOURCES: arxiv,crossref,cvf
       LF_TIMEZONE: Asia/Shanghai
       PYTHONUNBUFFERED: "1"

@@ -10,7 +10,7 @@
 - 识别 arXiv 新版本并更新原 Issue
 - 生成 Markdown 周报、JSON 索引和响应式 GitHub Pages
 - GitHub Actions 每周一北京时间 09:00 自动运行
-- 支持从 `2026-01-01` 起按自然周回填历史论文
+- 从 `2025-06-01` 起收录，支持按自然周回填历史论文
 
 ## 公开来源与查询配置
 
@@ -26,15 +26,17 @@ CVF 页面常只有发表年份。此类记录按本次首次发现纳入周报�
 
 `CROSSREF_MAILTO` 可选填真实联系邮箱以使用礼貌访问池；`CROSSREF_MAX_PAGES` 默认每条查询最多 20 页（每页 100 条），达到上限会在周报标注检索不完整，也可调小以减少网络请求。单个来源不可用时保留其他来源结果，并在周报显示异常；所有来源均失败则中止，不发布空周报。来源适配与检索词位于 `lf_paperbot/public_sources.py`；底层视觉任务筛选仍位于 `lf_paperbot/domain.py` 和 `analysis.py`。
 
-## 两年历史全量回填
+## 历史全量回填
+
+`LF_EARLIEST_DATE=20250601` 是周更、历史发现和入库共用的最早发表日期。更早的旧版本更新或 DOI 新登记也不会重新纳入。日期只有月份时按月份判断；仅有年份的 2025 年记录保留日期不确定性，不推测具体月份。
 
 普通周更保留 Top 5；历史回填加 `--all` 则收录全部通过领域筛选的候选，并保留缺少摘要/全文的相关题录（标注“仅题录”，不生成推测性分析）。`--monthly` 按月保存断点，失败月份重试一次；`--commit` 每月提交和推送数据。完成状态见 `papers/backfill_status.json`，重复执行会跳过已完成的月份和已有论文。
 
 ```powershell
 # 不需要模型 Key：抓取公开元数据，可在本机代理下执行。
-python -m lf_paperbot discover --start 20241019 --end 20261019 --output papers/history_20241019_20261019.json
+python -m lf_paperbot discover --start 20250601 --end 20261019 --output papers/history_full_20250601_20261019.json
 # 使用现有 DeepSeek/GitHub 凭据分析；Actions 可读取仓库内同一快照。
-python -m lf_paperbot backfill --start 20241019 --end 20261019 --all --monthly --candidate-file papers/history_20241019_20261019.json
+python -m lf_paperbot backfill --start 20250601 --end 20261019 --all --monthly --candidate-file papers/history_full_20250601_20261019.json
 ```
 
 GitHub Actions 的 `LF PaperBot Backfill` 可设置日期、`all_papers=true` 和可选 `candidate_file`。历史 Crossref 使用每页 1000 条并翻页到结束，不受周更分页上限限制；CVF 读取 BibTeX 月份但不伪造具体发表日。缺少精确日期时按所属月份/年份的发现记录归档，并标注时间口径。源限流或论文处理失败会记为未完成；只有完整获取且处理成功的批次才标记 complete。快照改变后会重新检查月份，已有 Issue 不会重复创建。
@@ -68,9 +70,12 @@ python -m lf_paperbot backfill [--start YYYYMMDD] [--end YYYYMMDD] [--force]
 python -m lf_paperbot paper <arxiv_id>
 python -m lf_paperbot reconcile --date YYYYMMDD
 python -m lf_paperbot prune [--apply]
+python -m lf_paperbot prune --before 20250601 [--apply]
 ```
 
 调整领域规则后可先运行 `prune` 预览不再符合范围的历史记录，确认后使用 `prune --apply` 从索引和页面中清理并重建受影响周报；GitHub Issue 不会被删除。
+
+`prune --before` 只按日期清理，也移除更早的周报、归档日期和回填断点，并重建受影响的后续周报。删除的文件可从 Git 历史恢复。
 
 ## GitHub 配置
 

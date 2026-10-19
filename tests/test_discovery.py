@@ -15,7 +15,7 @@ def test_source_retry_merges_snapshot_without_losing_complete_sources(monkeypatc
                                "sources": {"arxiv": {"status": "ok", "count": 1},
                                            "cvf": {"status": "ok", "count": 1}},
                                "candidates": [paper.to_dict()]}), encoding="utf-8")
-    settings = replace(load_settings(), root=tmp_path)
+    settings = replace(load_settings(), root=tmp_path, earliest_date=None)
     monkeypatch.setattr(cli, "load_settings", lambda: settings)
     monkeypatch.setattr(public_sources, "fetch_sources", lambda *_a, **_kw:
                         ([], {"arxiv": {"status": "failed", "count": 0, "error": "HTTP 429"}}))
@@ -28,6 +28,8 @@ def test_source_retry_merges_snapshot_without_losing_complete_sources(monkeypatc
 
 
 def test_import_discovery_snapshot_requires_no_network(monkeypatch, tmp_path):
+    settings = replace(load_settings(), root=tmp_path, earliest_date=None)
+    monkeypatch.setattr(cli, "load_settings", lambda: settings)
     incoming = tmp_path / "incoming.json"
     output = tmp_path / "combined.json"
     incoming.write_text(json.dumps({"start": "2025-01-01", "end": "2025-12-31",

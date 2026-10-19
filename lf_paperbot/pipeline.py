@@ -9,6 +9,7 @@ from .analysis import REPORT_FIELDS, classify_with_llm, generate_report, rank_ca
 from .arxiv import download_pdf, fetch_by_id
 from .public_sources import SourceCandidates, deduplicate, fetch_recent, fetch_submitted_range
 from .config import Settings
+from .date_policy import before_cutoff, bounded_start
 from .domain import deterministic_classify, deterministic_filter
 from .github_store import GitHubStore
 from .llm import ArkClient
@@ -96,6 +97,8 @@ def process_candidate(
     *,
     allow_metadata: bool = False,
 ) -> dict:
+    if before_cutoff(candidate, settings.earliest_date):
+        raise ValueError("Paper predates LF_EARLIEST_DATE")
     pdf_path = None
     cover_path = settings.root / "docs" / "assets" / "previews" / f"{candidate.base_id}.webp"
     content_scope = "abstract_only"
@@ -163,12 +166,13 @@ def run_pipeline(
     date_key = _date_key(settings, target_date)
     effective_end = target_date or datetime.now(settings.timezone).date()
     effective_start = window_start or effective_end - timedelta(days=settings.lookback_days - 1)
+    effective_start = bounded_start(settings, effective_start, effective_end)
     index_path = settings.root / "papers" / "index.json"
     index = load_index(index_path)
     original_index = copy.deepcopy(index)
     fetched = candidates if candidates is not None else fetch_recent(settings, target_date)
     source_stats = getattr(fetched, "stats", {})
-    fetched = deduplicate(list(fetched), index["papers"])
+    fetched = deduplicate([c for c in fetched if not before_cutoff(c, settings.earliest_date)], index["papers"])
     for candidate in fetched:
         previous = index["papers"].get(candidate.base_id)
         if previous and len(candidate.sources) > 1:
@@ -256,9 +260,12 @@ def weekly_windows(start_date: date, end_date: date):
 
 def run_backfill(settings: Settings, start_date: date, end_date: date, force: bool = False, *,
                  all_papers: bool = False, candidates: list[Candidate] | None = None) -> dict:
+    start_date = bounded_start(settings, start_date, end_date)
     candidates = fetch_submitted_range(settings, start_date, end_date) if candidates is None else candidates
     dated: list[tuple[date, Candidate]] = []
     for candidate in candidates:
+        if before_cutoff(candidate, settings.earliest_date):
+            continue
         try:
             stamp = datetime.fromisoformat(candidate.published.replace("Z", "+00:00"))
             published_day = stamp.astimezone(timezone.utc).date() if stamp.tzinfo else stamp.date()
@@ -305,6 +312,8 @@ def run_backfill(settings: Settings, start_date: date, end_date: date, force: bo
 
 def process_single(settings: Settings, arxiv_id: str, force: bool = True) -> dict:
     candidate = fetch_by_id(settings, arxiv_id)
+    if before_cutoff(candidate, settings.earliest_date):
+        raise ValueError("Paper predates LF_EARLIEST_DATE")
     accepted = deterministic_filter([candidate])
     if not accepted:
         raise RuntimeError("paper does not match light-field low-level vision rules")
@@ -331,7 +340,7 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
     papers = [paper for paper in index["papers"].values() if date_key in paper.get("appeared_dates", [])]
     papers.sort(key=lambda item: item.get("rank_score", 0), reverse=True)
     target_date = datetime.strptime(date_key, "%Y%m%d").date()
-    period_start = (target_date - timedelta(days=target_date.weekday())).strftime("%Y%m%d")
+    period_start = bounded_start(settings, target_date - timedelta(days=target_date.weekday()), target_date).strftime("%Y%m%d")
     content = build_weekly_report(
         date_key,
         papers if date_key in index.get("unlimited_report_dates", []) else papers[: settings.max_daily_papers],
@@ -343,11 +352,12 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
     return write_daily_report(settings.root, date_key, content)
 
 
-def prune_index(settings: Settings, apply: bool = False) -> dict:
+def prune_index(settings: Settings, apply: bool = False, *, before: date | None = None) -> dict:
     index_path = settings.root / "papers" / "index.json"
     index = load_index(index_path)
     excluded: list[dict[str, str]] = []
     affected_dates: set[str] = set()
+    removed_reports: list[str] = []
 
     for base_id, record in list(index["papers"].items()):
         candidate = Candidate(
@@ -359,10 +369,18 @@ def prune_index(settings: Settings, apply: bool = False) -> dict:
             published=record.get("published", ""),
             updated=record.get("updated", ""),
             pdf_url=record.get("pdf_url", ""),
+            source=record.get("source", "arxiv"),
+            publication_year=record.get("publication_year", 0),
+            publication_month=record.get("publication_month", ""),
         )
-        tasks, reason = deterministic_classify(candidate)
-        if tasks:
-            continue
+        if before:
+            if not before_cutoff(candidate, before):
+                continue
+            reason = f"Published before {before.isoformat()}"
+        else:
+            tasks, reason = deterministic_classify(candidate)
+            if tasks:
+                continue
         excluded.append({"base_id": base_id, "title": candidate.title, "reason": reason})
         if not apply:
             continue
@@ -370,14 +388,38 @@ def prune_index(settings: Settings, apply: bool = False) -> dict:
         affected_dates.update(record.get("appeared_dates", []))
         del index["papers"][base_id]
         cover_name = Path(record.get("cover_url", "")).name
-        if cover_name:
+        shared_cover = any(Path(p.get("cover_url", "")).name == cover_name for p in index["papers"].values())
+        if cover_name and not shared_cover:
             (settings.root / "docs" / "assets" / "previews" / cover_name).unlink(missing_ok=True)
 
-    if apply and excluded:
+    if apply and before:
+        cutoff_key = before.strftime("%Y%m%d")
+        for key in ("report_dates", "unlimited_report_dates"):
+            if key in index:
+                index[key] = [d for d in index[key] if d >= cutoff_key]
+        index["source_runs"] = {d: stats for d, stats in index.get("source_runs", {}).items() if d >= cutoff_key}
+        for record in index["papers"].values():
+            record["appeared_dates"] = [d for d in record.get("appeared_dates", []) if d >= cutoff_key]
+        for report_path in (settings.root / "daily_reports").glob("[0-9]*/[0-9]*.md"):
+            if len(report_path.stem) == 8 and report_path.stem.isdigit() and report_path.stem < cutoff_key:
+                removed_reports.append(str(report_path.relative_to(settings.root)))
+                report_path.unlink()
+        manifest_path = settings.root / "papers" / "backfill_status.json"
+        if manifest_path.exists():
+            import json
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["batches"] = {k: v for k, v in manifest.get("batches", {}).items() if k[:8] >= cutoff_key}
+            manifest["incomplete_batches"] = [k for k in manifest.get("incomplete_batches", []) if k[:8] >= cutoff_key]
+            manifest["requested_start"] = max(manifest.get("requested_start", str(before)), str(before))
+            save_json(manifest_path, manifest)
+
+    if apply and (excluded or before):
         now = datetime.now(settings.timezone)
         save_index(index_path, index, now)
         save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
         for date_key in sorted(affected_dates):
-            reconcile_date(settings, date_key)
+            if not before or date_key >= before.strftime("%Y%m%d"):
+                reconcile_date(settings, date_key)
 
-    return {"apply": apply, "excluded": excluded, "affected_dates": sorted(affected_dates)}
+    return {"apply": apply, "excluded": excluded, "affected_dates": sorted(affected_dates),
+            "removed_reports": removed_reports}

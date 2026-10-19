@@ -145,6 +145,8 @@ def discover_command(args) -> int:
         settings = replace(settings, sources=tuple(x.strip() for x in args.sources.split(",") if x.strip()))
     start = _parse_date(args.start)
     end = _parse_date(args.end) or datetime.now(settings.timezone).date()
+    from .date_policy import bounded_start, before_cutoff
+    start = bounded_start(settings, start, end)
     allowed = {f.name for f in fields(Candidate)}
     if getattr(args, "import_file", None):
         incoming = json.loads(Path(args.import_file).read_text(encoding="utf-8"))
@@ -169,6 +171,7 @@ def discover_command(args) -> int:
                 continue
             old_stats[name] = info
         stats = old_stats
+    candidates = [c for c in candidates if not before_cutoff(c, settings.earliest_date)]
     save_json(Path(args.output), {"start": str(start), "end": str(end),
                                  "sources": stats, "candidates": [c.to_dict() for c in candidates]})
     print(f"[DISCOVERY] {len(candidates)} candidates saved to {args.output}")
@@ -182,11 +185,12 @@ def reconcile_command(args) -> int:
 
 
 def prune_command(args) -> int:
-    result = prune_index(load_settings(), apply=args.apply)
+    result = prune_index(load_settings(), apply=args.apply, before=_parse_date(args.before))
     mode = "applied" if args.apply else "preview"
     print(f"prune={mode} excluded={len(result['excluded'])}")
     for item in result["excluded"]:
         print(json.dumps(item, ensure_ascii=False))
+    print(f"removed_reports={len(result['removed_reports'])}")
     return 0
 
 
@@ -209,7 +213,7 @@ def build_parser() -> argparse.ArgumentParser:
     run.set_defaults(func=run_command)
 
     backfill = subparsers.add_parser("backfill", help="按自然周回填历史论文")
-    backfill.add_argument("--start", default="20260101", help="起始日期 YYYYMMDD")
+    backfill.add_argument("--start", default="20250601", help="起始日期 YYYYMMDD")
     backfill.add_argument("--end", help="结束日期 YYYYMMDD，默认今天")
     backfill.add_argument("--force", action="store_true", help="强制重新处理已有版本")
     backfill.add_argument("--all", dest="all_papers", action="store_true", help="历史全量收录，取消每周精选数量上限，保留仅题录论文")
@@ -238,6 +242,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     prune = subparsers.add_parser("prune", help="按当前领域规则检查并清理历史索引")
     prune.add_argument("--apply", action="store_true", help="应用清理；默认只预览")
+    prune.add_argument("--before", help="仅清理此日期之前的论文及归档，YYYYMMDD")
     prune.set_defaults(func=prune_command)
     return parser
 

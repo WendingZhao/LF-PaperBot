@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from dataclasses import dataclass
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -46,6 +47,7 @@ class Settings:
     crossref_mailto: str = ""
     crossref_max_pages: int = 20
     cvf_venues: tuple[str, ...] = ()
+    earliest_date: date | None = None
 
 
 def load_settings() -> Settings:
@@ -75,4 +77,5 @@ def load_settings() -> Settings:
         crossref_mailto=_env("CROSSREF_MAILTO"),
         crossref_max_pages=max(1, min(20, int(_env("CROSSREF_MAX_PAGES", "20")))),
         cvf_venues=tuple(x.strip() for x in _env("LF_CVF_VENUES").split(",") if x.strip()),
+        earliest_date=datetime.strptime(_env("LF_EARLIEST_DATE", "20250601"), "%Y%m%d").date(),
     )

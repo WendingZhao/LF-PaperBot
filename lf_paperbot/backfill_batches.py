@@ -10,6 +10,7 @@ import time
 from datetime import date, datetime, timedelta
 
 from .config import Settings
+from .date_policy import bounded_start
 from .pipeline import run_backfill
 from .models import Candidate
 from .public_sources import SourceCandidates
@@ -51,6 +52,7 @@ def commit_checkpoint(settings: Settings, message: str) -> None:
 def run_monthly_backfill(settings: Settings, start: date, end: date, *,
                          force: bool = False, all_papers: bool = False, commit: bool = False,
                          candidate_file=None) -> dict:
+    start = bounded_start(settings, start, end)
     snapshot = None
     fingerprint = "live"
     if candidate_file:
