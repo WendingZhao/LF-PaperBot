@@ -154,7 +154,7 @@ def generate_report(candidate: Candidate, context: str, client: ArkClient, *, co
 论文正文节选：
 {context}
 """
-    payload = client.complete_json(prompt, max_tokens=5000, timeout=360)
+    payload = client.complete_json(prompt, max_tokens=8000, timeout=360, json_object=True)
     if not isinstance(payload, dict):
         raise ArkError("report response must be a JSON object")
     report = {field: str(payload.get(field, "")).strip() for field in REPORT_FIELDS}

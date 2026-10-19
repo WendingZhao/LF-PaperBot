@@ -7,6 +7,7 @@ from urllib.error import HTTPError
 from zoneinfo import ZoneInfo
 
 import pytest
+from dataclasses import replace
 
 from lf_paperbot.config import Settings
 from lf_paperbot.llm import ArkClient, ArkError
@@ -129,3 +130,25 @@ def test_deepseek_request_uses_openai_compatible_endpoint(monkeypatch, tmp_path)
 def test_accepts_structured_message_content(monkeypatch, tmp_path):
     monkeypatch.setattr("lf_paperbot.llm.urllib.request.urlopen", lambda *_args, **_kwargs: ListContentResponse())
     assert ArkClient(settings(tmp_path)).complete("test", retries=1) == "ok"
+
+
+def test_deepseek_report_disables_thinking_and_requests_json_object(monkeypatch, tmp_path):
+    payloads = []
+
+    def request(req, **_kwargs):
+        payloads.append(json.loads(req.data))
+        return FakeResponse('{"tldr":"ok"}')
+
+    monkeypatch.setattr("lf_paperbot.llm.urllib.request.urlopen", request)
+    cfg = replace(settings(tmp_path), ark_base_url="https://api.deepseek.com", ark_model="deepseek-flash")
+    assert ArkClient(cfg).complete_json("Return JSON", json_object=True) == {"tldr": "ok"}
+    assert payloads[0]["thinking"] == {"type": "disabled"}
+    assert payloads[0]["response_format"] == {"type": "json_object"}
+
+
+def test_truncated_json_response_is_not_accepted(monkeypatch, tmp_path):
+    response = FakeResponse('{"ok":true}')
+    response.body = json.dumps({"choices": [{"finish_reason": "length", "message": {"content": '{"ok":true}'}}]}).encode()
+    monkeypatch.setattr("lf_paperbot.llm.urllib.request.urlopen", lambda *_a, **_kw: response)
+    with pytest.raises(ArkError, match="token limit"):
+        ArkClient(settings(tmp_path)).complete("test", retries=1)

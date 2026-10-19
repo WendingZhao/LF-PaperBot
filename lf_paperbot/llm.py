@@ -5,6 +5,7 @@ import random
 import re
 import time
 import urllib.request
+import urllib.parse
 from urllib.error import HTTPError, URLError
 
 from .config import Settings
@@ -29,6 +30,7 @@ class ArkClient:
         temperature: float = 0.2,
         timeout: int = 300,
         retries: int = 3,
+        json_object: bool = False,
     ) -> str:
         if not self.settings.ark_api_key:
             raise ArkError("DEEPSEEK_API_KEY is required (ARK_API_KEY is accepted for legacy configs)")
@@ -39,6 +41,10 @@ class ArkClient:
             "temperature": temperature,
             "stream": False,
         }
+        if urllib.parse.urlsplit(self.settings.ark_base_url).hostname == "api.deepseek.com":
+            payload["thinking"] = {"type": "disabled"}
+        if json_object:
+            payload["response_format"] = {"type": "json_object"}
         headers = {
             "Authorization": f"Bearer {self.settings.ark_api_key}",
             "Content-Type": "application/json",
@@ -56,6 +62,8 @@ class ArkClient:
                 with urllib.request.urlopen(request, timeout=timeout) as response:
                     request_id = response.headers.get("x-request-id", "-")
                     data = json.loads(response.read().decode("utf-8"))
+                if data.get("choices", [{}])[0].get("finish_reason") == "length":
+                    raise ArkError("model response reached output token limit")
                 content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
                 if isinstance(content, list):
                     content = "".join(
