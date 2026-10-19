@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:01:01.703802+08:00",
+  "updated_at": "2026-10-19T12:01:03.058223+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -833,23 +833,14 @@
     "20261011": [],
     "20261018": [
       "cvf-3fb3a9830933e1d178c0"
-    ]
+    ],
+    "20261019": []
   },
   "source_runs": {
     "20261018": {
-      "arxiv": {
-        "status": "failed",
-        "count": 0,
-        "error": "HTTP 429"
-      },
-      "crossref": {
-        "status": "partial",
-        "count": 4,
-        "error": "result limit reached; increase CROSSREF_MAX_PAGES"
-      },
       "cvf": {
         "status": "ok",
-        "count": 4
+        "count": 0
       }
     },
     "20241020": {
@@ -1585,6 +1576,24 @@
       }
     },
     "20260930": {
+      "cvf": {
+        "status": "ok",
+        "count": 0
+      }
+    },
+    "20261004": {
+      "cvf": {
+        "status": "ok",
+        "count": 0
+      }
+    },
+    "20261011": {
+      "cvf": {
+        "status": "ok",
+        "count": 0
+      }
+    },
+    "20261019": {
       "cvf": {
         "status": "ok",
         "count": 0
