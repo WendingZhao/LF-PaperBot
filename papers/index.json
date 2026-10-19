@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:28:57.200978+08:00",
+  "updated_at": "2026-10-19T12:29:39.168182+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -3213,6 +3213,408 @@
         "20250131"
       ],
       "is_version_update": false
+    },
+    "crossref-75ee9e426d707897cb80": {
+      "base_id": "crossref-75ee9e426d707897cb80",
+      "arxiv_id": "crossref-75ee9e426d707897cb80",
+      "version": 1,
+      "title": "Light Field Angular Super-Resolution via Spatial-Angular Correlation Extracted by Deformable Convolutional Network",
+      "abstract": "Light Field Angular Super-Resolution (LFASR) addresses the issue where Light Field (LF) images can not simultaneously achieve both high spatial and angular resolution due to the limited resolution of optical sensors. Since Spatial-Angular Correlation (SAC) features are closely related to the structure of LF images, its accurate and complete extraction is crucial for the quality of LF images reconstructed by the LFASR method based on Deep Neural Networks (DNNs). In low-angular resolution LF images, SAC features must be extracted from a limited number of pixels that are at a great distance from each other and exhibit strong correlations. However, existing LFASR methods based on DNNs fail to extract SAC features accurately and completely. Due to the limited receptive field, methods based on regular Convolutional Neural Networks (CNNs) are unable to capture SAC features from distant pixels, leading to incomplete SAC feature extraction. On the other hand, methods based on large convolution kernels and attention mechanisms use an excessive number of pixels to extract SAC features, resulting in insufficient accuracy in extracted SAC features. To solve this problem, we introduce Deformable Convolutional Network (DCN), which adaptively changes the position of limited sampling point using offsets, so as to extract SAC from distant pixels. In addition, in order to make the offset of DCN more accurate and further improve the accuracy of SAC features, we also propose a Multi-Maximum-Offsets Fusion DCN (MMOF-DCN). MMOF-DCN can reduce the exploration range of finding the desired offset, thereby improving the offset finding efficiency. Experiment results show that our proposed method has advantages in real-world dataset and synthetic dataset. The PSNR value in synthetic dataset which have large disparity is improved by 0.45 dB compared to existing methods.",
+      "authors": [
+        "Daichuan Li",
+        "Rui Zhong",
+        "Yungang Yang"
+      ],
+      "categories": [],
+      "published": "2025-02-07",
+      "updated": "2025-02-07",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.3390/s25040991",
+      "doi": "10.3390/s25040991",
+      "venue": "Sensors",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "角度超分",
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.75,
+      "code_score": 0.3,
+      "rank_score": 0.8575,
+      "evidence": "摘要明确提出光场角度超分任务，并利用空间—角度相关性进行重建。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文针对光场角度超分（LFASR）中空间—角度相关（SAC）特征难以准确、完整提取的问题，提出用可变形卷积网络（DCN）自适应调整有限采样点位置以从远距离像素提取 SAC，并进一步提出多最大偏移融合 DCN（MMOF-DCN）缩小偏移搜索范围、提升偏移寻找效率；摘要称方法在真实与合成数据集上具有优势，大视差合成数据集 PSNR 较现有方法提升 0.45 dB。",
+        "problem": "仅基于公开摘要，未读取全文。光场图像受光学传感器分辨率限制，难以同时获得高空间分辨率与高角度分辨率，角度超分即由低角度分辨率光场重建高角度分辨率光场。摘要指出，基于 DNN 的 LFASR 方法其重建质量关键取决于空间—角度相关（SAC）特征能否被准确且完整地提取。低角度分辨率光场中，SAC 特征必须从数量有限、彼此距离较远且相关性强的一组像素中提取。现有方法存在两类不足：常规 CNN 因感受野有限，无法从远距离像素捕获 SAC，导致特征提取不完整；大卷积核与注意力机制方法使用过多像素提取 SAC，导致提取精度不足。",
+        "modeling": "仅基于公开摘要，未读取全文。摘要将问题建模为：在低角度分辨率输入下，从少量远距离像素中提取强相关的 SAC 特征，并用于角度超分重建。其核心矛盾是感受野覆盖范围与采样精度之间的权衡：常规 CNN 感受野不足，大核与注意力方法采样像素过多而精度不足。论文引入 DCN，通过偏移量自适应改变有限采样点的位置，从而从远距离像素提取 SAC；并进一步提出 MMOF-DCN，通过多最大偏移融合使 DCN 偏移更准确，缩小寻找目标偏移的探索范围，提高偏移寻找效率。摘要未给出网络整体结构、损失函数、上采样方式或角度视图合成公式，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法要点包括：（1）采用可变形卷积网络（DCN）替代常规卷积进行 SAC 特征提取，利用偏移量自适应调整有限采样点位置，使采样点能够覆盖与当前像素强相关的远距离像素，从而兼顾有限采样与远距离建模；（2）提出多最大偏移融合 DCN（MMOF-DCN），对偏移进行更准确的估计，缩小寻找期望偏移的探索范围，提升偏移寻找效率，并进一步提升 SAC 特征精度；（3）将提取的 SAC 特征用于光场角度超分重建。摘要未说明 MMOF-DCN 的具体融合规则、偏移预测分支设计、训练策略、模块堆叠方式及与空间超分的联合处理细节，论文材料未说明。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。摘要聚焦于角度超分中的空间—角度相关特征提取与可变形卷积偏移学习，未提及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；论文材料未说明相关遮挡处理设计。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要称实验在真实世界数据集与合成数据集上进行，所提方法相较现有方法具有优势；在具有大视差的合成数据集上，PSNR 较现有方法提升 0.45 dB。摘要未给出具体数据集名称、空间/角度分辨率设置、SSIM、LPIPS、参数量、推理速度或对比方法列表，论文材料未说明；亦未提供消融实验数值与 MMOF-DCN 的效率提升量化结果。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未说明所用计算资源、GPU 型号与数量、训练时长、参数量、模型大小、推理速度或内存占用；也未提供代码链接、预训练模型或数据集获取方式，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要仅报告大视差合成数据集 PSNR 提升 0.45 dB，未给出 SSIM、LPIPS 等感知指标，也未说明真实数据集上的定量结果与泛化表现；MMOF-DCN 的偏移寻找效率提升缺少量化证据；方法依赖 DCN 偏移估计的准确性，在极端视差或遮挡边界处的稳健性摘要未讨论；参数量与速度等部署成本未说明。以上均需全文核实，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作提示：光场角度超分的关键不只是扩大感受野，而是在有限采样点条件下把采样点放到真正强相关的远距离像素上，DCN 的偏移学习正好提供了这种“稀疏但精准”的采样机制；MMOF-DCN 通过多最大偏移融合缩小偏移搜索空间，说明偏移估计的效率与精度可以协同优化。后续可关注偏移估计的可解释性、遮挡边界处的采样约束以及与空间超分的联合建模，但摘要未提供相应细节，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/58",
+      "issue_number": 58,
+      "cover_url": "",
+      "first_seen": "20250209",
+      "last_seen": "20250209",
+      "appeared_dates": [
+        "20250209"
+      ],
+      "is_version_update": false
+    },
+    "crossref-b4d82d69d3a0aa327296": {
+      "base_id": "crossref-b4d82d69d3a0aa327296",
+      "arxiv_id": "crossref-b4d82d69d3a0aa327296",
+      "version": 1,
+      "title": "Robust structured light field depth estimation via spinning line operator",
+      "abstract": "",
+      "authors": [
+        "Wenfeng Guo",
+        "Qingyang Wu",
+        "Yifeng Zou"
+      ],
+      "categories": [],
+      "published": "2025-02-05",
+      "updated": "2025-02-05",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/12.3055581",
+      "doi": "10.1117/12.3055581",
+      "venue": "International Conference on Optical and Photonic Engineering (icOPEN 2024)",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.6,
+      "experiment_score": 0.4,
+      "code_score": 0.2,
+      "rank_score": 0.7,
+      "evidence": "标题表明该论文研究基于旋转线算子的光场深度估计，属于利用光场结构进行深度估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/59",
+      "issue_number": 59,
+      "cover_url": "",
+      "first_seen": "20250209",
+      "last_seen": "20250209",
+      "appeared_dates": [
+        "20250209"
+      ],
+      "is_version_update": false
+    },
+    "crossref-8b5bce0a4357f7ac8d51": {
+      "base_id": "crossref-8b5bce0a4357f7ac8d51",
+      "arxiv_id": "crossref-8b5bce0a4357f7ac8d51",
+      "version": 1,
+      "title": "Light field reconstruction and measurement based on focal stack",
+      "abstract": "",
+      "authors": [
+        "Zhiting Zhang",
+        "Wanyu Gu",
+        "Zewei Cai",
+        "Xiaoli Liu",
+        "Xiang Peng"
+      ],
+      "categories": [],
+      "published": "2025-02-05",
+      "updated": "2025-02-05",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/12.3058034",
+      "doi": "10.1117/12.3058034",
+      "venue": "International Conference on Optical and Photonic Engineering (icOPEN 2024)",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值",
+        "重聚焦"
+      ],
+      "relevance_score": 0.75,
+      "research_score": 0.5,
+      "experiment_score": 0.3,
+      "code_score": 0.1,
+      "rank_score": 0.6,
+      "evidence": "标题表明该论文基于焦点堆栈进行光场重建与测量，涉及光场重建和重聚焦相关结构。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/60",
+      "issue_number": 60,
+      "cover_url": "",
+      "first_seen": "20250209",
+      "last_seen": "20250209",
+      "appeared_dates": [
+        "20250209"
+      ],
+      "is_version_update": false
+    },
+    "crossref-1975052ec51cdc5c36bf": {
+      "base_id": "crossref-1975052ec51cdc5c36bf",
+      "arxiv_id": "crossref-1975052ec51cdc5c36bf",
+      "version": 1,
+      "title": "Spatial-angular enhanced network for light-field image super-resolution with geometry-assisted upsampling",
+      "abstract": "Light field (LF) cameras can capture spatial and angular information of 3D scenes, enabling applications in virtual reality and 3D reconstruction. The development of the LF imaging technique has been hampered by the trade-off inherent in the angular and spatial resolution of LF cameras. To solve this challenge, we propose a content-enhanced network. We explore the texture information of complex scenes in LF to recover the texture details more effectively. Our proposed network contains two stages. In the first stage, we propose a local texture exploration network and a spatial-angular information enhancement network. With the local texture exploration network, we extract the gradient maps as a guide to exploring local texture features. In addition, we design a spatial-angular information enhancement network to disentangle and enhance the LF features. In the second stage, we introduce a geometry-assisted upsampling block that enhances LF spatial super-resolution by leveraging geometric information. Our method is capable of recovering more texture details while simultaneously maintaining excellent geometric consistency during the reconstruction of LF images. Comprehensive experiments have confirmed that the proposed method achieves superior performance.",
+      "authors": [
+        "Deyang Liu",
+        "Shizheng Li",
+        "Yiren Chen",
+        "Peng Zhang",
+        "Xiaofei Zhou",
+        "Hainie Zha"
+      ],
+      "categories": [],
+      "published": "2025-02-12",
+      "updated": "2025-02-12",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/1.jei.34.1.013036",
+      "doi": "10.1117/1.jei.34.1.013036",
+      "venue": "Journal of Electronic Imaging",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "空间超分",
+        "质量增强"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "提出空间-角度增强网络与几何辅助上采样块，利用光场空间-角度信息实现光场图像空间超分并保持几何一致性。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种内容增强网络用于光场图像空间超分辨率，包含两阶段：第一阶段用局部纹理探索网络提取梯度图作为引导，并用空间-角度信息增强网络解耦和增强光场特征；第二阶段引入几何辅助上采样模块，利用几何信息提升超分性能。摘要声称方法能恢复更多纹理细节并保持良好几何一致性，实验证实性能优越，但未提供具体数据集、指标数值或参数量。",
+        "problem": "仅基于公开摘要，未读取全文。光场相机可捕获三维场景的空间与角度信息，但角度分辨率与空间分辨率之间存在固有权衡，制约了光场成像技术发展。论文旨在解决光场图像空间超分辨率问题，即从低空间分辨率光场恢复高空间分辨率光场，同时保持角度信息与几何一致性。摘要未说明具体退化模型、放大倍数或应用场景细节。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将问题建模为两阶段内容增强网络：第一阶段包含局部纹理探索网络和空间-角度信息增强网络，前者以梯度图作为引导探索局部纹理特征，后者对光场特征进行解耦与增强；第二阶段引入几何辅助上采样模块，利用几何信息辅助空间超分。摘要未说明网络具体结构、损失函数、几何信息的具体形式（如视差、深度或EPI）以及空间-角度对应关系的数学建模。",
+        "method": "仅基于公开摘要，未读取全文。方法分为两个阶段。第一阶段：局部纹理探索网络提取梯度图作为引导，以探索复杂场景的局部纹理特征；空间-角度信息增强网络对光场特征进行解耦和增强。第二阶段：几何辅助上采样模块利用几何信息增强光场空间超分辨率。摘要声称该方法在重建光场图像时能恢复更多纹理细节，同时保持优异的几何一致性。摘要未说明梯度图如何生成与融合、特征解耦的具体方式、几何辅助上采样模块的输入输出及训练策略。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。论文任务为光场图像空间超分辨率与质量增强，摘要未涉及去遮挡任务，也未提及视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅称“综合实验证实所提方法取得优越性能”，未给出数据集名称、PSNR、SSIM、LPIPS、参数量、运行速度或对比方法等具体数值。论文材料未说明实验设置、训练细节与消融实验结果。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源（GPU型号与数量）、训练时长或参数量等复现信息。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。从摘要可推断的潜在限制包括：两阶段网络与几何辅助模块可能增加计算复杂度；几何信息的获取方式与可靠性未说明；对复杂遮挡或大视差场景的泛化能力未知。以上均为基于摘要的推断，论文材料未说明具体局限。",
+        "insight": "仅基于公开摘要，未读取全文。论文的启发在于将梯度图作为局部纹理引导，并显式解耦空间与角度特征，再以几何信息辅助上采样，从而在超分中兼顾纹理细节与几何一致性。该思路对光场超分中空间-角度信息利用与几何先验融合具有参考价值，但具体实现细节与有效性需全文实验验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/61",
+      "issue_number": 61,
+      "cover_url": "",
+      "first_seen": "20250216",
+      "last_seen": "20250216",
+      "appeared_dates": [
+        "20250216"
+      ],
+      "is_version_update": false
+    },
+    "crossref-a0b24aeeb2104ed8f16c": {
+      "base_id": "crossref-a0b24aeeb2104ed8f16c",
+      "arxiv_id": "crossref-a0b24aeeb2104ed8f16c",
+      "version": 1,
+      "title": "CALFNet: a light field reconstruction method based on channel attention mechanism",
+      "abstract": "",
+      "authors": [
+        "Yuxuan Gao",
+        "Zhihong Chen",
+        "Haiwei Zhang"
+      ],
+      "categories": [],
+      "published": "2025-02-13",
+      "updated": "2025-02-13",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/12.3057775",
+      "doi": "10.1117/12.3057775",
+      "venue": "Sixteenth International Conference on Graphics and Image Processing (ICGIP 2024)",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.7,
+      "research_score": 0.4,
+      "experiment_score": 0.3,
+      "code_score": 0.1,
+      "rank_score": 0.55,
+      "evidence": "标题表明为基于通道注意力机制的光场重建方法，属于光场稠密重建与视图插值范畴。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/62",
+      "issue_number": 62,
+      "cover_url": "",
+      "first_seen": "20250216",
+      "last_seen": "20250216",
+      "appeared_dates": [
+        "20250216"
+      ],
+      "is_version_update": false
+    },
+    "crossref-a02b0eb0db9b4538b47f": {
+      "base_id": "crossref-a02b0eb0db9b4538b47f",
+      "arxiv_id": "crossref-a02b0eb0db9b4538b47f",
+      "version": 1,
+      "title": "Efficient Low-Light Light Field Enhancement With Progressive Feature Interaction",
+      "abstract": "",
+      "authors": [
+        "Xin Luo",
+        "Gaosheng Liu",
+        "Zhi Lu",
+        "Kun Li",
+        "Jingyu Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tetci.2024.3404015",
+      "doi": "10.1109/tetci.2024.3404015",
+      "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "低光增强",
+        "质量增强"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.4,
+      "code_score": 0.2,
+      "rank_score": 0.76,
+      "evidence": "标题明确为光场低光增强，采用渐进式特征交互方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/63",
+      "issue_number": 63,
+      "cover_url": "",
+      "first_seen": "20250228",
+      "last_seen": "20250228",
+      "appeared_dates": [
+        "20250228"
+      ],
+      "is_version_update": false
+    },
+    "crossref-ea50b1a15e1286df6c61": {
+      "base_id": "crossref-ea50b1a15e1286df6c61",
+      "arxiv_id": "crossref-ea50b1a15e1286df6c61",
+      "version": 1,
+      "title": "Incorporating degradation estimation in light field spatial super-resolution",
+      "abstract": "",
+      "authors": [
+        "Zeyu Xiao",
+        "Zhiwei Xiong"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.cviu.2025.104295",
+      "doi": "10.1016/j.cviu.2025.104295",
+      "venue": "Computer Vision and Image Understanding",
+      "publication_year": 2025,
+      "publication_month": "2025-02",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.4,
+      "code_score": 0.2,
+      "rank_score": 0.76,
+      "evidence": "标题表明在光场空间超分中引入退化估计。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/64",
+      "issue_number": 64,
+      "cover_url": "",
+      "first_seen": "20250228",
+      "last_seen": "20250228",
+      "appeared_dates": [
+        "20250228"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -3630,6 +4032,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 41
       }
     },
     "20250209": {
@@ -3640,6 +4046,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 41
       }
     },
     "20250216": {
@@ -3650,6 +4060,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 41
       }
     },
     "20250223": {
@@ -3660,6 +4074,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 41
       }
     },
     "20250228": {
@@ -3670,6 +4088,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 41
       }
     },
     "20250302": {
