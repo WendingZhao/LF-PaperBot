@@ -184,6 +184,7 @@ def test_history_crossref_uses_large_pages_and_has_no_weekly_page_cap(monkeypatc
     items = sources.fetch_crossref(c, date(2025, 1, 1), date(2025, 1, 31), historical=True)
     assert len(items) == 1001
     assert all(q["rows"] == ["1000"] for q in urls)
+    assert all("abstract" in q["select"][0] and "reference" not in q["select"][0] for q in urls)
     assert len(urls) == 3
 
 

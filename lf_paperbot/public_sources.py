@@ -119,6 +119,7 @@ def fetch_crossref(settings: Settings, start: date, end: date, *, historical: bo
                 params = {
                     "query.title": term, "filter": f"from-{field}-date:{start},until-{field}-date:{end}",
                     "rows": page_size, "cursor": cursor,
+                    "select": "DOI,title,abstract,author,published,published-online,published-print,issued,container-title,license,link",
                 }
                 if settings.crossref_mailto:
                     params["mailto"] = settings.crossref_mailto
