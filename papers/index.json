@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:14:14.534617+08:00",
+  "updated_at": "2026-10-19T12:15:18.308541+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -1101,6 +1101,126 @@
         "20250921"
       ],
       "is_version_update": false
+    },
+    "2510.07879": {
+      "base_id": "2510.07879",
+      "arxiv_id": "2510.07879v1",
+      "version": 1,
+      "title": "Light Field Super-Resolution: A Critical Review on Challenges and Opportunities",
+      "abstract": "Advances in portability and low cost of plenoptic cameras have revived interest in light field imaging. Light-field imaging has evolved into a technology that enables us to capture richer visual information. This high-dimensional representation of visual data provides a powerful way to understand the scene, with remarkable improvement in traditional computer vision problems such as depth sensing , post-capture refocusing , material classification, segmentation, and video stabilization. Capturing light fields with high spatial-angular resolution and capturing light field video at high frame rates remains a major challenge due to the limited resolution of the sensors, with limited processing speed. In this paper, we presented an extensive literature review of light field acquisition techniques, challenges associated with different capturing methodology and algorithms proposed for light-field super-resolution, in order to deal with spatial-angular resolution trade-off issue.",
+      "authors": [
+        "Sumit Sharma"
+      ],
+      "categories": [
+        "eess.IV"
+      ],
+      "published": "2025-10-09T07:31:58Z",
+      "updated": "2025-10-09T07:31:58Z",
+      "pdf_url": "https://arxiv.org/pdf/2510.07879v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2510.07879v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "空间超分",
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.3,
+      "experiment_score": 0.1,
+      "code_score": 0.0,
+      "rank_score": 0.645,
+      "evidence": "摘要指出该文系统综述光场采集挑战与光场超分辨率算法，以处理空间—角度分辨率权衡问题。",
+      "report": {
+        "tldr": "仅基于所给论文材料（摘要、引言与参考文献节选），未读取完整全文。该文是一篇光场超分综述，围绕便携式光场相机的空间—角度分辨率权衡，梳理光场采集技术、不同采集方法的挑战以及空间/角度超分算法，强调利用4D光场冗余信息缓解该权衡；所给材料未给出作者自建实验及定量指标。",
+        "problem": "光场成像同时记录位置与方向信息，但便携式光场相机在主镜头与传感器间放置微透镜阵列，将主镜头虚拟分割为子孔径，导致空间分辨率与角度分辨率相互制约。高空间—角度分辨率光场及高帧率光场视频受传感器分辨率和处理速度限制，成为实际应用瓶颈，因此需要空间超分和角度超分。材料还指出光场在深度感知、后捕获重聚焦、材质分类、分割、视频稳像等任务中有应用价值。",
+        "modeling": "材料将光场视为普适函数，完整表示为7D L(x,y,z,θ,φ,γ,t)；实际中先假设单色、时不变，将维度降至5D，再利用自由空间中沿直线辐射恒定假设降至4D。常用双平面参数化L(u,v,s,t)：光线先交u-v平面于(u,v)，再交s-t平面于(s,t)。参数化需考虑计算效率、光线集合控制和均匀采样。空间—角度权衡源于微透镜阵列的子孔径分割；重聚焦图像锐度随每个微透镜下图像分辨率线性增加。所给材料未展开EPI、焦点线索、代价体或空间—角度对应的具体建模细节；EPI和视差估计仅出现在参考文献题名中，未报告误差指标。",
+        "method": "作为综述，文章范围从光场采集技术及其挑战延伸到光场超分算法。材料指出已有方法利用4D光场冗余信息处理空间—角度分辨率权衡。所给参考文献题名显示涉及变分光场分析与超分、基于EPI的深度CNN、结合EPI的CNN、GMM光场块先验、基于角度图像的多帧超分、CrossNet参考式超分等，但节选未给出这些方法的网络结构、训练目标、损失函数或实现细节。材料也未说明作者是否提出新算法。",
+        "occlusion": "不适用。所给材料围绕空间—角度分辨率权衡与超分综述，未说明去遮挡任务，也未给出视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "论文材料未说明作者开展的实验；未给出数据集、PSNR、SSIM、LPIPS、参数量或速度等原文结果。所给内容为摘要、引言和参考文献节选，未包含定量对比表或基准评测协议。深度/视差估计不是该节选报告的主要任务；材料仅在参考文献题名中出现EPI和视差估计，未报告MSE、MAE、坏点率等常用误差指标。",
+        "resources": "论文材料未说明代码链接、数据集、预训练模型或项目主页。可见信息包括作者Sumit Sharma，单位印度理工学院马德拉斯电气工程系，arXiv:2510.07879v1，日期2025年10月9日。复现所需训练配置、运行环境和硬件资源均未说明。",
+        "limitations": "所给材料为综述性摘要、引言与参考文献节选，缺少方法分类体系、统一基准、定量比较、复杂度分析和复现信息，因此无法核验不同光场超分方法的性能优劣。材料强调空间—角度权衡、传感器分辨率与处理速度限制，但未给出解决这些限制的统一方案。参考文献题名虽覆盖变分、CNN、EPI、多帧和参考式方法，节选未说明其适用条件与失败情形。",
+        "insight": "该综述提示光场超分应充分利用4D空间—角度冗余，在采集端与算法端协同缓解空间—角度权衡。后续研究需要明确任务设定（空间超分、角度超分或联合超分），在统一数据集上报告PSNR、SSIM、LPIPS、参数量和速度，并与采集方式、视角采样和计算预算关联分析。所给材料不足以支持对具体方法排名的结论，只能确认综述范围与核心挑战。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/22",
+      "issue_number": 22,
+      "cover_url": "assets/previews/2510.07879.webp",
+      "first_seen": "20251012",
+      "last_seen": "20251012",
+      "appeared_dates": [
+        "20251012"
+      ],
+      "is_version_update": false
+    },
+    "2510.15775": {
+      "base_id": "2510.15775",
+      "arxiv_id": "2510.15775v1",
+      "version": 1,
+      "title": "SANR: Scene-Aware Neural Representation for Light Field Image Compression with Rate-Distortion Optimization",
+      "abstract": "Light field images capture multi-view scene information and play a crucial role in 3D scene reconstruction. However, their high-dimensional nature results in enormous data volumes, posing a significant challenge for efficient compression in practical storage and transmission scenarios. Although neural representation-based methods have shown promise in light field image compression, most approaches rely on direct coordinate-to-pixel mapping through implicit neural representation (INR), often neglecting the explicit modeling of scene structure. Moreover, they typically lack end-to-end rate-distortion optimization, limiting their compression efficiency. To address these limitations, we propose SANR, a Scene-Aware Neural Representation framework for light field image compression with end-to-end rate-distortion optimization. For scene awareness, SANR introduces a hierarchical scene modeling block that leverages multi-scale latent codes to capture intrinsic scene structures, thereby reducing the information gap between INR input coordinates and the target light field image. From a compression perspective, SANR is the first to incorporate entropy-constrained quantization-aware training (QAT) into neural representation-based light field image compression, enabling end-to-end rate-distortion optimization. Extensive experiment results demonstrate that SANR significantly outperforms state-of-the-art techniques regarding rate-distortion performance with a 65.62\\% BD-rate saving against HEVC.",
+      "authors": [
+        "Gai Zhang",
+        "Xinfeng Zhang",
+        "Lv Tang",
+        "Hongyu An",
+        "Li Zhang",
+        "Qingming Huang"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.MM"
+      ],
+      "published": "2025-10-17T16:00:43Z",
+      "updated": "2025-10-17T16:00:43Z",
+      "pdf_url": "https://arxiv.org/pdf/2510.15775v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2510.15775v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.96,
+      "research_score": 0.88,
+      "experiment_score": 0.82,
+      "code_score": 0.0,
+      "rank_score": 0.875,
+      "evidence": "提出面向光场图像压缩的场景感知神经表示与端到端率失真优化，并报告相对HEVC节省65.62% BD-rate。",
+      "report": {
+        "tldr": "仅基于所给全文节选：SANR 面向光场图像压缩，以多尺度潜在码的层次化场景建模增强 INR 的场景结构表达，并用熵约束量化感知训练实现端到端率失真优化；材料报告相对 HEVC 的 BD-rate saving 为 65.62%，但未给出 PSNR、SSIM、LPIPS、参数量和速度等细节。",
+        "problem": "光场图像捕获多视角场景信息，具有高维、数据量巨大的特点，给存储与传输带来挑战。传统 JPEG、BPG 难以利用视角间相关性，将 SAIs 组织为伪视频再用 HEVC 等方法也未能充分利用光场几何结构。现有基于 INR 的光场压缩多采用直接坐标到像素映射，忽略显式场景结构，使 INR 输入坐标与目标光场图像之间存在信息鸿沟；同时重建与压缩模块常解耦，缺少端到端率失真优化，限制压缩效率。",
+        "modeling": "SANR 将光场压缩建模为场景感知的 INR 坐标到信号映射，并引入层次化场景建模块，用多尺度潜在码捕获内在场景结构与多频细节，以补偿坐标到目标图像之间的信息差。压缩侧将潜在码和网络参数的估计熵纳入熵约束量化感知训练，实现端到端率失真优化。论文材料未说明网络层数、潜在码维度、量化方式和熵编码具体实现。",
+        "method": "SANR 的核心包括两部分：一是层次化场景建模块，利用不同尺度潜在码显式建模场景结构，减少 INR 输入坐标与目标光场图像之间的信息鸿沟；二是熵约束量化感知训练，利用潜在码与网络参数的估计熵进行端到端率失真优化。摘要称 SANR 是首个将 entropy-constrained QAT 引入神经表示光场图像压缩的工作。材料未说明具体编码器/解码器结构、训练流程、量化器细节和熵模型设计。",
+        "occlusion": "去遮挡不适用：本文任务是光场图像压缩与重建，不是去遮挡；材料未提出视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。深度/视差估计也不适用：材料虽在背景中提及视差图、深度估计等应用，但未说明 SANR 使用 EPI、焦点线索、遮挡边界、代价体或空间—角度对应进行视差估计，也未报告视差误差指标。",
+        "experiments": "论文材料仅报告：在 benchmark datasets 上实验，SANR 的率失真性能显著优于 SOTA，相对 HEVC 的 BD-rate saving 为 65.62%。具体数据集名称、PSNR、SSIM、LPIPS、参数量、编码/解码速度、码率点设置、对比方法列表和消融实验数值均未在所给节选中说明。摘要还称视觉质量更优，但未给出定量指标。",
+        "resources": "论文材料未说明开源代码或项目链接；未给出参数量、FLOPs、编码/解码速度、GPU 型号、训练时长、学习率、batch size 等复现资源。数据集仅称为 benchmark datasets，具体名称与划分未说明。材料未提供预训练模型或训练超参数。",
+        "limitations": "论文材料未说明 SANR 自身的局限、失败案例或适用范围；也未报告复杂度、参数量、运行速度、完整数据集细节和消融实验。因此无法仅凭所给材料核验其在不同角度分辨率、稀疏视角、真实噪声或遮挡条件下的泛化性，复现信息亦不足。",
+        "insight": "核心见解是把场景先验显式注入 INR，通过多尺度潜在码减少坐标到像素映射的信息鸿沟，并把熵约束前移到量化感知训练中，以实现压缩友好的端到端率失真优化。对光场压缩的可验证价值主要来自场景感知表示与率失真联合训练，而非去遮挡或视差估计。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/23",
+      "issue_number": 23,
+      "cover_url": "assets/previews/2510.15775.webp",
+      "first_seen": "20251019",
+      "last_seen": "20251019",
+      "appeared_dates": [
+        "20251019"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -1851,30 +1971,50 @@
       }
     },
     "20251005": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 4
       }
     },
     "20251012": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 4
       }
     },
     "20251019": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 4
       }
     },
     "20251026": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 4
       }
     },
     "20251031": {
+      "arxiv": {
+        "status": "ok",
+        "count": 13
+      },
       "cvf": {
         "status": "ok",
         "count": 4
