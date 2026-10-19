@@ -178,6 +178,16 @@ def run_pipeline(
             if candidate.doi and not previous.get("doi"):
                 previous["doi"] = candidate.doi
     hard_filtered = deterministic_filter(fetched)
+    if all_papers:
+        for candidate in hard_filtered:
+            previous = index["papers"].get(candidate.base_id)
+            if previous and not _needs_processing(candidate, index["papers"], force):
+                # Existing analyses also belong to their historical period.
+                # Reuse the Issue instead of omitting them from the archive.
+                dates = previous.setdefault("appeared_dates", [])
+                if date_key not in dates:
+                    dates.append(date_key)
+                    dates.sort()
     pending = [candidate for candidate in hard_filtered
                if (all_papers or candidate.abstract or candidate.pdf_url) and _needs_processing(candidate, index["papers"], force)]
     client = ArkClient(settings)

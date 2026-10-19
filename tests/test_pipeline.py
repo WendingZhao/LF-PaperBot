@@ -197,6 +197,10 @@ def test_all_history_removes_five_paper_limit_and_is_idempotent(monkeypatch, tmp
     assert not second["processed"]
     pipeline.reconcile_date(cfg, "20250105")
     assert "最终精选：8 篇" in (tmp_path / "daily_reports/202501/20250105.md").read_text(encoding="utf-8")
+    historical = pipeline.run_pipeline(cfg, date(2024, 12, 29), candidates=items, all_papers=True)
+    assert not historical["processed"]
+    assert len(calls) == 8
+    assert "最终精选：8 篇" in (tmp_path / "daily_reports/202412/20241229.md").read_text(encoding="utf-8")
 
 
 def test_reconcile_uses_natural_week_start(monkeypatch, tmp_path):
