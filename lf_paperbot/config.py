@@ -42,6 +42,10 @@ class Settings:
     arxiv_api_url: str
     arxiv_user_agent: str
     temp_dir: Path
+    sources: tuple[str, ...] = ("arxiv", "crossref", "cvf")
+    crossref_mailto: str = ""
+    crossref_max_pages: int = 20
+    cvf_venues: tuple[str, ...] = ()
 
 
 def load_settings() -> Settings:
@@ -67,4 +71,8 @@ def load_settings() -> Settings:
             "LF-PaperBot/0.1 (https://github.com/WendingZhao/LF-PaperBot; mailto:wendingzhao@users.noreply.github.com)",
         ),
         temp_dir=ROOT / "tmp",
+        sources=tuple(x.strip().lower() for x in _env("LF_SOURCES", "arxiv,crossref,cvf").split(",") if x.strip()),
+        crossref_mailto=_env("CROSSREF_MAILTO"),
+        crossref_max_pages=max(1, min(20, int(_env("CROSSREF_MAX_PAGES", "20")))),
+        cvf_venues=tuple(x.strip() for x in _env("LF_CVF_VENUES").split(",") if x.strip()),
     )

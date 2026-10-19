@@ -4,13 +4,27 @@
 
 ## 能力
 
-- 从 arXiv 的 `cs.CV`、`cs.GR`、`cs.MM`、`eess.IV`、`eess.SP`、`physics.optics` 获取上一自然周论文
-- 关键词硬筛 + 火山方舟语义筛选，每周最多精选 5 篇
+- 从 arXiv、CVF Open Access 和 Crossref 获取候选，按 DOI、规范化标题和 arXiv ID 跨来源去重
+- 关键词硬筛 + DeepSeek 语义筛选，每周最多精选 5 篇
 - 下载入选 PDF，生成中文结构化报告和 GitHub Issue
 - 识别 arXiv 新版本并更新原 Issue
 - 生成 Markdown 周报、JSON 索引和响应式 GitHub Pages
 - GitHub Actions 每周一北京时间 09:00 自动运行
 - 支持从 `2026-01-01` 起按自然周回填历史论文
+
+## 公开来源与查询配置
+
+`LF_SOURCES=arxiv,crossref,cvf` 默认启用三个渠道，无需新增 Secret。可在 `.env` 中调整；云端周更和回填对应 `.github/workflows/daily.yml`、`backfill.yml` 的同名环境变量。
+
+| 渠道 | 覆盖与时间口径 | 全文 |
+|---|---|---|
+| arXiv | 原有六个类别，按版本更新时间筛选 | 公开 PDF |
+| CVF Open Access | 自动发现当前及上一年度的 CVPR、ICCV、WACV 主会（从 2026 年起）；可用 `LF_CVF_VENUES=CVPR2026,WACV2026` 指定 | CVF 官方开放 PDF |
+| Crossref | 标题检索 light field / plenoptic，补充会议和期刊 DOI；按发表日期及 DOI 首次登记日期查询 | 有明确 CC 许可的 PDF 才尝试下载，否则用公开摘要 |
+
+CVF 页面常只有发表年份。此类记录按本次首次发现纳入周报，显示“首次发现”，**不代表本周发表**；历史回填时归入回填末期。Crossref 本周登记的旧论文会标记“新登记”。Crossref 并不保证有摘要或开放全文：两者都没有时不生成报告；只有摘要时页面和 Issue 明确标注“仅摘要”，不推测实验数据。来源合并目前使用 DOI、ID 和规范化后的完整标题；改名且没有共同 DOI 的预印本/会议版仍可能需要人工核对。
+
+`CROSSREF_MAILTO` 可选填真实联系邮箱以使用礼貌访问池；`CROSSREF_MAX_PAGES` 默认每条查询最多 20 页（每页 100 条），达到上限会在周报标注检索不完整，也可调小以减少网络请求。单个来源不可用时保留其他来源结果，并在周报显示异常；所有来源均失败则中止，不发布空周报。来源适配与检索词位于 `lf_paperbot/public_sources.py`；底层视觉任务筛选仍位于 `lf_paperbot/domain.py` 和 `analysis.py`。
 
 ## 领域范围
 

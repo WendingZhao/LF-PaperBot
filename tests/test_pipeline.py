@@ -40,6 +40,56 @@ def candidate() -> Candidate:
     )
 
 
+def test_non_arxiv_abstract_report_uses_real_source_and_no_pdf(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    from lf_paperbot.analysis import REPORT_FIELDS
+    item = candidate()
+    item.source = "crossref"
+    item.source_url = "https://doi.org/10.1234/lf"
+    item.pdf_url = ""
+    item.doi = "10.1234/lf"
+    scopes = []
+
+    def fake_report(_candidate, _context, _client, *, content_scope):
+        scopes.append(content_scope)
+        return {k: "仅基于公开摘要" for k in REPORT_FIELDS}
+
+    class Store:
+        def upsert_paper_issue(self, _candidate, body, _date):
+            assert "https://doi.org/10.1234/lf" in body
+            assert "仅公开摘要，未读取全文" in body
+            assert "arxiv.org/abs" not in body
+            return SimpleNamespace(number=1, html_url="https://github.com/test/issues/1"), "created"
+
+    def no_download(*_args):
+        raise AssertionError("No PDF URL must not download")
+
+    monkeypatch.setattr(pipeline, "generate_report", fake_report)
+    monkeypatch.setattr(pipeline, "download_pdf", no_download)
+    record = pipeline.process_candidate(settings(tmp_path), item, "20261018", {"papers": {}}, object(), Store())
+    assert scopes == ["abstract_only"]
+    assert record["content_scope"] == "abstract_only"
+    assert record["cover_url"] == ""
+    assert record["doi"] == item.doi
+
+
+def test_pdf_download_failure_can_fall_back_to_abstract(monkeypatch, tmp_path):
+    from types import SimpleNamespace
+    from lf_paperbot.analysis import REPORT_FIELDS
+    monkeypatch.setattr(pipeline, "download_pdf", lambda *_: (_ for _ in ()).throw(RuntimeError("HTTP 406")))
+    scopes = []
+
+    def report(_candidate, _context, _client, *, content_scope):
+        scopes.append(content_scope)
+        return {k: "论文材料未说明" for k in REPORT_FIELDS}
+
+    monkeypatch.setattr(pipeline, "generate_report", report)
+    store = SimpleNamespace(upsert_paper_issue=lambda *_: (SimpleNamespace(number=1, html_url="https://example.test/1"), "created"))
+    result = pipeline.process_candidate(settings(tmp_path), candidate(), "20261018", {"papers": {}}, object(), store)
+    assert result["content_scope"] == "abstract_only"
+    assert scopes == ["abstract_only"]
+
+
 def test_pipeline_orchestrates_and_is_idempotent(monkeypatch, tmp_path):
     item = candidate()
     monkeypatch.setattr(pipeline, "fetch_recent", lambda *_args, **_kwargs: [item])

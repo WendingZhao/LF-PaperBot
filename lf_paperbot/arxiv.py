@@ -185,7 +185,7 @@ def fetch_by_id(settings: Settings, arxiv_id: str) -> Candidate:
 
 def download_pdf(settings: Settings, candidate: Candidate) -> Path:
     settings.temp_dir.mkdir(parents=True, exist_ok=True)
-    path = settings.temp_dir / f"{candidate.arxiv_id}.pdf"
+    path = settings.temp_dir / f"{candidate.base_id}.pdf"
     data = _read_url(candidate.pdf_url, settings.arxiv_user_agent, timeout=120, retries=4)
     if not data.startswith(b"%PDF"):
         raise RuntimeError(f"downloaded content is not a PDF for {candidate.arxiv_id}")

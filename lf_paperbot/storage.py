@@ -49,4 +49,5 @@ def public_payload(index: dict[str, Any]) -> dict[str, Any]:
         "updated_at": index.get("updated_at"),
         "papers": papers,
         "reports": reports,
+        "source_runs": index.get("source_runs", {}),
     }

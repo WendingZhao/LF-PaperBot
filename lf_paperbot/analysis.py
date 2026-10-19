@@ -67,6 +67,9 @@ def _classification_prompt(candidates: list[Candidate]) -> str:
 def classify_with_llm(candidates: list[Candidate], client: ArkClient) -> list[Candidate]:
     if not candidates:
         return []
+    if len(candidates) > 10:
+        return [item for start in range(0, len(candidates), 10)
+                for item in classify_with_llm(candidates[start:start + 10], client)]
     by_id = {candidate.arxiv_id: candidate for candidate in candidates}
     try:
         payload = client.complete_json(_classification_prompt(candidates), max_tokens=3000, timeout=180)
@@ -129,7 +132,7 @@ REPORT_FIELDS = (
 )
 
 
-def generate_report(candidate: Candidate, context: str, client: ArkClient) -> dict[str, str]:
+def generate_report(candidate: Candidate, context: str, client: ArkClient, *, content_scope: str = "full_text") -> dict[str, str]:
     prompt = f"""你是光场图像底层视觉研究专家。根据论文材料生成精炼、可核验的中文分析。
 
 要求：
@@ -139,6 +142,7 @@ def generate_report(candidate: Candidate, context: str, client: ArkClient) -> di
 4. 如果任务涉及去遮挡，说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；不涉及则写“不适用”。
 5. 如果任务涉及深度/视差估计，说明 EPI、焦点线索、遮挡边界、代价体或空间—角度对应关系，并报告常用误差指标。
 6. 返回严格 JSON 对象，所有值均为字符串，字段必须为：{list(REPORT_FIELDS)}。
+7. 材料范围为 {content_scope}。如果是 abstract_only，仅写摘要支持的事实；方法细节、实验数值和复现信息未说明时直接标注，不为凑字数补写。首句必须说明“仅基于公开摘要，未读取全文”。
 
 论文元信息：
 标题：{candidate.title}
@@ -159,20 +163,28 @@ def generate_report(candidate: Candidate, context: str, client: ArkClient) -> di
     return report
 
 
-def report_to_markdown(candidate: Candidate, report: dict[str, str], image_url: str) -> str:
+def report_to_markdown(candidate: Candidate, report: dict[str, str], image_url: str, *, content_scope: str = "full_text") -> str:
     authors = ", ".join(candidate.authors) or "论文材料未说明"
-    image = f"![论文首页]({image_url})" if image_url else "论文首页预览生成失败。"
-    version = f"v{candidate.version}"
+    image = f"![论文首页]({image_url})" if image_url else "无公开全文首页预览。"
+    version = f"v{candidate.version}" if candidate.source == "arxiv" else "正式发表版"
+    source_link = f"[{candidate.source}]({candidate.paper_url})"
+    if candidate.pdf_url:
+        source_link += f" · [PDF]({candidate.pdf_url})"
+    scope = "全文节选" if content_scope == "full_text" else "仅公开摘要，未读取全文"
     return f"""# {candidate.title}
 
 ## 基础信息
 
 | 项目 | 内容 |
 |---|---|
-| arXiv | [{candidate.arxiv_id}](https://arxiv.org/abs/{candidate.arxiv_id}) · [PDF]({candidate.pdf_url}) |
+| 来源 | {source_link} |
+| DOI | {candidate.doi or '未提供'} |
+| 会议/期刊 | {candidate.venue or '未提供'} |
+| 分析依据 | {scope} |
 | 版本 | {version} |
 | 作者 | {authors} |
-| 发布时间 | {candidate.published[:10]} |
+| 发布时间 | {candidate.published[:10] or candidate.publication_year or '未提供精确日期'} |
+| 收录依据 | {candidate.date_basis} |
 | 更新时间 | {candidate.updated[:10]} |
 | 任务 | {'、'.join(candidate.tasks)} |
 | 综合分数 | {candidate.rank_score:.2f} |

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 from .analysis import classify_with_llm, generate_report, rank_candidates, report_to_markdown
-from .arxiv import download_pdf, fetch_by_id, fetch_recent, fetch_submitted_range
+from .arxiv import download_pdf, fetch_by_id
+from .public_sources import SourceCandidates, deduplicate, fetch_recent, fetch_submitted_range
 from .config import Settings
 from .domain import deterministic_classify, deterministic_filter
 from .github_store import GitHubStore
@@ -24,7 +26,13 @@ def _needs_processing(candidate: Candidate, papers: dict, force: bool) -> bool:
     if force:
         return True
     previous = papers.get(candidate.base_id)
-    return previous is None or candidate.version > int(previous.get("version", 0))
+    if previous is None:
+        return True
+    if candidate.source == "arxiv" and previous.get("source", "arxiv") == "arxiv":
+        return candidate.version > int(previous.get("version", 0))
+    if candidate.source == "arxiv" and previous.get("source", "arxiv") != "arxiv":
+        return True
+    return False
 
 
 def _paper_record(
@@ -35,6 +43,7 @@ def _paper_record(
     cover_url: str,
     date_key: str,
     previous: dict | None,
+    content_scope: str = "full_text",
 ) -> dict:
     appeared_dates = list(previous.get("appeared_dates", [])) if previous else []
     if date_key not in appeared_dates:
@@ -50,6 +59,14 @@ def _paper_record(
         "published": candidate.published,
         "updated": candidate.updated,
         "pdf_url": candidate.pdf_url,
+        "source": candidate.source,
+        "source_url": candidate.paper_url,
+        "doi": candidate.doi,
+        "venue": candidate.venue,
+        "publication_year": candidate.publication_year,
+        "date_basis": candidate.date_basis,
+        "sources": candidate.sources,
+        "content_scope": content_scope,
         "tasks": candidate.tasks,
         "relevance_score": candidate.relevance_score,
         "research_score": candidate.research_score,
@@ -76,17 +93,37 @@ def process_candidate(
     client: ArkClient,
     github: GitHubStore,
 ) -> dict:
-    pdf_path = download_pdf(settings, candidate)
+    pdf_path = None
     cover_path = settings.root / "docs" / "assets" / "previews" / f"{candidate.base_id}.webp"
+    content_scope = "abstract_only"
+    context = "仅有公开摘要；未获取全文。不得推测方法细节、实验数值或代码可用性。"
+    cover_url = ""
     try:
-        render_cover_webp(pdf_path, cover_path)
-        context = select_context(extract_pdf_text(pdf_path))
-        report = generate_report(candidate, context, client)
-        cover_url = (
-            f"https://raw.githubusercontent.com/{settings.github_repo}/main/"
-            f"docs/assets/previews/{candidate.base_id}.webp"
-        )
-        body = report_to_markdown(candidate, report, cover_url)
+        for pdf_url in dict.fromkeys([candidate.pdf_url, *candidate.alternate_pdf_urls]):
+            if not pdf_url:
+                continue
+            try:
+                pdf_path = download_pdf(settings, replace(candidate, pdf_url=pdf_url))
+                context = select_context(extract_pdf_text(pdf_path))
+                if not context.strip():
+                    raise RuntimeError("PDF text is empty")
+                content_scope = "full_text"
+                candidate.pdf_url = pdf_url
+                break
+            except Exception as exc:
+                print(f"[WARN] full text unavailable for {candidate.base_id}: {type(exc).__name__}; using abstract")
+        if content_scope == "abstract_only" and not candidate.abstract.strip():
+            raise RuntimeError("Neither public full text nor abstract is available")
+        if content_scope == "full_text":
+            try:
+                render_cover_webp(pdf_path, cover_path)
+                cover_url = f"assets/previews/{candidate.base_id}.webp"
+            except Exception as exc:
+                print(f"[WARN] cover unavailable for {candidate.base_id}: {type(exc).__name__}")
+        report = generate_report(candidate, context, client, content_scope=content_scope)
+        image_url = (f"https://raw.githubusercontent.com/{settings.github_repo}/main/docs/{cover_url}"
+                     if cover_url else "")
+        body = report_to_markdown(candidate, report, image_url, content_scope=content_scope)
         issue, action = github.upsert_paper_issue(candidate, body, date_key)
         print(f"[ISSUE] {action} #{issue.number} for {candidate.arxiv_id}")
         previous = index["papers"].get(candidate.base_id)
@@ -95,15 +132,14 @@ def process_candidate(
             report,
             issue.html_url,
             issue.number,
-            f"assets/previews/{candidate.base_id}.webp",
+            cover_url,
             date_key,
             previous,
+            content_scope,
         )
-    except Exception:
-        cover_path.unlink(missing_ok=True)
-        raise
     finally:
-        pdf_path.unlink(missing_ok=True)
+        if pdf_path:
+            pdf_path.unlink(missing_ok=True)
 
 
 def run_pipeline(
@@ -120,9 +156,20 @@ def run_pipeline(
     index_path = settings.root / "papers" / "index.json"
     index = load_index(index_path)
     original_index = copy.deepcopy(index)
-    fetched = list(candidates) if candidates is not None else fetch_recent(settings, target_date)
+    fetched = candidates if candidates is not None else fetch_recent(settings, target_date)
+    source_stats = getattr(fetched, "stats", {})
+    fetched = deduplicate(list(fetched), index["papers"])
+    for candidate in fetched:
+        previous = index["papers"].get(candidate.base_id)
+        if previous and len(candidate.sources) > 1:
+            previous["sources"] = list(dict.fromkeys([
+                *previous.get("sources", [previous.get("source", "arxiv")]), *candidate.sources,
+            ]))
+            if candidate.doi and not previous.get("doi"):
+                previous["doi"] = candidate.doi
     hard_filtered = deterministic_filter(fetched)
-    pending = [candidate for candidate in hard_filtered if _needs_processing(candidate, index["papers"], force)]
+    pending = [candidate for candidate in hard_filtered
+               if (candidate.abstract or candidate.pdf_url) and _needs_processing(candidate, index["papers"], force)]
     client = ArkClient(settings)
     classified = classify_with_llm(pending, client)
     selected = rank_candidates(classified, settings.max_daily_papers)
@@ -143,6 +190,8 @@ def run_pipeline(
     if date_key not in index["report_dates"]:
         index["report_dates"].append(date_key)
         index["report_dates"].sort()
+    if source_stats:
+        index.setdefault("source_runs", {})[date_key] = source_stats
     if index != original_index:
         save_index(index_path, index, datetime.now(settings.timezone))
     save_json(settings.root / "docs" / "data" / "index.json", public_payload(index))
@@ -157,6 +206,7 @@ def run_pipeline(
         hard_filtered_count=len(hard_filtered),
         failed=failed,
         period_start=effective_start.strftime("%Y%m%d"),
+        source_stats=source_stats,
     )
     report_path = write_daily_report(settings.root, date_key, daily)
     print(f"[DONE] {date_key}: {len(processed)} papers, report={report_path}")
@@ -183,16 +233,20 @@ def run_backfill(settings: Settings, start_date: date, end_date: date, force: bo
                 timezone.utc
             ).date()
         except ValueError:
-            continue
+            # Year-only CVF records are discoveries at the end of the backfill.
+            if candidate.date_basis != "discovered":
+                continue
+            published_day = end_date
         dated.append((published_day, candidate))
 
     periods: list[dict] = []
     total_processed = 0
     total_failed = 0
     for period_start, period_end in weekly_windows(start_date, end_date):
-        period_candidates = [
+        period_items = [
             candidate for published_day, candidate in dated if period_start <= published_day <= period_end
         ]
+        period_candidates = SourceCandidates(period_items, getattr(candidates, "stats", {}))
         result = run_pipeline(
             settings,
             period_end,
@@ -251,6 +305,7 @@ def reconcile_date(settings: Settings, date_key: str) -> Path:
         fetched_count=len(papers),
         hard_filtered_count=len(papers),
         period_start=period_start,
+        source_stats=index.get("source_runs", {}).get(date_key, {}),
     )
     return write_daily_report(settings.root, date_key, content)
 

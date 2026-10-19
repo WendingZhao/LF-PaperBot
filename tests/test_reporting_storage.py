@@ -15,6 +15,14 @@ def test_empty_daily_report_is_explicit():
     assert "光场底层视觉周报" in report
 
 
+def test_report_records_source_outage_and_processing_failure():
+    report = build_daily_report("20261018", [], fetched_count=2, hard_filtered_count=1,
+                                failed=["example"], source_stats={"arxiv": {"status": "failed", "count": 0, "error": "HTTP 406"}})
+    assert "候选处理失败" in report
+    assert "不代表完整检索" in report
+    assert "arxiv：0 条，不可用" in report
+
+
 def test_index_round_trip_and_public_report_map(tmp_path: Path):
     path = tmp_path / "papers" / "index.json"
     index = load_index(path)

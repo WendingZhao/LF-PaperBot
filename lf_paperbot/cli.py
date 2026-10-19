@@ -7,7 +7,7 @@ import sys
 from datetime import datetime
 
 from .analysis import classify_with_llm, rank_candidates
-from .arxiv import fetch_recent
+from .public_sources import fetch_recent
 from .config import load_settings
 from .domain import deterministic_filter
 from .llm import ArkClient, ArkError
@@ -71,6 +71,9 @@ def fetch_command(args) -> int:
             json.dumps(
                 {
                     "arxiv_id": item.arxiv_id,
+                    "source": item.source,
+                    "source_url": item.paper_url,
+                    "doi": item.doi,
                     "title": item.title,
                     "tasks": item.tasks,
                     "rank_score": item.rank_score,
