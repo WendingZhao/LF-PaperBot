@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:32:31.940509+08:00",
+  "updated_at": "2026-10-19T12:33:19.463324+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -5245,6 +5245,352 @@
         "20250630"
       ],
       "is_version_update": false
+    },
+    "crossref-cb8f32046434c687fa36": {
+      "base_id": "crossref-cb8f32046434c687fa36",
+      "arxiv_id": "crossref-cb8f32046434c687fa36",
+      "version": 1,
+      "title": "Depth estimation method based on adaptive occlusion handling for light-field imaging systems",
+      "abstract": "To solve the problem of poor depth estimation due to the influence of occlusion in light-field imaging systems, an embeddable adaptive occlusion-aware module (AOAM) is proposed to effectively compensate for the deficiencies of most existing frameworks. Considering the low computational resource consumption, an adaptive occlusion optimization mode is built that introduces a voting strategy. The beam propagation characteristics are analyzed to filter the disparity values, and the adaptive voting cost is utilized to achieve regional partitioning and noise reduction in the global domain. The superiority of the proposed method is validated on a common light-field dataset.",
+      "authors": [
+        "Anhu Li",
+        "Zhenyu Gong",
+        "Xin Zhao"
+      ],
+      "categories": [],
+      "published": "2025-07-10",
+      "updated": "2025-07-10",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/josaa.546671",
+      "doi": "10.1364/josaa.546671",
+      "venue": "Journal of the Optical Society of America A",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.6,
+      "code_score": 0.2,
+      "rank_score": 0.77,
+      "evidence": "提出可嵌入的自适应遮挡感知模块，利用光束传播特性滤波视差并实现光场深度估计。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文针对光场成像系统中遮挡导致深度估计性能下降的问题，提出一种可嵌入的自适应遮挡感知模块（AOAM），通过引入投票策略的自适应遮挡优化模式，结合光束传播特性分析过滤视差值，并利用自适应投票代价实现全局域的区域划分与降噪，在常用光场数据集上验证了方法的优越性。",
+        "problem": "仅基于公开摘要，未读取全文。光场成像系统在进行深度估计时，遮挡现象会显著降低估计精度。现有大多数框架对遮挡的处理存在不足，论文旨在补偿这些不足，提升遮挡条件下的深度估计性能。摘要未具体说明遮挡的类型、程度或现有框架的具体缺陷。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将问题建模为遮挡感知的深度/视差估计，提出可嵌入的自适应遮挡感知模块（AOAM）。该模块考虑低计算资源消耗，构建引入投票策略的自适应遮挡优化模式。摘要提及分析光束传播特性以过滤视差值，并利用自适应投票代价实现全局域的区域划分与降噪，但未说明具体的网络结构、代价体构建方式或优化目标函数。",
+        "method": "仅基于公开摘要，未读取全文。方法核心为可嵌入的自适应遮挡感知模块（AOAM），包含两个关键机制：一是分析光束传播特性对视差值进行过滤；二是采用自适应投票代价，在全局域内实现区域划分与噪声 reduction。摘要未说明模块的嵌入位置、投票策略的具体规则、区域划分的准则以及与现有框架的结合方式。",
+        "occlusion": "仅基于公开摘要，未读取全文。论文明确针对光场成像系统中的遮挡问题，提出自适应遮挡感知模块（AOAM）以补偿现有框架的不足。摘要提及通过光束传播特性分析过滤视差值，并利用自适应投票代价进行区域划分与降噪，这些机制可能与遮挡区域的处理相关，但摘要未具体说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制等细节。",
+        "experiments": "仅基于公开摘要，未读取全文。论文在常用光场数据集上验证了所提方法的优越性，但摘要未给出数据集名称、PSNR、SSIM、LPIPS、参数量或运行速度等具体实验数值。实验细节和对比结果论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提及代码链接、预训练模型、计算资源或复现信息。论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法的局限性、适用场景或失败案例。论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。论文的启发在于将遮挡处理作为可嵌入模块，并引入投票策略与光束传播特性分析来优化视差值，同时兼顾低计算资源消耗。这为光场深度估计中遮挡问题的轻量化、通用化处理提供了思路，但具体实现细节和有效性边界需参考全文进一步验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/92",
+      "issue_number": 92,
+      "cover_url": "",
+      "first_seen": "20250713",
+      "last_seen": "20250713",
+      "appeared_dates": [
+        "20250713"
+      ],
+      "is_version_update": false
+    },
+    "crossref-c6c33f08ba855759e70e": {
+      "base_id": "crossref-c6c33f08ba855759e70e",
+      "arxiv_id": "crossref-c6c33f08ba855759e70e",
+      "version": 1,
+      "title": "Real-time implementation of super-resolution algorithms on plenoptic images",
+      "abstract": "",
+      "authors": [
+        "Snehal Tonpe",
+        "J. Sreekantha Reddy",
+        "Chayan Bhar",
+        "Amit Pratap",
+        "Jagannath Nayak"
+      ],
+      "categories": [],
+      "published": "2025-07-08",
+      "updated": "2025-07-08",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/s12596-025-02817-1",
+      "doi": "10.1007/s12596-025-02817-1",
+      "venue": "Journal of Optics",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.75,
+      "research_score": 0.45,
+      "experiment_score": 0.4,
+      "code_score": 0.1,
+      "rank_score": 0.605,
+      "evidence": "标题为在全光图像上实时实现超分辨率算法，属于光场图像空间超分。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/93",
+      "issue_number": 93,
+      "cover_url": "",
+      "first_seen": "20250713",
+      "last_seen": "20250713",
+      "appeared_dates": [
+        "20250713"
+      ],
+      "is_version_update": false
+    },
+    "crossref-83a2fdcd931d8402d208": {
+      "base_id": "crossref-83a2fdcd931d8402d208",
+      "arxiv_id": "crossref-83a2fdcd931d8402d208",
+      "version": 1,
+      "title": "High-frequency distortion detection in evaluating light field quality via axially symmetric dual-fan filtering",
+      "abstract": "The growing adoption of light field imaging in computational photography, autonomous driving, and immersive display systems has created an urgent need for accurate quality assessment. While Gabor-based methods can effectively analyze texture through multi-scale representations, their conventional fixed-scale implementations lack adaptability to varying distortion levels, resulting in compromised accuracy and efficiency. To address this limitation, we propose an adaptive-scale Gabor framework for light field image quality assessment (LFIQA) that dynamically adjusts feature extraction according to distortion severity. Specifically, we construct an axially symmetric dual-fan filter that first quantifies high-frequency distortion in the Fourier domain. Then, we map the quantified high-frequency distortion to optimal Gabor scales through an exponential transform, enabling distortion-adaptive feature extraction. By computing structural similarity of these adaptive Gabor features, our method achieves state-of-the-art performance across three benchmark datasets. Notably,our distortion-adaptive mechanism reduces computational redundancy compared to conventional multi-scale approaches. To our knowledge, this is the first LFIQA method that successfully integrates frequency-domain distortion quantification with adaptive Gabor scaling, offering both superior accuracy and practical efficiency for real-word applications.",
+      "authors": [
+        "Chunli Meng",
+        "Ping An",
+        "Qian Zhang",
+        "Feiniu Yuan"
+      ],
+      "categories": [],
+      "published": "2025-07-14",
+      "updated": "2025-07-14",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.565944",
+      "doi": "10.1364/oe.565944",
+      "venue": "Optics Express",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.75,
+      "code_score": 0.2,
+      "rank_score": 0.8025,
+      "evidence": "提出自适应尺度Gabor框架用于光场图像质量评价（LFIQA），在三个基准数据集上达到最优性能。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种自适应尺度Gabor框架用于光场图像质量评价（LFIQA），通过轴对称双扇形滤波器在傅里叶域量化高频失真，并利用指数变换将失真程度映射到最优Gabor尺度，实现失真自适应特征提取，在三个基准数据集上取得最优性能，并减少计算冗余。",
+        "problem": "仅基于公开摘要，未读取全文。光场成像在计算摄影、自动驾驶和沉浸式显示等领域的应用日益广泛，亟需准确的质量评价方法。基于Gabor的方法虽能通过多尺度表示有效分析纹理，但其传统固定尺度实现缺乏对不同失真程度的适应性，导致准确性和效率受损。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场图像质量评价建模为失真自适应特征提取与结构相似性计算问题。核心是构建轴对称双扇形滤波器，在傅里叶域量化高频失真，再通过指数变换将量化结果映射为最优Gabor尺度，从而根据失真严重程度动态调整特征提取尺度。",
+        "method": "仅基于公开摘要，未读取全文。方法包括：1）构建轴对称双扇形滤波器，在傅里叶域量化高频失真；2）通过指数变换将高频失真量化值映射到最优Gabor尺度，实现失真自适应特征提取；3）计算自适应Gabor特征的结构相似性作为质量评价指标。该机制相比传统多尺度方法减少了计算冗余。",
+        "occlusion": "不适用。论文任务为光场图像质量评价，摘要未涉及去遮挡。",
+        "experiments": "仅基于公开摘要，未读取全文。论文在三个基准数据集上取得最优性能（state-of-the-art），但摘要未说明具体数据集名称、PSNR、SSIM、LPIPS、参数量或速度等数值。实验细节和复现信息论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码、数据集或预训练模型等资源的可用性。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确讨论方法局限性。可能限制包括：轴对称双扇形滤波器和指数变换的设计是否适用于所有失真类型、对光场特定属性（如视角一致性）的考虑程度、以及计算效率提升的量化程度等，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作首次将频域失真量化与自适应Gabor尺度相结合用于LFIQA，为光场质量评价提供了失真自适应特征提取的新思路，兼顾准确性与效率。未来可探索更广泛的失真类型和光场特性建模。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/94",
+      "issue_number": 94,
+      "cover_url": "",
+      "first_seen": "20250720",
+      "last_seen": "20250720",
+      "appeared_dates": [
+        "20250720"
+      ],
+      "is_version_update": false
+    },
+    "crossref-8ae91094308d208cc113": {
+      "base_id": "crossref-8ae91094308d208cc113",
+      "arxiv_id": "crossref-8ae91094308d208cc113",
+      "version": 1,
+      "title": "Light field spatial super-resolution network based on spatial-angular asymmetry and non-local correlation",
+      "abstract": "",
+      "authors": [
+        "Huabo Zhang",
+        "Fen Chen",
+        "Lian Huang",
+        "Wei Wei",
+        "Zongju Peng"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.dsp.2025.105139",
+      "doi": "10.1016/j.dsp.2025.105139",
+      "venue": "Digital Signal Processing",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.765,
+      "evidence": "标题明确为基于空间-角度非对称与非局部相关性的光场空间超分辨率网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/95",
+      "issue_number": 95,
+      "cover_url": "",
+      "first_seen": "20250731",
+      "last_seen": "20250731",
+      "appeared_dates": [
+        "20250731"
+      ],
+      "is_version_update": false
+    },
+    "crossref-06e03c76126bf2c32ba0": {
+      "base_id": "crossref-06e03c76126bf2c32ba0",
+      "arxiv_id": "crossref-06e03c76126bf2c32ba0",
+      "version": 1,
+      "title": "Stereo matching on epipolar plane image for light field depth estimation via oriented structure",
+      "abstract": "",
+      "authors": [
+        "Rongshan Chen",
+        "Hao Sheng",
+        "Ruixuan Cong",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Sizhe Wang",
+        "Wei Ke"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.engappai.2025.110608",
+      "doi": "10.1016/j.engappai.2025.110608",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.765,
+      "evidence": "标题表明利用极平面图像进行立体匹配以估计光场深度，明确利用EPI结构。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/96",
+      "issue_number": 96,
+      "cover_url": "",
+      "first_seen": "20250731",
+      "last_seen": "20250731",
+      "appeared_dates": [
+        "20250731"
+      ],
+      "is_version_update": false
+    },
+    "crossref-70419da86d391597fe5c": {
+      "base_id": "crossref-70419da86d391597fe5c",
+      "arxiv_id": "crossref-70419da86d391597fe5c",
+      "version": 1,
+      "title": "Light Field Image Super-Resolution via Information Interaction",
+      "abstract": "",
+      "authors": [
+        "Zhenwei Xie",
+        "Xiaoling Zhang",
+        "Wenfei Gao",
+        "Zirui Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/indin64977.2025.11279555",
+      "doi": "10.1109/indin64977.2025.11279555",
+      "venue": "2025 IEEE 23rd International Conference on Industrial Informatics (INDIN)",
+      "publication_year": 2025,
+      "publication_month": "2025-07",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.765,
+      "evidence": "标题明确为通过信息交互实现的光场图像超分辨率。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/97",
+      "issue_number": 97,
+      "cover_url": "",
+      "first_seen": "20250731",
+      "last_seen": "20250731",
+      "appeared_dates": [
+        "20250731"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -6040,6 +6386,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 35
       }
     },
     "20250713": {
@@ -6050,6 +6400,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 35
       }
     },
     "20250720": {
@@ -6060,6 +6414,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 35
       }
     },
     "20250727": {
@@ -6070,6 +6428,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 35
       }
     },
     "20250731": {
@@ -6080,6 +6442,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 35
       }
     },
     "20250803": {
