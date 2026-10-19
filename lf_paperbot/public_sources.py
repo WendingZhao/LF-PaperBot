@@ -143,6 +143,8 @@ def fetch_crossref(settings: Settings, start: date, end: date, *, historical: bo
                 next_cursor = message.get("next-cursor")
                 fetched += len(items)
                 page += 1
+                if historical and page % 10 == 0:
+                    print(f"[CROSSREF PROGRESS] {field} {term}: pages={page} records={fetched}", flush=True)
                 if len(items) < page_size or fetched >= message.get("total-results", float("inf")) or not next_cursor:
                     break
                 if not historical and page == settings.crossref_max_pages:
@@ -150,7 +152,7 @@ def fetch_crossref(settings: Settings, start: date, end: date, *, historical: bo
                     break
                 cursor = next_cursor
                 time.sleep(1)
-            print(f"[CROSSREF] {start}..{end} {field} {term}: pages={page} records={fetched}")
+            print(f"[CROSSREF] {start}..{end} {field} {term}: pages={page} records={fetched}", flush=True)
     if limited:
         raise PartialSourceError(output, "result limit reached; increase CROSSREF_MAX_PAGES")
     return output
