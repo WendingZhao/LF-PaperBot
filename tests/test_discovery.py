@@ -25,3 +25,15 @@ def test_source_retry_merges_snapshot_without_losing_complete_sources(monkeypatc
     assert result["sources"]["arxiv"]["status"] == "ok"
     assert result["sources"]["cvf"]["status"] == "ok"
     assert len(result["candidates"]) == 1
+
+
+def test_import_discovery_snapshot_requires_no_network(monkeypatch, tmp_path):
+    incoming = tmp_path / "incoming.json"
+    output = tmp_path / "combined.json"
+    incoming.write_text(json.dumps({"start": "2025-01-01", "end": "2025-12-31",
+                                    "sources": {"arxiv": {"status": "ok", "count": 0}},
+                                    "candidates": []}), encoding="utf-8")
+    monkeypatch.setattr(public_sources, "fetch_sources", lambda *_a, **_kw: (_ for _ in ()).throw(AssertionError("no network")))
+    args = SimpleNamespace(start="20250101", end="20251231", sources=None, import_file=str(incoming), output=str(output))
+    assert cli.discover_command(args) == 0
+    assert json.loads(output.read_text(encoding="utf-8"))["sources"]["arxiv"]["status"] == "ok"

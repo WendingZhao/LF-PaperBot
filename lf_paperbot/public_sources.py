@@ -14,6 +14,7 @@ from html.parser import HTMLParser
 from urllib.error import HTTPError, URLError
 
 from . import arxiv
+from .arxiv_search import PartialSearchError
 from .config import Settings
 from .domain import LF_PATTERNS
 from .models import Candidate, normalize_doi, normalize_title
@@ -341,7 +342,7 @@ def fetch_sources(settings: Settings, target_date: date | None = None, *,
             candidates.extend(items)
             stats[name] = {"status": "ok", "count": len(items)}
             print(f"[SOURCE] {name}: {len(items)} candidates")
-        except PartialSourceError as exc:
+        except (PartialSourceError, PartialSearchError) as exc:
             candidates.extend(exc.candidates)
             stats[name] = {"status": "partial", "count": len(exc.candidates), "error": str(exc)}
             print(f"[WARN] source {name}: {exc}")

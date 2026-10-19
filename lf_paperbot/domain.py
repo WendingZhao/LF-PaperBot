@@ -43,9 +43,11 @@ TASK_PATTERNS: dict[str, tuple[str, ...]] = {
         r"disparity (?:estimation )?from light[- ]fields?",
         r"depth map estimation[^.]{0,80}light[- ]field",
     ),
-    "重聚焦": (r"light[- ]field refocus", r"light[- ]field refocusing", r"digital refocusing"),
-    "压缩恢复": (r"compression artifact", r"light[- ]field compression", r"compressed light[- ]field"),
-    "质量增强": (r"light[- ]field enhancement", r"quality enhancement", r"light[- ]field restoration"),
+    "重聚焦": (r"\brefocus(?:ing)?\b",),
+    "压缩恢复": (r"compression artifact", r"light[- ]field(?: image| video)? (?:compression|coding)", r"compressed light[- ]field"),
+    "质量增强": (r"light[- ]field(?: image)? enhancement", r"quality enhancement", r"light[- ]field(?: image)? restoration",
+                  r"enhanc(?:e|ing|ement)[^.]{0,60}light[- ]field"),
+    "质量评价": (r"light[- ]field(?: image)? quality assessment", r"subjective (?:quality )?evaluation[^.]{0,100}light[- ]field"),
 }
 
 LF_PATTERNS = tuple(
@@ -82,7 +84,7 @@ NON_STANDARD_LF = tuple(
     re.compile(pattern, re.I)
     for pattern in (
         r"\bevent[- ]based\b",
-        r"\bevent camera\b",
+        r"\bevent cameras?\b",
         r"\bevent stream\b",
         r"\bneuromorphic\b",
         r"\blight[- ]field microscopy\b",
@@ -92,6 +94,7 @@ NON_STANDARD_LF = tuple(
         r"\btransient light[- ]field\b",
         r"\bx[- ]ray\b",
         r"\bcomputed tomography\b",
+        r"\b(?:microscopy|microscope|MRI|magnetic resonance|radar)\b",
     )
 )
 
@@ -120,7 +123,8 @@ def deterministic_classify(candidate: Candidate) -> tuple[list[str], str]:
     if not tasks:
         return [], "缺少普通光场图像底层视觉任务证据"
 
-    if _any(HARD_EXCLUSIONS, text):
+    title_tasks = [task for task, patterns in TASK_REGEX.items() if _any(patterns, candidate.title)]
+    if _any(HARD_EXCLUSIONS, candidate.title) or (_any(HARD_EXCLUSIONS, text) and not title_tasks):
         return [], "论文主要任务属于识别、分割、检测或显示"
 
     if _any(NON_STANDARD_LF, text):

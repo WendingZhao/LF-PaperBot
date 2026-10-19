@@ -145,13 +145,21 @@ def discover_command(args) -> int:
         settings = replace(settings, sources=tuple(x.strip() for x in args.sources.split(",") if x.strip()))
     start = _parse_date(args.start)
     end = _parse_date(args.end) or datetime.now(settings.timezone).date()
-    candidates, stats = fetch_sources(settings, end, start_date=start, historical=True, require_any=False)
+    allowed = {f.name for f in fields(Candidate)}
+    if getattr(args, "import_file", None):
+        incoming = json.loads(Path(args.import_file).read_text(encoding="utf-8"))
+        if incoming.get("start") != str(start) or incoming.get("end") != str(end):
+            raise ValueError("Imported discovery file has a different date range")
+        candidates = [Candidate(**{k: v for k, v in record.items() if k in allowed})
+                      for record in incoming["candidates"]]
+        stats = incoming["sources"]
+    else:
+        candidates, stats = fetch_sources(settings, end, start_date=start, historical=True, require_any=False)
     output = Path(args.output)
     if output.exists():
         previous = json.loads(output.read_text(encoding="utf-8"))
         if previous.get("start") != str(start) or previous.get("end") != str(end):
             raise ValueError("Existing discovery file has a different date range; choose another output path")
-        allowed = {f.name for f in fields(Candidate)}
         old_candidates = [Candidate(**{k: v for k, v in record.items() if k in allowed})
                           for record in previous.get("candidates", [])]
         candidates = deduplicate([*old_candidates, *candidates])
@@ -214,7 +222,9 @@ def build_parser() -> argparse.ArgumentParser:
     discover.add_argument("--start", required=True, help="YYYYMMDD")
     discover.add_argument("--end", help="YYYYMMDD，默认今天")
     discover.add_argument("--output", required=True, help="候选快照 JSON 输出文件")
-    discover.add_argument("--sources", help="只重试指定来源，如 arxiv 或 crossref,cvf；自动合并同范围现有快照")
+    discovery_mode = discover.add_mutually_exclusive_group()
+    discovery_mode.add_argument("--sources", help="只重试指定来源，如 arxiv 或 crossref,cvf；自动合并同范围现有快照")
+    discovery_mode.add_argument("--import-file", help="合并同范围的公开题录快照，不重新请求网络")
     discover.set_defaults(func=discover_command)
 
     paper = subparsers.add_parser("paper", help="处理单篇 arXiv 论文")

@@ -36,6 +36,10 @@ def candidate(title: str, abstract: str = "") -> Candidate:
         ("Light Field Disparity Estimation with EPI Geometry", "深度与视差估计"),
         ("Depth from Light Fields with Occlusion-Aware Cost Volumes", "深度与视差估计"),
         ("Digital Refocusing for Plenoptic Images", "重聚焦"),
+        ("Arbitrary Volumetric Refocusing of Dense and Sparse Light Fields", "重聚焦"),
+        ("SANR: Scene-Aware Neural Representation for Light Field Image Compression", "压缩恢复"),
+        ("Enhancing Underwater Light Field Images via Geometry-aware Diffusion", "质量增强"),
+        ("Light Field Image Quality Assessment", "质量评价"),
     ],
 )
 def test_accepts_supported_light_field_restoration_tasks(title, task):
@@ -53,6 +57,8 @@ def test_accepts_supported_light_field_restoration_tasks(title, task):
         "A Holographic Light Field Display with Quality Enhancement",
         "Event-Based Light Field Reconstruction from a Neuromorphic Camera",
         "Light Field Microscopy Reconstruction and Enhancement",
+        "Spatial-Angular Super-Resolution in Diffusion MRI",
+        "Light Field Denoising for Event Cameras",
     ],
 )
 def test_rejects_out_of_scope_papers(title):
@@ -69,6 +75,15 @@ def test_disparity_guidance_can_support_restoration_without_changing_primary_tas
     tasks, reason = deterministic_classify(item)
     assert "去遮挡" in tasks
     assert reason == ""
+
+
+def test_restoration_review_is_not_rejected_for_mentioning_downstream_classification():
+    tasks, reason = deterministic_classify(candidate(
+        "Light Field Super-Resolution: A Critical Review",
+        "Light fields benefit material classification and segmentation. We review spatial-angular super-resolution.",
+    ))
+    assert "空间超分" in tasks
+    assert not reason
 
 
 def test_arxiv_version_normalization():

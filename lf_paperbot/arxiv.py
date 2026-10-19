@@ -118,7 +118,15 @@ def fetch_recent(settings: Settings, target_date: date | None = None) -> list[Ca
         "sortOrder": "descending",
     }
     url = f"{settings.arxiv_api_url}?{urllib.parse.urlencode(params)}"
-    root = ET.fromstring(_read_url(url, settings.arxiv_user_agent))
+    try:
+        root = ET.fromstring(_read_url(url, settings.arxiv_user_agent))
+    except (HTTPError, URLError, TimeoutError, ET.ParseError) as exc:
+        from .arxiv_search import fetch_search_range
+        latest = target_date or datetime.now(settings.timezone).date()
+        earliest = latest - timedelta(days=settings.lookback_days - 1)
+        detail = f"HTTP {exc.code}" if isinstance(exc, HTTPError) else type(exc).__name__
+        print(f"[WARN] arXiv API unavailable ({detail}); trying official HTML search", flush=True)
+        return fetch_search_range(settings, earliest, latest, updated=True)
     if target_date:
         earliest = target_date - timedelta(days=settings.lookback_days - 1)
         latest = target_date
@@ -139,7 +147,7 @@ def fetch_recent(settings: Settings, target_date: date | None = None) -> list[Ca
     return output
 
 
-def fetch_submitted_range(settings: Settings, start_date: date, end_date: date) -> list[Candidate]:
+def _fetch_submitted_range_api(settings: Settings, start_date: date, end_date: date) -> list[Candidate]:
     if start_date > end_date:
         raise ValueError("start_date must not be after end_date")
     submitted = f"submittedDate:[{start_date:%Y%m%d}0000 TO {end_date:%Y%m%d}2359]"
@@ -175,6 +183,18 @@ def fetch_submitted_range(settings: Settings, start_date: date, end_date: date) 
             break
         time.sleep(3)
     return output
+
+
+def fetch_submitted_range(settings: Settings, start_date: date, end_date: date) -> list[Candidate]:
+    if start_date > end_date:
+        raise ValueError("start_date must not be after end_date")
+    try:
+        return _fetch_submitted_range_api(settings, start_date, end_date)
+    except (HTTPError, URLError, TimeoutError, ET.ParseError) as exc:
+        from .arxiv_search import fetch_search_range
+        detail = f"HTTP {exc.code}" if isinstance(exc, HTTPError) else type(exc).__name__
+        print(f"[WARN] arXiv API unavailable ({detail}); trying official HTML search", flush=True)
+        return fetch_search_range(settings, start_date, end_date)
 
 
 def fetch_by_id(settings: Settings, arxiv_id: str) -> Candidate:
