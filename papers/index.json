@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:30:55.697189+08:00",
+  "updated_at": "2026-10-19T12:31:31.761907+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -4305,6 +4305,296 @@
         "20250430"
       ],
       "is_version_update": false
+    },
+    "crossref-f481c32aad44fe4e34dd": {
+      "base_id": "crossref-f481c32aad44fe4e34dd",
+      "arxiv_id": "crossref-f481c32aad44fe4e34dd",
+      "version": 1,
+      "title": "Research on an automatic light field refocusing method for a camera array",
+      "abstract": "Light field information includes the position and angle information of light in space. A camera array is one of the methods for obtaining light field information, which combines and arranges multiple cameras in space to achieve multi-angle imaging of the same target. Based on the light field information, a computational imaging method can be used to achieve refocusing technology for a camera array (also known as optical synthetic aperture imaging technology). In this technology, by setting the focusing coefficient, the light field information can be focused on different depths. This mode is called taking photos first and focusing later. However, in order to focus on a specific object surface, traditional refocusing methods require users to manually adjust the focusing coefficient multiple times, which is time-consuming and user-unfriendly. Therefore, in this paper, we propose an automatic focusing method based on the optimal focusing coefficient map (OFCM) to address the manual refocusing problem. This method transforms the refocusing problem into obtaining the optimal focus coefficient map. In the process of solving OFCM, the threshold filtering method and the neighborhood filling method are used to optimize the results and improve the robustness of the proposed method. The experimental results show that our proposed method has higher imaging quality and faster running efficiency compared to automatic refocusing methods based on disparity maps and gradient functions.",
+      "authors": [
+        "Yihua Pan",
+        "Yushan Zhao",
+        "Yuyang Li",
+        "Bin Liu",
+        "Ping Chen"
+      ],
+      "categories": [],
+      "published": "2025-05-08",
+      "updated": "2025-05-08",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.562152",
+      "doi": "10.1364/oe.562152",
+      "venue": "Optics Express",
+      "publication_year": 2025,
+      "publication_month": "2025-05",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重聚焦"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.55,
+      "experiment_score": 0.6,
+      "code_score": 0.1,
+      "rank_score": 0.745,
+      "evidence": "提出基于最优聚焦系数图的相机阵列光场自动重聚焦方法，解决手动调节聚焦系数问题。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。该论文针对相机阵列光场重聚焦中传统方法需人工多次调整聚焦系数的问题，提出基于最优聚焦系数图（OFCM）的自动重聚焦方法，将重聚焦问题转化为获取OFCM，并采用阈值滤波和邻域填充优化结果。摘要称其在成像质量和运行效率上优于基于视差图和梯度函数的自动重聚焦方法，但未给出具体数值。",
+        "problem": "仅基于公开摘要，未读取全文。相机阵列通过组合排列多个相机实现同一目标的多角度成像，从而获取包含光线位置和角度信息的光场数据。基于该光场信息，计算成像方法可实现相机阵列重聚焦（即光学合成孔径成像）：通过设置聚焦系数，将光场信息聚焦到不同深度，实现“先拍照后聚焦”。然而，传统重聚焦方法为聚焦到特定物面，需要用户手动多次调整聚焦系数，耗时且不友好。论文旨在解决该人工重聚焦问题，实现自动重聚焦。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将重聚焦问题转化为获取最优聚焦系数图（OFCM）的问题，即自动确定每个区域或像素对应的最佳聚焦系数。摘要未说明OFCM的具体定义、数学形式、求解算法、优化目标或网络结构，也未说明是否涉及深度/视差估计。因此，模型细节论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。所提方法为基于最优聚焦系数图（OFCM）的自动聚焦方法。在求解OFCM过程中，使用阈值滤波方法和邻域填充方法对结果进行优化，以提高所提方法的鲁棒性。摘要未说明阈值如何选取、邻域填充的具体策略、聚焦系数搜索范围、计算流程或实现细节，这些内容论文材料未说明。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。摘要未涉及去遮挡任务，也未提及视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅定性说明所提方法相比基于视差图和梯度函数的自动重聚焦方法具有更高的成像质量和更快的运行效率。论文材料未说明实验所用数据集、PSNR、SSIM、LPIPS、参数量、运行速度等具体数值，也未说明对比方法细节和实验设置。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码、数据集、预训练模型或其他资源的可用性。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可能受限于摘要未提及的假设条件、场景适应性、计算复杂度或阈值滤波与邻域填充的适用性，但论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作将自动重聚焦转化为最优聚焦系数图估计问题，并引入阈值滤波与邻域填充提升鲁棒性，为相机阵列光场重聚焦提供了一种无需人工反复调整的思路。摘要声称其在成像质量和效率上优于基于视差图和梯度函数的方法，但具体机制和验证细节需查阅全文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/77",
+      "issue_number": 77,
+      "cover_url": "",
+      "first_seen": "20250511",
+      "last_seen": "20250511",
+      "appeared_dates": [
+        "20250511"
+      ],
+      "is_version_update": false
+    },
+    "crossref-aeeb215e0a478d05a04d": {
+      "base_id": "crossref-aeeb215e0a478d05a04d",
+      "arxiv_id": "crossref-aeeb215e0a478d05a04d",
+      "version": 1,
+      "title": "Structure-preserving light field reconstruction via spatial and implicit angular cues",
+      "abstract": "To meet the requirement of densely sampled light fields (LFs) in various applications, LF angular super-resolution (LFASR) has been extensively studied. Current LFASR methods rarely preserve the inherent structure of the LF, often resulting in the loss of texture details and violating consistency in the parallax structure. To this end, we propose a method that leverages spatial and implicit angular cues to comprehensively capture the inherent structure of the LF. Specifically, we extract texture details using spatial cues and exploit implicit angular cues to guide the learning of the parallax structure. Then, we further mine these properties through the integration of spatial and implicit angular cues. Experimental results on both real-world and synthetic LFs demonstrate that our method surpasses state-of-the-art methods.",
+      "authors": [
+        "Fengyin Cao",
+        "Yifan Mao",
+        "Xinpeng Huang",
+        "Ping An",
+        "Chao Yang"
+      ],
+      "categories": [],
+      "published": "2025-05-15",
+      "updated": "2025-05-15",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/ol.560835",
+      "doi": "10.1364/ol.560835",
+      "venue": "Optics Letters",
+      "publication_year": 2025,
+      "publication_month": "2025-05",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "角度超分",
+        "重建与插值"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.85,
+      "evidence": "摘要明确提出光场角度超分辨率（LFASR），利用空间与隐式角度线索保持视差结构，属于光场底层视觉。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种利用空间线索与隐式角度线索的光场角度超分辨率方法，旨在同时保留纹理细节与视差结构一致性，并在真实与合成光场上超越现有方法。",
+        "problem": "仅基于公开摘要，未读取全文。光场角度超分辨率（LFASR）用于从稀疏视角重建密集光场。现有方法较少保留光场固有结构，常导致纹理细节丢失，并破坏视差结构的一致性。论文针对这一结构保持问题展开研究。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场固有结构建模为纹理细节与视差结构两方面：空间线索用于提取纹理细节，隐式角度线索用于引导视差结构学习，并进一步通过空间与隐式角度线索的整合来挖掘这些属性。摘要未说明具体的网络架构、代价体、EPI处理或损失函数设计。",
+        "method": "仅基于公开摘要，未读取全文。方法核心包括：1）利用空间线索提取纹理细节；2）利用隐式角度线索引导视差结构学习；3）整合空间与隐式角度线索以进一步挖掘纹理与视差属性。摘要未说明线索提取方式、融合模块、训练策略或实现细节。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。论文任务为光场角度超分辨率、重建与插值，摘要未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。实验在真实光场与合成光场上进行，结果表明所提方法超越现有最先进方法。摘要未给出具体数据集名称、PSNR、SSIM、LPIPS、参数量或运行速度等数值，论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源或复现细节。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性、失败场景或计算复杂度。由于仅有摘要，无法核验方法细节、实验数值与复现信息，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。论文强调光场角度超分辨率中结构保持的重要性，提出同时利用空间纹理线索与隐式角度线索来维持视差结构一致性，为后续兼顾细节恢复与几何一致性的光场重建研究提供了思路。具体实现与验证细节需查阅全文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/78",
+      "issue_number": 78,
+      "cover_url": "",
+      "first_seen": "20250518",
+      "last_seen": "20250518",
+      "appeared_dates": [
+        "20250518"
+      ],
+      "is_version_update": false
+    },
+    "crossref-6eb1ca64432505d7d014": {
+      "base_id": "crossref-6eb1ca64432505d7d014",
+      "arxiv_id": "crossref-6eb1ca64432505d7d014",
+      "version": 1,
+      "title": "Robust light fields denoising with S²N2N",
+      "abstract": "",
+      "authors": [
+        "Tal Kozakov",
+        "Omer Hazan",
+        "Adir Hazan",
+        "Adrian Stern"
+      ],
+      "categories": [],
+      "published": "2025-05-30",
+      "updated": "2025-05-30",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/12.3053977",
+      "doi": "10.1117/12.3053977",
+      "venue": "Three-Dimensional Imaging, Visualization, and Display 2025",
+      "publication_year": 2025,
+      "publication_month": "2025-05",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为鲁棒光场去噪，提出S²N2N方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/79",
+      "issue_number": 79,
+      "cover_url": "",
+      "first_seen": "20250531",
+      "last_seen": "20250531",
+      "appeared_dates": [
+        "20250531"
+      ],
+      "is_version_update": false
+    },
+    "crossref-1d614b0570f9dc881e93": {
+      "base_id": "crossref-1d614b0570f9dc881e93",
+      "arxiv_id": "crossref-1d614b0570f9dc881e93",
+      "version": 1,
+      "title": "Hybrid Attention Transformers with fast Fourier convolution for light field image super-resolution",
+      "abstract": "",
+      "authors": [
+        "Zhicheng Ma",
+        "Yuduo Guo",
+        "Zhaoxiang Liu",
+        "Shiguo Lian",
+        "Sen Wan"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.imavis.2025.105542",
+      "doi": "10.1016/j.imavis.2025.105542",
+      "venue": "Image and Vision Computing",
+      "publication_year": 2025,
+      "publication_month": "2025-05",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为光场图像超分辨率，结合混合注意力Transformer与快速傅里叶卷积。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/80",
+      "issue_number": 80,
+      "cover_url": "",
+      "first_seen": "20250531",
+      "last_seen": "20250531",
+      "appeared_dates": [
+        "20250531"
+      ],
+      "is_version_update": false
+    },
+    "crossref-d55066d5b6468fef0079": {
+      "base_id": "crossref-d55066d5b6468fef0079",
+      "arxiv_id": "crossref-d55066d5b6468fef0079",
+      "version": 1,
+      "title": "Surface-Continuous Scene Representation for Light Field Depth Estimation via Planarity Prior",
+      "abstract": "",
+      "authors": [
+        "Rongshan Chen",
+        "Hao Sheng",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Ruixuan Cong"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2024.3520587",
+      "doi": "10.1109/tcsvt.2024.3520587",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2025,
+      "publication_month": "2025-05",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.77,
+      "evidence": "标题表明该论文面向光场深度估计，并提出基于平面性先验的表面连续场景表示。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/81",
+      "issue_number": 81,
+      "cover_url": "",
+      "first_seen": "20250531",
+      "last_seen": "20250531",
+      "appeared_dates": [
+        "20250531"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -4946,6 +5236,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250511": {
@@ -4956,6 +5250,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250518": {
@@ -4966,6 +5264,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250525": {
@@ -4976,6 +5278,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250531": {
@@ -4986,6 +5292,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 38
       }
     },
     "20250601": {
