@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T13:01:05.282531+08:00",
+  "updated_at": "2026-10-19T13:01:51.218235+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -346,7 +346,12 @@
       "appeared_dates": [
         "20260816"
       ],
-      "is_version_update": false
+      "is_version_update": false,
+      "sources": [
+        "arxiv",
+        "crossref"
+      ],
+      "doi": "10.1109/cyber71431.2026.11695325"
     },
     "2608.23175": {
       "base_id": "2608.23175",
@@ -9512,6 +9517,299 @@
         "20260731"
       ],
       "is_version_update": false
+    },
+    "crossref-2e1333e923c8c0e165a9": {
+      "base_id": "crossref-2e1333e923c8c0e165a9",
+      "arxiv_id": "crossref-2e1333e923c8c0e165a9",
+      "version": 1,
+      "title": "Plug-in Adapter and Upsampler for Arbitrary-Angle Light Field Reconstruction",
+      "abstract": "",
+      "authors": [
+        "Gaosheng Liu",
+        "Zhuhua Hu",
+        "Qi Zhou"
+      ],
+      "categories": [],
+      "published": "2026-08-05",
+      "updated": "2026-08-05",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-3-032-31397-3_35",
+      "doi": "10.1007/978-3-032-31397-3_35",
+      "venue": "Lecture Notes in Computer Science / Pattern Recognition",
+      "publication_year": 2026,
+      "publication_month": "2026-08",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 0.7,
+      "research_score": 0.5,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.575,
+      "evidence": "标题表明该论文研究任意角度光场重建，属于光场稠密重建与视图插值范畴。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/225",
+      "issue_number": 225,
+      "cover_url": "",
+      "first_seen": "20260809",
+      "last_seen": "20260809",
+      "appeared_dates": [
+        "20260809"
+      ],
+      "is_version_update": false
+    },
+    "crossref-8a042bdf4d9b1f75e34e": {
+      "base_id": "crossref-8a042bdf4d9b1f75e34e",
+      "arxiv_id": "crossref-8a042bdf4d9b1f75e34e",
+      "version": 1,
+      "title": "EHENet: edge-guided hybrid enhancement network for low-light light field image enhancement",
+      "abstract": "",
+      "authors": [
+        "Hao Wu",
+        "Bingjie Zhu",
+        "Shizheng Li",
+        "Deyang Liu"
+      ],
+      "categories": [],
+      "published": "2026-08-20",
+      "updated": "2026-08-20",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1117/12.3119494",
+      "doi": "10.1117/12.3119494",
+      "venue": "Eighteenth International Conference on Digital Image Processing (ICDIP 2026)",
+      "publication_year": 2026,
+      "publication_month": "2026-08",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "低光增强",
+        "质量增强"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题明确为低光光场图像增强的边引导混合增强网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/226",
+      "issue_number": 226,
+      "cover_url": "",
+      "first_seen": "20260823",
+      "last_seen": "20260823",
+      "appeared_dates": [
+        "20260823"
+      ],
+      "is_version_update": false
+    },
+    "crossref-21f2aef3b40cfe582347": {
+      "base_id": "crossref-21f2aef3b40cfe582347",
+      "arxiv_id": "crossref-21f2aef3b40cfe582347",
+      "version": 1,
+      "title": "Hierarchical decoupling–fusion of spatial and angular features for light field angular super-resolution",
+      "abstract": "",
+      "authors": [
+        "Ebrahem Elkady",
+        "Ahmed Salem",
+        "Dong-Myung Kim",
+        "Hyun-Soo Kang",
+        "Jae-Won Suh"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.jvcir.2026.104850",
+      "doi": "10.1016/j.jvcir.2026.104850",
+      "venue": "Journal of Visual Communication and Image Representation",
+      "publication_year": 2026,
+      "publication_month": "2026-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分",
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.785,
+      "evidence": "标题为光场角度超分辨率中空间与角度特征的分层解耦融合。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/227",
+      "issue_number": 227,
+      "cover_url": "",
+      "first_seen": "20260831",
+      "last_seen": "20260831",
+      "appeared_dates": [
+        "20260831"
+      ],
+      "is_version_update": false
+    },
+    "crossref-1879d1d2ffdb9f825d2a": {
+      "base_id": "crossref-1879d1d2ffdb9f825d2a",
+      "arxiv_id": "crossref-1879d1d2ffdb9f825d2a",
+      "version": 1,
+      "title": "Learning Three-Domain Implicit Image Function for Arbitrary-Scale Light Field Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Ruixuan Cong",
+        "Hao Sheng",
+        "Yu Wang",
+        "Da Yang",
+        "Zhenglong Cui",
+        "Weifeng Lyv",
+        "Yi Zhang",
+        "Wei Ke"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tpami.2026.3679405",
+      "doi": "10.1109/tpami.2026.3679405",
+      "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+      "publication_year": 2026,
+      "publication_month": "2026-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.755,
+      "evidence": "标题明确为任意尺度光场超分辨率学习三域隐式图像函数。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/228",
+      "issue_number": 228,
+      "cover_url": "",
+      "first_seen": "20260831",
+      "last_seen": "20260831",
+      "appeared_dates": [
+        "20260831"
+      ],
+      "is_version_update": false
+    },
+    "crossref-a4faf58cbd55b7d453db": {
+      "base_id": "crossref-a4faf58cbd55b7d453db",
+      "arxiv_id": "crossref-a4faf58cbd55b7d453db",
+      "version": 1,
+      "title": "Multi-scale Attention and Adaptive Self-attention for Occlusion-Aware Depth Estimation in Light Field",
+      "abstract": "",
+      "authors": [
+        "Zhineng Zhang",
+        "Tao Yan",
+        "Chenglong Wang",
+        "Xianglong Chen",
+        "Jinsheng Liu",
+        "Weilong Huang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1007/978-3-032-22264-0_24",
+      "doi": "10.1007/978-3-032-22264-0_24",
+      "venue": "Lecture Notes in Computer Science / Advances in Computer Graphics",
+      "publication_year": 2026,
+      "publication_month": "2026-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.0,
+      "rank_score": 0.745,
+      "evidence": "标题为光场中遮挡感知深度估计的多尺度注意力与自适应自注意力。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/229",
+      "issue_number": 229,
+      "cover_url": "",
+      "first_seen": "20260831",
+      "last_seen": "20260831",
+      "appeared_dates": [
+        "20260831"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -10631,6 +10929,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260809": {
@@ -10641,6 +10943,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260816": {
@@ -10651,6 +10957,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260823": {
@@ -10661,6 +10971,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260830": {
@@ -10671,6 +10985,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260831": {
@@ -10681,6 +10999,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 39
       }
     },
     "20260906": {
