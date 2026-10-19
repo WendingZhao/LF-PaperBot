@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:12:30.289473+08:00",
+  "updated_at": "2026-10-19T12:12:54.816296+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -923,6 +923,63 @@
         "20250330"
       ],
       "is_version_update": false
+    },
+    "2508.08900": {
+      "base_id": "2508.08900",
+      "arxiv_id": "2508.08900v4",
+      "version": 4,
+      "title": "DSER: Spectral Epipolar Representation for Efficient Light Field Depth Estimation",
+      "abstract": "Dense light field depth estimation remains challenging due to sparse angular sampling, occlusion boundaries, textureless regions, and the cost of exhaustive multi-view matching. We propose \\emph{Deep Spectral Epipolar Representation} (DSER), a geometry-aware framework that introduces spectral regularization in the epipolar domain for dense disparity reconstruction. DSER models frequency-consistent EPI structure to constrain correspondence estimation and couples this prior with a hybrid inference pipeline that combines least squares gradient initialization, plane-sweeping cost aggregation, and multiscale EPI refinement. An occlusion-aware directed random walk further propagates reliable disparity along edge-consistent paths, improving boundary sharpness and weak-texture stability. Experiments on benchmark and real-world light field datasets show that DSER achieves a strong accuracy-efficiency trade-off, producing more structurally consistent depth maps than representative classical and hybrid baselines. These results establish spectral epipolar regularization as an effective inductive bias for scalable and noise-robust light field depth estimation.",
+      "authors": [
+        "Noor Islam S. Mohammad",
+        "Md Muntaqim Meherab"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2025-08-12T12:41:47Z",
+      "updated": "2026-04-07T13:24:31Z",
+      "pdf_url": "https://arxiv.org/pdf/2508.08900v4",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2508.08900v4",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.96,
+      "research_score": 0.82,
+      "experiment_score": 0.84,
+      "code_score": 0.0,
+      "rank_score": 0.866,
+      "evidence": "论文提出在EPI域引入光谱正则化的DSER框架，用于稠密光场深度/视差重建，并利用光场极线结构约束对应估计。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。DSER 是面向光场深度/视差估计的几何感知框架，在极线域引入谱正则以建模频率一致的 EPI 结构，并结合最小二乘梯度初始化、平面扫描代价聚合、多尺度 EPI 精化与遮挡感知有向随机游走。摘要声称其在基准和真实光场数据集上取得较好的精度—效率折中，但未给出具体数值、数据集名称、参数量或速度。",
+        "problem": "仅摘要可见：密集光场深度估计受稀疏角度采样、遮挡边界、无纹理区域以及穷举多视图匹配成本高的问题制约。论文旨在构建密集视差重建方法，并强调结构一致、可扩展和噪声鲁棒。摘要未说明具体应用场景、输入配置、基线清单及失败模式；全文方法细节和实验设置论文材料未说明。",
+        "modeling": "DSER 被描述为几何感知框架，核心是在极线域施加谱正则，以频率一致的 EPI 结构约束对应估计。摘要提到混合推理管线包含最小二乘梯度初始化、平面扫描代价聚合和多尺度 EPI 精化；其中代价聚合与空间—角度匹配相关，EPI 建模对应极线域结构。摘要未展开 EPI 的数学表达、空间—角度对应公式、焦点线索使用方式、代价体维度或训练/优化细节，论文材料未说明。",
+        "method": "根据摘要，DSER 的流程可概括为：先以最小二乘梯度初始化提供视差/对应初值；再通过平面扫描代价聚合利用多视图匹配代价；随后进行多尺度 EPI 精化以约束频率一致结构；最后用遮挡感知有向随机游走沿边缘一致路径传播可靠视差，以提升边界锐度和弱纹理稳定性。该描述仅为摘要级流程，网络结构、损失函数、谱正则具体形式、超参数、迭代次数及实现细节均论文材料未说明。",
+        "occlusion": "本任务为深度/视差估计，不是去遮挡，因此去遮挡机制不适用。摘要确实提及遮挡边界是难点，并提出遮挡感知有向随机游走，将可靠视差沿边一致路径传播，以改善边界锐度和弱纹理稳定性；但未说明是否构建遮挡掩码、如何判定遮挡区域、视角互补策略或显式遮挡区域恢复机制。相关实现细节论文材料未说明。",
+        "experiments": "摘要称在基准和真实世界光场数据集上实验，显示 DSER 相比代表性经典与混合基线产生结构更一致的深度图，并取得较强精度—效率折中。但摘要未给出数据集名称、训练/测试划分、对比方法列表、PSNR、SSIM、LPIPS、参数量、运行速度或深度/视差常用误差指标（如 bad-pixel rate、RMSE/MAE 等）的任何数值。因此这些结果无法从摘要核验，论文材料未说明。",
+        "resources": "公开摘要未提供代码链接、项目页、预训练模型、参数量、FLOPs、运行时间、GPU 型号、训练数据规模或复现实验配置。材料范围仅为 abstract_only，代码与资源可用性论文材料未说明。",
+        "limitations": "由于仅读取公开摘要，无法核验谱正则的具体定义、混合推理各模块的必要性、遮挡感知随机游走的实现及复杂度；也无法判断精度—效率折中的量化程度、对稀疏角度采样和无纹理区域的泛化能力。摘要未报告数据集名称和 PSNR、SSIM、LPIPS、参数量、速度、常用视差误差指标，故实验结论只能视为作者摘要层面的声称。全文方法细节、数值和复现信息论文材料未说明。",
+        "insight": "摘要传达的核心洞见是：将频率一致的 EPI 谱结构作为极线域正则，可作为光场深度估计的几何归纳偏置，并与平面扫描代价聚合、多尺度精化和遮挡感知传播结合，以兼顾结构一致性与效率。该思路对噪声鲁棒和可扩展深度估计具有潜在价值，但需全文验证其谱正则形式、计算开销、对遮挡边界的真实增益及在标准指标上的表现；摘要未给出可核验证据。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/19",
+      "issue_number": 19,
+      "cover_url": "",
+      "first_seen": "20250817",
+      "last_seen": "20250817",
+      "appeared_dates": [
+        "20250817"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -1573,30 +1630,50 @@
       }
     },
     "20250803": {
+      "arxiv": {
+        "status": "ok",
+        "count": 15
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250810": {
+      "arxiv": {
+        "status": "ok",
+        "count": 15
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250817": {
+      "arxiv": {
+        "status": "ok",
+        "count": 15
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250824": {
+      "arxiv": {
+        "status": "ok",
+        "count": 15
+      },
       "cvf": {
         "status": "ok",
         "count": 0
       }
     },
     "20250831": {
+      "arxiv": {
+        "status": "ok",
+        "count": 15
+      },
       "cvf": {
         "status": "ok",
         "count": 0
