@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:33:19.463324+08:00",
+  "updated_at": "2026-10-19T12:34:12.030438+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -1048,6 +1048,240 @@
       "is_version_update": false
     },
     {
+      "base_id": "crossref-d7e53dd0d09d818cc550",
+      "arxiv_id": "crossref-d7e53dd0d09d818cc550",
+      "version": 1,
+      "title": "U2-LFOR: A Two-Stage U2 Network for Light-Field Occlusion Removal",
+      "abstract": "Light-field (LF) imaging transforms occlusion removal by using multiview data to reconstruct hidden regions, overcoming the limitations of single-view methods. However, this advanced capability often comes at the cost of increased computational complexity. To overcome this, we propose the U2-LFOR network, an end-to-end neural network designed to remove occlusions in LF images without compromising performance, addressing the inherent complexity of LF imaging while ensuring practical applicability. The architecture employs Residual Atrous Spatial Pyramid Pooling (ResASPP) at the feature extractor to expand the receptive field, capture localized multiscale features, and enable deep feature learning with efficient aggregation. A two-stage U2-Net structure enhances hierarchical feature learning while maintaining a compact design, ensuring accurate context recovery. A dedicated refinement module, using two cascaded residual blocks (ResBlock), restores fine details to the occluded regions. Experimental results demonstrate its competitive performance, achieving an average Peak Signal-to-Noise Ratio (PSNR) of 29.27 dB and Structural Similarity Index Measure (SSIM) of 0.875, which are two widely used metrics for evaluating reconstruction fidelity and perceptual quality, on both synthetic and real-world LF datasets, confirming its effectiveness in accurate occlusion removal.",
+      "authors": [
+        "Mostafa Farouk Senussi",
+        "Mahmoud Abdalla",
+        "Mahmoud SalahEldin Kasem",
+        "Mohamed Mahmoud",
+        "Hyun-Soo Kang"
+      ],
+      "categories": [],
+      "published": "2025-08-26",
+      "updated": "2025-08-26",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.3390/math13172748",
+      "doi": "10.3390/math13172748",
+      "venue": "Mathematics",
+      "publication_year": 2025,
+      "publication_month": "2025-08",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "去遮挡"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.75,
+      "code_score": 0.3,
+      "rank_score": 0.8375,
+      "evidence": "摘要明确利用光场多视角数据重建隐藏区域以去除遮挡，并报告PSNR/SSIM实验。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出 U2-LFOR，一个端到端两阶段 U2 网络用于光场图像去遮挡，通过 ResASPP 扩大感受野并聚合多尺度局部特征，以紧凑结构恢复被遮挡区域，摘要报告在合成与真实光场数据集上平均 PSNR 29.27 dB、SSIM 0.875。",
+        "problem": "仅基于公开摘要，未读取全文。光场成像利用多视角数据重建被遮挡的隐藏区域，相较单视角方法具有优势，但这一能力往往伴随更高的计算复杂度。论文要解决的问题是在不牺牲性能的前提下去除光场图像中的遮挡，同时缓解光场成像固有的复杂度并保证实际可用性。摘要未说明具体应用场景、遮挡类型（如前景物体、反射或透明遮挡）以及输入光场视角数量等设定。",
+        "modeling": "仅基于公开摘要，未读取全文。摘要将任务表述为端到端的光场图像去遮挡：输入含遮挡的光场图像，输出恢复隐藏区域后的光场图像。网络整体为两阶段 U2-Net 结构，用于增强层次化特征学习并保持紧凑设计，以恢复准确的上下文；特征提取阶段采用 Residual Atrous Spatial Pyramid Pooling（ResASPP）扩大感受野、捕获局部多尺度特征并实现高效聚合；另设专门的精化模块，由两个级联残差块（ResBlock）组成，用于恢复被遮挡区域的细节。摘要未给出损失函数、训练策略、视角间对齐方式或几何先验的具体建模。",
+        "method": "仅基于公开摘要，未读取全文。方法由三部分组成：一是 ResASPP 特征提取器，通过空洞空间金字塔池化与残差结构扩大感受野并聚合多尺度局部特征，支持深层特征学习；二是两阶段 U2-Net 主干，以层次化方式学习特征并保持紧凑设计，从而恢复上下文信息；三是精化模块，使用两个级联 ResBlock 对去遮挡结果进行细节修复。摘要强调该网络为端到端设计，未说明各模块的通道数、阶段间连接方式、是否共享权重，也未说明训练数据构造与推理流程。",
+        "occlusion": "仅基于公开摘要，未读取全文。摘要指出光场去遮挡依赖多视角数据重建被遮挡的隐藏区域，这是其相对单视角方法的核心优势；但摘要未明确说明视角互补的具体机制、几何先验（如视差或深度约束）、遮挡掩码的生成方式，也未说明遮挡区域恢复是借助视角间对应关系还是仅由网络隐式学习。因此，关于视角互补、几何先验、遮挡掩码与遮挡区域恢复机制的可核验细节，论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要报告在合成光场数据集与真实光场数据集上均取得竞争性结果，平均 PSNR 为 29.27 dB、SSIM 为 0.875，并称这两个指标分别用于评价重建保真度与感知质量。摘要未给出所用数据集的名称与规模、训练/测试划分、LPIPS 数值、参数量、推理速度或运行平台，也未提供与具体基线方法的逐项对比数值。因此除上述平均 PSNR 与 SSIM 外，其余实验细节论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未说明参数量、模型大小、计算量（如 FLOPs）、推理速度、GPU 型号、训练时长、代码或数据是否公开，也未给出项目链接。相关复现资源信息论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可核验的边界是：摘要仅报告平均 PSNR 29.27 dB 与 SSIM 0.875，未给出 LPIPS、参数量与速度，因而无法据此判断其计算复杂度是否真正低于同类光场方法；摘要也未说明在强遮挡、大视差或真实场景退化条件下的失败情形。这些方面论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。该工作提示：光场去遮挡可在紧凑的两阶段 U2 结构中，通过 ResASPP 的多尺度大感受野特征与级联残差精化模块兼顾上下文恢复与细节修复，从而在端到端框架内处理光场多视角信息。其可借鉴点在于将“多尺度特征聚合—层次化上下文恢复—细节精化”分阶段组织；但视角互补与几何先验是否被显式利用、以及复杂度与精度的实际权衡，需依据全文进一步核验，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/99",
+      "issue_number": 99,
+      "cover_url": "",
+      "first_seen": "20250831",
+      "last_seen": "20250831",
+      "appeared_dates": [
+        "20250831"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-68c74145903580bd0687",
+      "arxiv_id": "crossref-68c74145903580bd0687",
+      "version": 1,
+      "title": "UNeLF: Unconstrained Neural Light Field for Self-Supervised Angular Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Mingyuan Zhao",
+        "Hao Sheng",
+        "Rongshan Chen",
+        "Ruixuan Cong",
+        "Zhenglong Cui",
+        "Da Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2025.3548705",
+      "doi": "10.1109/tcsvt.2025.3548705",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2025,
+      "publication_month": "2025-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为光场自监督角度超分辨率，属于光场图像底层视觉任务。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/100",
+      "issue_number": 100,
+      "cover_url": "",
+      "first_seen": "20250831",
+      "last_seen": "20250831",
+      "appeared_dates": [
+        "20250831"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-a71ae6e45cf29b5f897d",
+      "arxiv_id": "crossref-a71ae6e45cf29b5f897d",
+      "version": 1,
+      "title": "Four-dimension efficient pixel-frequency transformer for light field spatial and angular super-resolution",
+      "abstract": "",
+      "authors": [
+        "Sizhe Wang",
+        "Hao Sheng",
+        "Ruixuan Cong",
+        "Da Yang",
+        "Rongshan Chen",
+        "Zhenglong Cui"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.engappai.2025.110901",
+      "doi": "10.1016/j.engappai.2025.110901",
+      "venue": "Engineering Applications of Artificial Intelligence",
+      "publication_year": 2025,
+      "publication_month": "2025-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分",
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为光场空间与角度超分辨率的四维像素频率Transformer。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/101",
+      "issue_number": 101,
+      "cover_url": "",
+      "first_seen": "20250831",
+      "last_seen": "20250831",
+      "appeared_dates": [
+        "20250831"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-5f108ba6126de9394857",
+      "arxiv_id": "crossref-5f108ba6126de9394857",
+      "version": 1,
+      "title": "Lost in light field compression: Understanding the unseen pitfalls in computer vision",
+      "abstract": "",
+      "authors": [
+        "Adam Zizien",
+        "Chiara Galdi",
+        "Karel Fliegel",
+        "Jean-Luc Dugelay"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.image.2025.117304",
+      "doi": "10.1016/j.image.2025.117304",
+      "venue": "Signal Processing: Image Communication",
+      "publication_year": 2025,
+      "publication_month": "2025-08",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "压缩恢复"
+      ],
+      "relevance_score": 0.85,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题涉及光场压缩对计算机视觉任务的影响，属于光场压缩相关底层视觉分析。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/102",
+      "issue_number": 102,
+      "cover_url": "",
+      "first_seen": "20250831",
+      "last_seen": "20250831",
+      "appeared_dates": [
+        "20250831"
+      ],
+      "is_version_update": false
+    },
+    {
       "base_id": "2508.08900",
       "arxiv_id": "2508.08900v4",
       "version": 4,
@@ -1065,13 +1299,14 @@
       "pdf_url": "https://arxiv.org/pdf/2508.08900v4",
       "source": "arxiv",
       "source_url": "https://arxiv.org/abs/2508.08900v4",
-      "doi": "",
+      "doi": "10.20944/preprints202506.0435.v2",
       "venue": "",
       "publication_year": 0,
       "publication_month": "",
       "date_basis": "published",
       "sources": [
-        "arxiv"
+        "arxiv",
+        "crossref"
       ],
       "content_scope": "abstract_only",
       "tasks": [
@@ -1101,6 +1336,60 @@
       "last_seen": "20250817",
       "appeared_dates": [
         "20250817"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-325df76ad1b629b03df1",
+      "arxiv_id": "crossref-325df76ad1b629b03df1",
+      "version": 1,
+      "title": "Geometry-aware light field angular super-resolution using multiple representations",
+      "abstract": "Light Field Angular Super-Resolution (LFASR) is a critical task that enables applications such as depth estimation, refocusing, and 3D scene reconstruction. Acquiring LFASR from Plenoptic cameras has an inherent trade-off between the angular and spatial resolution due to sensor limitations. To address this challenge, many learning-based LFASR methods have been proposed; however, the reconstruction problem of LF with a wide baseline remains a significant challenge. In this study, we proposed an end-to-end learning-based geometry-aware network using multiple representations. A multi-scale residual network with varying receptive fields is employed to effectively extract spatial and angular features, enabling angular resolution enhancement without compromising spatial fidelity. Extensive experiments demonstrate that the proposed method effectively recovers fine details with high angular resolution while preserving the intricate parallax structure of the light field. Quantitative and qualitative evaluations on both synthetic and real-world datasets further confirm that the proposed approach outperforms existing state-of-the-art methods. This research improves the angular resolution of the light field without reducing spatial sharpness, supporting applications such as depth estimation and 3D reconstruction. The method is able to preserve parallax details and structure with better results than current methods.",
+      "authors": [
+        "Tariq Saeed Mian"
+      ],
+      "categories": [],
+      "published": "2025-08-01",
+      "updated": "2025-08-01",
+      "pdf_url": "https://ijain.org/index.php/IJAIN/article/viewFile/1667/ijain_vol11i3_pp355-366",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.26555/ijain.v11i3.1667",
+      "doi": "10.26555/ijain.v11i3.1667",
+      "venue": "International Journal of Advances in Intelligent Informatics",
+      "publication_year": 2025,
+      "publication_month": "2025-08",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "提出端到端几何感知网络实现光场角度超分辨率，在合成与真实数据集上恢复精细细节并保持视差结构。",
+      "report": {
+        "tldr": "论文提出一种端到端、几何感知的光场角度超分网络，利用多表示学习：一路以多尺度残差网络从子孔径图像估计深度并做物理 warping 合成初始中间视角，另一路用 3D U-Net 从微图像提取角度特征，两路特征拼接后经卷积生成高角度分辨率光场。摘要与正文强调其在宽基线条件下恢复精细细节并保持视差结构，在合成与真实数据集上定量和定性优于现有方法。",
+        "problem": "光场角度超分旨在从稀疏角度采样重建密集角度视图，以支持深度估计、重聚焦和三维重建等应用。论文指出，全光相机受传感器限制，角度分辨率与空间分辨率存在固有折衷；现有学习型角度超分方法在宽基线光场重建上仍面临显著挑战。论文将学习型方法分为深度依赖与非深度依赖两类：深度依赖方法通常先估计视差或深度再合成新视图，但在重复纹理、弱纹理和非朗伯表面处深度难以准确预测；非深度依赖方法直接建立稀疏到密集光场的映射，可绕开视差信息。本文目标是在宽基线条件下，通过多表示重建模块与几何感知细化模块重建角度域光场。",
+        "modeling": "论文将角度超分建模为从稀疏高空间分辨率输入重建密集角度视图的问题。整体框架包含两个主要模块：多表示光场重建模块和几何感知细化模块。重建模块含两条并行管线：第一条以多尺度残差网络作为深度估计网络，从子孔径图像提取稠密特征并估计深度图，再将深度图送入 warping 模块合成初始中间视图；第二条采用 3D U-Net 从微图像提取角度特征。两路输出拼接后经卷积层生成高角度分辨率光场视图。论文特别说明，由于缺少真实视差图，深度估计模块被嵌入物理 warping 过程中。该建模同时利用子孔径图像表示与微图像表示，并以深度引导的几何 warping 与角度特征学习互补。",
+        "method": "方法核心为多表示与几何感知结合。第一路使用具有不同感受野的多尺度残差网络，从子孔径图像中提取空间与角度特征并估计深度，估计结果用于 warping 合成初始中间视角；第二路使用 3D U-Net 从微图像中提取角度特征。两路特征拼接后通过卷积层融合，输出高角度分辨率光场。论文称该设计可在不牺牲空间保真度的情况下增强角度分辨率，并保持光场精细视差结构。训练细节方面，正文节选仅提及使用 Adam 优化器，具体损失函数、训练轮数、学习率、批大小、硬件环境等论文材料未说明。",
+        "occlusion": "论文材料未说明专门针对去遮挡任务的视角互补、遮挡掩码或遮挡区域恢复机制。本文任务为光场角度超分，虽涉及宽基线与视差结构保持，但节选未给出显式遮挡处理模块或遮挡掩码设计。",
+        "experiments": "论文称在合成与真实世界数据集上进行了定量和定性评估，并声称优于现有最先进方法。正文节选提及的数据集包括 Honauer 等提出的 4D 光场深度估计数据集、Wanner 等提出的密集采样 4D 光场数据集与基准、以及 Stanford Lytro Light Field Archive。但节选未给出具体 PSNR、SSIM、LPIPS、参数量、运行速度或各数据集上的逐项数值结果，论文材料未说明这些定量指标。因此无法核验具体性能提升幅度。",
+        "resources": "论文材料未说明代码链接、预训练模型、参数量、计算资源或推理速度。仅可确认作者单位为沙特阿拉伯麦地那 Taibah University 信息系统系，论文发表于 International Journal of Advances in Intelligent Informatics 2025 年第 11 卷第 3 期。",
+        "limitations": "论文材料未系统列出局限性。从节选可推断：深度依赖分支在重复纹理、弱纹理和非朗伯表面处可能受深度估计精度影响；宽基线重建仍是挑战。论文未说明模型参数量、推理速度、训练成本及在极端遮挡或大视差下的失败案例。由于节选缺少定量结果，无法评估其相对现有方法的具体优势幅度。",
+        "insight": "该工作的启发在于将子孔径图像与微图像两种光场表示并行利用：前者便于深度估计与几何 warping，后者便于提取角度相关性；将深度估计嵌入物理 warping 过程可缓解缺少真实视差图的问题。多尺度残差网络的不同感受野有助于同时捕获局部细节与大范围视差结构。后续研究可关注显式遮挡建模、宽基线下的几何一致性约束，以及补充公开代码与标准化定量评测以增强可复现性。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/98",
+      "issue_number": 98,
+      "cover_url": "assets/previews/crossref-325df76ad1b629b03df1.webp",
+      "first_seen": "20250803",
+      "last_seen": "20250803",
+      "appeared_dates": [
+        "20250803"
       ],
       "is_version_update": false
     },
@@ -5752,13 +6041,20 @@
       "crossref-06e03c76126bf2c32ba0",
       "crossref-70419da86d391597fe5c"
     ],
-    "20250803": [],
+    "20250803": [
+      "crossref-325df76ad1b629b03df1"
+    ],
     "20250810": [],
     "20250817": [
       "2508.08900"
     ],
     "20250824": [],
-    "20250831": [],
+    "20250831": [
+      "crossref-d7e53dd0d09d818cc550",
+      "crossref-68c74145903580bd0687",
+      "crossref-a71ae6e45cf29b5f897d",
+      "crossref-5f108ba6126de9394857"
+    ],
     "20250907": [
       "2509.04824"
     ],
@@ -6603,6 +6899,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 45
       }
     },
     "20250810": {
@@ -6613,6 +6913,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 45
       }
     },
     "20250817": {
@@ -6623,6 +6927,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 45
       }
     },
     "20250824": {
@@ -6633,6 +6941,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 45
       }
     },
     "20250831": {
@@ -6643,6 +6955,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 45
       }
     },
     "20250907": {
