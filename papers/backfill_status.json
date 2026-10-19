@@ -378,5 +378,7 @@
   },
   "requested_start": "2024-10-19",
   "requested_end": "2026-10-19",
-  "all_papers": true
+  "all_papers": true,
+  "incomplete_batches": [],
+  "updated_at": "2026-10-19T12:01:04.557740+08:00"
 }
