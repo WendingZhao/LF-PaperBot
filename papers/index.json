@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:16:14.039117+08:00",
+  "updated_at": "2026-10-19T12:17:09.616684+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -1280,6 +1280,66 @@
         "20251109"
       ],
       "is_version_update": false
+    },
+    "2601.21179": {
+      "base_id": "2601.21179",
+      "arxiv_id": "2601.21179v2",
+      "version": 2,
+      "title": "Enhancing Underwater Light Field Images via Global Geometry-aware Diffusion Process",
+      "abstract": "This work studies the challenging problem of acquiring high-quality underwater images via 4-D light field (LF) imaging. To this end, we propose GeoDiff-LF, a novel diffusion-based framework built upon SD-Turbo to enhance underwater 4-D LF imaging by leveraging its spatial-angular structure. GeoDiff-LF consists of three key adaptations: (1) a modified U-Net architecture with convolutional and attention adapters to model geometric cues, (2) a geometry-guided loss function using tensor decomposition and progressive weighting to regularize global structure, and (3) an optimized sampling strategy with noise prediction to improve efficiency. By integrating diffusion priors and LF geometry, GeoDiff-LF effectively mitigates color distortion in underwater scenes. Extensive experiments demonstrate that our framework outperforms existing methods across both visual fidelity and quantitative performance, advancing the state-of-the-art in enhancing underwater imaging. The code will be publicly available at https://github.com/linlos1234/GeoDiff-LF.",
+      "authors": [
+        "Yuji Lin",
+        "Qian Zhao",
+        "Zongsheng Yue",
+        "Junhui Hou",
+        "Deyu Meng"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2026-01-29T02:27:22Z",
+      "updated": "2026-06-12T10:44:07Z",
+      "pdf_url": "https://arxiv.org/pdf/2601.21179v2",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2601.21179v2",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "质量增强"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.85,
+      "rank_score": 0.8525,
+      "evidence": "摘要提出GeoDiff-LF扩散框架，利用空间—角度结构增强水下4D光场图像并缓解颜色失真。",
+      "report": {
+        "tldr": "仅基于所提供的论文材料节选（摘要与引言等，未读取未提供的全文）：GeoDiff-LF 是面向水下4-D光场图像质量增强的扩散框架，以SD-Turbo为基础，通过改进U-Net适配器、几何引导损失和优化采样，将扩散先验与光场空间—角度结构结合，以缓解水下颜色失真；摘要声称其视觉保真度和定量性能优于现有方法，但材料节选未给出具体实验数值、数据集、参数量或速度。",
+        "problem": "问题定义：通过4-D LF成像获得高质量水下图像。材料指出水下吸收、折射和散射导致颜色失真、亮度降低、低对比度与雾状模糊，且退化随水深加剧；传统与深度学习方法中，退化感知方法可引入场景深度等几何信息，扩散模型已用于图像复原。将2-D RGB扩散模型直接用于4-D LF存在三类障碍：维度不匹配、LF几何结构可能在正反向扩散中遭破坏、高维LF计算成本高。",
+        "modeling": "建模思路：材料称GeoDiff-LF将扩散先验扩展到4-D LF，并自适应调整扩散骨干以建模空间—角度表示，在去噪过程中加入全局几何正则以引导结构保持。其关键适配包括改进U-Net以建模几何线索、用张量分解与渐进加权构造几何引导损失以正则化全局结构、用噪声预测的优化采样提升效率。深度/视差估计：不适用；材料仅提几何线索和全局几何正则，未说明EPI、焦点线索、遮挡边界、代价体或空间—角度对应关系的具体实现，也未报告深度/视差误差指标。",
+        "method": "方法组成：其一，基于SD-Turbo修改U-Net，加入卷积适配器和注意力适配器以建模光场几何线索；其二，设计几何引导损失，采用张量分解和渐进加权，对全局结构进行正则化；其三，采用带噪声预测的优化采样策略以改善效率。摘要强调通过整合扩散先验与LF几何，GeoDiff-LF可有效缓解水下场景颜色失真。材料未说明网络层数、适配器位置、损失权重、采样步数、训练目标函数细节。",
+        "occlusion": "不适用。仅依据材料，任务为水下光场图像质量增强，不是去遮挡；材料未提视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "实验结论：摘要称大量实验表明GeoDiff-LF在视觉保真度和定量性能上均优于现有方法，推进水下成像增强的state-of-the-art；但所提供的材料节选没有实验章节或结果表，因此数据集、PSNR、SSIM、LPIPS的具体数值、对比方法、参数量、运行速度和硬件环境均论文材料未说明。无法核验具体提升幅度或统计显著性，只能核验作者有上述总体声明。",
+        "resources": "资源与复现：摘要称代码将公开于 https://github.com/linlos1234/GeoDiff-LF；论文材料未说明训练/测试数据集、预训练权重、硬件配置、参数量、推理时间、训练时间或复现实验步骤。",
+        "limitations": "局限与风险：论文材料未说明作者自述局限性、失败案例、跨场景泛化能力、数据集规模与多样性、计算开销的量化结果；虽引言指出高维LF计算成本可能极高，并提出优化采样改善效率，但节选未给出速度或显存数据。由于未提供完整实验与实现细节，无法独立核验其定量优势、颜色失真缓解程度及对复杂水下退化的稳健性。",
+        "insight": "可核验洞察：该工作把2-D扩散先验迁移到4-D LF时，围绕维度不匹配、几何结构保持和高维效率三个障碍设计适配：U-Net适配器对应空间—角度表示建模，张量分解与渐进加权损失对应全局几何正则，噪声预测优化采样对应效率。其核心思路是以LF几何约束去噪过程，而非仅做逐帧2-D增强；但实际收益仍取决于材料未给出的数据集、指标和计算成本。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/25",
+      "issue_number": 25,
+      "cover_url": "assets/previews/2601.21179.webp",
+      "first_seen": "20260131",
+      "last_seen": "20260131",
+      "appeared_dates": [
+        "20260131"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -2180,33 +2240,53 @@
       }
     },
     "20260104": {
+      "arxiv": {
+        "status": "ok",
+        "count": 16
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 1
       }
     },
     "20260111": {
+      "arxiv": {
+        "status": "ok",
+        "count": 16
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 1
       }
     },
     "20260118": {
+      "arxiv": {
+        "status": "ok",
+        "count": 16
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 1
       }
     },
     "20260125": {
+      "arxiv": {
+        "status": "ok",
+        "count": 16
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 1
       }
     },
     "20260131": {
+      "arxiv": {
+        "status": "ok",
+        "count": 16
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 1
       }
     },
     "20260201": {
