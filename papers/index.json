@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:46:57.229123+08:00",
+  "updated_at": "2026-10-19T12:48:41.584320+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -146,7 +146,12 @@
       "appeared_dates": [
         "20260628"
       ],
-      "is_version_update": false
+      "is_version_update": false,
+      "sources": [
+        "arxiv",
+        "crossref"
+      ],
+      "doi": "10.1109/lsp.2026.3739692"
     },
     "2607.00965": {
       "base_id": "2607.00965",
@@ -11536,6 +11541,590 @@
         "20260531"
       ],
       "is_version_update": false
+    },
+    "crossref-e480fa70759831bf9556": {
+      "base_id": "crossref-e480fa70759831bf9556",
+      "arxiv_id": "crossref-e480fa70759831bf9556",
+      "version": 1,
+      "title": "Collaborative multi-stage attention with integrated cues for light field denoising",
+      "abstract": "Light field (LF) denoising is pivotal for enhancing downstream LF applications. However, most existing methods focus primarily on removing noise signals, lacking sufficient preservation and utilization of the intrinsic structural consistency of LF, which leads to suboptimal denoising performance and compromised geometric relationships. To this end, we propose a collaborative multi-stage attention mechanism that integrates complementary cues from residuals, geometric constraints, and global information. Specifically, first, we design a residual-driven channel attention module to leverage residual analysis for coarse denoising; second, an epipolar-guided cross attention module to explicitly preserve structural consistency across views by leveraging epipolar constraints; and finally, a global domain refinement module that performs deep optimization of texture and structure via multi-head self-attention. Experiments on synthetic and real-world LFs demonstrate that the proposed method maintains the consistency of LF structure and simultaneously outperforms state-of-the-art methods in denoising performance.",
+      "authors": [
+        "Xing Liu",
+        "Wenbo Zhang",
+        "Yilei Chen",
+        "Ping An",
+        "Xinpeng Huang",
+        "Chao Yang"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/ol.598868",
+      "doi": "10.1364/ol.598868",
+      "venue": "Optics Letters",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "提出结合残差、极线几何约束与全局信息的协同多阶段注意力机制用于光场去噪，并在合成与真实光场上验证。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。该文提出一种协同多阶段注意力机制用于光场去噪，依次融合残差、极线几何约束与全局信息，在合成与真实光场数据上声称优于现有方法并保持光场结构一致性。",
+        "problem": "仅基于公开摘要，未读取全文。摘要指出光场去噪对下游光场应用至关重要，但现有方法主要聚焦于去除噪声信号，对光场固有结构一致性的保留与利用不足，导致去噪性能次优并损害几何关系。因此问题可概括为：在去噪的同时显式保持跨视角的结构一致性与几何关系。",
+        "modeling": "仅基于公开摘要，未读取全文。摘要将方法建模为三阶段协同注意力：第一阶段用残差驱动的通道注意力模块，借助残差分析进行粗去噪；第二阶段用极线引导的交叉注意力模块，通过极线约束显式保持跨视角结构一致性；第三阶段用全局域细化模块，通过多头自注意力对纹理与结构进行深度优化。摘要未说明具体的网络结构、损失函数、极线采样方式与训练策略，论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法由三个模块串联构成：残差驱动通道注意力做粗去噪；极线引导交叉注意力利用极线约束在视角间传递信息以保持结构一致；全局域细化用多头自注意力做纹理与结构的深层优化。摘要强调三类互补线索——残差、几何约束与全局信息——的协同整合。各模块的输入输出维度、注意力计算细节、是否级联或多分支融合等，论文材料未说明。",
+        "occlusion": "不适用。摘要未涉及去遮挡任务，也未提及视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；论文材料未说明相关设计。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅称在合成光场与真实光场上进行实验，所提方法在保持光场结构一致性的同时，去噪性能优于当前最优方法。摘要未给出具体数据集名称、PSNR、SSIM、LPIPS、参数量与运行速度等数值，论文材料未说明；因此无法核验具体指标与对比结果。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提供代码链接、预训练模型、计算资源（GPU型号、训练时长）或复现细节，论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可核验的边界是：缺少定量指标、数据集细节与效率数据，无法判断其在不同噪声水平、真实噪声与视角稀疏条件下的表现；极线引导交叉注意力的计算开销与对极线几何标定误差的敏感性亦未说明，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的思路是：将光场去噪从单纯噪声抑制扩展为“残差粗去噪—极线几何约束的跨视角一致性—全局自注意力细化”的多阶段协同，把残差线索、极线几何先验与全局上下文作为互补信息分阶段注入。该设计对强调结构一致性的光场底层视觉任务具有参考价值，但其有效性仍需全文中的定量实验与消融结果支撑，论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/200",
+      "issue_number": 200,
+      "cover_url": "",
+      "first_seen": "20260607",
+      "last_seen": "20260607",
+      "appeared_dates": [
+        "20260607"
+      ],
+      "is_version_update": false
+    },
+    "crossref-87f2b7b53f2317032421": {
+      "base_id": "crossref-87f2b7b53f2317032421",
+      "arxiv_id": "crossref-87f2b7b53f2317032421",
+      "version": 1,
+      "title": "Dual domain multi-scale feature enhancement network for light field denoising",
+      "abstract": "Noise significantly degrades light field (LF) imaging quality, particularly in handheld LF cameras due to the light-scattering effects of microlens arrays. However, current LF denoising methods suffer from several limitations: (1) predominant focus on the pixel domain restricts sufficient exploration of LF frequency characteristics; (2) excessive dependence on local information or straightforward addition/concatenation for integrating global and local features impairs global structural consistency and introduces artifacts. Therefore, we propose a dual domain multi-scale network (DDMSN) that integrates frequency-domain noise priors with pixel-domain texture and epipolar geometric structure awareness. Specifically, in the frequency domain module, we propose a dual frequency collaborative enhancement (DFCE) strategy for differentiated treatment of high frequency noise characteristics and valid structural information, and adaptively enhance low frequency and high frequency band components to achieve a fine-grained restoration of the frequency domain structure. In the pixel domain module, to achieve texture detail restoration and structural consistency preservation, we introduce a global-local feature interaction (GLFI) mechanism embedded within the encoder-decoder architecture, which fuses spatial-angular local features with EPI global features through channel attention weighting, optimizing local receptive fields and global structural consistency dependencies jointly. Extensive experiments on synthetic and real-world LF noise datasets demonstrate that our method achieves significant improvements over existing methods in both qualitative visual results and quantitative metrics.",
+      "authors": [
+        "Xing Liu",
+        "Wenbo Zhang",
+        "Ping An",
+        "Xinpeng Huang",
+        "Chao Yang",
+        "Ce Zhu"
+      ],
+      "categories": [],
+      "published": "2026-06-04",
+      "updated": "2026-06-04",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/oe.596627",
+      "doi": "10.1364/oe.596627",
+      "venue": "Optics Express",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "去噪"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.75,
+      "experiment_score": 0.8,
+      "code_score": 0.2,
+      "rank_score": 0.85,
+      "evidence": "提出融合频域噪声先验与像素域纹理及EPI几何结构感知的双域多尺度光场去噪网络。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出双域多尺度网络DDMSN用于光场去噪，在频域引入双频协同增强策略区分高频噪声与有效结构，在像素域通过全局-局部特征交互机制融合空间-角度局部特征与EPI全局特征，在合成和真实光场噪声数据集上取得优于现有方法的定性和定量结果。",
+        "problem": "仅基于公开摘要，未读取全文。光场成像质量受噪声显著影响，手持光场相机因微透镜阵列的光散射效应尤为严重。现有光场去噪方法存在两个主要局限：一是主要关注像素域，对光场频率特性的探索不足；二是过度依赖局部信息，或以简单相加/拼接方式整合全局与局部特征，损害全局结构一致性并引入伪影。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场去噪建模为双域多尺度特征增强问题：频域侧利用频率域噪声先验，对高频噪声特征与有效结构信息进行差异化处理，并自适应增强低频与高频带分量以实现频域结构的细粒度恢复；像素域侧在编码器-解码器架构中嵌入全局-局部特征交互机制，通过通道注意力加权融合空间-角度局部特征与EPI全局特征，联合优化局部感受野与全局结构一致性依赖。具体网络层数、通道数、损失函数形式及频域变换方式论文材料未说明。",
+        "method": "仅基于公开摘要，未读取全文。方法主体为双域多尺度网络DDMSN，包含频域模块与像素域模块。频域模块提出双频协同增强策略DFCE，对高频噪声特性与有效结构信息进行差异化处理，并自适应增强低频和高频带分量，实现频域结构的细粒度恢复。像素域模块引入全局-局部特征交互机制GLFI，嵌入编码器-解码器架构，通过通道注意力加权融合空间-角度局部特征与EPI全局特征，以同时优化局部感受野和全局结构一致性依赖。摘要未说明DFCE的具体频带划分方式、GLFI的通道注意力实现细节、多尺度结构的具体设计以及训练策略。",
+        "occlusion": "不适用。论文任务为光场去噪，公开摘要未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "仅基于公开摘要，未读取全文。论文在合成光场噪声数据集和真实光场噪声数据集上进行了实验，摘要称所提方法在定性视觉结果和定量指标上均较现有方法取得显著提升。但摘要未给出具体数据集名称、PSNR、SSIM、LPIPS数值、参数量、运行速度或对比方法列表，论文材料未说明这些实验细节。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、计算资源（GPU型号与数量）、训练时长或参数量等复现信息。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确讨论方法局限性。从摘要所述动机看，方法依赖频域噪声先验与EPI全局特征，但未说明在极低信噪比、真实噪声分布偏移或大视差场景下的泛化表现；此外，双域多尺度设计与全局-局部交互可能带来额外计算开销，摘要未报告效率指标。以上均为基于摘要的合理关注点，论文未给出具体结论。",
+        "insight": "仅基于公开摘要，未读取全文。该工作的核心思路是将光场去噪从单一像素域扩展到频域与像素域协同：频域侧区分高频噪声与有效结构，避免对噪声的过度增强；像素域侧以通道注意力替代简单相加/拼接来融合空间-角度局部特征与EPI全局特征，以缓解全局结构不一致和伪影。该双域、多尺度、全局-局部交互的设计为光场底层视觉任务提供了可借鉴的特征融合范式，但其具体有效性仍需全文实验数据与消融结果验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/201",
+      "issue_number": 201,
+      "cover_url": "",
+      "first_seen": "20260607",
+      "last_seen": "20260607",
+      "appeared_dates": [
+        "20260607"
+      ],
+      "is_version_update": false
+    },
+    "crossref-9e9213a054151b21f342": {
+      "base_id": "crossref-9e9213a054151b21f342",
+      "arxiv_id": "crossref-9e9213a054151b21f342",
+      "version": 1,
+      "title": "Flexible Light Field Reconstruction: Enabling Arbitrary Sampling and Angular Resolution",
+      "abstract": "Compared with hardware-dependent methods, light field (LF) reconstruction algorithms enable a more economical and convenient acquisition of densely sampled LF (DSLF). Existing learning-based LF reconstruction methods suffer from limited flexibility, as they rely on fixed sampling patterns and predefined angular resolutions. In this paper, we propose a flexible deep learning framework, which can reconstruct DSLF with arbitrary angular resolution from randomly distributed sparse input views of an arbitrary quantity. The proposed framework consists of two core stages, namely the SAI Synthesis and the LF Refinement. The SAI Synthesis adopts Plane Sweep Volume (PSV) to cope with randomly sampled input views, and leverages the Multi-Scale Attention (MSA) module to compute per-view weights for adaptive feature fusion and support arbitrary numbers of input views. The LF Refinement stage integrates intermediate results and fully exploits LF parallax structures to further improve reconstruction quality. Experimental results demonstrate that our method achieves superior flexibility and reconstruction quality, and outperforms most state-of-the-art LF reconstruction methods.",
+      "authors": [
+        "Xia Liu",
+        "Junzhen Ye",
+        "Zhangmin Wu",
+        "Qiang Fu"
+      ],
+      "categories": [],
+      "published": "2026-06-23",
+      "updated": "2026-06-23",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.3390/electronics15132763",
+      "doi": "10.3390/electronics15132763",
+      "venue": "Electronics",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "重建与插值"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.75,
+      "experiment_score": 0.75,
+      "code_score": 0.0,
+      "rank_score": 0.8625,
+      "evidence": "提出灵活光场重建框架，可从任意数量随机稀疏视图重建任意角度分辨率的稠密光场。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一个灵活的光场重建框架，可从任意数量、随机分布的稀疏输入视角重建任意角度分辨率的密集光场；框架由 SAI Synthesis 与 LF Refinement 两阶段构成，摘要称其在灵活性与重建质量上优于多数现有方法。",
+        "problem": "仅基于公开摘要，未读取全文。现有基于学习的光场重建方法灵活性受限：依赖固定采样模式与预定义角度分辨率，难以适配随机分布的稀疏输入视角或任意数量的输入视角。论文旨在同时支持任意数量随机稀疏视角输入与任意角度分辨率输出，以更经济便捷地获取密集采样光场。",
+        "modeling": "仅基于公开摘要，未读取全文。方法将问题建模为从随机分布、数量任意的稀疏视角到任意角度分辨率密集光场的映射，分为两个核心阶段：SAI Synthesis（子孔径图像合成）与 LF Refinement（光场细化）。SAI Synthesis 采用平面扫描体（Plane Sweep Volume, PSV）处理随机采样输入视角，并利用多尺度注意力（Multi-Scale Attention, MSA）模块计算逐视角权重以进行自适应特征融合，从而支持任意数量的输入视角。LF Refinement 阶段整合中间结果并充分利用光场视差结构以进一步提升重建质量。摘要未说明 PSV 的深度/视差假设、代价体构造细节、MSA 的具体结构、两阶段的连接方式与损失函数。",
+        "method": "仅基于公开摘要，未读取全文。整体流程为：先由 SAI Synthesis 借助 PSV 与 MSA 对随机稀疏输入视角做自适应加权融合，生成中间合成结果；再由 LF Refinement 融合中间结果并利用光场视差结构进行细化，输出任意角度分辨率的密集光场。摘要未说明网络层数、特征维度、训练策略、输入视角数量范围、角度分辨率上采样倍率、是否使用真实/合成数据混合训练等实现细节。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。摘要未将去遮挡作为任务，也未提及视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；PSV 与视差结构的使用属于重建建模，摘要未说明其针对遮挡的处理方式。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅给出定性结论：方法具备更优灵活性，重建质量优于大多数当前最优光场重建方法。论文材料未说明所用数据集、PSNR、SSIM、LPIPS 等定量指标、参数量、运行速度、对比方法清单与消融实验结果，上述数值均无法核验。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明代码链接、预训练模型、训练数据规模、GPU 型号、训练时长与推理速度等复现资源信息。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限。可确认的信息边界是：缺少定量实验、效率数据与失败案例分析；PSV 与 MSA 在极端稀疏或大基线随机采样下的表现、任意角度分辨率外推的稳定性、以及真实场景泛化能力均未在材料中说明。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的思路是：以 PSV 作为与视角排布无关的几何中间表示，配合逐视角注意力的自适应融合，把“固定采样模式+固定分辨率”的约束解耦为“任意数量随机视角输入+任意角度分辨率输出”，再由细化阶段显式利用光场视差结构补偿合成误差。该设计对灵活采集场景具有潜在价值，但其有效性需全文定量实验验证。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/202",
+      "issue_number": 202,
+      "cover_url": "",
+      "first_seen": "20260628",
+      "last_seen": "20260628",
+      "appeared_dates": [
+        "20260628"
+      ],
+      "is_version_update": false
+    },
+    "crossref-027704975672250b8a30": {
+      "base_id": "crossref-027704975672250b8a30",
+      "arxiv_id": "crossref-027704975672250b8a30",
+      "version": 1,
+      "title": "Self-similar feature aggregation for light field spatial super-resolution",
+      "abstract": "With the advancement of deep neural networks, transformer-based methods have become the mainstream approach for light field (LF) spatial super-resolution (SR) tasks. However, the existing transformer-based LF spatial SR methods rely too much on global features in the extraction of non-local information, and the attention calculation is interfered by noise. In order to solve these problems, we propose an LF spatial SR network, SSFA-Net, based on self-similar feature aggregation. Specifically, we design a high-similarity feature aggregation transformer module. The module effectively aggregates highly similar feature information in sub-aperture, macro pixel, and epipolar-plane images through an adaptive selection strategy, which reduces the introduction of noise and mitigates the computational redundancy. Furthermore, in order to enhance the high-frequency details of LF images and maintain the consistency of all views, we propose a spatial-frequency fusion module (SFFM). The module restores the structural details in the spatial domain and enhances the high-frequency information in the frequency domain by utilizing their complementary advantages. Additionally, the channel branch of the SFFM enhances features containing key angular information, which helps to maintain the angular consistency across all views. Experimental results show that the proposed method effectively balances the accuracy and model complexity. It can reconstruct LF images with rich texture details, and is competitive in terms of peak signal-to-noise ratio, structural similarity, and learned perceptual image patch similarity. In addition, the proposed method effectively improves the performance of visual tasks, such as LF depth estimation and refocusing tasks.",
+      "authors": [
+        "Hongyang Wang",
+        "Zongju Peng",
+        "Huabo Zhang",
+        "Wenhui Zou",
+        "Lianjun Zhang"
+      ],
+      "categories": [],
+      "published": "2026-06-26",
+      "updated": "2026-06-26",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1364/ao.600257",
+      "doi": "10.1364/ao.600257",
+      "venue": "Applied Optics",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 1.0,
+      "research_score": 0.7,
+      "experiment_score": 0.75,
+      "code_score": 0.0,
+      "rank_score": 0.8525,
+      "evidence": "提出基于自相似特征聚合的光场空间超分网络SSFA-Net，利用子孔径、宏像素和EPI聚合相似特征。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出面向光场空间超分的SSFA-Net，以自相似特征聚合为核心：用高相似特征聚合Transformer模块在子孔径、宏像素与极平面图像中自适应选择并聚合高相似特征，以降低噪声干扰与计算冗余；并用空间—频率融合模块（SFFM）在空间域恢复结构细节、在频域增强高频信息，其通道分支强化关键角度信息以维持视角一致性。摘要称该方法在PSNR、SSIM、LPIPS上具竞争力，并改善光场深度估计与重聚焦等下游任务。",
+        "problem": "仅基于公开摘要，未读取全文。摘要指出，随着深度神经网络发展，基于Transformer的方法已成为光场空间超分的主流；但现有Transformer类光场空间超分方法在提取非局部信息时过度依赖全局特征，且注意力计算受到噪声干扰。论文要解决的核心问题是：如何在光场空间超分中更有效地利用非局部相似信息，减少噪声引入与计算冗余，同时增强高频细节并保持所有视角间的一致性。摘要未给出具体退化模型、放大倍数或输入表示等任务设定细节。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场空间超分建模为基于自相似特征聚合的端到端网络学习问题，网络名为SSFA-Net。建模思路包含两条主线：其一，在子孔径图像、宏像素和极平面图像三类光场结构中寻找高相似特征，并通过自适应选择策略进行聚合，以替代对全局特征的过度依赖，从而抑制噪声并缓解计算冗余；其二，联合空间域与频率域的互补优势，空间域负责恢复结构细节，频率域负责增强高频信息，并通过SFFM的通道分支强化含关键角度信息的特征，以维持跨视角角度一致性。摘要未说明具体的网络层数、特征维度、相似度度量方式、自适应选择的具体准则、损失函数形式及训练策略。",
+        "method": "仅基于公开摘要，未读取全文。方法由两个关键模块构成。第一，高相似特征聚合Transformer模块：在子孔径、宏像素与极平面图像中聚合高度相似的 feature 信息，采用自适应选择策略，目的是减少噪声引入并降低计算冗余。第二，空间—频率融合模块（SFFM）：利用空间域与频率域的互补优势，在空间域恢复结构细节、在频域增强高频信息；其通道分支用于增强包含关键角度信息的特征，从而帮助保持所有视角间的一致性。摘要未给出模块的具体连接方式、Transformer块数量、频域变换类型、融合算子、上采样方式及是否采用多阶段训练等实现细节。",
+        "occlusion": "不适用。论文任务为光场空间超分，公开摘要未涉及去遮挡任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。摘要提到利用子孔径、宏像素与极平面图像中的高相似特征，并强调跨视角角度一致性，但未将其表述为遮挡处理机制；相关细节论文材料未说明。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅给出定性结论：实验结果表明该方法有效平衡了精度与模型复杂度，能重建具有丰富纹理细节的光场图像，并在峰值信噪比（PSNR）、结构相似性（SSIM）与学习感知图像块相似性（LPIPS）方面具有竞争力；此外，该方法有效提升了光场深度估计与重聚焦等视觉任务的性能。摘要未报告具体数据集名称、放大倍数、PSNR/SSIM/LPIPS数值、参数量、运行速度或对比方法列表，上述实验数值与复现信息论文材料未说明。",
+        "resources": "仅基于公开摘要，未读取全文。论文材料未说明使用的数据集、训练硬件、参数量、FLOPs、推理速度、代码或模型是否公开，也未给出项目主页或代码链接。因此无法核验资源开销与可复现性；相关内容论文材料未说明。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未明确列出方法局限。可核验的边界是：摘要只声称在PSNR、SSIM、LPIPS上具有竞争力并平衡精度与复杂度，但未给出任何定量结果、数据集范围或失败场景；也未说明自适应选择策略在低纹理、大视差或噪声严重条件下的稳健性。由于未读取全文，方法细节、实验数值与复现信息均无法核验，论文材料未说明。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的启示是：光场空间超分中的非局部建模不必完全依赖全局注意力，利用子孔径、宏像素与极平面图像中的高相似结构进行自适应聚合，有望在抑制噪声与降低计算冗余之间取得平衡；同时，空间域结构恢复与频域高频增强具有互补性，联合建模并强化角度相关通道有助于维持视角一致性。摘要还提示超分性能可迁移到深度估计与重聚焦等下游任务，但具体机制与增益幅度论文材料未说明。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/203",
+      "issue_number": 203,
+      "cover_url": "",
+      "first_seen": "20260628",
+      "last_seen": "20260628",
+      "appeared_dates": [
+        "20260628"
+      ],
+      "is_version_update": false
+    },
+    "crossref-4707a7d129df23058cf6": {
+      "base_id": "crossref-4707a7d129df23058cf6",
+      "arxiv_id": "crossref-4707a7d129df23058cf6",
+      "version": 1,
+      "title": "Revisiting Subspace Disentangling for Light Field Spatial Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Fengyuan Zhang",
+        "Yingqian Wang",
+        "Xueying Wang",
+        "Zhengyu Liang",
+        "Longguang Wang",
+        "Lvli Tian",
+        "Jungang Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2026.3661516",
+      "doi": "10.1109/tcsvt.2026.3661516",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题明确为光场空间超分辨率中的子空间解耦方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/204",
+      "issue_number": 204,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-4d7a107df9769f03e0e8": {
+      "base_id": "crossref-4d7a107df9769f03e0e8",
+      "arxiv_id": "crossref-4d7a107df9769f03e0e8",
+      "version": 1,
+      "title": "Local neural epipolar representation learning for arbitrary-scale light field angular super-resolution",
+      "abstract": "",
+      "authors": [
+        "Wenhui Zhou",
+        "Grine Smail",
+        "Jiahan Meng",
+        "Chi Yang",
+        "Wenyu Li",
+        "Lili Lin"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.jfranklin.2026.108753",
+      "doi": "10.1016/j.jfranklin.2026.108753",
+      "venue": "Journal of the Franklin Institute",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.8,
+      "evidence": "标题为面向任意尺度光场角度超分的局部神经极平面表示学习。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/205",
+      "issue_number": 205,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-d6c9c6d03d2abb9cc06e": {
+      "base_id": "crossref-d6c9c6d03d2abb9cc06e",
+      "arxiv_id": "crossref-d6c9c6d03d2abb9cc06e",
+      "version": 1,
+      "title": "LF-EHNet: A Spatial-Angular Joint Attention Driven Network for Light Field Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Wenfei Gao",
+        "Xiaoling Zhang",
+        "Yubo Shu"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icbase70763.2026.11619426",
+      "doi": "10.1109/icbase70763.2026.11619426",
+      "venue": "2026 7th International Conference on Big Data & Artificial Intelligence & Software Engineering (ICBASE)",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.79,
+      "evidence": "标题为空间-角度联合注意力驱动的光场超分辨率网络。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/206",
+      "issue_number": 206,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-d2b9313ba0ddd7c9a4d5": {
+      "base_id": "crossref-d2b9313ba0ddd7c9a4d5",
+      "arxiv_id": "crossref-d2b9313ba0ddd7c9a4d5",
+      "version": 1,
+      "title": "Gradient-Guided Density Redistribution Network for Light Field Full-View Depth Estimation",
+      "abstract": "",
+      "authors": [
+        "Tun Wang",
+        "Zhenglong Cui",
+        "Ruixuan Cong",
+        "Da Yang",
+        "Mingyuan Zhao",
+        "Yi Zhang",
+        "Hao Sheng"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2026.3664607",
+      "doi": "10.1109/tcsvt.2026.3664607",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.76,
+      "evidence": "标题为光场全视角深度估计网络，明确利用光场多视角结构。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/207",
+      "issue_number": 207,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-345eaf0ffb150a8c8c03": {
+      "base_id": "crossref-345eaf0ffb150a8c8c03",
+      "arxiv_id": "crossref-345eaf0ffb150a8c8c03",
+      "version": 1,
+      "title": "Pseudo-4D-DCT representation learning for no-reference light field image quality assessment",
+      "abstract": "",
+      "authors": [
+        "Xuehui Wei",
+        "Chenyu Wu",
+        "Luyao Wang",
+        "Feifan Wu",
+        "Biao Liu",
+        "Yidan Zhang",
+        "Wenhui Zhou",
+        "Lili Lin"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1016/j.imavis.2026.105975",
+      "doi": "10.1016/j.imavis.2026.105975",
+      "venue": "Image and Vision Computing",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.65,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.76,
+      "evidence": "标题为基于伪四维DCT表示学习的无参考光场图像质量评价。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/208",
+      "issue_number": 208,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
+    },
+    "crossref-f2802b0a3a45877fc472": {
+      "base_id": "crossref-f2802b0a3a45877fc472",
+      "arxiv_id": "crossref-f2802b0a3a45877fc472",
+      "version": 1,
+      "title": "Dynamic-Aware Enhanced Data Augmentation for Light Field Super-Resolution",
+      "abstract": "",
+      "authors": [
+        "Ze-Yu Mi",
+        "Yu-Bin Yang"
+      ],
+      "categories": [],
+      "published": "",
+      "updated": "",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/tcsvt.2026.3666369",
+      "doi": "10.1109/tcsvt.2026.3666369",
+      "venue": "IEEE Transactions on Circuits and Systems for Video Technology",
+      "publication_year": 2026,
+      "publication_month": "2026-06",
+      "date_basis": "discovered",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.5,
+      "code_score": 0.3,
+      "rank_score": 0.75,
+      "evidence": "标题为光场超分辨率中的动态感知增强数据增广方法。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/209",
+      "issue_number": 209,
+      "cover_url": "",
+      "first_seen": "20260630",
+      "last_seen": "20260630",
+      "appeared_dates": [
+        "20260630"
+      ],
+      "is_version_update": false
     }
   },
   "report_dates": [
@@ -13115,6 +13704,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 50
       }
     },
     "20260614": {
@@ -13125,6 +13718,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 50
       }
     },
     "20260621": {
@@ -13135,6 +13732,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 50
       }
     },
     "20260628": {
@@ -13145,6 +13746,10 @@
       "cvf": {
         "status": "ok",
         "count": 1
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 50
       }
     },
     "20260630": {
