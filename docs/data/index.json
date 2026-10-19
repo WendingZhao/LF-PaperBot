@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:21:56.646617+08:00",
+  "updated_at": "2026-10-19T12:26:28.534326+08:00",
   "papers": [
     {
       "base_id": "cvf-3fb3a9830933e1d178c0",
@@ -1406,12 +1406,129 @@
         "20241208"
       ],
       "is_version_update": false
+    },
+    {
+      "base_id": "crossref-63515de1b761ce1b481f",
+      "arxiv_id": "crossref-63515de1b761ce1b481f",
+      "version": 1,
+      "title": "Boosting Light Field Image Super-Resolution via Manually Shearing Disparity",
+      "abstract": "",
+      "authors": [
+        "Jungang Yang",
+        "Zhengyu Liang",
+        "Qianyu Chen",
+        "Yingqian Wang",
+        "Wei An"
+      ],
+      "categories": [],
+      "published": "2024-10-28",
+      "updated": "2024-10-28",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icsp62129.2024.10846537",
+      "doi": "10.1109/icsp62129.2024.10846537",
+      "venue": "2024 IEEE 17th International Conference on Signal Processing (ICSP)",
+      "publication_year": 2024,
+      "publication_month": "2024-10",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "空间超分"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.2,
+      "rank_score": 0.715,
+      "evidence": "标题明确为光场图像超分辨率，通过手动剪切视差提升性能。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/28",
+      "issue_number": 28,
+      "cover_url": "",
+      "first_seen": "20241031",
+      "last_seen": "20241031",
+      "appeared_dates": [
+        "20241031"
+      ],
+      "is_version_update": false
+    },
+    {
+      "base_id": "crossref-eae94fc9561f3b496734",
+      "arxiv_id": "crossref-eae94fc9561f3b496734",
+      "version": 1,
+      "title": "An Explainable Spectral Analysis For Light Field Image Quality Assessment",
+      "abstract": "",
+      "authors": [
+        "Shengyang Zhao",
+        "Xin Jin"
+      ],
+      "categories": [],
+      "published": "2024-10-27",
+      "updated": "2024-10-27",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.1109/icip51287.2024.10647342",
+      "doi": "10.1109/icip51287.2024.10647342",
+      "venue": "2024 IEEE International Conference on Image Processing (ICIP)",
+      "publication_year": 2024,
+      "publication_month": "2024-10",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "metadata_only",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.9,
+      "research_score": 0.6,
+      "experiment_score": 0.3,
+      "code_score": 0.0,
+      "rank_score": 0.705,
+      "evidence": "标题明确为光场图像质量评价（Light Field Image Quality Assessment），属于光场图像底层视觉中的质量评价任务。",
+      "report": {
+        "tldr": "仅题录：根据标题纳入光场底层视觉相关文献，尚未获取公开摘要或全文。",
+        "problem": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "modeling": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "method": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "occlusion": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "experiments": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "resources": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "limitations": "公开题录未提供摘要或全文，无法核实，待读原文。",
+        "insight": "公开题录未提供摘要或全文，无法核实，待读原文。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/27",
+      "issue_number": 27,
+      "cover_url": "",
+      "first_seen": "20241027",
+      "last_seen": "20241027",
+      "appeared_dates": [
+        "20241027"
+      ],
+      "is_version_update": false
     }
   ],
   "reports": {
     "20241020": [],
-    "20241027": [],
-    "20241031": [],
+    "20241027": [
+      "crossref-eae94fc9561f3b496734"
+    ],
+    "20241031": [
+      "crossref-63515de1b761ce1b481f"
+    ],
     "20241103": [],
     "20241110": [],
     "20241117": [],
@@ -1607,6 +1724,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 15
       }
     },
     "20241027": {
@@ -1617,6 +1738,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 15
       }
     },
     "20241031": {
@@ -1627,6 +1752,10 @@
       "cvf": {
         "status": "ok",
         "count": 0
+      },
+      "crossref": {
+        "status": "ok",
+        "count": 15
       }
     },
     "20241103": {
