@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-19T12:09:05.899323+08:00",
+  "updated_at": "2026-10-19T12:11:22.478164+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -452,58 +452,62 @@
     },
     "cvf-c8fe3c60c5d48b9b0503": {
       "base_id": "cvf-c8fe3c60c5d48b9b0503",
-      "arxiv_id": "cvf-c8fe3c60c5d48b9b0503",
+      "arxiv_id": "2412.03518v1",
       "version": 1,
       "title": "Dense Scene Reconstruction from Light-Field Images Affected by Rolling Shutter",
-      "abstract": "This paper presents a dense depth estimation approach from light-field (LF) images that is able to compensate for strong rolling shutter (RS) effects. Our method estimates RS compensated views and dense RS compensated disparity maps. We present a two-stage method based on a 2D Gaussians Splatting that allows for a \"render and compare\" strategy with a point cloud formulation. In the first stage a subset of sub-aperture images is used to estimate an RS agnostic 3D shape that is related to the scene target shape \"up to a motion\". In the second stage the deformation of the 3D shape is computed by estimating an admissible camera motion. We demonstrate the effectiveness and advantages of this approach through several experiments conducted for different scenes and types of motions. Due to lack of suitable datasets for evaluation we also present a new carefully designed synthetic dataset of RS LF images. The source code trained models and dataset will be made publicly available at: https://github.com/ICB-Vision-AI/DenseRSLF.",
+      "abstract": "This paper presents a dense depth estimation approach from light-field (LF) images that is able to compensate for strong rolling shutter (RS) effects. Our method estimates RS compensated views and dense RS compensated disparity maps. We present a two-stage method based on a 2D Gaussians Splatting that allows for a ``render and compare\" strategy with a point cloud formulation. In the first stage, a subset of sub-aperture images is used to estimate an RS agnostic 3D shape that is related to the scene target shape ``up to a motion\". In the second stage, the deformation of the 3D shape is computed by estimating an admissible camera motion. We demonstrate the effectiveness and advantages of this approach through several experiments conducted for different scenes and types of motions. Due to lack of suitable datasets for evaluation, we also present a new carefully designed synthetic dataset of RS LF images. The source code, trained models and dataset will be made publicly available at: https://github.com/ICB-Vision-AI/DenseRSLF",
       "authors": [
-        "McGriff, Hermes",
-        "Martins, Renato",
-        "Andreff, Nicolas",
-        "Demonceaux, Cedric"
+        "Hermes McGriff",
+        "Renato Martins",
+        "Nicolas Andreff",
+        "Cedric Demonceaux"
       ],
-      "categories": [],
-      "published": "",
-      "updated": "",
-      "pdf_url": "https://openaccess.thecvf.com/content/WACV2025/papers/McGriff_Dense_Scene_Reconstruction_from_Light-Field_Images_Affected_by_Rolling_Shutter_WACV_2025_paper.pdf",
-      "source": "cvf",
-      "source_url": "https://openaccess.thecvf.com/content/WACV2025/html/McGriff_Dense_Scene_Reconstruction_from_Light-Field_Images_Affected_by_Rolling_Shutter_WACV_2025_paper.html",
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2024-12-04T17:59:04Z",
+      "updated": "2024-12-04T17:59:04Z",
+      "pdf_url": "https://arxiv.org/pdf/2412.03518v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2412.03518v1",
       "doi": "",
       "venue": "WACV2025",
-      "publication_year": 2025,
-      "publication_month": "2025-02",
-      "date_basis": "discovered",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
       "sources": [
+        "arxiv",
         "cvf"
       ],
       "content_scope": "full_text",
       "tasks": [
         "深度与视差估计"
       ],
-      "relevance_score": 0.9,
-      "research_score": 0.8,
-      "experiment_score": 0.7,
-      "code_score": 0.8,
-      "rank_score": 0.845,
-      "evidence": "摘要提出从受卷帘快门影响的光场图像估计致密视差，并利用子孔径图像和多视角结构补偿卷帘快门。",
+      "relevance_score": 0.95,
+      "research_score": 0.85,
+      "experiment_score": 0.85,
+      "code_score": 0.9,
+      "rank_score": 0.9125,
+      "evidence": "论文针对受卷帘快门影响的光场图像，估计补偿后的视图和稠密视差图，并承诺公开代码与数据集。",
       "report": {
-        "tldr": "论文提出面向受强卷帘快门（RS）影响的光场（LF）图像的稠密深度估计方法，同时输出RS补偿视图与稠密RS补偿视差图。方法为基于2D Gaussian Splatting的两阶段“渲染并比较”框架：先用部分子孔径图像估计与目标形状“相差一个运动”的RS无关3D形状，再通过估计容许相机运动计算3D形变。材料称在多种场景和运动类型上验证了有效性，并构造了新的合成RS光场数据集。",
-        "problem": "光场相机通常被假设为全局快门采集，但消费级相机常具RS逐行曝光；相机运动或动态物体造成图像形变，使运动与形状影响耦合，难以从单次LF捕获中同时恢复深度与运动。论文指出，已有RS光场联合形状—运动方法仍依赖子孔径视图间2D点对应，导致点云稀疏、对特征区域依赖；本文目标是无形状先验、无速度剖面先验、无需多帧采集，直接从受RS影响的LF图像获得稠密重建。",
-        "modeling": "论文以光场子孔径图像（SAIs）为输入，采用2D高斯泼溅表示场景，并以点云形式嵌入“渲染并比较”策略。第一阶段只用一部分SAIs估计一个RS agnostic的3D形状，该形状与真实场景目标形状“up to a motion”相关；第二阶段将该形状的形变归因于一个容许的相机运动，通过拟合运动参数恢复去RS表示。材料未说明使用EPI、焦点线索、遮挡边界或显式代价体；空间—角度对应由LF的SAIs与可渲染高斯表示间接承担，而非显式2D对应。任务涉及深度/视差估计，但论文材料未给出常用深度/视差误差指标及其数值。",
-        "method": "方法分为两阶段：步骤1从图像中央行相关或一部分子孔径图像获得2D高斯泼溅表示；步骤2利用该表示可渲染、可比较的特性，在其他行/视图上估计最能解释RS形变的运动，从而得到RS补偿的LF表示和稠密视差。与常规3D高斯泼溅不同，论文采用2D高斯以适配光场相机采集特性。整体流程不显式求子孔径间2D对应，而是通过点云/高斯表示与相机运动参数进行render-and-compare。",
-        "occlusion": "不适用。论文材料未将去遮挡作为任务，也未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制；仅在相关工作中引用遮挡感知光场深度方法，本文具体遮挡处理细节论文材料未说明。",
-        "experiments": "论文称通过不同场景和运动类型的实验验证方法有效性与优势，并因缺少合适评测数据集，提出一个新的、精心设计的合成RS光场图像数据集；该数据集面向高纹理表面和不同几何细节层次。论文材料未给出实验所用真实/合成数据集名称清单，也未给出PSNR、SSIM、LPIPS、视差/深度误差指标、参数量、运行速度或对比方法的具体数值；这些定量结果论文材料未说明。",
-        "resources": "论文材料写明源代码、训练模型和数据集将公开于https://github.com/ICB-Vision-AI/DenseRSLF。除该计划公开链接外，材料未说明代码许可、模型大小、训练时长、硬件配置或复现实验细节。",
-        "limitations": "论文材料未系统列出局限性。可核验的缺口是：缺少定量精度、效率与泛化实验数据，未报告与现有RS光场或光场深度方法的数值比较、参数量和速度；新数据集为合成数据，真实RS光场数据上的表现论文材料未说明。方法依赖“容许相机运动”建模，材料未说明该假设在复杂非刚性运动、严重遮挡或低纹理场景下的失效边界。",
-        "insight": "核心启发是把RS光场重建转化为“先用部分视图学习可渲染的高斯形状，再用渲染比较拟合RS运动”的两阶段问题，从而绕开显式子孔径2D对应带来的稀疏性；2D高斯泼溅同时作为形状表示和可比较渲染器，为单次LF捕获下的稠密视差与运动补偿提供统一思路。"
+        "tldr": "仅基于所给论文材料（摘要、正文与补充材料节选），未读取完整全文。论文提出面向滚动快门光场图像的两阶段稠密深度/视差估计方法：先用部分子孔径图像估计一个与目标形状“相差一个运动”的RS无关3D形状，再通过估计容许的相机运动来变形该形状，输出RS补偿视图和稠密RS补偿视差图，并构建新的合成RS光场数据集。",
+        "problem": "光场相机通常被假定为全局快门采集，但多数消费相机使用滚动快门，像素逐行顺序曝光；存在相机运动或动态物体时，图像会产生RS形变，使运动与形状相互耦合。已有RS光场方法需要子孔径视图之间的2D点对应，限制了重建稠密度。本文目标是在单次捕获、无需场景形状先验和速度剖线先验的条件下，同时估计深度与运动并补偿RS效应。",
+        "modeling": "材料将4D光场记为(x,y,u,v)，其中SAI等价于小基线相机阵列，并可在(x,u)或(y,v)平面形成EPI。对RS建模时，材料假设微图像相对于整幅图很小，可视为局部全局快门，但微图像行逐行采集；像素采集时间主要与其v坐标相关，因此SAI自然同步。由于同一3D点可在不同SAI和不同时间被观测，RS LF提供了运动信息。材料未说明焦点线索、遮挡边界或代价体；也未报告深度/视差常用误差指标（如RMSE、BadPix等），均标注为论文材料未说明。",
+        "method": "方法为两阶段。第一阶段使用一部分子孔径图像估计RS无关的3D形状，该形状与场景目标形状“up to a motion”；图2说明其从中心行SAI恢复2D Gaussian Splatting表示。第二阶段利用2D Gaussian Splatting的可渲染能力，采用“render and compare”与点云表示，估计一个容许的相机运动，以计算3D形状的形变，从而恢复去RS畸变的场景表示。摘要称最终估计RS补偿视图和稠密RS补偿视差图；采用2D Gaussians的动机来自全光相机光场特性，并避免执行显式2D对应。",
+        "occlusion": "不适用；材料未涉及去遮挡任务，未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "材料称对不同场景和多种运动类型进行了若干实验，并因缺少合适数据集而提出一个新的、精心设计的合成RS光场图像数据集；图1给出RS补偿视图与视差图的定性示例。补充材料还提出RSLF-d，将已有方法[2]的点云致密化以便与真值比较，属于附属贡献。论文材料未说明具体数据集名称与规模、训练/测试划分、PSNR、SSIM、LPIPS、参数量、速度、深度误差指标及消融数值。",
+        "resources": "摘要称源码、训练模型和数据集将公开于https://github.com/ICB-Vision-AI/DenseRSLF；正文称将在评审流程后公开源码、训练模型、数据集和测试样本。硬件配置、训练时长、模型参数量与运行速度论文材料未说明。",
+        "limitations": "论文材料未明确列出局限与失败案例。从材料可核验的依赖包括：RS模型假设微图像局部全局快门、采集时间主要与v坐标相关、SAI同步，以及第二阶段采用容许相机运动模型；方法仍需估计运动。材料未给出完整定量结果、常用误差指标、参数量、速度、真实场景评估细节及与现有方法的完整比较，这些均标注为论文材料未说明。",
+        "insight": "该工作的关键思路是利用RS光场中同一3D点在不同SAI对应不同视角、不同时间被观测的时空冗余，以2D Gaussian Splatting的可微“render and compare”替代显式2D对应，将形状估计与运动估计分阶段解耦。对单次捕获、强RS条件下的稠密光场重建具有启发性；但其有效性仍需完整论文中的定量实验、误差指标和更多场景验证。"
       },
       "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/11",
       "issue_number": 11,
       "cover_url": "assets/previews/cvf-c8fe3c60c5d48b9b0503.webp",
       "first_seen": "20250228",
-      "last_seen": "20250228",
+      "last_seen": "20241208",
       "appeared_dates": [
-        "20250228"
+        "20250228",
+        "20241208"
       ],
       "is_version_update": false
     },
@@ -675,6 +679,128 @@
       "last_seen": "20251031",
       "appeared_dates": [
         "20251031"
+      ],
+      "is_version_update": false
+    },
+    "2412.02386": {
+      "base_id": "2412.02386",
+      "arxiv_id": "2412.02386v2",
+      "version": 2,
+      "title": "Single-Shot Metric Depth from Focused Plenoptic Cameras",
+      "abstract": "Metric depth estimation from visual sensors is crucial for robots to perceive, navigate, and interact with their environment. Traditional range imaging setups, such as stereo or structured light cameras, face hassles including calibration, occlusions, and hardware demands, with accuracy limited by the baseline between cameras. Single- and multi-view monocular depth offers a more compact alternative, but is constrained by the unobservability of the metric scale. Light field imaging provides a promising solution for estimating metric depth by using a unique lens configuration through a single device. However, its application to single-view dense metric depth is under-addressed mainly due to the technology's high cost, the lack of public benchmarks, and proprietary geometrical models and software. Our work explores the potential of focused plenoptic cameras for dense metric depth. We propose a novel pipeline that predicts metric depth from a single plenoptic camera shot by first generating a sparse metric point cloud using machine learning, which is then used to scale and align a dense relative depth map regressed by a foundation depth model, resulting in dense metric depth. To validate it, we curated the Light Field & Stereo Image Dataset (LFS) of real-world light field images with stereo depth labels, filling a current gap in existing resources. Experimental results show that our pipeline produces accurate metric depth predictions, laying a solid groundwork for future research in this field.",
+      "authors": [
+        "Blanca Lasheras-Hernandez",
+        "Klaus H. Strobl",
+        "Sergio Izquierdo",
+        "Tim Bodenmüller",
+        "Rudolph Triebel",
+        "Javier Civera"
+      ],
+      "categories": [
+        "cs.CV"
+      ],
+      "published": "2024-12-03T11:21:17Z",
+      "updated": "2025-03-12T13:31:15Z",
+      "pdf_url": "https://arxiv.org/pdf/2412.02386v2",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2412.02386v2",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "深度与视差估计"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.8,
+      "experiment_score": 0.8,
+      "code_score": 0.0,
+      "rank_score": 0.85,
+      "evidence": "论文提出从聚焦型光场相机单次拍摄中估计稠密度量深度，并构建了光场与立体图像数据集。",
+      "report": {
+        "tldr": "论文提出一种单张聚焦光场相机的稠密度量深度估计流水线：先用神经网络从光场图生成稀疏度量点云，再用其缩放并对齐基础深度模型回归的稠密相对深度图，最终得到稠密度量深度；同时构建带双目深度标签的真实光场数据集LFS，并称结果优于相关基线（含厂商深度软件），但所给材料未给出PSNR、SSIM、LPIPS、参数量与速度等数值。",
+        "problem": "单目或多视图单目深度存在度量尺度不可观测的问题；传统双目、结构光或多传感器方案需要复杂标定与对齐，受遮挡和硬件需求限制，精度还受相机基线约束。聚焦光场相机通过微透镜阵列在单设备、单次拍摄中获取多视角与光线方向信息，有望估计度量深度，但其单视图稠密度量深度研究不足，主要受技术成本高、公开基准缺乏、几何模型与软件专有等因素限制。",
+        "modeling": "论文将任务建模为单次聚焦光场拍摄的稠密度量深度估计。聚焦光场相机在主透镜与传感器之间放置微透镜阵列，获取按网格排列的子孔径视图，材料称其可单次捕获多个视角和局部区域的光线方向；方法利用基础深度模型回归稠密相对深度，并利用神经网络从光场图预测稀疏度量点云，通过该稀疏度量点云对相对深度图进行尺度缩放与对齐，从而恢复度量尺度。材料称方法结合基础模型的全局感受野先验与多个微透镜间的几何线索。关于EPI、焦点线索、遮挡边界和代价体，所给材料未说明；空间—角度对应关系主要体现为微透镜阵列获取光线方向并形成子孔径视图网格。具体网络架构、损失函数、几何模型公式和优化细节论文材料未说明。",
+        "method": "流水线输入为单张聚焦光场图像。第一步，用机器学习/神经网络生成场景的稀疏度量点云；第二步，由基础深度模型回归稠密相对深度图；第三步，利用稀疏度量点云对稠密相对深度图进行缩放和对齐，输出稠密度量深度图。论文称该设计用光场提供的局部多视角几何线索解决单目深度回归的尺度模糊，并称结果优于相关基线，特别是厂商深度软件。训练数据、实现代码、超参数、推理流程与基础深度模型的具体选择论文材料未说明。",
+        "occlusion": "不适用：该任务为深度/视差估计而非去遮挡。材料仅指出光场由单一主透镜在3D中捕获场景，可避免disocclusion问题，但未给出遮挡掩码、视角互补去遮挡机制或遮挡区域恢复机制；具体遮挡处理论文材料未说明。",
+        "experiments": "论文构建并发布Light Field & Stereo Image Dataset（LFS），由带双目深度标签的真实光场图像组成，用于验证单次拍摄度量深度估计。材料称实验结果表明流水线能产生准确的度量深度预测，并优于相关基线，特别提到厂商深度软件。所给正文节选未报告数据集规模、训练/测试划分、PSNR、SSIM、LPIPS、AbsRel、RMSE、δ阈值等常用误差指标、参数量或运行速度；这些数值论文材料未说明。",
+        "resources": "论文称LFS数据集发布于https://zenodo.org/records/14224205。材料未说明代码链接、预训练模型、硬件配置、训练时长、参数量与推理速度；这些信息论文材料未说明。",
+        "limitations": "材料未系统列出局限性；从问题陈述可见，聚焦光场技术成本高、公开基准缺乏、几何模型与软件专有，且单视图稠密度量深度研究不足。论文未给出所提方法的失败场景、精度边界、对校准或标定误差的敏感性、跨场景泛化性及计算开销分析；这些论文材料未说明。",
+        "insight": "核心思路是用光场提供的局部多视角几何线索恢复单目基础深度模型的度量尺度，并将稀疏度量点云与稠密相对深度图结合，得到稠密度量深度，为单设备单次拍摄的机器人深度感知提供可行方向；LFS数据集填补真实光场图像与双目深度标签资源的缺口。若要核验性能，仍需查阅全文中的定量表格、误差指标和复现细节。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/15",
+      "issue_number": 15,
+      "cover_url": "assets/previews/2412.02386.webp",
+      "first_seen": "20241208",
+      "last_seen": "20241208",
+      "appeared_dates": [
+        "20241208"
+      ],
+      "is_version_update": false
+    },
+    "2412.07079": {
+      "base_id": "2412.07079",
+      "arxiv_id": "2412.07079v1",
+      "version": 1,
+      "title": "Light Field Image Quality Assessment With Auxiliary Learning Based on Depthwise and Anglewise Separable Convolutions",
+      "abstract": "In multimedia broadcasting, no-reference image quality assessment (NR-IQA) is used to indicate the user-perceived quality of experience (QoE) and to support intelligent data transmission while optimizing user experience. This paper proposes an improved no-reference light field image quality assessment (NR-LFIQA) metric for future immersive media broadcasting services. First, we extend the concept of depthwise separable convolution (DSC) to the spatial domain of light field image (LFI) and introduce \"light field depthwise separable convolution (LF-DSC)\", which can extract the LFI's spatial features efficiently. Second, we further theoretically extend the LF-DSC to the angular space of LFI and introduce the novel concept of \"light field anglewise separable convolution (LF-ASC)\", which is capable of extracting both the spatial and angular features for comprehensive quality assessment with low complexity. Third, we define the spatial and angular feature estimations as auxiliary tasks in aiding the primary NR-LFIQA task by providing spatial and angular quality features as hints. To the best of our knowledge, this work is the first exploration of deep auxiliary learning with spatial-angular hints on NR-LFIQA. Experiments were conducted in mainstream LFI datasets such as Win5-LID and SMART with comparisons to the mainstream full reference IQA metrics as well as the state-of-the-art NR-LFIQA methods. The experimental results show that the proposed metric yields overall 42.86% and 45.95% smaller prediction errors than the second-best benchmarking metric in Win5-LID and SMART, respectively. In some challenging cases with particular distortion types, the proposed metric can reduce the errors significantly by more than 60%.",
+      "authors": [
+        "Qiang Qu",
+        "Xiaoming Chen",
+        "Vera Chung",
+        "Zhibo Chen"
+      ],
+      "categories": [
+        "eess.IV",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "published": "2024-12-10T00:42:25Z",
+      "updated": "2024-12-10T00:42:25Z",
+      "pdf_url": "https://arxiv.org/pdf/2412.07079v1",
+      "source": "arxiv",
+      "source_url": "https://arxiv.org/abs/2412.07079v1",
+      "doi": "",
+      "venue": "",
+      "publication_year": 0,
+      "publication_month": "",
+      "date_basis": "published",
+      "sources": [
+        "arxiv"
+      ],
+      "content_scope": "full_text",
+      "tasks": [
+        "质量评价"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.78,
+      "experiment_score": 0.82,
+      "code_score": 0.0,
+      "rank_score": 0.849,
+      "evidence": "论文提出基于深度与角度可分离卷积及辅助学习的无参考光场图像质量评价指标，并在Win5-LID和SMART数据集验证。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。根据所给论文材料节选，该文提出面向无参考光场图像质量评价的 ALAS-DADS 框架：把深度可分离卷积扩展到光场空间域形成 LF-DSC，并进一步扩展到角度域形成 LF-ASC，再将空间与角度质量特征估计设为辅助任务，以较低复杂度为主质量评价任务提供提示。材料显示在 Win5-LID 与 SMART 上相较第二优基准，整体预测误差分别降低 42.86% 和 45.95%，部分挑战性失真类型可降低超过 60%；但 PSNR、SSIM 作为实验指标、LPIPS、参数量与速度等数值论文材料未说明。",
+        "problem": "论文关注多媒体广播与未来沉浸式媒体中的无参考光场图像质量评价（NR-LFIQA），目标是预测用户感知质量以支持体验质量（QoE）指示和智能传输。材料指出，光场图像在二维空间域之外增加角度域，具有 6DoF 沉浸媒体潜力，但现有二维 IQA 方法难以准确预测光场感知质量；已有 BELIEF、NR-LFQA 等 NR-LFIQA 方法主要基于二维自然统计或结构相似性等思路，在 EPICNN、USCD 等某些失真类型上预测不准确、性能受限。论文据此提出改进的 NR-LFIQA 指标，并强调低复杂度和空间—角度信息利用。",
+        "modeling": "材料将质量评价建模为主任务与辅助任务结合的学习框架。主任务为 NR-LFIQA；辅助任务为空间质量特征估计和角度质量特征估计，用于向主任务提供空间与角度质量 hints。模型层面，LF-DSC 被定义为深度可分离卷积在光场空间域的扩展，用于高效提取空间特征；LF-ASC 被定义为从 LF-DSC 进一步理论扩展到光场角度空间，用于同时提取空间与角度特征。论文材料未给出网络层数、损失函数、特征融合方式、训练策略等实现细节。本文任务为质量评价，材料未涉及深度/视差估计，因此 EPI、焦点线索、遮挡边界、代价体及视差误差指标不适用；空间—角度对应关系主要体现在 LF-ASC 的角度特征提取，而非深度估计。",
+        "method": "方法核心是 ALAS-DADS，即通过深度角度与深度方向可分离卷积进行空间和角度特征辅助学习。具体包括三项：第一，提出 LF-DSC 作为低复杂度空间特征提取器，以应对光场处理的高维问题；第二，提出 LF-ASC，将可分离卷积思想扩展到角度空间，以补充 LF-DSC 可能遗漏的角度质量信息，并同时获取空间与角度特征；第三，设计带两个子任务的辅助学习方案，分别估计空间质量特征和角度质量特征，并将二者作为提示辅助主 NR-LFIQA 任务。材料称这是首次探索基于空间—角度 hints 的深度辅助学习用于 NR-LFIQA。论文材料未说明具体卷积核尺寸、辅助损失权重、主任务回归头、训练数据划分及是否采用预训练等细节。",
+        "occlusion": "不适用。该任务为光场图像质量评价，论文材料未涉及去遮挡；未说明视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。",
+        "experiments": "材料说明实验在主流光场图像数据集 Win5-LID 和 SMART 上进行，并与主流全参考 IQA 指标及当时最先进的 NR-LFIQA 方法比较。摘要报告：所提指标在 Win5-LID 和 SMART 上相较第二优基准，整体预测误差分别降低 42.86% 和 45.95%；在某些特定失真类型的挑战性情形中，误差降低可超过 60%。材料称现有 BELIEF、NR-LFQA 在 EPICNN、USCD 等失真类型上预测不准确。除此之外，论文材料未说明各数据集样本量、训练/测试划分、PLCC/SROCC/RMSE 等具体结果，也未说明 PSNR、SSIM、LPIPS 的实验数值；SSIM 仅在材料中作为二维 IQA 方法被提及，并非已报告的评价结果。参数量、FLOPs、推理速度和训练时间论文材料未说明。",
+        "resources": "材料提供论文题名、作者、IEEE Transactions on Broadcasting 卷期信息（VOL. 67, NO. 4, 2021）以及 arXiv:2412.07079v1 标识。论文材料未说明代码链接、开源实现、预训练模型、数据集下载地址、实验硬件、训练时长、参数量、模型大小、FLOPs 或推理速度等复现资源信息。",
+        "limitations": "受所给材料节选限制，无法核验网络结构、辅助学习损失、空间/角度特征融合、训练超参数、数据划分、消融实验和统计显著性；摘要给出的 42.86%、45.95% 与超过 60% 的误差降低缺少对应指标定义和完整表格支撑。材料未报告 PSNR、SSIM、LPIPS、参数量与速度等常用结果，也未说明跨数据集泛化、模型复杂度与实时性。由于任务不涉及去遮挡和深度/视差估计，相关机制与误差指标均不适用；不能据现有材料推断这些能力。",
+        "insight": "该工作的可核验要点是把光场质量评价分解为主 NR-LFIQA 任务与空间/角度特征估计辅助任务，并用 LF-DSC、LF-ASC 将可分离卷积扩展到光场空间域和角度域，以低复杂度方式利用空间—角度信息。这一思路对广播场景的 QoE 指示和智能传输具有潜在意义，但摘要中的误差降低幅度仍需完整实验表、指标定义和复现细节核验。材料未涉及遮挡恢复或深度/视差估计，因此相关视角互补、几何先验、遮挡掩码、EPI、代价体等分析不适用。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/16",
+      "issue_number": 16,
+      "cover_url": "assets/previews/2412.07079.webp",
+      "first_seen": "20241215",
+      "last_seen": "20241215",
+      "appeared_dates": [
+        "20241215"
       ],
       "is_version_update": false
     }
@@ -897,39 +1023,63 @@
       }
     },
     "20241201": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20241208": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20241215": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20241222": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20241229": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20241231": {
+      "arxiv": {
+        "status": "ok",
+        "count": 18
+      },
       "cvf": {
         "status": "ok",
-        "count": 0
+        "count": 3
       }
     },
     "20250105": {
