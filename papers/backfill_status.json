@@ -395,8 +395,6 @@
   "requested_start": "2025-06-01",
   "requested_end": "2026-10-19",
   "all_papers": true,
-  "incomplete_batches": [
-    "20260901-20260930"
-  ],
-  "updated_at": "2026-10-19T12:21:58.013316+08:00"
+  "incomplete_batches": [],
+  "updated_at": "2026-10-19T13:07:32.003311+08:00"
 }
