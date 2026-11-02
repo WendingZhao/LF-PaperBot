@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-26T13:45:18.785770+08:00",
+  "updated_at": "2026-11-02T15:12:40.265548+08:00",
   "papers": {
     "2603.16243": {
       "base_id": "2603.16243",
@@ -12006,7 +12006,8 @@
     "20261011",
     "20261018",
     "20261019",
-    "20261025"
+    "20261025",
+    "20261101"
   ],
   "source_runs": {
     "20261018": {
@@ -13237,6 +13238,21 @@
         "status": "partial",
         "count": 29,
         "error": "result limit reached; increase CROSSREF_MAX_PAGES"
+      },
+      "cvf": {
+        "status": "ok",
+        "count": 13
+      }
+    },
+    "20261101": {
+      "arxiv": {
+        "status": "ok",
+        "count": 3
+      },
+      "crossref": {
+        "status": "failed",
+        "count": 0,
+        "error": "TypeError"
       },
       "cvf": {
         "status": "ok",

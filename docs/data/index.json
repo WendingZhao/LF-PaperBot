@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-26T13:45:18.785770+08:00",
+  "updated_at": "2026-11-02T15:12:40.265548+08:00",
   "papers": [
     {
       "base_id": "crossref-08fe3815bb3b5f29db3d",
@@ -12273,7 +12273,8 @@
       "crossref-aede9505af91a32b576e",
       "crossref-4c549554bc4df456d1d9"
     ],
-    "20261025": []
+    "20261025": [],
+    "20261101": []
   },
   "source_runs": {
     "20261018": {
@@ -13504,6 +13505,21 @@
         "status": "partial",
         "count": 29,
         "error": "result limit reached; increase CROSSREF_MAX_PAGES"
+      },
+      "cvf": {
+        "status": "ok",
+        "count": 13
+      }
+    },
+    "20261101": {
+      "arxiv": {
+        "status": "ok",
+        "count": 3
+      },
+      "crossref": {
+        "status": "failed",
+        "count": 0,
+        "error": "TypeError"
       },
       "cvf": {
         "status": "ok",
