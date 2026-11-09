@@ -1,7 +1,67 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02T15:12:40.265548+08:00",
+  "updated_at": "2026-11-09T15:36:42.719628+08:00",
   "papers": [
+    {
+      "base_id": "crossref-ad6b54031132bdeaa328",
+      "arxiv_id": "crossref-ad6b54031132bdeaa328",
+      "version": 1,
+      "title": "Arbitrary-Scale Light Field Super-Resolution via Spatio-Angular Consistent Neural Epipolar Geometry Learning",
+      "abstract": "Abstract Light field imaging, a promising technology in computer vision, captures both spatial and angular information of light rays. However, the inherent trade-off between spatial and angular resolution limits its applications. This paper introduces a novel spatio-angular consistent local neural epipolar geometry learning framework for arbitrary-scale light field super-resolution. By modelling light field epipolar plane images (EPIs) as continuous local implicit geometry functions, our approach enables simultaneous super-resolution across both angular and spatial domains. Experimental results on synthetic and real-world datasets demonstrate the effectiveness of our model, achieving high geometric structure fidelity under arbitrary upscaling factors.",
+      "authors": [
+        "Lili Lin",
+        "Wenyu Li",
+        "Hao Zheng",
+        "Qiming Fang",
+        "Jiahan Meng",
+        "Wenhui Zhou"
+      ],
+      "categories": [],
+      "published": "2026-11-02",
+      "updated": "2026-11-02",
+      "pdf_url": "",
+      "source": "crossref",
+      "source_url": "https://doi.org/10.21203/rs.3.rs-11144103/v1",
+      "doi": "10.21203/rs.3.rs-11144103/v1",
+      "venue": "",
+      "publication_year": 2026,
+      "publication_month": "2026-11",
+      "date_basis": "published",
+      "sources": [
+        "crossref"
+      ],
+      "content_scope": "abstract_only",
+      "tasks": [
+        "空间超分",
+        "角度超分"
+      ],
+      "relevance_score": 0.95,
+      "research_score": 0.7,
+      "experiment_score": 0.7,
+      "code_score": 0.0,
+      "rank_score": 0.815,
+      "evidence": "摘要提出基于EPI连续局部隐式几何学习的任意尺度光场超分，同时实现角度与空间超分。",
+      "report": {
+        "tldr": "仅基于公开摘要，未读取全文。论文提出一种空角一致的局部神经极平面几何学习框架，用于任意尺度的光场超分；其核心是将光场极平面图像（EPI）建模为连续局部隐式几何函数，从而在角度域与空间域同时实现超分，并在合成与真实数据集上取得高几何结构保真度。摘要未给出具体网络结构、损失函数、训练策略及定量指标。",
+        "problem": "仅基于公开摘要，未读取全文。光场成像同时捕获光线的空间与角度信息，但空间分辨率与角度分辨率之间存在固有权衡，这一权衡限制了光场成像的实际应用。论文针对该问题研究任意尺度（arbitrary-scale）的光场超分，目标是在空间域和角度域同时提升分辨率，而非仅做单一域超分或固定整数倍超分。摘要未说明具体退化模型、输入视角配置或任意尺度上采样的数学形式。",
+        "modeling": "仅基于公开摘要，未读取全文。论文将光场极平面图像（EPI）建模为连续的局部隐式几何函数（continuous local implicit geometry functions），这是其方法建模的关键出发点：EPI 中相邻视角间的直线斜率与视差/深度相关，隐式连续表示可在任意坐标处查询几何值，从而支持任意上采样因子。摘要提到“空角一致”（spatio-angular consistent）与“局部神经极平面几何学习”，但未说明隐式函数的具体输入坐标、特征提取方式、局部邻域划分策略，也未说明如何将 EPI 几何约束转化为空间与角度超分的联合输出。论文材料未说明是否使用代价体、焦点线索或显式遮挡边界建模。",
+        "method": "仅基于公开摘要，未读取全文。方法层面可确认的要点是：以 EPI 为建模对象，通过局部隐式几何函数学习极平面几何，并在空间与角度两个域同时执行超分，且支持任意上采样因子。摘要未说明网络 backbone、隐式解码器结构、位置编码、特征融合方式、损失函数（如是否使用 EPI 一致性损失、光度损失或对抗损失）、训练数据构造与推理流程。因此具体方法细节论文材料未说明，不能据摘要推断模块组成或实现步骤。",
+        "occlusion": "不适用。仅基于公开摘要，未读取全文。论文任务为任意尺度光场空间与角度超分，摘要未涉及去遮挡任务，也未提及视角互补、几何先验、遮挡掩码或遮挡区域恢复机制。虽然 EPI 几何与遮挡边界在光场视差估计中常有关联，但摘要未将其作为方法组成部分或实验目标，故按材料范围标注为不适用。",
+        "experiments": "仅基于公开摘要，未读取全文。摘要仅说明在合成（synthetic）与真实（real-world）数据集上进行了实验，并称模型在任意上采样因子下实现了较高的几何结构保真度（high geometric structure fidelity）。摘要未给出数据集名称、训练/测试划分、上采样因子取值、对比方法，也未报告 PSNR、SSIM、LPIPS、参数量或推理速度等定量结果。因此上述数值与复现信息论文材料未说明，不能补写或推测。",
+        "resources": "仅基于公开摘要，未读取全文。摘要未提供代码链接、项目主页、预训练模型、训练硬件、参数量、FLOPs、推理时间或内存占用等信息。论文材料未说明资源与复现相关细节。",
+        "limitations": "仅基于公开摘要，未读取全文。摘要未讨论方法局限性。可确认的材料边界是：缺少定量实验指标、缺少与现有任意尺度超分方法的对比、缺少对真实数据退化与噪声鲁棒性的说明，也未说明局部隐式几何函数在遮挡区域、大视差或稀疏视角下的行为。上述均为论文材料未说明，不能据摘要断言其性能上限或失败情形。",
+        "insight": "仅基于公开摘要，未读取全文。可提炼的启示是：将 EPI 视为连续局部隐式几何函数，为任意尺度光场超分提供了一种统一空间与角度域的建模范式，避免为每个整数上采样因子单独设计网络；同时“空角一致”约束有望在超分中保持极平面几何结构。但该思路的实际有效性、计算开销与对遮挡/大视差的鲁棒性，需待全文实验与消融验证，摘要未提供可核验证据。"
+      },
+      "issue_url": "https://github.com/WendingZhao/LF-PaperBot/issues/266",
+      "issue_number": 266,
+      "cover_url": "",
+      "first_seen": "20261108",
+      "last_seen": "20261108",
+      "appeared_dates": [
+        "20261108"
+      ],
+      "is_version_update": false
+    },
     {
       "base_id": "crossref-08fe3815bb3b5f29db3d",
       "arxiv_id": "crossref-08fe3815bb3b5f29db3d",
@@ -12274,7 +12334,10 @@
       "crossref-4c549554bc4df456d1d9"
     ],
     "20261025": [],
-    "20261101": []
+    "20261101": [],
+    "20261108": [
+      "crossref-ad6b54031132bdeaa328"
+    ]
   },
   "source_runs": {
     "20261018": {
@@ -13520,6 +13583,21 @@
         "status": "failed",
         "count": 0,
         "error": "TypeError"
+      },
+      "cvf": {
+        "status": "ok",
+        "count": 13
+      }
+    },
+    "20261108": {
+      "arxiv": {
+        "status": "ok",
+        "count": 4
+      },
+      "crossref": {
+        "status": "partial",
+        "count": 12,
+        "error": "result limit reached; increase CROSSREF_MAX_PAGES"
       },
       "cvf": {
         "status": "ok",
